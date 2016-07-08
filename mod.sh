@@ -104,10 +104,10 @@ function mod-ui_stop() {
 #------------------------------------------------------------------------------
 # Main Program
 #------------------------------------------------------------------------------
-set -x
-
 cd $ZYNTHIAN_DIR/zynthian-ui
 sudo service zynthian stop
+sudo skill jackd
+sudo skill ttymidi
 scaling_governor_performance
 jack_audio_start &
 ttymidi_start &
@@ -115,5 +115,7 @@ sleep 1
 a2j_midi_start &
 sleep 1
 mod-host_start
+sleep 1
 mod-ui_start &
+echo "Now you can connect to <Zynthian-IP>:8888"
 #------------------------------------------------------------------------------
