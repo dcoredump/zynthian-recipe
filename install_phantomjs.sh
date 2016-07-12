@@ -6,7 +6,7 @@ sudo dpkg -i phantomjs_2.0.0_armhf.deb
 cd "${HOME}/zynthian/zynthian-sw"
 rm -rf phantomjs-on-raspberry
 mkdir -p "${HOME}/zynthian/zynthian-sw/mod-ui/phantomjs-1.9.0-linux-x86_64/bin"
-sudo ln -s /usr/bin/phantomjs "${HOME}/zynthian/zynthian-sw/mod-ui/phantomjs-1.9.0-linux-x86_64/bin"
+sudo ln -s /usr/local/bin/phantomjs "${HOME}/zynthian/zynthian-sw/mod-ui/phantomjs-1.9.0-linux-x86_64/bin"
 sudo ln -s /usr/local/bin/phantomjs /usr/bin/phantomjs
 
 
