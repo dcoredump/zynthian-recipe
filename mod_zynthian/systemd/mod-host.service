@@ -1,0 +1,15 @@
+[Unit]
+Description=mod-host
+After=jack2.service
+
+[Service]
+Type=forking
+Environment=HOME=/root
+WorkingDirectory=/home/pi
+ExecStart=/usr/local/bin/mod-host
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
+#WantedBy=network.target

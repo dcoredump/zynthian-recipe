@@ -1,0 +1,21 @@
+[Unit]
+Description=mod-ui
+Requires=jack2.service
+Requires=mod-host.service
+Requires=a2jmidid.service
+Binds-To=jack2.service
+Binds-To=mod-host.service
+Binds-To=a2jmidid.service
+After=a2jmidid.service mod-host.service
+
+[Service]
+Environment=HOME=/root
+WorkingDirectory=/home/pi/zynthian/zynthian-sw/mod-ui
+ExecPreStart=/usr/local/bin/jack_alias "a2j:Midi Through (capture): Midi Through Port-0" ttymidi:MIDI_in
+ExecStart=/home/pi/zynthian/zynthian-sw/mod-ui/server.py
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
+#WantedBy=network.target

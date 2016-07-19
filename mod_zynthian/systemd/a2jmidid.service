@@ -1,0 +1,16 @@
+[Unit]
+Description=a2jmidid
+Binds-To=jack2.service
+After=jack2.service
+
+[Service]
+Environment=HOME=/root
+WorkingDirectory=/home/pi
+ExecStart=/usr/local/bin/a2jmidid -e -u
+ExecStartPost=/home/pi/mod_midi_autoconnect.py
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
+#WantedBy=network.target
