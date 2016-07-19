@@ -1,0 +1,13 @@
+Installing MOD-UI on a  Raspi (2/3) with Hifiberry
+==================================================
+
+You have to use a preinstalled Raspian-jessie-light. After that you can use
+the following scripts in the given order:
+
+- install_mod_zynthian.sh
+- install_lv2_lilv.sh
+- install_jack2.sh
+- install_a2jmidid.sh
+- install_mod-host.sh
+- install_mod-ui.sh
+- install_phantomjs.sh
