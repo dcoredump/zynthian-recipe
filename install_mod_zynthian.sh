@@ -38,3 +38,4 @@ sudo systemctl enable a2jmidid
 sudo systemctl enable mod-host
 sudo systemctl enable mod-ui
 
+#aptitude install invada-studio-plugins-lv2 ir.lv2 so-synth-lv2 swh-lv2 fluid-soundfont-gm fluid-soundfont-gs fluidsynth setbfree
