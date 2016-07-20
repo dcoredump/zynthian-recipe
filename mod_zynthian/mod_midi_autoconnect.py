@@ -52,9 +52,11 @@ for hw in hw_out:
 		if(m.group(1)):
 			print(" Executing: /usr/local/bin/jack_alias \'"+m.group(1)+"\' ttymidi:MIDI_in")
 			os.system("/usr/local/bin/jack_alias \'"+m.group(1)+"\' ttymidi:MIDI_in")
+			break
 
 for hw in hw_in:
 	m=re.match(r"jack.MidiPort\(\'(.+)\'\)",str(hw))
 	if(m.group(1)):
 		print(" Executing: /usr/local/bin/jack_alias \'"+m.group(1)+"\' ttymidi:MIDI_out")
 		os.system("/usr/local/bin/jack_alias \'"+m.group(1)+"\' ttymidi:MIDI_out")
+		break

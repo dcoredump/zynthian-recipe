@@ -1,0 +1,17 @@
+[Unit]
+Description=mod-sdk
+Requires=mod-ui.service
+After=mod-ui.service
+
+[Service]
+Environment=HOME=/root
+Environment=LV2_PATH=/home/pi/zynthian/zynthian-plugins/lv2:/usr/lib/lv2:/usr/local/lib/lv2
+Environment=MOD_PHANTOM_BINARY=/usr/bin/phantomjs
+WorkingDirectory=/home/pi/zynthian/zynthian-sw/mod-ui
+ExecStart=/usr/local/bin/modsdk
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+#WantedBy=network.target

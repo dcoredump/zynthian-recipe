@@ -10,8 +10,10 @@ After=a2jmidid.service mod-host.service
 
 [Service]
 Environment=HOME=/root
+Environment=LV2_PATH=/home/pi/zynthian/zynthian-plugins/lv2:/usr/lib/lv2:/usr/local/lib/lv2
+Environment=MOD_DEV_ENVIRONMENT=0
 WorkingDirectory=/home/pi/zynthian/zynthian-sw/mod-ui
-ExecPreStart=/usr/local/bin/jack_alias "a2j:Midi Through (capture): Midi Through Port-0" ttymidi:MIDI_in
+ExecPreStart=/home/pi/mod_midi_autoconnect.py
 ExecStart=/home/pi/zynthian/zynthian-sw/mod-ui/server.py
 Restart=always
 RestartSec=2
