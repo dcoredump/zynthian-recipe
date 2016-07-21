@@ -31,11 +31,26 @@ sudo update-rc.d -f cron remove
 sudo update-rc.d -f rsyslog remove
 sudo update-rc.d -f ntp remove
 
+cat <EOF >>/etc/security/limits.d/audio.conf
+# Provided by the jackd package.
+#
+# Changes to this file will be preserved.
+#
+# If you want to enable/disable realtime permissions, run
+#
+#    dpkg-reconfigure -p high jackd
+
+@audio   -  rtprio     95
+@audio   -  memlock    unlimited
+#@audio   -  nice      -19
+EOF
+
 sudo cp "${HOME}/zynthian/zynthian-recipe/mod_zynthian/systemd/* /etc/systemd/system"
 cp "${HOME}/zynthian/zynthian-recipe/mod_zynthian/mod_midi_autoconnect.py "${HOME}"
 sudo systemctl enable jack2
 sudo systemctl enable a2jmidid
 sudo systemctl enable mod-host
 sudo systemctl enable mod-ui
+sudo systemctl enable performance
 
 #aptitude install invada-studio-plugins-lv2 ir.lv2 so-synth-lv2 swh-lv2 fluid-soundfont-gm fluid-soundfont-gs fluidsynth setbfree
