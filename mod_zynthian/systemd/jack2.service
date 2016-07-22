@@ -12,4 +12,3 @@ ExecStart=/usr/local/bin/jackd -P70 -t2000 -s -dalsa -dhw:0 -r44100 -p256 -n2
 
 [Install]
 WantedBy=multi-user.target
-#WantedBy=network.target

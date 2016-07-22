@@ -4,7 +4,7 @@ Binds-To=jack2.service
 After=jack2.service
 
 [Service]
-Environment=HOME=/root
+Environment=HOME=/home/pi
 WorkingDirectory=/home/pi
 ExecStart=/usr/local/bin/a2jmidid -e -u
 ExecStartPost=/home/pi/mod_midi_autoconnect.py
