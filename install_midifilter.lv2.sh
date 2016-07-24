@@ -5,4 +5,4 @@ cd midifilter.lv2
 sed -i -- 's/-msse -msse2 -mfpmath=sse //' Makefile
 sed -i -- 's/lib\/lv2//' Makefile
 make
-sudo make install PREFIX=/home/pi/zynthian/zynthian-plugins/lv2
+sudo make install
