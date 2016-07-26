@@ -1,0 +1,146 @@
+#!/usr/bin/perl
+
+use Data::Dumper;
+
+#    return [99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
+# 7, 
+#            99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
+# 7, 
+#            99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
+# 7, 
+#            99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
+# 7, 
+#            99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
+# 7, 
+#            99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 99, 0, 1, 0
+#, 7, 
+#            99, 99, 99, 99, 50, 50, 50, 50, 0, 0, 1, 35, 0, 0, 0, 1, 0, 3, 24, 
+#            73, 78, 73, 84, 32, 86, 79, 73, 67, 69] # 'INIT VOICE'
+
+#
+# https://github.com/rogerallen/dxsyx/blob/master/dx7-sysex-format.txt
+#
+
+open(SYSEX,"<$ARGV[0]") || die ("Cannot open \'$ARGV[0]\': $!");
+binmode(SYSEX);
+
+sysread(SYSEX,$l,6);
+
+($status,$id,$sub_status,$format,$byteMS,$byteLS)=unpack("CCCCCC",$l);
+
+if($status==0xf0 && $id==0x43 && $format==0x00 && $byteMS==0x01 && $byteLS==0x1b)
+{
+	read_one_patch(6);
+}
+elsif($status==0xf0 && $id==0x43 && $format==0x09 && $byteMS==0x20 && $byteLS==0x00)
+{
+	print_lv2_patch_header();
+	for($i=0;$i<32;$i++)
+	{
+		read_one_patch(6+$i*128);
+		print_lv2_patch_data();
+	}
+}
+else
+{
+	print "Unknown format!\n";
+}
+
+close(SYSEX);
+
+sub read_one_patch
+{
+	($start)=@_;
+	seek(SYSEX,$start,0);
+	sysread(SYSEX,$patch,128);
+
+	for($op=5;$op>=0;$op--)
+	{
+		$dx{'OP_EG1'}[$op]=unpack("C",substr($patch,0+($op*16),1));
+		$dx{'OP_EG2'}[$op]=unpack("C",substr($patch,1+($op*16),1));
+		$dx{'OP_EG3'}[$op]=unpack("C",substr($patch,2+($op*16),1));
+		$dx{'OP_EG4'}[$op]=unpack("C",substr($patch,3+($op*16),1));
+		$dx{'OP_LV1'}[$op]=unpack("C",substr($patch,4+($op*16),1));
+		$dx{'OP_LV2'}[$op]=unpack("C",substr($patch,5+($op*16),1));
+		$dx{'OP_LV3'}[$op]=unpack("C",substr($patch,6+($op*16),1));
+		$dx{'OP_LV4'}[$op]=unpack("C",substr($patch,7+($op*16),1));
+		$dx{'OP_KBD_BRK_PT'}[$op]=unpack("C",substr($patch,8+($op*16),1));
+		$dx{'OP_KBD_LFT_DEP'}[$op]=unpack("C",substr($patch,9+($op*16),1));
+		$dx{'OP_KBD_RHT_DEP'}[$op]=unpack("C",substr($patch,10+($op*16),1));
+		$tmp=unpack("C",substr($patch,11+($op*16),1));
+		$dx{'OP_KBD_LFT_CUR'}[$op]=($tmp & 12);
+		$dx{'OP_KBD_RHT_CUR'}[$op]=($tmp & 3);
+		$tmp=unpack("C",substr($patch,12+($op*16),1));
+		$dx{'OP_OSC_DET'}[$op]=($tmp & 120);
+		$dx{'OP_KBD_RATE_SCALE'}[$op]=($tmp & 7);
+		$tmp=unpack("C",substr($patch,13+($op*16),1));
+		$dx{'OP_KEY_VEL_SENS'}[$op]=($tmp & 28);
+		$dx{'OP_AMP_MOD_SENS'}[$op]=($tmp & 7);
+		$dx{'OP_OUT_LVL'}[$op]=unpack("C",substr($patch,14+($op*16),1));
+		$tmp=unpack("C",substr($patch,15,1));
+		$dx{'OP_OSC_FRQ_CRS'}[$op]=($tmp & 31);
+		$dx{'OP_OSC_MOD'}[$op]=($tmp & 1);
+		$dx{'OP_OSC_FRQ_FIN'}[$op]=unpack("C",substr($patch,15+($op*16),1));
+	}
+
+	$dx{'PITCH_EG_RATE1'}=unpack("C",substr($patch,102,1));
+	$dx{'PITCH_EG_RATE2'}=unpack("C",substr($patch,103,1));
+	$dx{'PITCH_EG_RATE3'}=unpack("C",substr($patch,104,1));
+	$dx{'PITCH_EG_RATE4'}=unpack("C",substr($patch,105,1));
+	$dx{'PITCH_EG_LVL1'}=unpack("C",substr($patch,106,1));
+	$dx{'PITCH_EG_LVL2'}=unpack("C",substr($patch,107,1));
+	$dx{'PITCH_EG_LVL3'}=unpack("C",substr($patch,108,1));
+	$dx{'PITCH_EG_LVL4'}=unpack("C",substr($patch,109,1));
+	$dx{'ALG'}=(unpack("C",substr($patch,110,1)) & 31);
+	$tmp=unpack("C",substr($patch,111,1));
+	$dx{'OSC_KEY_SYNC'}=($tmp & 8);
+	$dx{'FEEDBACK'}=($tmp & 7);
+	$dx{'LFO_SPD'}=(unpack("C",substr($patch,112,1)) & 127);
+	$dx{'LFO_DEL'}=(unpack("C",substr($patch,113,1)) & 127);
+	$dx{'LFO_PITCH_MOD_DEP'}=(unpack("C",substr($patch,114,1)) & 127);
+	$dx{'LFO_AMP_MOD_DEP'}=(unpack("C",substr($patch,115,1)) & 127);
+	$tmp=unpack("C",substr($patch,116,1));
+	$dx{'LFO_PITCH_MOD_SENS'}=($tmp & 110);
+	$dx{'LFO_WAVE'}=($tmp & 14);
+	$dx{'LFO_KEY_SYNC'}=($tmp & 1);
+	$dx{'TRANSPOSE'}=(unpack("C",substr($patch,117,1)) & 63);
+	$dx{'NAME'}=substr($patch,118,10);
+}
+
+sub print_lv2_patch_header
+{
+	print "@prefix lv2: <http://lv2plug.in/ns/lv2core#> .\n";
+	print "@prefix pset: <http://lv2plug.in/ns/ext/presets#> .\n";
+	print "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n";
+	print "\n";
+}
+
+sub print_lv2_patch_data
+{
+	$name=$dx{'NAME'};
+	$name=~tr/ /_/;
+	print "<https://asb2m10.github.io/dexed/#".$name.">\n";
+	print "        a pset:Preset ;\n";
+	print "        lv2:appliesTo <https://github.com/asb2m10/dexed> ;\n";
+	print "        rdfs:label  \"".$dx{'NAME'}."\" ;\n";
+
+	print_port("algorithm",$dx{'ALG'},0);
+}
+
+sub print_port
+{
+	($port_name,$port_val,$last)=@_;
+
+	print "        lv2:port [\n";
+	print "                lv2:symbol \"".$port_name."\" ;\n";
+	print "                pset:value ".$port_val." ;\n";
+	if($last==0)
+	{
+		print "        ] ;\n";
+	}
+	else
+	{
+		print "        ] .\n";
+	}
+		
+}
