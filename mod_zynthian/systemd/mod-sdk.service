@@ -5,7 +5,7 @@ After=mod-ui.service
 
 [Service]
 Environment=HOME=/home/pi
-Environment=LV2_PATH=/home/pi/zynthian/zynthian-plugins/lv2:/usr/lib/lv2:/usr/local/lib/lv2
+Environment=LV2_PATH=/home/pi/.lv2:/home/pi/zynthian/zynthian-plugins/lv2:/usr/lib/lv2:/usr/local/lib/lv2
 Environment=MOD_SCREENSHOT_JS=/home/pi/zynthian/zynthian-sw/mod-sdk/screenshot.js
 Environment=MOD_PHANTOM_BINARY=/usr/bin/phantomjs
 WorkingDirectory=/home/pi/zynthian/zynthian-sw/mod-sdk
