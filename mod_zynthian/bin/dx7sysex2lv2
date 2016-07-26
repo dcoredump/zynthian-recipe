@@ -1,22 +1,4 @@
 #!/usr/bin/perl
-
-use Data::Dumper;
-
-#    return [99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-# 7, 
-#            99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-# 7, 
-#            99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-# 7, 
-#            99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-# 7, 
-#            99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-# 7, 
-#            99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 99, 0, 1, 0
-#, 7, 
-#            99, 99, 99, 99, 50, 50, 50, 50, 0, 0, 1, 35, 0, 0, 0, 1, 0, 3, 24, 
-#            73, 78, 73, 84, 32, 86, 79, 73, 67, 69] # 'INIT VOICE'
-
 #
 # https://github.com/rogerallen/dxsyx/blob/master/dx7-sysex-format.txt
 #
@@ -24,21 +6,20 @@ use Data::Dumper;
 open(SYSEX,"<$ARGV[0]") || die ("Cannot open \'$ARGV[0]\': $!");
 binmode(SYSEX);
 
+# Header
 sysread(SYSEX,$l,6);
-
 ($status,$id,$sub_status,$format,$byteMS,$byteLS)=unpack("CCCCCC",$l);
-
 if($status==0xf0 && $id==0x43 && $format==0x00 && $byteMS==0x01 && $byteLS==0x1b)
 {
 	read_one_patch(6);
 }
 elsif($status==0xf0 && $id==0x43 && $format==0x09 && $byteMS==0x20 && $byteLS==0x00)
 {
-	print_lv2_patch_header();
 	for($p=0;$p<32;$p++)
 	{
 		read_one_patch(6+$p*128);
-		print_lv2_patch_data();
+		print "Writing \'".$dx{'NAME'}."\'\n";
+		write_one_lv2_patch();
 	}
 }
 else
@@ -105,30 +86,45 @@ sub read_one_patch
 	$dx{'LFO_KEY_SYNC'}=($tmp & 1);
 	$dx{'TRANSPOSE'}=(unpack("C",substr($patch,117,1)) & 63);
 	$dx{'NAME'}=substr($patch,118,10);
+	$dx{'NAME'}=~tr/ /_/;
+	$dx{'NAME'}=~s/\"//g;
+	$dx{'NAME'}=~tr/\//-/;
 }
 
-sub print_lv2_patch_header
+sub write_one_lv2_patch
 {
-	print "\@prefix atom: <http://lv2plug.in/ns/ext/atom#> .\n";
-	print "\@prefix lv2: <http://lv2plug.in/ns/lv2core#> .\n";
-	print "\@prefix pset: <http://lv2plug.in/ns/ext/presets#> .\n";
-	print "\@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n";
-	print "\@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n";
-	print "\@prefix state: <http://lv2plug.in/ns/ext/state#> .\n";
-	print "\@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n";
-	print "\n";
-	print "<>\n";
-}
+	$dname="dexed-".$dx{'NAME'};
+	print "!!!".$dname."!!!\n";
+	mkdir($dname)||die("Cannot create \'$dname\': $!\n");
 
-sub print_lv2_patch_data
-{
-	$name=$dx{'NAME'};
-	$name=~tr/ /_/;
-	print "<https://asb2m10.github.io/dexed/#".$name.">\n";
-	print "        a pset:Preset ;\n";
-	print "        lv2:appliesTo <https://github.com/asb2m10/dexed> ;\n";
-	print "        rdfs:label  \"".$dx{'NAME'}."\" ;\n";
+	open(MANIFEST,">$dname/manifest.ttl")||die("Cannot open \'$dname/manifest.ttl\': $!\n");
+	print MANIFEST "\@prefix atom: <http://lv2plug.in/ns/ext/atom#> .\n";
+	print MANIFEST "\@prefix lv2: <http://lv2plug.in/ns/lv2core#> .\n";
+	print MANIFEST "\@prefix pset: <http://lv2plug.in/ns/ext/presets#> .\n";
+	print MANIFEST "\@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n";
+	print MANIFEST "\@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n";
+	print MANIFEST "\@prefix state: <http://lv2plug.in/ns/ext/state#> .\n";
+	print MANIFEST "\@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n";
+	print MANIFEST "\n";
+	print MANIFEST "<".$dx{'NAME'}.".ttl>\n";
+	print MANIFEST "\n";
+	print MANIFEST "        lv2:appliesTo <https://github.com/asb2m10/dexed> ;\n";
+	print MANIFEST "        a pset:Preset ;\n";
+	print MANIFEST "        rdfs:seeAlso <".$dx{'NAME'}.".ttl> .\n";
+	close(MANIFEST);
 
+	open(TTL,">$dname/".$dx{'NAME'}.".ttl")||die("Cannot open \'$dname/".$dx{'NAME'}.".ttl\': $!\n");
+	print TTL "\@prefix atom: <http://lv2plug.in/ns/ext/atom#> .\n";
+	print TTL "\@prefix lv2: <http://lv2plug.in/ns/lv2core#> .\n";
+	print TTL "\@prefix pset: <http://lv2plug.in/ns/ext/presets#> .\n";
+	print TTL "\@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n";
+	print TTL "\@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n";
+	print TTL "\@prefix state: <http://lv2plug.in/ns/ext/state#> .\n";
+	print TTL "\@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n";
+	print TTL "\n";
+	print TTL "<>\n";
+	print TTL "lv2:appliesTo <https://github.com/asb2m10/dexed> ;\n";
+	print TTL "rdfs:label  \"".$dx{'NAME'}."\" ;\n";
 	print_port("cutoff","0.0");
 	print_port("resonance","0.0");
 	print_port("output","1.0");
@@ -175,22 +171,23 @@ sub print_lv2_patch_data
 		print_port("op".($i+1)."_a_mod_sens_",$dx{'OP_AMP_MOD_SENS'}[$i],0);
 		print_port("op".($i+1)."_key_velocity",$dx{'OP_KEY_VEL_SENS'}[$i],1);
 	}
+	close(TTL);
 }
 
 sub print_port
 {
 	($port_name,$port_val,$last)=@_;
 
-	print "        lv2:port [\n";
-	print "                lv2:symbol \"".$port_name."\" ;\n";
-	print "                pset:value ".$port_val." ;\n";
+	print TTL "        lv2:port [\n";
+	print TTL "                lv2:symbol \"".$port_name."\" ;\n";
+	print TTL "                pset:value ".$port_val." ;\n";
 	if($last==0)
 	{
-		print "        ] ;\n";
+		print TTL "        ] ;\n";
 	}
 	else
 	{
-		print "        ] .\n";
+		print TTL "        ] .\n";
 	}
 		
 }
