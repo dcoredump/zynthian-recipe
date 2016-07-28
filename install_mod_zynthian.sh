@@ -1,5 +1,6 @@
 # install_mod_zynthian.sh
 sudo apt-get update && sudo apt-get -y upgrade
+sudo aptitude purge ntp
 sudo apt-get install -y vim aptitude build-essential git python3 python3-cffi python3-pip
 sudo pip3 install JACK-Client
 mkdir -p "${HOME}"/zynthian/zynthian-sw
@@ -31,13 +32,12 @@ sudo update-rc.d -f cron remove
 sudo update-rc.d -f rsyslog remove
 sudo update-rc.d -f ntp remove
 
-sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/systemd/* /etc/systemd/system
 cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/mod_midi_autoconnect.py "${HOME}"
 cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/cpu-performance.sh "${HOME}"
+sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/systemd/* /etc/systemd/system
+sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/udev/* /etc/udev/rules.d
 sudo systemctl enable jack2
 sudo systemctl enable a2jmidid
 sudo systemctl enable mod-host
 sudo systemctl enable mod-ui
 sudo systemctl enable performance
-
-#aptitude install invada-studio-plugins-lv2 ir.lv2 so-synth-lv2 swh-lv2 fluid-soundfont-gm fluid-soundfont-gs fluidsynth setbfree

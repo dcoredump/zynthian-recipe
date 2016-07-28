@@ -1,0 +1,37 @@
+##------------------------------------------------
+## Install Dexed Plugin
+##------------------------------------------------
+#cd $ZYNTHIAN_SW_DIR
+#sudo apt-get -y install x11proto-xinerama-dev libxinerama-dev libxcursor-dev libxrandr-dev
+#git clone https://github.com/asb2m10/dexed.git
+#cd dexed/Builds/Linux
+#make -j4
+#sudo mkdir /usr/local/lib/lv2/Dexed
+#sudo cp build/Dexed.so /usr/local/lib/lv2/Dexed
+#sudo chown -R pi.pi /usr/local/lib/lv2/Dexed
+
+# DISTRHO
+sudo apt-get -y install premake gccxml libclang-common-dev
+cd "${HOME}/zynthian/zynthian-sw"
+git clone https://github.com/DISTRHO/DISTRHO-Ports.git
+cd DISTRHO-Ports
+./scripts/premake-update.sh linux
+for i in `find . -name *.make`
+do
+	sed -i -- 's/-funsafe-math-optimizations //g' $i
+	sed -i -- 's/-fdata-sections //g' $i
+	sed -i -- 's/-ffunction-sections //g' $i
+	sed -i -- 's/-msse //g' $i
+	sed -i -- 's/-msse2 //g' $i
+	sed -i -- 's/-mfpmath=sse //g' $i
+	sed -i -- 's/-mtune=generic /\-pipe \-mcpu\=cortex\-a7 \-mfpu\=neon\-vfpv4 \-mfloat\-abi\=hard \-mvectorize\-with\-neon\-quad \-funsafe\-loop\-optimizations \-funsafe\-math\-optimizations /g' $i
+done
+sed -i -- 's/LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -shared -s -Wl,--no-undefined `pkg-config --libs freetype2 x11 xext` -Wl,--gc-sections -Wl,--strip-all -L"..\/..\/..\/libs" -ldl -lpthread -lrt -ljuce/LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -shared -s -Wl,--no-undefined `pkg-config --libs freetype2 x11 xext` -Wl,--gc-sections -Wl,--strip-all -L"..\/..\/..\/libs" -ldl -lpthread -lrt -ljuce -lasound/g' ports/juce-demo-host/VST/JuceDemoHost.make
+sed -i -- 's/LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -shared -s -Wl,--no-undefined `pkg-config --libs freetype2 x11 xext` -Wl,--gc-sections -Wl,--strip-all -L"..\/..\/..\/libs" -ldl -lpthread -lrt -ljuce/LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -shared -s -Wl,--no-undefined `pkg-config --libs freetype2 x11 xext` -Wl,--gc-sections -Wl,--strip-all -L"..\/..\/..\/libs" -ldl -lpthread -lrt -ljuce -lasound/g' ports/juce-demo-host/LV2/JuceDemoHost.lv2/JuceDemoHost.make
+sed -i -- 's/LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -shared -s -Wl,--no-undefined `pkg-config --libs freetype2 x11 xext` -Wl,--gc-sections -Wl,--strip-all -L"..\/..\/..\/libs" -ldl -lpthread -lrt -ljuce/LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -shared -s -Wl,--no-undefined `pkg-config --libs freetype2 x11 xext` -Wl,--gc-sections -Wl,--strip-all -L"..\/..\/..\/libs" -ldl -lpthread -lrt -ljuce -lasound/g' ports/juce-demo-plugin/VST/JuceDemoPlugin.make
+sed -i -- 's/LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -shared -s -Wl,--no-undefined `pkg-config --libs freetype2 x11 xext` -Wl,--gc-sections -Wl,--strip-all -L"..\/..\/..\/libs" -ldl -lpthread -lrt -ljuce/LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -shared -s -Wl,--no-undefined `pkg-config --libs freetype2 x11 xext` -Wl,--gc-sections -Wl,--strip-all -L"..\/..\/..\/libs" -ldl -lpthread -lrt -ljuce -lasound/g' ports/juce-demo-plugin/LV2/JuceDemoPlugin.lv2/JuceDemoPlugin.make
+sed -i -- 's/LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -shared -s -Wl,--no-undefined `pkg-config --libs freetype2 x11 xext` -Wl,--gc-sections -Wl,--strip-all -L"..\/..\/..\/libs" -ldl -lpthread -lrt -ljuce/LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -shared -s -Wl,--no-undefined `pkg-config --libs freetype2 x11 xext` -Wl,--gc-sections -Wl,--strip-all -L"..\/..\/..\/libs" -ldl -lpthread -lrt -ljuce -lasound/g' ports/wolpertinger/VST/Wolpertinger.make
+sed -i -- 's/LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -shared -s -Wl,--no-undefined `pkg-config --libs freetype2 x11 xext` -Wl,--gc-sections -Wl,--strip-all -L"..\/..\/..\/libs" -ldl -lpthread -lrt -ljuce/LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -shared -s -Wl,--no-undefined `pkg-config --libs freetype2 x11 xext` -Wl,--gc-sections -Wl,--strip-all -L"..\/..\/..\/libs" -ldl -lpthread -lrt -ljuce -lasound/g' ports/wolpertinger/LV2/Wolpertinger.lv2/Wolpertinger.make
+sed -i -- 's/\$(MAKE) -C pitchedDelay/#\$(MAKE) -C pitchedDelay/g' ports/Makefile
+make 
+sudo make install
