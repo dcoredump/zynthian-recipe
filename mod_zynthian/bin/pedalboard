@@ -1,0 +1,38 @@
+#!/bin/sh
+MOD_PORT=8888
+MOD_UI_HOST="localhost"
+
+mod_reset() {
+	R=`curl -s -G "http://${MOD_UI_HOST}:${MOD_PORT}/reset/"`
+}
+
+mod_load()
+{
+	mod_reset
+	sleep 1
+	R=`curl -s -F "bundlepath=/root/.pedalboards/${1}.pedalboard" http://${MOD_UI_HOST}:${MOD_PORT}/pedalboard/load_bundle/`
+	if [ `echo "${R}" | jq '.ok'` = "true" ]
+	then
+		echo "'${1}' loaded"
+		exit 0
+	else
+		echo "'${1}' not found"
+		exit 10
+	fi
+}
+
+case ${1} in
+restart)
+	sudo systemctl restart mod-ui
+	;;
+reset)
+	mod_reset
+	;;
+load)
+	mod_load ${2}
+	;;
+*)
+	echo "Usage: ${0} [restart|reset|load] <pedalboard>"
+	exit 1
+esac
+
