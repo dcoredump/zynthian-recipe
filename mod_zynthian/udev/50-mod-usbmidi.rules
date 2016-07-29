@@ -1,1 +1,1 @@
-ACTION=="add", KERNEL=="midiC*", RUN+="/home/pi/mod_midi_autoconnect.py", RUN+="/bin/systemctl restart mod-host"
+ACTION=="add", KERNEL=="midiC*", RUN+="/home/pi/bin/mod_midi_autoconnect.py", RUN+="/bin/systemctl restart mod-host"

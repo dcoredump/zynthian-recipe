@@ -1,7 +1,13 @@
-# fluidsynth
+# fluidplug
 cd "${HOME}/zynthian/zynthian-sw"
-git clone git://git.code.sf.net/p/fluidsynth/code-git fluidsynth-code-git
-cd fluidsynth-code-git/fluidsynth
-cmake .
+sudo apt-get install -y p7zip-full
+git clone https://github.com/falkTX/FluidPlug.git
+cd FluidPlug/
+sed -i -- 's/-ffast-math -mtune=generic -msse -msse2 -mfpmath=sse -fdata-sections -ffunction-sections/-march=armv6/' Makefile.mk
+sed -i -- 's/-msse -msse2/-march=armv6/' Makefile.mk
+sed -i -- 's/^DESTDIR =/DESTDIR =\/home\/pi\/zynthian\/zynthian-plugins/' Makefile
+sed -i -- 's/^PREFIX  = \/usr//' Makefile
+sed -i -- 's/\$(PREFIX)\/lib//' Makefile
 make
 sudo make install
+sudo ldconfig

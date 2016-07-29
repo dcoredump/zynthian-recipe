@@ -21,6 +21,13 @@ mod_load()
 	fi
 }
 
+mod_list()
+{
+	PB=`sudo ls /home/pi/.pedalboards | grep -v default`
+	echo "${PB}" | sed -e 's/.pedalboard//'
+	exit 0
+}
+
 case ${1} in
 restart)
 	sudo systemctl restart mod-ui
@@ -31,8 +38,11 @@ reset)
 load)
 	mod_load ${2}
 	;;
+list)
+	mod_list
+	;;
 *)
-	echo "Usage: ${0} [restart|reset|load] <pedalboard>"
+	echo "Usage: ${0} [list|restart|reset|load] <pedalboard>"
 	exit 1
 esac
 

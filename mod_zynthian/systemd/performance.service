@@ -3,7 +3,7 @@ Description=Tune CPU perfoamnce
 
 [Service]
 Type=oneshot
-ExecStart=/home/pi/cpu-performance.sh
+ExecStart=/home/pi/bin/cpu-performance.sh
 
 [Install]
 WantedBy=multi-user.target

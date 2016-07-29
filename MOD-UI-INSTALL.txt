@@ -1,6 +1,9 @@
 Installing MOD-UI on a  Raspi (2/3) with Hifiberry
 ==================================================
 
+This is a compilation of some software for running MOD-UI on a Raspi. You
+need a good audio card (Hifiberry) and a USB-MIDI interface for using.
+
 You have to use a preinstalled Raspian-jessie-light. After that you can use
 the following scripts in the given order:
 
@@ -11,3 +14,15 @@ the following scripts in the given order:
 - install_mod-host.sh
 - install_mod-ui.sh
 - install_phantomjs.sh
+
+MOD-UI is a web frontend which make it possible and very intuitive to setup
+synths/simulators and effects in the LV2 audio-plugin format. As a backend
+MOD-Host is working for organizing and stacking the LV2 plugins.
+
+Most of the used software is written and organized by MOD
+(http://moddevices.com/). They sell a very good hardware which also has 
+audio inputs and can be used as MIDI- and guitar effect-rack.
+
+Many thanks to the MOD guys for this really nice piece of hardware (ModDuo) and
+software! Also many thanks to all LV2 contributors!
+

@@ -1,7 +1,7 @@
 # install_mod_zynthian.sh
 sudo apt-get update && sudo apt-get -y upgrade
 sudo aptitude purge ntp
-sudo apt-get install -y vim aptitude build-essential git python3 python3-cffi python3-pip
+sudo apt-get install -y vim aptitude build-essential git python3 python3-cffi python3-pip jq
 sudo pip3 install JACK-Client
 mkdir -p "${HOME}"/zynthian/zynthian-sw
 cd "${HOME}/zynthian"

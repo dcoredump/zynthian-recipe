@@ -16,7 +16,7 @@ Environment=MOD_SCREENSHOT_JS=/home/pi/zynthian/zynthian-sw/mod-ui/screenshot.js
 Environment=MOD_PHANTOM_BINARY=/usr/bin/phantomjs
 Environment=MOD_DEVICE_WEBSERVER_PORT=8888
 WorkingDirectory=/home/pi/zynthian/zynthian-sw/mod-ui
-ExecPreStart=/home/pi/mod_midi_autoconnect.py
+#ExecPreStart=/home/pi/mod_midi_autoconnect.py
 ExecStart=/home/pi/zynthian/zynthian-sw/mod-ui/server.py
 Restart=always
 RestartSec=2
