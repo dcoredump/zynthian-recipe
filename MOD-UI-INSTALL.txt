@@ -26,3 +26,19 @@ audio inputs and can be used as MIDI- and guitar effect-rack.
 Many thanks to the MOD guys for this really nice piece of hardware (ModDuo) and
 software! Also many thanks to all LV2 contributors!
 
+For installing additional instruments and effects:
+- install_mod-utilities.sh
+- install_mod-mda.sh
+- install_mod-caps.sh
+- install_mod-distortion.sh
+- install_mod-setbfree.sh
+- install_mod-tap.sh
+- install_guitarix.sh
+- install_fluidsynth.sh
+- install_fluidplug.sh
+- install_midifilter.lv2.sh
+
+If you want do have the SDK (for creating GUI elements for LV2 plugins) running
+on port 9000 use the following script:
+- install_mod-sdk.sh
+
