@@ -3,4 +3,6 @@ cd "${HOME}/zynthian/zynthian-sw"
 git clone https://github.com/moddevices/caps-lv2.git
 cd caps-lv2
 make
-cp -R plugins/* /home/pi/zynthian/zynthian-plugins/lv2
+sudo cp -R plugins/* /home/pi/zynthian/zynthian-plugins/lv2
+make clean
+cd ..

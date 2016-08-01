@@ -5,3 +5,5 @@ cd tap-lv2
 sed -i -- 's/-mtune=generic -msse -msse2 -mfpmath=sse//' Makefile.mk
 make
 sudo make INSTALL_PATH=/home/pi/zynthian/zynthian-plugins/lv2
+make clean
+cd ..

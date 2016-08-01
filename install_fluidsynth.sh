@@ -5,3 +5,5 @@ cd fluidsynth-code-git/fluidsynth
 cmake .
 make
 sudo make install
+make clean
+cd ../..

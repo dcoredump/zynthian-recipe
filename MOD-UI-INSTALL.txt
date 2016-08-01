@@ -27,6 +27,7 @@ Many thanks to the MOD guys for this really nice piece of hardware (ModDuo) and
 software! Also many thanks to all LV2 contributors!
 
 For installing additional instruments and effects:
+- install_mod-lv2-data.sh
 - install_mod-utilities.sh
 - install_mod-mda.sh
 - install_mod-caps.sh

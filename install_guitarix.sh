@@ -6,3 +6,5 @@ cd guitarix-git/trunk
 ./waf configure --no-lv2-gui --lv2-only --disable-sse --lv2dir=/home/pi/zynthian/zynthian-plugins/lv2 --no-avahi --no-bluez --no-ladspa --no-faust 
 ./waf build
 sudo ./waf install
+./waf clean
+cd ../..

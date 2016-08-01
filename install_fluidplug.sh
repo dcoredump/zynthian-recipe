@@ -9,5 +9,8 @@ sed -i -- 's/^DESTDIR =/DESTDIR =\/home\/pi\/zynthian\/zynthian-plugins/' Makefi
 sed -i -- 's/^PREFIX  = \/usr//' Makefile
 sed -i -- 's/\$(PREFIX)\/lib//' Makefile
 make
-sudo make install
+cp "${HOME}"/zynthian/zynthian-recipe/FluiPlug.Makefile .
+sudo make -f FluidPlug.Makefile install
 sudo ldconfig
+make distclean
+cd ..

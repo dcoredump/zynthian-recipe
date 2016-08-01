@@ -5,3 +5,5 @@ cd mda-lv2
 ./waf configure --lv2-user --lv2dir=/home/pi/zynthian/zynthian-plugins/lv2
 ./waf build
 sudo ./waf -j1 install
+./waf distclean
+cd ..
