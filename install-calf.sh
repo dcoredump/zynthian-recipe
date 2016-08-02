@@ -6,6 +6,7 @@ cd calf
 sh autogen.sh
 make
 sudo make install
+make clean
 
 
 sed -i -- 's/-msse -msse2 -mfpmath=sse //' common.mak

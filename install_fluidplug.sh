@@ -12,5 +12,5 @@ make
 cp "${HOME}"/zynthian/zynthian-recipe/FluiPlug.Makefile .
 sudo make -f FluidPlug.Makefile install
 sudo ldconfig
-make distclean
+make clean
 cd ..

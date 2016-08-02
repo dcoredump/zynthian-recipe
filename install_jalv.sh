@@ -5,4 +5,5 @@ cd jalv
 ./waf configure --no-gtk --no-qt
 ./waf build
 sudo ./waf install
+./waf clean
 cd ..

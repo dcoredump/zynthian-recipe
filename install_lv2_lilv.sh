@@ -5,24 +5,28 @@ cd lv2
 ./waf configure
 ./waf build
 sudo ./waf install
+./waf clean
 cd ..
 git clone --recursive http://git.drobilla.net/serd.git/
 cd serd
 ./waf configure
 ./waf build
 sudo ./waf install
+./waf clean
 cd ..
 git clone --recursive http://git.drobilla.net/sord.git/
 cd sord
 ./waf configure
 ./waf build
 sudo ./waf install
+./waf clean
 cd ..
 git clone http://git.drobilla.net/sratom.git sratom
 cd sratom
 ./waf configure
 ./waf build
 sudo ./waf install
+./waf clean
 cd ..
 sudo apt-get -y install swig python3-numpy-dev
 git clone --recursive http://git.drobilla.net/lilv.git lilv
@@ -34,6 +38,7 @@ cd lilv
 ./waf configure --bindings --python=/usr/bin/python3
 ./waf build
 sudo ./waf install
+./waf clean
 cd ..
 git clone https://github.com/brunogola/lilv_python_examples
 cd lilv_python_examples

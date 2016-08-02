@@ -1,4 +1,4 @@
-# install_mod_zynthian.sh
+# install_zyncoder.sh
 sudo apt-get install -y cmake
 cd "${HOME}/zynthian"
 git clone https://github.com/zynthian/zyncoder.git
