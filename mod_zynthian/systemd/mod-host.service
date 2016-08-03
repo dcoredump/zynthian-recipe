@@ -5,7 +5,8 @@ After=jack2.service
 [Service]
 Type=forking
 Environment=HOME=/home/pi
-Environment=LV2_PATH=/home/pi/.lv2:/home/pi/zynthian/zynthian-plugins/lv2:/usr/lib/lv2:/usr/local/lib/lv2
+#Environment=LV2_PATH=/home/pi/.lv2:/home/pi/zynthian/zynthian-plugins/lv2:/usr/lib/lv2:/usr/local/lib/lv2
+Environment=LV2_PATH=/home/pi/.lv2:/home/pi/zynthian/zynthian-plugins/lv2:/usr/lib/lv2
 WorkingDirectory=/home/pi
 ExecStart=/usr/local/bin/mod-host
 Restart=always

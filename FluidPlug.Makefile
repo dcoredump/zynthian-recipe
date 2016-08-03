@@ -47,7 +47,7 @@ install:
 		AirFont320.lv2/*.so \
 		AirFont320.lv2/*.ttl \
 		$(DESTDIR)/lv2/AirFont320.lv2
-	mv AirFont320.lv2/*.sf2 $(DESTDIR)/lv2/AirFont320.lv
+	mv AirFont320.lv2/*.sf2 $(DESTDIR)/lv2/AirFont320.lv2
 
 	install -m 644 \
 		FluidGM.lv2/*.so \
@@ -59,7 +59,7 @@ install:
 		FluidBass.lv2/*.so \
 		FluidBass.lv2/*.ttl \
 		$(DESTDIR)/lv2/FluidBass.lv2
-	mv FluidBass.lv2/*.sf2 $(DESTDIR)/lv2/FluidGM.lv2\
+	mv FluidBass.lv2/*.sf2 $(DESTDIR)/lv2/FluidGM.lv2
 
 	install -m 644 \
 		FluidBrass.lv2/*.so \
