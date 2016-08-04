@@ -38,6 +38,7 @@ sudo update-rc.d -f ntp remove
 mkdir -p "${HOME}"/bin
 cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/mod_midi_autoconnect.py "${HOME}/bin"
 cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/cpu-performance.sh "${HOME}/bin"
+cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/bin/pedalboard "${HOME}/bin"
 sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/systemd/* /etc/systemd/system
 sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/udev/* /etc/udev/rules.d
 sudo cp /boot/config.txt /boot/config.txt.orig
