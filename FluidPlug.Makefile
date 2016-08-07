@@ -59,7 +59,7 @@ install:
 		FluidBass.lv2/*.so \
 		FluidBass.lv2/*.ttl \
 		$(DESTDIR)/lv2/FluidBass.lv2
-	mv FluidBass.lv2/*.sf2 $(DESTDIR)/lv2/FluidGM.lv2
+	mv FluidBass.lv2/*.sf2 $(DESTDIR)/lv2/FluidBass.lv2
 
 	install -m 644 \
 		FluidBrass.lv2/*.so \
