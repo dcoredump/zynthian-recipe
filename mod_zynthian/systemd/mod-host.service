@@ -1,6 +1,5 @@
 [Unit]
 Description=mod-host
-After=jack2.service
 
 [Service]
 Type=forking

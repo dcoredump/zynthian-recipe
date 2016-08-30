@@ -27,6 +27,7 @@ sudo systemctl disable rsyslog
 sudo systemctl disable ntp
 sudo systemctl disable avahi-daemon
 sudo systemctl disable dhcpcd
+#sudo systemctl disable serial-getty@ttyAMA0.service
 
 sudo update-rc.d -f raspi-config remove
 sudo update-rc.d -f dphys-swapfile remove
