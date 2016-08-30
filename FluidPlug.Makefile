@@ -218,25 +218,25 @@ install-FluidSynthPads: FluidSynthPads
 # ---------------------------------------------------------------------------------------------------------------------
 
 build: \
-	AirFont320 \
-	FluidGM \
-	FluidBass \
-	FluidBrass \
-	FluidChromPerc \
-	FluidDrums \
-	FluidEnsemble \
-	FluidEthnic \
-	FluidGuitars \
-	FluidOrgans \
-	FluidPercussion \
-	FluidPianos \
-	FluidPipes \
-	FluidReeds \
-	FluidSoundFX \
-	FluidStrings \
-	FluidSynthFX \
-	FluidSynthLeads \
-	FluidSynthPads
+	install-AirFont320 \
+	install-FluidGM \
+	install-FluidBass \
+	install-FluidBrass \
+	install-FluidChromPerc \
+	install-FluidDrums \
+	install-FluidEnsemble \
+	install-FluidEthnic \
+	install-FluidGuitars \
+	install-FluidOrgans \
+	install-FluidPercussion \
+	install-FluidPianos \
+	install-FluidPipes \
+	install-FluidReeds \
+	install-FluidSoundFX \
+	install-FluidStrings \
+	install-FluidSynthFX \
+	install-FluidSynthLeads \
+	install-FluidSynthPads
 
 # ---------------------------------------------------------------------------------------------------------------------
 
