@@ -1,6 +1,5 @@
 [Unit]
 Description=mod-sdk
-Requires=mod-ui.service
 After=mod-ui.service
 
 [Service]

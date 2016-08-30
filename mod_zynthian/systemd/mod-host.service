@@ -1,5 +1,6 @@
 [Unit]
 Description=mod-host
+After=mod-ttymidi.service
 
 [Service]
 Type=forking
