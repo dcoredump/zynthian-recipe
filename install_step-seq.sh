@@ -16,4 +16,10 @@ make clean
 sed -i -- 's/N_NOTES ?= 8/N_STEPS ?= 8/' Makefile
 sudo make install
 make clean
+sed -i -- 's/N_NOTES ?= 4/N_STEPS ?= 16/' Makefile
+sudo make install
+make clean
+sed -i -- 's/N_NOTES ?= 4/N_STEPS ?= 8/' Makefile
+sudo make install
+make clean
 cd ..
