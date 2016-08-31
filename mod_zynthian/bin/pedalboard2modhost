@@ -1,0 +1,130 @@
+#!/usr/bin/perl
+
+use Data::Dumper;
+
+$plugin_counter=0;
+
+open(TTL,"<$ARGV[0]") || die("Cannot open $ARGV[0]\n");
+while($ttl=<TTL>)
+{
+	chop($ttl);
+
+	#print "DEBUG: $ttl\n";
+
+	if($ttl=~/^\s*$/)
+	{
+		undef($item);
+		undef($tail);
+		undef($head);
+		undef($plugin_uri);
+		next;
+	}
+
+	# item: cable
+	if($ttl=~/^\s*_:b(\d+)\s*$/)
+	{
+		$item="cable$1";
+	}
+	# item: plugin and param
+	elsif($ttl=~/^\<(.+)\>\s*$/)
+	{
+		$item=$1;
+	}
+
+	# cable
+	if($item=~/^cable(\d+)$/)
+	{
+		if($ttl=~/^\s*ingen:tail\s*\<(.+)\>/)
+		{
+			$tail=$1;
+			$tail=~s/serial_midi_in/ttymidi\/MIDI_in/;
+			$tail=~s/serial_midi_out/ttymidi\/MIDI_out/;
+			$tail=~s/(playback.+)/system\/\1/;
+			$tail=~s/(capture.+)/system\/\1/;
+		}
+		elsif($ttl=~/^\s*ingen:head\s*\<(.+)\>/)
+		{
+			$head=$1;
+			$head=~s/serial_midi_in/ttymidi\/MIDI_in/;
+			$head=~s/serial_midi_out/ttymidi\/MIDI_out/;
+			$head=~s/(playback.+)/system\/\1/;
+			$head=~s/(capture.+)/system\/\1/;
+		}
+
+		if($tail && $head)
+		{
+			next if(($tail=~/^system\/capture/ && $head=~/^system\/playback/) || ($tail=~/^system\/playback/ && $head=~/^system\/capture/));
+
+			push(@cable,"$head:$tail");
+		}
+	}
+	# plugin or param
+	elsif($item=~/\//)
+	{
+		# param
+		if($ttl=~/^\s*ingen:value\s+([\d\.]+)/)
+		{
+			($plugin_name,$plugin_param)=split("\/",$item);
+			$number=get_plugin_number($plugin_name);
+			push(@param,"param_set $number $plugin_param $1");
+		}
+	}
+	elsif($item ne "")
+	{
+		# plugin
+		if($ttl=~/^\s*lv2:prototype\s+\<(.+)\>/)
+		{
+			$plugin_uri=$1;
+			push(@plugin,"add $plugin_uri $plugin_counter");
+			push(@plugins,"$item");
+			$plugin_counter++;
+		}
+	}
+}
+close(TTL);
+
+foreach (@plugin)
+{
+	print $_."\n";
+}
+foreach (@param)
+{
+	print $_."\n";
+}
+foreach (@cable)
+{
+	($head,$tail)=split(":",$_);
+	($pname1,$pport1)=split("/",$head);
+	($pname2,$pport2)=split("/",$tail);
+	$pnumber1=get_plugin_number($pname1);
+	$pnumber2=get_plugin_number($pname2);
+
+	if($pnumber1>=0)
+	{
+		$pname1="effect_".$pnumber1;
+	}
+	if($pnumber2>=0)
+	{
+		$pname2="effect_".$pnumber2;
+	}
+
+	print "connect $pname1:$pport1 $pname2:$pport2\n";
+}
+
+exit(0);
+
+sub get_plugin_number
+{
+	my($plugin_name)=@_;
+	my($i)=0;
+
+	foreach (@plugins)
+	{
+		if($_ eq $plugin_name)
+		{
+			return($i);
+		}
+		$i++;
+	}
+	return(-1);
+}
