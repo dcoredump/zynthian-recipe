@@ -1,11 +1,9 @@
 [Unit]
 Description=JACK2 Audio Server
-After=sound.target
-Before=mod-host.service
-Before=a2jmidid.service
+#After=sound.target
+Before=a2jmidid.service mod-ttymidi.service mod-host.service
 
 [Service]
-Type=simple
 LimitRTPRIO=infinity
 LimitMEMLOCK=infinity
 ExecStart=/usr/local/bin/jackd -P70 -t2000 -s -dalsa -dhw:0 -r44100 -p256 -n2

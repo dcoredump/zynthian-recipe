@@ -1,0 +1,14 @@
+diff --git a/src/ttymidi.c b/src/ttymidi.c
+index 5eed622..db9c337 100644
+--- a/src/ttymidi.c
++++ b/src/ttymidi.c
+@@ -460,7 +460,8 @@ static bool _ttymidi_init(bool exit_on_failure, jack_client_t* client)
+          * Open JACK stuff
+          */
+ 
+-        open_client(&jackdata, client);
++        if(!open_client(&jackdata, client))
++               exit(101);
+ 
+         /*
+          *  Open modem device for reading and not as controlling tty because we don't

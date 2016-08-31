@@ -1,17 +1,15 @@
 [Unit]
 Description=a2jmidid
-Binds-To=jack2.service
-After=jack2.service
+BindsTo=jack2.service
+After=mod-ttymidi.service
 
 [Service]
 Environment=HOME=/home/pi
 WorkingDirectory=/home/pi
 ExecStart=/usr/local/bin/a2jmidid -e -u
-#ExecStartPost=/home/pi/bin/mod_midi_autoconnect.py
 ExecStartPost=/sbin/udevadm trigger --type=devices --action=add
 Restart=always
 RestartSec=2
 
 [Install]
 WantedBy=multi-user.target
-#WantedBy=network.target

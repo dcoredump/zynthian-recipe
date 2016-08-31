@@ -1,14 +1,15 @@
 [Unit]
 Description=mod-ttymidi
-After=jack2.service
+BindsTo=jack2.service
+Requires=jack2.service
 
 [Service]
 Type=simple
 Environment=HOME=/home/pi
 WorkingDirectory=/home/pi
 ExecStart=/usr/local/bin/ttymidi -s /dev/ttyAMA0 -b 38400
-Restart=yes
-RestartSec=10
+Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
