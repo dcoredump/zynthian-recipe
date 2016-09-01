@@ -62,11 +62,19 @@ while($ttl=<TTL>)
 	elsif($item=~/\//)
 	{
 		# param
-		if($ttl=~/^\s*ingen:value\s+([\d\.]+)/)
+		if($ttl=~/^\s*ingen:value\s+([0-9\.]+)/)
 		{
+			$value=$1;
 			($plugin_name,$plugin_param)=split("\/",$item);
 			$number=get_plugin_number($plugin_name);
-			push(@param,"param_set $number $plugin_param $1");
+			if($plugin_param=~/:bypass/)
+			{
+				push(@param,"bypass $number $value");
+			}
+			else
+			{
+				push(@param,"param_set $number $plugin_param $value");
+			}
 		}
 	}
 	elsif($item ne "")
