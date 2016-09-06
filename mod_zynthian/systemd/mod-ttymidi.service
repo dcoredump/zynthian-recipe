@@ -1,7 +1,7 @@
 [Unit]
 Description=mod-ttymidi
 BindsTo=jack2.service
-Requires=jack2.service
+After=jack2.service
 
 [Service]
 Type=simple

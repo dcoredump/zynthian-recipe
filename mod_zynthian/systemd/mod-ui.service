@@ -1,12 +1,7 @@
 [Unit]
 Description=mod-ui
-Requires=jack2.service
-Requires=mod-host.service
-Requires=a2jmidid.service
-Binds-To=jack2.service
-Binds-To=mod-host.service
-Binds-To=a2jmidid.service
-After=a2jmidid.service mod-host.service
+Binds-To=jack2.service mod-host.service a2jmidid.service
+After=jack2.service mod-host.service a2jmidid.service
 
 [Service]
 Environment=HOME=/home/pi

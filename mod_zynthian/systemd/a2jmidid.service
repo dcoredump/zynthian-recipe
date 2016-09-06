@@ -1,12 +1,12 @@
 [Unit]
 Description=a2jmidid
 BindsTo=jack2.service
-After=mod-ttymidi.service
+After=jack2.service
 
 [Service]
 Environment=HOME=/home/pi
 WorkingDirectory=/home/pi
-ExecStart=/usr/local/bin/a2jmidid -e -u
+ExecStart=/usr/local/bin/a2jmidid -e
 ExecStartPost=/sbin/udevadm trigger --type=devices --action=add
 Restart=always
 RestartSec=2

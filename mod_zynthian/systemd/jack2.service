@@ -1,7 +1,6 @@
 [Unit]
 Description=JACK2 Audio Server
 After=sound.target
-Before=a2jmidid.service mod-ttymidi.service mod-host.service
 
 [Service]
 LimitRTPRIO=infinity
