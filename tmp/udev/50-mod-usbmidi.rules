@@ -1,0 +1,2 @@
+ACTION=="add", KERNEL=="midiC*", RUN+="/bin/systemctl restart jack2"
+ACTION=="remove", KERNEL=="midiC*", RUN+="/bin/systemctl restart jack2"

@@ -1,7 +1,7 @@
 [Unit]
 Description=mod-host
 BindsTo=jack2.service
-After=a2jmidid.service
+After=jack2.service
 
 [Service]
 Type=forking

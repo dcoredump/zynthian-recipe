@@ -1,2 +1,0 @@
-ACTION=="add", KERNEL=="midiC*", RUN+="/bin/systemctl stop mod-ttymidi" RUN+="/home/pi/bin/mod_midi_autoconnect.py", RUN+="/bin/systemctl restart mod-host"
-ACTION=="remove", KERNEL=="midiC*", RUN+="/bin/systemctl start mod-ttymidi", RUN+="/bin/systemctl restart mod-host"
