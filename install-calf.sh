@@ -10,6 +10,7 @@ sh autogen.sh
 sudo mv /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-2.0.pc.tmp /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-2.0.pc
 sudo mv /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-3.0.pc.tmp /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-3.0.pc
 sed -i -- 's/, 1e-20f/, (double)1e-20f/' src/analyzer.cpp
+sed -i -- 's/, 1.0f/, (double)1.0f/' src/modules_limit.cpp
 make
 sudo make install
 make clean
