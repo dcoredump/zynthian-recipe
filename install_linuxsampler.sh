@@ -43,6 +43,6 @@ patch <../../rpi_linuxsampler_patch/RTMath.cpp.diff
 cd ../../
 make
 sudo make install
-sudo mv /usr/local/lib/lv2/linuxsampler.lv2 "${HOME}"/zynthian/zynthian-plugins/lv2
+sudo mv /usr/local/lib/lv2/linuxsampler.lv2 "${HOME}"/zynthian/zynthian-plugins/mod-lv2
 make clean
 cd ..
