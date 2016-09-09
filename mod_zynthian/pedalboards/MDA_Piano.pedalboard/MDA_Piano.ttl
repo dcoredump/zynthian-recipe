@@ -8,12 +8,12 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:b1
-    ingen:tail <capture_1> ;
-    ingen:head <playback_1> .
-
-_:b2
     ingen:tail <capture_2> ;
     ingen:head <playback_2> .
+
+_:b2
+    ingen:tail <capture_1> ;
+    ingen:head <playback_1> .
 
 _:b3
     ingen:tail <Gain2x2/Out1> ;
@@ -42,6 +42,106 @@ _:b8
 _:b9
     ingen:tail <Piano/right_out> ;
     ingen:head <Ambience/right_in> .
+
+<Piano>
+    ingen:canvasX 748.0 ;
+    ingen:canvasY 505.0 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 1 ;
+    lv2:minorVersion 0 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <Piano/left_out> ,
+             <Piano/right_out> ,
+             <Piano/env_decay> ,
+             <Piano/env_release> ,
+             <Piano/hardness_offset> ,
+             <Piano/vel_to_hardness> ,
+             <Piano/muffling_filter> ,
+             <Piano/vel_to_muffling> ,
+             <Piano/vel_sensitivity> ,
+             <Piano/stereo_width> ,
+             <Piano/polyphony> ,
+             <Piano/fine_tuning> ,
+             <Piano/random_detuning> ,
+             <Piano/stretch_tuning> ,
+             <Piano/event_in> ,
+             <Piano/:bypass> ;
+    lv2:prototype <http://moddevices.com/plugins/mda/Piano> ;
+    pedal:preset <> ;
+    a ingen:Block .
+
+<Piano/event_in>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<Piano/stretch_tuning>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Piano/hardness_offset>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Piano/vel_sensitivity>
+    ingen:value 37.599998 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Piano/env_decay>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Piano/stereo_width>
+    ingen:value 100.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Piano/random_detuning>
+    ingen:value 12.300000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Piano/env_release>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Piano/vel_to_hardness>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Piano/polyphony>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Piano/fine_tuning>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Piano/vel_to_muffling>
+    ingen:value 25.100000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Piano/muffling_filter>
+    ingen:value 80.300003 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Piano/:bypass>
+    ingen:value 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
 
 <Ambience>
     ingen:canvasX 2076.0 ;
@@ -81,8 +181,8 @@ _:b9
     a lv2:AudioPort ,
         lv2:OutputPort .
 
-<Ambience/mix>
-    ingen:value 46.875000 ;
+<Ambience/size>
+    ingen:value 2.812500 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -91,13 +191,13 @@ _:b9
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Ambience/size>
-    ingen:value 2.812500 ;
+<Ambience/hf_damp>
+    ingen:value 70.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Ambience/hf_damp>
-    ingen:value 70.000000 ;
+<Ambience/mix>
+    ingen:value 46.875000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -147,106 +247,6 @@ _:b9
         lv2:InputPort .
 
 <Gain2x2/:bypass>
-    ingen:value 0 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Piano>
-    ingen:canvasX 748.0 ;
-    ingen:canvasY 505.0 ;
-    ingen:enabled true ;
-    ingen:polyphonic false ;
-    lv2:microVersion 1 ;
-    lv2:minorVersion 0 ;
-    mod:builderVersion 0 ;
-    mod:releaseNumber 0 ;
-    lv2:port <Piano/left_out> ,
-             <Piano/right_out> ,
-             <Piano/env_decay> ,
-             <Piano/env_release> ,
-             <Piano/hardness_offset> ,
-             <Piano/vel_to_hardness> ,
-             <Piano/muffling_filter> ,
-             <Piano/vel_to_muffling> ,
-             <Piano/vel_sensitivity> ,
-             <Piano/stereo_width> ,
-             <Piano/polyphony> ,
-             <Piano/fine_tuning> ,
-             <Piano/random_detuning> ,
-             <Piano/stretch_tuning> ,
-             <Piano/event_in> ,
-             <Piano/:bypass> ;
-    lv2:prototype <http://moddevices.com/plugins/mda/Piano> ;
-    pedal:preset <> ;
-    a ingen:Block .
-
-<Piano/event_in>
-    atom:bufferType atom:Sequence ;
-    atom:supports midi:MidiEvent ;
-    a atom:AtomPort ,
-        lv2:InputPort .
-
-<Piano/env_release>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Piano/stretch_tuning>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Piano/random_detuning>
-    ingen:value 12.300000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Piano/hardness_offset>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Piano/vel_to_muffling>
-    ingen:value 25.100000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Piano/muffling_filter>
-    ingen:value 80.300003 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Piano/vel_sensitivity>
-    ingen:value 37.599998 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Piano/polyphony>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Piano/stereo_width>
-    ingen:value 100.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Piano/vel_to_hardness>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Piano/env_decay>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Piano/fine_tuning>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Piano/:bypass>
     ingen:value 0 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -326,9 +326,9 @@ _:b9
               _:b7 ,
               _:b8 ,
               _:b9 ;
-    ingen:block <Ambience> ,
-                <Gain2x2> ,
-                <Piano> ;
+    ingen:block <Piano> ,
+                <Ambience> ,
+                <Gain2x2> ;
     lv2:port <control_in> ,
              <control_out> ,
              <serial_midi_in> ,

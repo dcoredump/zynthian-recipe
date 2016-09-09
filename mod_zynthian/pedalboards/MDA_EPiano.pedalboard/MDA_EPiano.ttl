@@ -12,191 +12,44 @@ _:b1
     ingen:head <playback_1> .
 
 _:b2
-    ingen:tail <capture_2> ;
-    ingen:head <playback_2> .
-
-_:b3
-    ingen:tail <serial_midi_in> ;
-    ingen:head <EPiano/event_in> .
-
-_:b4
-    ingen:tail <EPiano/left_out> ;
-    ingen:head <CabinetIII/in> .
-
-_:b5
-    ingen:tail <EPiano/right_out> ;
-    ingen:head <CabinetIII/in> .
-
-_:b6
-    ingen:tail <CabinetIII/out> ;
-    ingen:head <Ambience/left_in> .
-
-_:b7
-    ingen:tail <CabinetIII/out> ;
-    ingen:head <Ambience/right_in> .
-
-_:b8
-    ingen:tail <Ambience/left_out> ;
-    ingen:head <Gain2x2/In1> .
-
-_:b9
     ingen:tail <Ambience/right_out> ;
     ingen:head <Gain2x2/In2> .
 
-_:b10
+_:b3
+    ingen:tail <CabinetIII/out> ;
+    ingen:head <Ambience/left_in> .
+
+_:b4
+    ingen:tail <CabinetIII/out> ;
+    ingen:head <Ambience/right_in> .
+
+_:b5
+    ingen:tail <Ambience/left_out> ;
+    ingen:head <Gain2x2/In1> .
+
+_:b6
+    ingen:tail <capture_2> ;
+    ingen:head <playback_2> .
+
+_:b7
     ingen:tail <Gain2x2/Out1> ;
     ingen:head <playback_1> .
 
-_:b11
+_:b8
     ingen:tail <Gain2x2/Out2> ;
     ingen:head <playback_2> .
 
-<EPiano>
-    ingen:canvasX 701.0 ;
-    ingen:canvasY 503.0 ;
-    ingen:enabled true ;
-    ingen:polyphonic false ;
-    lv2:microVersion 3 ;
-    lv2:minorVersion 0 ;
-    mod:builderVersion 0 ;
-    mod:releaseNumber 0 ;
-    lv2:port <EPiano/left_out> ,
-             <EPiano/right_out> ,
-             <EPiano/env_decay> ,
-             <EPiano/env_release> ,
-             <EPiano/hardness> ,
-             <EPiano/treble_boost> ,
-             <EPiano/modulation> ,
-             <EPiano/lfo_rate> ,
-             <EPiano/vel_sense> ,
-             <EPiano/stereo_width> ,
-             <EPiano/polyphonic> ,
-             <EPiano/fine_tuning> ,
-             <EPiano/random_tuning> ,
-             <EPiano/overdrive> ,
-             <EPiano/event_in> ,
-             <EPiano/:bypass> ;
-    lv2:prototype <http://moddevices.com/plugins/mda/EPiano> ;
-    pedal:preset <> ;
-    a ingen:Block .
+_:b9
+    ingen:tail <EPiano/right_out> ;
+    ingen:head <CabinetIII/in> .
 
-<EPiano/event_in>
-    atom:bufferType atom:Sequence ;
-    atom:supports midi:MidiEvent ;
-    a atom:AtomPort ,
-        lv2:InputPort .
+_:b10
+    ingen:tail <EPiano/left_out> ;
+    ingen:head <CabinetIII/in> .
 
-<EPiano/modulation>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/env_release>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/vel_sense>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/polyphonic>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/env_decay>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/random_tuning>
-    ingen:value 7.300000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/hardness>
-    ingen:value 31.250000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/treble_boost>
-    ingen:value 18.750000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/stereo_width>
-    ingen:value 100.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/overdrive>
-    ingen:value 20.312500 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/fine_tuning>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/lfo_rate>
-    ingen:value 23.285000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/:bypass>
-    ingen:value 0 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<CabinetIII>
-    ingen:canvasX 1428.0 ;
-    ingen:canvasY 539.0 ;
-    ingen:enabled true ;
-    ingen:polyphonic false ;
-    lv2:microVersion 24 ;
-    lv2:minorVersion 9 ;
-    mod:builderVersion 0 ;
-    mod:releaseNumber 0 ;
-    lv2:port <CabinetIII/in> ,
-             <CabinetIII/out> ,
-             <CabinetIII/model> ,
-             <CabinetIII/alt> ,
-             <CabinetIII/gain> ,
-             <CabinetIII/:bypass> ;
-    lv2:prototype <http://moddevices.com/plugins/caps/CabinetIII> ;
-    pedal:preset <> ;
-    a ingen:Block .
-
-<CabinetIII/in>
-    a lv2:AudioPort ,
-        lv2:InputPort .
-
-<CabinetIII/in>
-    a lv2:AudioPort ,
-        lv2:OutputPort .
-
-<CabinetIII/gain>
-    ingen:value 7.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<CabinetIII/alt>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<CabinetIII/model>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<CabinetIII/:bypass>
-    ingen:value 0 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
+_:b11
+    ingen:tail <serial_midi_in> ;
+    ingen:head <EPiano/event_in> .
 
 <Ambience>
     ingen:canvasX 2076.0 ;
@@ -236,6 +89,11 @@ _:b11
     a lv2:AudioPort ,
         lv2:OutputPort .
 
+<Ambience/size>
+    ingen:value 4.218750 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
 <Ambience/output>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
@@ -251,12 +109,154 @@ _:b11
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Ambience/size>
-    ingen:value 4.218750 ;
+<Ambience/:bypass>
+    ingen:value 0 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Ambience/:bypass>
+<CabinetIII>
+    ingen:canvasX 1428.0 ;
+    ingen:canvasY 539.0 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 24 ;
+    lv2:minorVersion 9 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <CabinetIII/in> ,
+             <CabinetIII/out> ,
+             <CabinetIII/model> ,
+             <CabinetIII/alt> ,
+             <CabinetIII/gain> ,
+             <CabinetIII/:bypass> ;
+    lv2:prototype <http://moddevices.com/plugins/caps/CabinetIII> ;
+    pedal:preset <> ;
+    a ingen:Block .
+
+<CabinetIII/in>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<CabinetIII/in>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<CabinetIII/alt>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<CabinetIII/model>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<CabinetIII/gain>
+    ingen:value 7.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<CabinetIII/:bypass>
+    ingen:value 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano>
+    ingen:canvasX 701.0 ;
+    ingen:canvasY 503.0 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 3 ;
+    lv2:minorVersion 0 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <EPiano/left_out> ,
+             <EPiano/right_out> ,
+             <EPiano/env_decay> ,
+             <EPiano/env_release> ,
+             <EPiano/hardness> ,
+             <EPiano/treble_boost> ,
+             <EPiano/modulation> ,
+             <EPiano/lfo_rate> ,
+             <EPiano/vel_sense> ,
+             <EPiano/stereo_width> ,
+             <EPiano/polyphonic> ,
+             <EPiano/fine_tuning> ,
+             <EPiano/random_tuning> ,
+             <EPiano/overdrive> ,
+             <EPiano/event_in> ,
+             <EPiano/:bypass> ;
+    lv2:prototype <http://moddevices.com/plugins/mda/EPiano> ;
+    pedal:preset <> ;
+    a ingen:Block .
+
+<EPiano/event_in>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<EPiano/random_tuning>
+    ingen:value 7.300000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/env_decay>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/stereo_width>
+    ingen:value 100.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/env_release>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/fine_tuning>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/treble_boost>
+    ingen:value 18.750000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/lfo_rate>
+    ingen:value 23.285000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/polyphonic>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/vel_sense>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/overdrive>
+    ingen:value 20.312500 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/hardness>
+    ingen:value 31.250000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/modulation>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/:bypass>
     ingen:value 0 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -366,8 +366,8 @@ _:b11
 
 <>
     doap:name "MDA-EPiano" ;
-    pedal:width 3360 ;
-    pedal:height 1454 ;
+    pedal:width 3752 ;
+    pedal:height 1644 ;
     pedal:addressings <addressings.json> ;
     pedal:screenshot <screenshot.png> ;
     pedal:thumbnail <thumbnail.png> ;
@@ -383,9 +383,9 @@ _:b11
               _:b9 ,
               _:b10 ,
               _:b11 ;
-    ingen:block <EPiano> ,
+    ingen:block <Ambience> ,
                 <CabinetIII> ,
-                <Ambience> ,
+                <EPiano> ,
                 <Gain2x2> ;
     lv2:port <control_in> ,
              <control_out> ,

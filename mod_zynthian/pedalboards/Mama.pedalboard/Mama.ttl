@@ -8,107 +8,107 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:b1
-    ingen:tail <FluidPlug_FluidSynthPads/audio_out_l> ;
-    ingen:head <roomy/in_left> .
+    ingen:tail <FluidPlug_FluidEnsemble/audio_out_l> ;
+    ingen:head <_chorus_stereo/in> .
 
 _:b2
+    ingen:tail <FluidPlug_FluidOrgans/audio_out_r> ;
+    ingen:head <roomy/in_right> .
+
+_:b3
     ingen:tail <onechannelfilter/midiout> ;
     ingen:head <FluidPlug_FluidEnsemble/events> .
 
-_:b3
-    ingen:tail <FluidPlug_FluidEnsemble/audio_out_r> ;
-    ingen:head <_chorus_stereo/in1> .
-
 _:b4
-    ingen:tail <s16n16/midiout> ;
-    ingen:head <FluidPlug_FluidDrums/events> .
+    ingen:tail <keysplit_1/midiout> ;
+    ingen:head <onechannelfilter_2/midiin> .
 
 _:b5
-    ingen:tail <onechannelfilter/midiout> ;
-    ingen:head <miditranspose/midiin> .
+    ingen:tail <keysplit/midiout> ;
+    ingen:head <onechannelfilter/midiin> .
 
 _:b6
-    ingen:tail <keysplit_1/midiout> ;
-    ingen:head <onechannelfilter_1/midiin> .
+    ingen:tail <_chorus_stereo/out> ;
+    ingen:head <roomy/in_left> .
 
 _:b7
-    ingen:tail <roomy/out_right> ;
-    ingen:head <playback_2> .
+    ingen:tail <keysplit/midiout> ;
+    ingen:head <keysplit_1/midiin> .
 
 _:b8
-    ingen:tail <capture_1> ;
-    ingen:head <playback_1> .
+    ingen:tail <FluidPlug_FluidSynthPads/audio_out_l> ;
+    ingen:head <roomy/in_left> .
 
 _:b9
-    ingen:tail <serial_midi_in> ;
-    ingen:head <keysplit/midiin> .
+    ingen:tail <FluidPlug_FluidSynthPads/audio_out_r> ;
+    ingen:head <roomy/in_right> .
 
 _:b10
     ingen:tail <FluidPlug_FluidDrums/audio_out_l> ;
     ingen:head <roomy/in_left> .
 
 _:b11
-    ingen:tail <onechannelfilter_1/midiout> ;
-    ingen:head <FluidPlug_FluidSynthPads/events> .
-
-_:b12
-    ingen:tail <miditranspose/midiout> ;
-    ingen:head <FluidPlug_FluidEnsemble/events> .
-
-_:b13
     ingen:tail <FluidPlug_FluidOrgans/audio_out_l> ;
     ingen:head <roomy/in_left> .
 
+_:b12
+    ingen:tail <onechannelfilter_1/midiout> ;
+    ingen:head <FluidPlug_FluidSynthPads/events> .
+
+_:b13
+    ingen:tail <miditranspose/midiout> ;
+    ingen:head <FluidPlug_FluidEnsemble/events> .
+
 _:b14
-    ingen:tail <FluidPlug_FluidSynthPads/audio_out_r> ;
-    ingen:head <roomy/in_right> .
-
-_:b15
-    ingen:tail <keysplit_1/midiout> ;
-    ingen:head <onechannelfilter_2/midiin> .
-
-_:b16
-    ingen:tail <_chorus_stereo/out> ;
-    ingen:head <roomy/in_left> .
-
-_:b17
-    ingen:tail <keysplit/midiout> ;
-    ingen:head <keysplit_1/midiin> .
-
-_:b18
-    ingen:tail <keysplit/midiout> ;
-    ingen:head <onechannelfilter/midiin> .
-
-_:b19
-    ingen:tail <FluidPlug_FluidOrgans/audio_out_r> ;
-    ingen:head <roomy/in_right> .
-
-_:b20
-    ingen:tail <FluidPlug_FluidEnsemble/audio_out_l> ;
-    ingen:head <_chorus_stereo/in> .
-
-_:b21
-    ingen:tail <FluidPlug_FluidDrums/audio_out_r> ;
-    ingen:head <roomy/in_right> .
-
-_:b22
     ingen:tail <onechannelfilter_2/midiout> ;
     ingen:head <FluidPlug_FluidOrgans/events> .
 
-_:b23
+_:b15
+    ingen:tail <FluidPlug_FluidDrums/audio_out_r> ;
+    ingen:head <roomy/in_right> .
+
+_:b16
     ingen:tail <roomy/out_left> ;
     ingen:head <playback_1> .
 
-_:b24
+_:b17
     ingen:tail <FluidPlug_FluidSynthPads/audio_out_r> ;
     ingen:head <roomy/in_left> .
 
-_:b25
+_:b18
     ingen:tail <_chorus_stereo/out1> ;
     ingen:head <roomy/in_right> .
 
-_:b26
+_:b19
     ingen:tail <capture_2> ;
+    ingen:head <playback_2> .
+
+_:b20
+    ingen:tail <FluidPlug_FluidEnsemble/audio_out_r> ;
+    ingen:head <_chorus_stereo/in1> .
+
+_:b21
+    ingen:tail <s16n16/midiout> ;
+    ingen:head <FluidPlug_FluidDrums/events> .
+
+_:b22
+    ingen:tail <serial_midi_in> ;
+    ingen:head <keysplit/midiin> .
+
+_:b23
+    ingen:tail <onechannelfilter/midiout> ;
+    ingen:head <miditranspose/midiin> .
+
+_:b24
+    ingen:tail <capture_1> ;
+    ingen:head <playback_1> .
+
+_:b25
+    ingen:tail <keysplit_1/midiout> ;
+    ingen:head <onechannelfilter_1/midiin> .
+
+_:b26
+    ingen:tail <roomy/out_right> ;
     ingen:head <playback_2> .
 
 <FluidPlug_FluidEnsemble>
@@ -319,8 +319,8 @@ _:b26
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<_chorus_stereo/freq>
-    ingen:value 1.801563 ;
+<_chorus_stereo/depth>
+    ingen:value 0.078125 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -334,8 +334,8 @@ _:b26
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<_chorus_stereo/depth>
-    ingen:value 0.078125 ;
+<_chorus_stereo/freq>
+    ingen:value 1.801563 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -379,23 +379,8 @@ _:b26
     a atom:AtomPort ,
         lv2:OutputPort .
 
-<keysplit/channel1>
-    ingen:value 2.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<keysplit/transp1>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
 <keysplit/channel0>
     ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<keysplit/channelf>
-    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -406,6 +391,21 @@ _:b26
 
 <keysplit/transp0>
     ingen:value -12.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<keysplit/transp1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<keysplit/channelf>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<keysplit/channel1>
+    ingen:value 2.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -453,23 +453,8 @@ _:b26
     a atom:AtomPort ,
         lv2:OutputPort .
 
-<keysplit_1/channel1>
-    ingen:value 4.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<keysplit_1/transp1>
-    ingen:value -12.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
 <keysplit_1/channel0>
     ingen:value 3.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<keysplit_1/channelf>
-    ingen:value 2.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -480,6 +465,21 @@ _:b26
 
 <keysplit_1/transp0>
     ingen:value 24.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<keysplit_1/transp1>
+    ingen:value -12.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<keysplit_1/channelf>
+    ingen:value 2.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<keysplit_1/channel1>
+    ingen:value 4.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -717,13 +717,13 @@ _:b26
     a lv2:AudioPort ,
         lv2:OutputPort .
 
-<roomy/damping>
-    ingen:value 0.250000 ;
+<roomy/dry_wet>
+    ingen:value 0.283465 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<roomy/dry_wet>
-    ingen:value 0.283465 ;
+<roomy/damping>
+    ingen:value 0.250000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -1039,162 +1039,7 @@ _:b26
     a atom:AtomPort ,
         lv2:OutputPort .
 
-<s16n16/grid_5_16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_11_4>
-    ingen:value 70.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_2_14>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_3_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_6_15>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_7_1>
-    ingen:value 100.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_11_12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_9_15>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_10_6>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_1_9>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_6_14>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_5_4>
-    ingen:value 70.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_10_2>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_8_11>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_1_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_13_8>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_16_16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_9_11>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_4_2>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_6_1>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_10_11>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_5_9>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_16_6>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_4_12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_11_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_2_8>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_10_15>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_2_12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_11_1>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/note16>
-    ingen:value 43.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_5_10>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_11_15>
+<s16n16/grid_7_6>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -1204,117 +1049,12 @@ _:b26
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_16_2>
+<s16n16/grid_16_16>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_9_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_4_8>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_4_16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_6_16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_12_4>
-    ingen:value 70.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_5_7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_1_13>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_6_13>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_12_1>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_2_6>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_1_1>
-    ingen:value 127.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_9_13>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_2_5>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_14_8>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_13_4>
-    ingen:value 70.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_7_13>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_14_10>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_12_5>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_1_7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/note11>
-    ingen:value 52.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_9_4>
-    ingen:value 70.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_15_10>
+<s16n16/grid_8_12>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -1324,37 +1064,77 @@ _:b26
     a lv2:ControlPort ,
         lv2:InputPort .
 
+<s16n16/grid_8_1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_6_4>
+    ingen:value 70.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_3_9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
 <s16n16/grid_6_11>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_2_2>
+<s16n16/grid_7_2>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_5_8>
+<s16n16/grid_4_2>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/note10>
-    ingen:value 53.000000 ;
+<s16n16/grid_2_4>
+    ingen:value 70.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_7_8>
+<s16n16/grid_7_14>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_5_1>
+<s16n16/grid_4_7>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_11_13>
+<s16n16/grid_11_16>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_11_10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_2_12>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_1_15>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/note7>
+    ingen:value 59.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_2_11>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -1364,23 +1144,238 @@ _:b26
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_5_13>
+<s16n16/grid_11_9>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_8_4>
+<s16n16/grid_10_4>
     ingen:value 70.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_16_10>
+<s16n16/grid_1_4>
+    ingen:value 70.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_2_6>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_7_11>
+<s16n16/grid_6_3>
     ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_8_9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_11_2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_5_10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_9_1>
+    ingen:value 127.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_2_1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_8_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_5_2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_2_13>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_13_10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_2_10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_6_10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_4_10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/div>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_2_8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_11_7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/note9>
+    ingen:value 55.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_6_7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_16_6>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_14_11>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_14_1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_11_14>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_9_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_4_15>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_6_9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_16_1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_3_14>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_16_12>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_1_7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_7_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_3_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_1_2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_3_8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_8_14>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_16_4>
+    ingen:value 70.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_11_1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_8_11>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_15_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_14_6>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_14_15>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_15_9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_5_4>
+    ingen:value 70.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/note2>
+    ingen:value 54.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -1394,962 +1389,22 @@ _:b26
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_12_16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_2_13>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/drummode>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_8_15>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_1_12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_3_10>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_4_7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/chn>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_11_5>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_13_16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_7_4>
-    ingen:value 70.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_15_4>
-    ingen:value 70.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_12_14>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_11_8>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_3_9>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_5_15>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_9_16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_5_2>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_10_5>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_14_13>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_13_13>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_8_1>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/note14>
-    ingen:value 47.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/note8>
-    ingen:value 57.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_16_4>
-    ingen:value 70.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_2_7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_9_6>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
 <s16n16/sync>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_16_1>
+<s16n16/grid_6_14>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_12_12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_4_15>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_14_2>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/bpm>
-    ingen:value 68.875000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_3_5>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_7_15>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_7_2>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_12_9>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_8_16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_9_14>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_6_7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_6_9>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/note3>
-    ingen:value 38.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_16_13>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/note12>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_14_9>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_15_16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_7_9>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_10_10>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_15_15>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_8_5>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_3_7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_2_11>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_3_13>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_9_12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_11_16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_1_5>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/note6>
-    ingen:value 60.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_10_13>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_3_11>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_1_8>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_7_7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_14_15>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_4_13>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_2_9>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_10_4>
+<s16n16/grid_11_4>
     ingen:value 70.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/swing>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_13_11>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_13_9>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_14_7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_5_11>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_7_14>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_15_12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_4_4>
-    ingen:value 70.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_8_9>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_13_10>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_6_10>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_15_2>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/div>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_9_1>
-    ingen:value 127.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_16_5>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_14_4>
-    ingen:value 70.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_11_14>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_14_5>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_13_6>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_4_11>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_13_15>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_16_11>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_4_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_3_6>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/note15>
-    ingen:value 45.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_1_16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/note13>
-    ingen:value 48.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_3_1>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_11_2>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_2_4>
-    ingen:value 70.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_6_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_14_14>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_12_15>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_10_16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_11_10>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_6_4>
-    ingen:value 70.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_16_15>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_3_4>
-    ingen:value 70.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_10_8>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_14_11>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_8_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_6_2>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_5_12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_11_7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_13_14>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/note4>
-    ingen:value 42.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_1_2>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_16_9>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_8_8>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_7_5>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_11_6>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_5_6>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_1_14>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_8_2>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_16_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_4_1>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_15_9>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_3_2>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_3_14>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_14_16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_4_6>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_12_7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_8_13>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_4_5>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_13_2>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_12_11>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_3_12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_14_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_3_8>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_12_2>
-    ingen:value 127.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_15_5>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_12_8>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_5_5>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_9_9>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/note2>
-    ingen:value 54.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_5_3>
-    ingen:value 90.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_10_12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_2_16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_14_6>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_13_5>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_9_2>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_16_14>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_15_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_14_12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_12_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_6_6>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_16_12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/note9>
-    ingen:value 55.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_2_15>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_16_8>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/note5>
-    ingen:value 62.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/note1>
-    ingen:value 35.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_13_7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_12_10>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_9_8>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_15_6>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_9_7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_4_14>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_13_3>
-    ingen:value 100.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_6_8>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_12_6>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_8_12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_15_7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_6_5>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_1_6>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_10_7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_8_7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_2_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_2_1>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_3_16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_9_10>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_6_12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_9_5>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_10_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_1_4>
-    ingen:value 70.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_15_14>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_5_14>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_13_12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_1_10>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_4_10>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_8_14>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_8_10>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_14_1>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_12_13>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_11_9>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_10_1>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_7_16>
+<s16n16/grid_4_16>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -2359,32 +1414,52 @@ _:b26
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/note7>
-    ingen:value 59.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_15_1>
-    ingen:value 100.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<s16n16/grid_7_3>
+<s16n16/grid_16_15>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_2_10>
+<s16n16/grid_11_8>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_7_6>
+<s16n16/grid_14_8>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_7_10>
+<s16n16/grid_9_9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_3_2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_6_6>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_8_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_15_7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_12_8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_13_13>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -2394,12 +1469,112 @@ _:b26
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_1_15>
+<s16n16/grid_13_3>
+    ingen:value 100.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_12_14>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_10_14>
+<s16n16/grid_7_16>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_5_6>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_9_15>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_9_4>
+    ingen:value 70.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_13_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_16_11>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/note6>
+    ingen:value 60.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_5_13>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_1_9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_8_2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_10_1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_13_16>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_12_12>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_4_14>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_15_1>
+    ingen:value 100.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_5_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_10_15>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_10_6>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_10_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_15_16>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -2409,12 +1584,297 @@ _:b26
     a lv2:ControlPort ,
         lv2:InputPort .
 
+<s16n16/grid_8_7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_1_6>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_6_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_10_16>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_11_13>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_7_10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_4_11>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_2_15>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_15_11>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_14_14>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_12_16>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_7_4>
+    ingen:value 70.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_8_15>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_14_10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_13_12>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_10_12>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_15_10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_3_16>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_7_9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
 <s16n16/grid_4_9>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_13_1>
+<s16n16/grid_4_6>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_15_15>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_1_1>
+    ingen:value 127.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_5_1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_12_15>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_6_12>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_7_8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_16_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/swing>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_16_14>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_11_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_13_8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_8_16>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_4_13>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_12_7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_9_14>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_6_2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_11_6>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_13_14>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_13_15>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_14_13>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_12_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_12_13>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_4_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_7_7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_10_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_9_12>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_3_10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_9_8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/chn>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_7_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_3_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/note16>
+    ingen:value 43.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_7_13>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_11_12>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_9_13>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_3_13>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_12_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_15_12>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -2424,8 +1884,548 @@ _:b26
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<s16n16/grid_15_11>
+<s16n16/grid_15_3>
     ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_6_16>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_2_9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_3_1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_4_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_10_11>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_6_13>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_8_4>
+    ingen:value 70.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_12_1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_5_15>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_14_16>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_13_2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_4_1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/bpm>
+    ingen:value 68.875000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/drummode>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/note11>
+    ingen:value 52.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_13_11>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_9_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_16_13>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_10_2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_14_7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_16_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_16_10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_15_2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_10_14>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_1_13>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_4_8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_5_12>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_9_2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_2_7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_8_8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_2_14>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_2_2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_10_10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_1_16>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_14_2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_16_2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_5_3>
+    ingen:value 90.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_9_10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_12_10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_13_7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_5_16>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_3_11>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_1_12>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_7_11>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_9_7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_12_6>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_1_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_13_4>
+    ingen:value 70.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_2_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_3_6>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_14_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_11_15>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_8_10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_14_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_4_4>
+    ingen:value 70.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/note3>
+    ingen:value 38.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/note12>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_11_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/note13>
+    ingen:value 48.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_6_15>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_14_4>
+    ingen:value 70.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_3_4>
+    ingen:value 70.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/note5>
+    ingen:value 62.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_15_4>
+    ingen:value 70.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_12_4>
+    ingen:value 70.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_6_1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_10_13>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/note15>
+    ingen:value 45.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_14_12>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_15_14>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_7_1>
+    ingen:value 100.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/note8>
+    ingen:value 57.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_5_7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_13_6>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_3_12>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_1_8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_1_14>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_1_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_7_15>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_5_14>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_3_7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_9_6>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_14_9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/note4>
+    ingen:value 42.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_1_10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_9_16>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_5_8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_5_11>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_12_11>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_4_12>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/note10>
+    ingen:value 53.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_10_8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_2_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_16_8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_5_9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/note1>
+    ingen:value 35.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_8_13>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_6_8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_10_7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_2_16>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_13_9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_12_2>
+    ingen:value 127.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_13_1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_15_6>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_16_9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_9_11>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/grid_12_9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<s16n16/note14>
+    ingen:value 47.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 

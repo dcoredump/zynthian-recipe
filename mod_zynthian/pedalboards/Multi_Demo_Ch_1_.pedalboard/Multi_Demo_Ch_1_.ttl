@@ -8,188 +8,88 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:b1
-    ingen:tail <roomy/out_left> ;
-    ingen:head <Gain2x2/In1> .
-
-_:b2
-    ingen:tail <Gain2x2/Out1> ;
-    ingen:head <playback_1> .
-
-_:b3
-    ingen:tail <roomy/out_right> ;
-    ingen:head <Gain2x2/In2> .
-
-_:b4
-    ingen:tail <keysplit/midiout> ;
-    ingen:head <channelfilter/midiin> .
-
-_:b5
-    ingen:tail <eventblocker/midiout> ;
-    ingen:head <EPiano/event_in> .
-
-_:b6
-    ingen:tail <channelfilter/midiout> ;
-    ingen:head <EPiano/event_in> .
-
-_:b7
-    ingen:tail <serial_midi_in> ;
-    ingen:head <channelfilter_2/midiin> .
-
-_:b8
-    ingen:tail <EPiano/left_out> ;
-    ingen:head <roomy/in_left> .
-
-_:b9
-    ingen:tail <EPiano/right_out> ;
-    ingen:head <roomy/in_right> .
-
-_:b10
-    ingen:tail <channelfilter_2/midiout> ;
-    ingen:head <FluidPlug_FluidDrums/events> .
-
-_:b11
-    ingen:tail <FluidPlug_FluidDrums/audio_out_l> ;
-    ingen:head <roomy/in_left> .
-
-_:b12
-    ingen:tail <FluidPlug_FluidDrums/audio_out_r> ;
-    ingen:head <roomy/in_right> .
-
-_:b13
-    ingen:tail <capture_2> ;
-    ingen:head <playback_2> .
-
-_:b14
-    ingen:tail <Gain2x2/Out2> ;
-    ingen:head <playback_2> .
-
-_:b15
-    ingen:tail <keysplit/midiout> ;
-    ingen:head <channelfilter_1/midiin> .
-
-_:b16
-    ingen:tail <serial_midi_in> ;
-    ingen:head <eventblocker/midiin> .
-
-_:b17
-    ingen:tail <capture_1> ;
-    ingen:head <playback_1> .
-
-_:b18
     ingen:tail <serial_midi_in> ;
     ingen:head <keysplit/midiin> .
 
-_:b19
-    ingen:tail <channelfilter_1/midiout> ;
-    ingen:head <FluidPlug_FluidBass/events> .
+_:b2
+    ingen:tail <capture_1> ;
+    ingen:head <playback_1> .
 
-_:b20
+_:b3
+    ingen:tail <Gain2x2/Out2> ;
+    ingen:head <playback_2> .
+
+_:b4
+    ingen:tail <serial_midi_in> ;
+    ingen:head <eventblocker/midiin> .
+
+_:b5
+    ingen:tail <keysplit/midiout> ;
+    ingen:head <channelfilter_1/midiin> .
+
+_:b6
+    ingen:tail <roomy/out_left> ;
+    ingen:head <Gain2x2/In1> .
+
+_:b7
+    ingen:tail <FluidPlug_FluidDrums/audio_out_r> ;
+    ingen:head <roomy/in_right> .
+
+_:b8
+    ingen:tail <FluidPlug_FluidDrums/audio_out_l> ;
+    ingen:head <roomy/in_left> .
+
+_:b9
+    ingen:tail <channelfilter_2/midiout> ;
+    ingen:head <FluidPlug_FluidDrums/events> .
+
+_:b10
+    ingen:tail <capture_2> ;
+    ingen:head <playback_2> .
+
+_:b11
     ingen:tail <FluidPlug_FluidBass/audio_out_l> ;
     ingen:head <roomy/in_left> .
 
-_:b21
+_:b12
+    ingen:tail <Gain2x2/Out1> ;
+    ingen:head <playback_1> .
+
+_:b13
+    ingen:tail <EPiano/left_out> ;
+    ingen:head <roomy/in_left> .
+
+_:b14
+    ingen:tail <serial_midi_in> ;
+    ingen:head <channelfilter_2/midiin> .
+
+_:b15
+    ingen:tail <EPiano/right_out> ;
+    ingen:head <roomy/in_right> .
+
+_:b16
+    ingen:tail <channelfilter_1/midiout> ;
+    ingen:head <FluidPlug_FluidBass/events> .
+
+_:b17
+    ingen:tail <eventblocker/midiout> ;
+    ingen:head <EPiano/event_in> .
+
+_:b18
+    ingen:tail <channelfilter/midiout> ;
+    ingen:head <EPiano/event_in> .
+
+_:b19
     ingen:tail <FluidPlug_FluidBass/audio_out_r> ;
     ingen:head <roomy/in_right> .
 
-<EPiano>
-    ingen:canvasX 1747.0 ;
-    ingen:canvasY 789.0 ;
-    ingen:enabled true ;
-    ingen:polyphonic false ;
-    lv2:microVersion 3 ;
-    lv2:minorVersion 0 ;
-    mod:builderVersion 0 ;
-    mod:releaseNumber 0 ;
-    lv2:port <EPiano/left_out> ,
-             <EPiano/right_out> ,
-             <EPiano/env_decay> ,
-             <EPiano/env_release> ,
-             <EPiano/hardness> ,
-             <EPiano/treble_boost> ,
-             <EPiano/modulation> ,
-             <EPiano/lfo_rate> ,
-             <EPiano/vel_sense> ,
-             <EPiano/stereo_width> ,
-             <EPiano/polyphonic> ,
-             <EPiano/fine_tuning> ,
-             <EPiano/random_tuning> ,
-             <EPiano/overdrive> ,
-             <EPiano/event_in> ,
-             <EPiano/:bypass> ;
-    lv2:prototype <http://moddevices.com/plugins/mda/EPiano> ;
-    pedal:preset <> ;
-    a ingen:Block .
+_:b20
+    ingen:tail <roomy/out_right> ;
+    ingen:head <Gain2x2/In2> .
 
-<EPiano/event_in>
-    atom:bufferType atom:Sequence ;
-    atom:supports midi:MidiEvent ;
-    a atom:AtomPort ,
-        lv2:InputPort .
-
-<EPiano/fine_tuning>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/modulation>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/treble_boost>
-    ingen:value 26.562500 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/random_tuning>
-    ingen:value 7.300000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/env_decay>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/overdrive>
-    ingen:value 17.187500 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/lfo_rate>
-    ingen:value 23.285000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/env_release>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/stereo_width>
-    ingen:value 100.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/polyphonic>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/hardness>
-    ingen:value 25.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/vel_sense>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/:bypass>
-    ingen:value 0 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
+_:b21
+    ingen:tail <keysplit/midiout> ;
+    ingen:head <channelfilter/midiin> .
 
 <FluidPlug_FluidDrums>
     ingen:canvasX 2072.0 ;
@@ -281,8 +181,8 @@ _:b21
     ingen:canvasY 734.0 ;
     ingen:enabled true ;
     ingen:polyphonic false ;
-    lv2:microVersion 0 ;
-    lv2:minorVersion 1030 ;
+    lv2:microVersion 31 ;
+    lv2:minorVersion 1033 ;
     mod:builderVersion 0 ;
     mod:releaseNumber 0 ;
     lv2:port <channelfilter/chn1> ,
@@ -321,12 +221,7 @@ _:b21
     a atom:AtomPort ,
         lv2:OutputPort .
 
-<channelfilter/chn11>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<channelfilter/chn5>
+<channelfilter/chn16>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -336,32 +231,12 @@ _:b21
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<channelfilter/chn14>
-    ingen:value 0.000000 ;
+<channelfilter/chn2>
+    ingen:value 1.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<channelfilter/chn12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<channelfilter/chn16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<channelfilter/chn7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<channelfilter/chn3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<channelfilter/chn8>
+<channelfilter/chn5>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -371,7 +246,12 @@ _:b21
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<channelfilter/chn1>
+<channelfilter/chn9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<channelfilter/chn14>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -381,18 +261,38 @@ _:b21
     a lv2:ControlPort ,
         lv2:InputPort .
 
+<channelfilter/chn8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<channelfilter/chn3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<channelfilter/chn7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
 <channelfilter/chn6>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<channelfilter/chn9>
+<channelfilter/chn12>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<channelfilter/chn2>
-    ingen:value 1.000000 ;
+<channelfilter/chn1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<channelfilter/chn11>
+    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -415,8 +315,8 @@ _:b21
     ingen:canvasY 69.0 ;
     ingen:enabled true ;
     ingen:polyphonic false ;
-    lv2:microVersion 0 ;
-    lv2:minorVersion 1030 ;
+    lv2:microVersion 31 ;
+    lv2:minorVersion 1033 ;
     mod:builderVersion 0 ;
     mod:releaseNumber 0 ;
     lv2:port <channelfilter_1/chn1> ,
@@ -455,12 +355,7 @@ _:b21
     a atom:AtomPort ,
         lv2:OutputPort .
 
-<channelfilter_1/chn11>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<channelfilter_1/chn5>
+<channelfilter_1/chn16>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -470,32 +365,12 @@ _:b21
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<channelfilter_1/chn14>
+<channelfilter_1/chn2>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<channelfilter_1/chn12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<channelfilter_1/chn16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<channelfilter_1/chn7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<channelfilter_1/chn3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<channelfilter_1/chn8>
+<channelfilter_1/chn5>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -505,12 +380,32 @@ _:b21
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<channelfilter_1/chn1>
-    ingen:value 1.000000 ;
+<channelfilter_1/chn9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<channelfilter_1/chn14>
+    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
 <channelfilter_1/chn10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<channelfilter_1/chn8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<channelfilter_1/chn3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<channelfilter_1/chn7>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -520,12 +415,17 @@ _:b21
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<channelfilter_1/chn9>
+<channelfilter_1/chn12>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<channelfilter_1/chn2>
+<channelfilter_1/chn1>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<channelfilter_1/chn11>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -549,8 +449,8 @@ _:b21
     ingen:canvasY 331.0 ;
     ingen:enabled true ;
     ingen:polyphonic false ;
-    lv2:microVersion 0 ;
-    lv2:minorVersion 1030 ;
+    lv2:microVersion 31 ;
+    lv2:minorVersion 1033 ;
     mod:builderVersion 0 ;
     mod:releaseNumber 0 ;
     lv2:port <channelfilter_2/chn1> ,
@@ -589,12 +489,7 @@ _:b21
     a atom:AtomPort ,
         lv2:OutputPort .
 
-<channelfilter_2/chn11>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<channelfilter_2/chn5>
+<channelfilter_2/chn16>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -604,32 +499,12 @@ _:b21
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<channelfilter_2/chn14>
+<channelfilter_2/chn2>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<channelfilter_2/chn12>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<channelfilter_2/chn16>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<channelfilter_2/chn7>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<channelfilter_2/chn3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<channelfilter_2/chn8>
+<channelfilter_2/chn5>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -639,7 +514,12 @@ _:b21
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<channelfilter_2/chn1>
+<channelfilter_2/chn9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<channelfilter_2/chn14>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -649,17 +529,37 @@ _:b21
     a lv2:ControlPort ,
         lv2:InputPort .
 
+<channelfilter_2/chn8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<channelfilter_2/chn3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<channelfilter_2/chn7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
 <channelfilter_2/chn6>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<channelfilter_2/chn9>
+<channelfilter_2/chn12>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<channelfilter_2/chn2>
+<channelfilter_2/chn1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<channelfilter_2/chn11>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -683,8 +583,8 @@ _:b21
     ingen:canvasY 795.0 ;
     ingen:enabled true ;
     ingen:polyphonic false ;
-    lv2:microVersion 0 ;
-    lv2:minorVersion 1030 ;
+    lv2:microVersion 31 ;
+    lv2:minorVersion 1033 ;
     mod:builderVersion 0 ;
     mod:releaseNumber 0 ;
     lv2:port <eventblocker/blkcc> ,
@@ -719,8 +619,8 @@ _:b21
     a atom:AtomPort ,
         lv2:OutputPort .
 
-<eventblocker/cm2>
-    ingen:value -1.000000 ;
+<eventblocker/blkcc>
+    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -734,7 +634,12 @@ _:b21
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<eventblocker/blkcc>
+<eventblocker/cmt>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<eventblocker/blkpc>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -744,13 +649,8 @@ _:b21
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<eventblocker/blkpb>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<eventblocker/cmt>
-    ingen:value 0.000000 ;
+<eventblocker/cm2>
+    ingen:value -1.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -764,6 +664,11 @@ _:b21
     a lv2:ControlPort ,
         lv2:InputPort .
 
+<eventblocker/blkpb>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
 <eventblocker/blkcp>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
@@ -771,11 +676,6 @@ _:b21
 
 <eventblocker/blknote>
     ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<eventblocker/blkpc>
-    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -793,8 +693,8 @@ _:b21
     ingen:canvasY 66.0 ;
     ingen:enabled true ;
     ingen:polyphonic false ;
-    lv2:microVersion 0 ;
-    lv2:minorVersion 1030 ;
+    lv2:microVersion 31 ;
+    lv2:minorVersion 1033 ;
     mod:builderVersion 0 ;
     mod:releaseNumber 0 ;
     lv2:port <keysplit/channelf> ,
@@ -823,23 +723,13 @@ _:b21
     a atom:AtomPort ,
         lv2:OutputPort .
 
-<keysplit/channel1>
-    ingen:value 2.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<keysplit/channelf>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
 <keysplit/channel0>
     ingen:value 1.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<keysplit/transp1>
-    ingen:value -12.000000 ;
+<keysplit/split>
+    ingen:value 48.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -848,8 +738,18 @@ _:b21
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<keysplit/split>
-    ingen:value 48.000000 ;
+<keysplit/transp1>
+    ingen:value -12.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<keysplit/channelf>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<keysplit/channel1>
+    ingen:value 2.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -899,6 +799,11 @@ _:b21
     a lv2:AudioPort ,
         lv2:OutputPort .
 
+<roomy/dry_wet>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
 <roomy/damping>
     ingen:value 0.500000 ;
     a lv2:ControlPort ,
@@ -909,12 +814,107 @@ _:b21
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<roomy/dry_wet>
-    ingen:value 0.500000 ;
+<roomy/:bypass>
+    ingen:value 0 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<roomy/:bypass>
+<EPiano>
+    ingen:canvasX 1747.0 ;
+    ingen:canvasY 789.0 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 3 ;
+    lv2:minorVersion 0 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <EPiano/left_out> ,
+             <EPiano/right_out> ,
+             <EPiano/env_decay> ,
+             <EPiano/env_release> ,
+             <EPiano/hardness> ,
+             <EPiano/treble_boost> ,
+             <EPiano/modulation> ,
+             <EPiano/lfo_rate> ,
+             <EPiano/vel_sense> ,
+             <EPiano/stereo_width> ,
+             <EPiano/polyphonic> ,
+             <EPiano/fine_tuning> ,
+             <EPiano/random_tuning> ,
+             <EPiano/overdrive> ,
+             <EPiano/event_in> ,
+             <EPiano/:bypass> ;
+    lv2:prototype <http://moddevices.com/plugins/mda/EPiano> ;
+    pedal:preset <> ;
+    a ingen:Block .
+
+<EPiano/event_in>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<EPiano/random_tuning>
+    ingen:value 7.300000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/env_decay>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/stereo_width>
+    ingen:value 100.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/env_release>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/fine_tuning>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/treble_boost>
+    ingen:value 26.562500 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/lfo_rate>
+    ingen:value 23.285000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/polyphonic>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/vel_sense>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/overdrive>
+    ingen:value 17.187500 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/hardness>
+    ingen:value 25.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/modulation>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/:bypass>
     ingen:value 0 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -1019,8 +1019,8 @@ _:b21
 
 <>
     doap:name "Multi-Demo (Ch 1, 2, Drums:10)" ;
-    pedal:width 3556 ;
-    pedal:height 1547 ;
+    pedal:width 3752 ;
+    pedal:height 1644 ;
     pedal:addressings <addressings.json> ;
     pedal:screenshot <screenshot.png> ;
     pedal:thumbnail <thumbnail.png> ;
@@ -1046,8 +1046,7 @@ _:b21
               _:b19 ,
               _:b20 ,
               _:b21 ;
-    ingen:block <EPiano> ,
-                <FluidPlug_FluidDrums> ,
+    ingen:block <FluidPlug_FluidDrums> ,
                 <Gain2x2> ,
                 <channelfilter> ,
                 <channelfilter_1> ,
@@ -1055,6 +1054,7 @@ _:b21
                 <eventblocker> ,
                 <keysplit> ,
                 <roomy> ,
+                <EPiano> ,
                 <FluidPlug_FluidBass> ;
     lv2:port <control_in> ,
              <control_out> ,

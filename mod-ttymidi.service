@@ -1,0 +1,13 @@
+[Unit]
+Description=mod-ttymidi
+After=jack2.service
+
+[Service]
+Environment=HOME=/home/pi
+WorkingDirectory=/home/pi
+ExecStart=/usr/local/bin/ttymidi -s /dev/ttyAMA0 -b 38400
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
+#WantedBy=network.target

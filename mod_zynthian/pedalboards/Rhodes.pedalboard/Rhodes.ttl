@@ -8,68 +8,131 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:b1
-    ingen:tail <Gain/Out> ;
-    ingen:head <_chorus_stereo/in> .
-
-_:b2
-    ingen:tail <_chorus_stereo/out> ;
-    ingen:head <Combo/left_in> .
-
-_:b3
-    ingen:tail <Gain/Out> ;
-    ingen:head <_chorus_stereo/in1> .
-
-_:b4
-    ingen:tail <capture_1> ;
-    ingen:head <playback_1> .
-
-_:b5
-    ingen:tail <White/out> ;
-    ingen:head <Gain/In> .
-
-_:b6
-    ingen:tail <EPiano/left_out> ;
-    ingen:head <_chorus_stereo/in> .
-
-_:b7
-    ingen:tail <EPiano/right_out> ;
-    ingen:head <_chorus_stereo/in1> .
-
-_:b8
-    ingen:tail <Gain2x2/Out1> ;
-    ingen:head <playback_1> .
-
-_:b9
-    ingen:tail <capture_2> ;
-    ingen:head <playback_2> .
-
-_:b10
-    ingen:tail <Combo/right_out> ;
-    ingen:head <Ambience/right_in> .
-
-_:b11
-    ingen:tail <Gain2x2/Out2> ;
-    ingen:head <playback_2> .
-
-_:b12
-    ingen:tail <Combo/left_out> ;
-    ingen:head <Ambience/left_in> .
-
-_:b13
-    ingen:tail <Ambience/left_out> ;
-    ingen:head <Gain2x2/In1> .
-
-_:b14
-    ingen:tail <_chorus_stereo/out1> ;
-    ingen:head <Combo/right_in> .
-
-_:b15
     ingen:tail <serial_midi_in> ;
     ingen:head <EPiano/event_in> .
 
-_:b16
+_:b2
     ingen:tail <Ambience/right_out> ;
     ingen:head <Gain2x2/In2> .
+
+_:b3
+    ingen:tail <_chorus_stereo/out> ;
+    ingen:head <Combo/left_in> .
+
+_:b4
+    ingen:tail <capture_2> ;
+    ingen:head <playback_2> .
+
+_:b5
+    ingen:tail <EPiano/left_out> ;
+    ingen:head <_chorus_stereo/in> .
+
+_:b6
+    ingen:tail <EPiano/right_out> ;
+    ingen:head <_chorus_stereo/in1> .
+
+_:b7
+    ingen:tail <_chorus_stereo/out1> ;
+    ingen:head <Combo/right_in> .
+
+_:b8
+    ingen:tail <Combo/left_out> ;
+    ingen:head <Ambience/left_in> .
+
+_:b9
+    ingen:tail <Ambience/left_out> ;
+    ingen:head <Gain2x2/In1> .
+
+_:b10
+    ingen:tail <Gain/Out> ;
+    ingen:head <_chorus_stereo/in> .
+
+_:b11
+    ingen:tail <Combo/right_out> ;
+    ingen:head <Ambience/right_in> .
+
+_:b12
+    ingen:tail <Gain2x2/Out2> ;
+    ingen:head <playback_2> .
+
+_:b13
+    ingen:tail <Gain2x2/Out1> ;
+    ingen:head <playback_1> .
+
+_:b14
+    ingen:tail <Gain/Out> ;
+    ingen:head <_chorus_stereo/in1> .
+
+_:b15
+    ingen:tail <capture_1> ;
+    ingen:head <playback_1> .
+
+_:b16
+    ingen:tail <White/out> ;
+    ingen:head <Gain/In> .
+
+<_chorus_stereo>
+    ingen:canvasX 962.0 ;
+    ingen:canvasY 608.0 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 0 ;
+    lv2:minorVersion 34 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <_chorus_stereo/in> ,
+             <_chorus_stereo/in1> ,
+             <_chorus_stereo/out> ,
+             <_chorus_stereo/out1> ,
+             <_chorus_stereo/level> ,
+             <_chorus_stereo/delay> ,
+             <_chorus_stereo/depth> ,
+             <_chorus_stereo/freq> ,
+             <_chorus_stereo/:bypass> ;
+    lv2:prototype <http://guitarix.sourceforge.net/plugins/gx_chorus_stereo#_chorus_stereo> ;
+    pedal:preset <> ;
+    a ingen:Block .
+
+<_chorus_stereo/in>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<_chorus_stereo/in1>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<_chorus_stereo/in>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<_chorus_stereo/in1>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<_chorus_stereo/level>
+    ingen:value 0.250000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<_chorus_stereo/depth>
+    ingen:value 0.093750 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<_chorus_stereo/delay>
+    ingen:value 0.020000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<_chorus_stereo/freq>
+    ingen:value 1.337500 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<_chorus_stereo/:bypass>
+    ingen:value 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
 
 <Ambience>
     ingen:canvasX 2578.0 ;
@@ -109,11 +172,6 @@ _:b16
     a lv2:AudioPort ,
         lv2:OutputPort .
 
-<Ambience/mix>
-    ingen:value 62.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
 <Ambience/size>
     ingen:value 3.125000 ;
     a lv2:ControlPort ,
@@ -126,6 +184,11 @@ _:b16
 
 <Ambience/hf_damp>
     ingen:value 70.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Ambience/mix>
+    ingen:value 62.500000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -175,13 +238,23 @@ _:b16
     a lv2:AudioPort ,
         lv2:OutputPort .
 
-<Combo/model>
-    ingen:value 3.000000 ;
+<Combo/bias>
+    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
 <Combo/output>
     ingen:value -5.625000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Combo/model>
+    ingen:value 3.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Combo/hpf_reso>
+    ingen:value 50.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -197,16 +270,6 @@ _:b16
 
 <Combo/drive>
     ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Combo/bias>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Combo/hpf_reso>
-    ingen:value 50.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -250,13 +313,13 @@ _:b16
     a atom:AtomPort ,
         lv2:InputPort .
 
-<EPiano/env_decay>
-    ingen:value 50.000000 ;
+<EPiano/random_tuning>
+    ingen:value 7.300000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<EPiano/lfo_rate>
-    ingen:value 23.285000 ;
+<EPiano/env_decay>
+    ingen:value 50.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -265,18 +328,8 @@ _:b16
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<EPiano/vel_sense>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/random_tuning>
-    ingen:value 7.300000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/modulation>
-    ingen:value 0.000000 ;
+<EPiano/env_release>
+    ingen:value 50.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -285,18 +338,13 @@ _:b16
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<EPiano/env_release>
-    ingen:value 50.000000 ;
+<EPiano/treble_boost>
+    ingen:value 39.062500 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<EPiano/hardness>
-    ingen:value 40.625000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/overdrive>
-    ingen:value 20.312500 ;
+<EPiano/lfo_rate>
+    ingen:value 23.285000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -305,8 +353,23 @@ _:b16
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<EPiano/treble_boost>
-    ingen:value 39.062500 ;
+<EPiano/vel_sense>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/overdrive>
+    ingen:value 20.312500 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/hardness>
+    ingen:value 40.625000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/modulation>
+    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -421,69 +484,6 @@ _:b16
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<_chorus_stereo>
-    ingen:canvasX 962.0 ;
-    ingen:canvasY 608.0 ;
-    ingen:enabled true ;
-    ingen:polyphonic false ;
-    lv2:microVersion 0 ;
-    lv2:minorVersion 34 ;
-    mod:builderVersion 0 ;
-    mod:releaseNumber 0 ;
-    lv2:port <_chorus_stereo/in> ,
-             <_chorus_stereo/in1> ,
-             <_chorus_stereo/out> ,
-             <_chorus_stereo/out1> ,
-             <_chorus_stereo/level> ,
-             <_chorus_stereo/delay> ,
-             <_chorus_stereo/depth> ,
-             <_chorus_stereo/freq> ,
-             <_chorus_stereo/:bypass> ;
-    lv2:prototype <http://guitarix.sourceforge.net/plugins/gx_chorus_stereo#_chorus_stereo> ;
-    pedal:preset <> ;
-    a ingen:Block .
-
-<_chorus_stereo/in>
-    a lv2:AudioPort ,
-        lv2:InputPort .
-
-<_chorus_stereo/in1>
-    a lv2:AudioPort ,
-        lv2:InputPort .
-
-<_chorus_stereo/in>
-    a lv2:AudioPort ,
-        lv2:OutputPort .
-
-<_chorus_stereo/in1>
-    a lv2:AudioPort ,
-        lv2:OutputPort .
-
-<_chorus_stereo/level>
-    ingen:value 0.250000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<_chorus_stereo/delay>
-    ingen:value 0.020000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<_chorus_stereo/freq>
-    ingen:value 1.337500 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<_chorus_stereo/depth>
-    ingen:value 0.093750 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<_chorus_stereo/:bypass>
-    ingen:value 0 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
 <control_in>
     atom:bufferType atom:Sequence ;
     lv2:index 0 ;
@@ -566,13 +566,13 @@ _:b16
               _:b14 ,
               _:b15 ,
               _:b16 ;
-    ingen:block <Ambience> ,
+    ingen:block <_chorus_stereo> ,
+                <Ambience> ,
                 <Combo> ,
                 <EPiano> ,
                 <Gain> ,
                 <Gain2x2> ,
-                <White> ,
-                <_chorus_stereo> ;
+                <White> ;
     lv2:port <control_in> ,
              <control_out> ,
              <serial_midi_in> ,
