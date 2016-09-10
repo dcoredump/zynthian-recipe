@@ -53,6 +53,7 @@ install-AirFont320: AirFont320
 	cp -r AirFont320.lv2/modgui      $(DESTDIR)/mod-lv2/AirFont320.lv2
 
 install-FluidGM: FluidGM
+	install -d $(DESTDIR)/mod-lv2/FluidGM.lv2
 	install -m 644 \
 		FluidGM.lv2/*.so \
 		FluidGM.lv2/*.ttl \
@@ -62,6 +63,7 @@ install-FluidGM: FluidGM
 	cp -r FluidGM.lv2/modgui         $(DESTDIR)/mod-lv2/FluidGM.lv2
 
 install-FluidBass: FluidBass
+	install -d $(DESTDIR)/mod-lv2/FluidBass.lv2
 	install -m 644 \
 		FluidBass.lv2/*.so \
 		FluidBass.lv2/*.ttl \
@@ -71,6 +73,7 @@ install-FluidBass: FluidBass
 	cp -r FluidBass.lv2/modgui       $(DESTDIR)/mod-lv2/FluidBass.lv2
 
 install-FluidBrass: FluidBrass
+	install -d $(DESTDIR)/mod-lv2/FluidBrass.lv2
 	install -m 644 \
 		FluidBrass.lv2/*.so \
 		FluidBrass.lv2/*.ttl \
@@ -80,6 +83,7 @@ install-FluidBrass: FluidBrass
 	cp -r FluidBrass.lv2/modgui      $(DESTDIR)/mod-lv2/FluidBrass.lv2
 
 install-FluidChromPerc: FluidChromPerc
+	install -d $(DESTDIR)/mod-lv2/FluidChromPerc.lv2
 	install -m 644 \
 		FluidChromPerc.lv2/*.so \
 		FluidChromPerc.lv2/*.ttl \
@@ -89,6 +93,7 @@ install-FluidChromPerc: FluidChromPerc
 	cp -r FluidChromPerc.lv2/modgui  $(DESTDIR)/mod-lv2/FluidChromPerc.lv2
 
 install-FluidDrums: FluidDrums
+	install -d $(DESTDIR)/mod-lv2/FluidDrums.lv2
 	install -m 644 \
 		FluidDrums.lv2/*.so \
 		FluidDrums.lv2/*.ttl \
@@ -98,6 +103,7 @@ install-FluidDrums: FluidDrums
 	cp -r FluidDrums.lv2/modgui      $(DESTDIR)/mod-lv2/FluidDrums.lv2
 
 install-FluidEnsemble: FluidEnsemble
+	install -d $(DESTDIR)/mod-lv2/FluidEnsemble.lv2
 	install -m 644 \
 		FluidEnsemble.lv2/*.so \
 		FluidEnsemble.lv2/*.ttl \
@@ -107,6 +113,7 @@ install-FluidEnsemble: FluidEnsemble
 	cp -r FluidEnsemble.lv2/modgui   $(DESTDIR)/mod-lv2/FluidEnsemble.lv2
 
 install-FluidEthnic: FluidEthnic
+	install -d $(DESTDIR)/mod-lv2/FluidEthnic.lv2
 	install -m 644 \
 		FluidEthnic.lv2/*.so \
 		FluidEthnic.lv2/*.ttl \
@@ -116,6 +123,7 @@ install-FluidEthnic: FluidEthnic
 	cp -r FluidEthnic.lv2/modgui     $(DESTDIR)/mod-lv2/FluidEthnic.lv2
 
 install-FluidGuitars: FluidGuitars
+	install -d $(DESTDIR)/mod-lv2/FluidGuitars.lv2
 	install -m 644 \
 		FluidGuitars.lv2/*.so \
 		FluidGuitars.lv2/*.ttl \
@@ -125,6 +133,7 @@ install-FluidGuitars: FluidGuitars
 	cp -r FluidGuitars.lv2/modgui    $(DESTDIR)/mod-lv2/FluidGuitars.lv2
 
 install-FluidOrgans: FluidOrgans
+	install -d $(DESTDIR)/mod-lv2/FluidOrgans.lv2
 	install -m 644 \
 		FluidOrgans.lv2/*.so \
 		FluidOrgans.lv2/*.ttl \
@@ -134,6 +143,7 @@ install-FluidOrgans: FluidOrgans
 	cp -r FluidOrgans.lv2/modgui     $(DESTDIR)/mod-lv2/FluidOrgans.lv2
 
 install-FluidPercussion: FluidPercussion
+	install -d $(DESTDIR)/mod-lv2/FluidPercussion.lv2
 	install -m 644 \
 		FluidPercussion.lv2/*.so \
 		FluidPercussion.lv2/*.ttl \
@@ -143,6 +153,7 @@ install-FluidPercussion: FluidPercussion
 	cp -r FluidPercussion.lv2/modgui $(DESTDIR)/mod-lv2/FluidPercussion.lv2
 
 install-FluidPianos: FluidPianos
+	install -d $(DESTDIR)/mod-lv2/FluidPianos.lv2
 	install -m 644 \
 		FluidPianos.lv2/*.so \
 		FluidPianos.lv2/*.ttl \
@@ -152,6 +163,7 @@ install-FluidPianos: FluidPianos
 	cp -r FluidPianos.lv2/modgui     $(DESTDIR)/mod-lv2/FluidPianos.lv2
 
 install-FluidPipes: FluidPipes
+	install -d $(DESTDIR)/mod-lv2/FluidPipes.lv2
 	install -m 644 \
 		FluidPipes.lv2/*.so \
 		FluidPipes.lv2/*.ttl \
@@ -161,6 +173,7 @@ install-FluidPipes: FluidPipes
 	cp -r FluidPipes.lv2/modgui      $(DESTDIR)/mod-lv2/FluidPipes.lv2
 
 install-FluidReeds: FluidReeds
+	install -d $(DESTDIR)/mod-lv2/FluidReeds.lv2
 	install -m 644 \
 		FluidReeds.lv2/*.so \
 		FluidReeds.lv2/*.ttl \
@@ -170,6 +183,7 @@ install-FluidReeds: FluidReeds
 	cp -r FluidReeds.lv2/modgui      $(DESTDIR)/mod-lv2/FluidReeds.lv2
 
 install-FluidSoundFX: FluidSoundFX
+	install -d $(DESTDIR)/mod-lv2/FluidSoundFX.lv2
 	install -m 644 \
 		FluidSoundFX.lv2/*.so \
 		FluidSoundFX.lv2/*.ttl \
@@ -179,6 +193,7 @@ install-FluidSoundFX: FluidSoundFX
 	cp -r FluidSoundFX.lv2/modgui    $(DESTDIR)/mod-lv2/FluidSoundFX.lv2
 
 install-FluidStrings: FluidStrings
+	install -d $(DESTDIR)/mod-lv2/FluidStrings.lv2
 	install -m 644 \
 		FluidStrings.lv2/*.so \
 		FluidStrings.lv2/*.ttl \
@@ -188,6 +203,7 @@ install-FluidStrings: FluidStrings
 	cp -r FluidStrings.lv2/modgui    $(DESTDIR)/mod-lv2/FluidStrings.lv2
 
 install-FluidSynthFX: FluidSynthFX
+	install -d $(DESTDIR)/mod-lv2/FluidSynthFX.lv2
 	install -m 644 \
 		FluidSynthFX.lv2/*.so \
 		FluidSynthFX.lv2/*.ttl \
@@ -197,6 +213,7 @@ install-FluidSynthFX: FluidSynthFX
 	cp -r FluidSynthFX.lv2/modgui    $(DESTDIR)/mod-lv2/FluidSynthFX.lv2
 
 install-FluidSynthLeads: FluidSynthLeads
+	install -d $(DESTDIR)/mod-lv2/FluidSynthLeads.lv2
 	install -m 644 \
 		FluidSynthLeads.lv2/*.so \
 		FluidSynthLeads.lv2/*.ttl \
@@ -206,6 +223,7 @@ install-FluidSynthLeads: FluidSynthLeads
 	cp -r FluidSynthLeads.lv2/modgui $(DESTDIR)/mod-lv2/FluidSynthLeads.lv2
 
 install-FluidSynthPads: FluidSynthPads
+	install -d $(DESTDIR)/mod-lv2/FluidSynthPads.lv2
 	install -m 644 \
 		FluidSynthPads.lv2/*.so \
 		FluidSynthPads.lv2/*.ttl \
