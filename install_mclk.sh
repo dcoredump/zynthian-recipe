@@ -3,7 +3,7 @@ cd "${HOME}/zynthian/zynthian-sw"
 git clone https://github.com/x42/mclk.lv2.git
 cd mclk.lv2
 sed -i -- 's/-msse -msse2 -mfpmath=sse //' Makefile
-sed -i -- 's/LV2DIR ?= \$(PREFIX)\/$(LIBDIR)\/lv2/LV2DIR ?= \/home\/pi\/zynthian\/zynthian-plugins\/lv2/' Makefile
+sed -i -- 's/LV2DIR ?= \$(PREFIX)\/$(LIBDIR)\/lv2/LV2DIR ?= \/home\/pi\/zynthian\/zynthian-plugins\/mod-lv2/' Makefile
 make
 sudo make install
 sudo cp -R modgui /home/pi/zynthian/zynthian-plugins/lv2/mclk.lv2

@@ -13,7 +13,7 @@ sudo pip3 install JACK-Client
 git clone https://github.com/zynthian/zynthian-sys.git
 export ZYNTHIAN_SYS_DIR="${HOME}/zynthian/zynthian-sys"
 sudo cp $ZYNTHIAN_SYS_DIR/etc/modules /etc
-sudo cp $ZYNTHIAN_SYS_DIR/etc/udev/rules.d/* /etc/udev/rules.d
+#sudo cp $ZYNTHIAN_SYS_DIR/etc/udev/rules.d/* /etc/udev/rules.d
 
 sudo dphys-swapfile swapoff
 sudo dphys-swapfile uninstall
@@ -46,12 +46,12 @@ cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/mod_midi_autoconnect.py "${HO
 cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/cpu-performance.sh "${HOME}/bin"
 cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/bin/pedalboard "${HOME}/bin"
 sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/systemd/* /etc/systemd/system
-sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/udev/* /etc/udev/rules.d
+#sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/udev/* /etc/udev/rules.d
 sudo cp /boot/config.txt /boot/config.txt.orig
 sudo cp /boot/cmdline.txt /boot/cmdline.txt.orig
 sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/boot/* /boot
 sudo systemctl enable jack2
-sudo systemctl enable a2jmidid
+#sudo systemctl enable a2jmidid
 sudo systemctl enable mod-host
 sudo systemctl enable mod-ui
 sudo systemctl enable performance
