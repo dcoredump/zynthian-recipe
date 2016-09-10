@@ -13,6 +13,7 @@ cd ..
 sh "${HOME}"/zynthian/zynthian-recipe/install_mod-host.sh
 sh "${HOME}"/zynthian/zynthian-recipe/install_mod-ui.sh
 sh "${HOME}"/zynthian/zynthian-recipe/install_phantomjs.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_mod-sdk.sh
 sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/systemd/mod-host.service /etc/systemd/system
 sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/systemd/mod-ui.service /etc/systemd/system
 sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/systemd/mod-sdk.service /etc/systemd/system
