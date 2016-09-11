@@ -21,7 +21,7 @@ mkdir "${HOME}"/bin
 cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/bin/pedalboard* "${HOME}"/bin
 chmod 755 "${HOME}"/bin/*
 mkdir "${HOME}"/.pedalboards
-cp -R "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/pedalboards/* "${HOME}"/.pedlboards
+rsync -avP "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/pedalboards/* "${HOME}"/.pedalboards
 #
 # LV2 plugins
 #
