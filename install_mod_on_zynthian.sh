@@ -20,6 +20,8 @@ sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/systemd/mod-sdk.service 
 mkdir "${HOME}"/bin
 cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/bin/pedalboard* "${HOME}"/bin
 chmod 755 "${HOME}"/bin/*
+mkdir "${HOME}"/.pedalboards
+cp -R "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/pedalboards/* "${HOME}"/.pedlboards
 #
 # LV2 plugins
 #
@@ -44,4 +46,4 @@ sh "${HOME}"/zynthian/zynthian-recipe/install_openav-artyfx.sh
 sh "${HOME}"/zynthian/zynthian-recipe/install_sooperlooper-lv2-plugin.sh
 sh "${HOME}"/zynthian/zynthian-recipe/install_sosynth.sh
 sh "${HOME}"/zynthian/zynthian-recipe/install_step-seq.sh
-#install_mod-lv2-data.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_mod-lv2-data.sh
