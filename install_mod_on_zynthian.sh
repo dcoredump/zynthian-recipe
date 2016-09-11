@@ -17,3 +17,28 @@ sh "${HOME}"/zynthian/zynthian-recipe/install_mod-sdk.sh
 sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/systemd/mod-host.service /etc/systemd/system
 sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/systemd/mod-ui.service /etc/systemd/system
 sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/systemd/mod-sdk.service /etc/systemd/system
+#
+# LV2 plugins
+#
+sh "${HOME}"/zynthian/zynthian-recipe/install_mod-mda.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install-calf.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_eq10q.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_guitarix.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_fat1.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_fluidplug.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_gxslowgear.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_gxswitchlesswah.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_gxvintagefuzz.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_mclk.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_midifilter.lv2.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_mod-caps.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_mod-distortion.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_mod-pitchshifter.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_mod-setbfree.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_mod-tap.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_mod-utilities.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_openav-artyfx.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_sooperlooper-lv2-plugin.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_sosynth.sh
+sh "${HOME}"/zynthian/zynthian-recipe/install_step-seq.sh
+#install_mod-lv2-data.sh

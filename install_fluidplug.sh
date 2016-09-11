@@ -9,7 +9,6 @@ sed -i -- 's/-msse -msse2/-march=armv6/' Makefile.mk
 #sed -i -- 's/^PREFIX  = \/usr//' Makefile
 #sed -i -- 's/\$(PREFIX)\/lib//' Makefile
 cp "${HOME}"/zynthian/zynthian-recipe/FluidPlug.Makefile .
-#sudo make -f FluidPlug.Makefile
 sudo make -f FluidPlug.Makefile
 sudo ldconfig
 make distclean
