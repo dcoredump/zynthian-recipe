@@ -1,3 +1,4 @@
+# sudo zynthian/zynthian-sys/scripts/zyn-wiggle
 sudo apt-get update
 cd "${HOME}"/zynthian
 git clone https://github.com/dcoredump/zynthian-recipe.git
@@ -15,6 +16,8 @@ sh "${HOME}"/zynthian/zynthian-recipe/install_mod-ui.sh
 sh "${HOME}"/zynthian/zynthian-recipe/install_phantomjs.sh
 sh "${HOME}"/zynthian/zynthian-recipe/install_mod-sdk.sh
 sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/systemd/mod-host.service /etc/systemd/system
+sudo sed -i -- 's/BindsTo=jack2.service/#BindsTo=jack2.service/' /etc/systemd/system/mod-host.service
+sudo sed -i -- 's/After=jack2.service/#After=jack2.service/' /etc/systemd/system/mod-host.service
 sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/systemd/mod-ui.service /etc/systemd/system
 sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/systemd/mod-sdk.service /etc/systemd/system
 mkdir "${HOME}"/bin
@@ -46,4 +49,9 @@ sh "${HOME}"/zynthian/zynthian-recipe/install_openav-artyfx.sh
 sh "${HOME}"/zynthian/zynthian-recipe/install_sooperlooper-lv2-plugin.sh
 sh "${HOME}"/zynthian/zynthian-recipe/install_sosynth.sh
 sh "${HOME}"/zynthian/zynthian-recipe/install_step-seq.sh
+#sh "${HOME}"/zynthian/zynthian-recipe/install_gxsupertoneblender.sh
+#sh "${HOME}"/zynthian/zynthian-recipe/install_gxsuperfuzz.sh
+#sh "${HOME}"/zynthian/zynthian-recipe/install_gxvoodofuzz.sh
+#sh "${HOME}"/zynthian/zynthian-recipe/install_gxsupersaturator.sh
+#sh "${HOME}"/zynthian/zynthian-recipe/install_gxhyperion.sh
 sh "${HOME}"/zynthian/zynthian-recipe/install_mod-lv2-data.sh
