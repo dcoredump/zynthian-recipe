@@ -49,4 +49,9 @@ sh "${HOME}"/zynthian/zynthian-recipe/install_openav-artyfx.sh
 sh "${HOME}"/zynthian/zynthian-recipe/install_sooperlooper-lv2-plugin.sh
 sh "${HOME}"/zynthian/zynthian-recipe/install_sosynth.sh
 sh "${HOME}"/zynthian/zynthian-recipe/install_step-seq.sh
+#sh "${HOME}"/zynthian/zynthian-recipe/install_gxsupertoneblender.sh
+#sh "${HOME}"/zynthian/zynthian-recipe/install_gxsuperfuzz.sh
+#sh "${HOME}"/zynthian/zynthian-recipe/install_gxvoodofuzz.sh
+#sh "${HOME}"/zynthian/zynthian-recipe/install_gxsupersaturator.sh
+#sh "${HOME}"/zynthian/zynthian-recipe/install_gxhyperion.sh
 sh "${HOME}"/zynthian/zynthian-recipe/install_mod-lv2-data.sh
