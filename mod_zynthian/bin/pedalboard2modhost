@@ -37,18 +37,22 @@ while($ttl=<TTL>)
 		if($ttl=~/^\s*ingen:tail\s*\<(.+)\>/)
 		{
 			$tail=$1;
-			$tail=~s/serial_midi_in/ttymidi\/MIDI_in/;
-			$tail=~s/serial_midi_out/ttymidi\/MIDI_out/;
-			$tail=~s/(playback.+)/system\/\1/;
-			$tail=~s/(capture.+)/system\/\1/;
+			$tail=~s/^serial_midi_in/ttymidi\/MIDI_in/;
+			$tail=~s/^serial_midi_out/ttymidi\/MIDI_out/;
+			$tail=~s/^(midi_capture_.+)/system\/\1/;
+			$tail=~s/^(midi_playback_.+)/system\/\1/;
+			$tail=~s/^(playback.+)/system\/\1/;
+			$tail=~s/^(capture.+)/system\/\1/;
 		}
 		elsif($ttl=~/^\s*ingen:head\s*\<(.+)\>/)
 		{
 			$head=$1;
-			$head=~s/serial_midi_in/ttymidi\/MIDI_in/;
-			$head=~s/serial_midi_out/ttymidi\/MIDI_out/;
-			$head=~s/(playback.+)/system\/\1/;
-			$head=~s/(capture.+)/system\/\1/;
+			$head=~s/^serial_midi_in/ttymidi\/MIDI_in/;
+			$head=~s/^serial_midi_out/ttymidi\/MIDI_out/;
+			$head=~s/^(midi_capture_.+)/system\/\1/;
+			$head=~s/^(midi_playback_.+)/system\/\1/;
+			$head=~s/^(playback.+)/system\/\1/;
+			$head=~s/^(capture.+)/system\/\1/;
 		}
 
 		if($tail && $head)
