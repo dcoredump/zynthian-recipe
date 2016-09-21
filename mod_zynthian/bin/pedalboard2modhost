@@ -17,6 +17,9 @@ while($ttl=<TTL>)
 		undef($tail);
 		undef($head);
 		undef($plugin_uri);
+		undef($midi_binding);
+		undef($midi_channel);
+		undef($midi_controller);
 		next;
 	}
 
@@ -62,7 +65,7 @@ while($ttl=<TTL>)
 			push(@cable,"$head:$tail");
 		}
 	}
-	# plugin or param
+	# plugin, param or midi-param
 	elsif($item=~/\//)
 	{
 		# param
@@ -79,6 +82,28 @@ while($ttl=<TTL>)
 			{
 				push(@param,"param_set $number $plugin_param $value");
 			}
+		}
+		# midi-param
+		elsif($ttl=~/^\s*midi:binding \[/)
+		{
+			($plugin_name,$plugin_param)=split("\/",$item);
+			$midi_binding=$plugin_param;
+		}
+		elsif($ttl=~/^\s*midi:channel\s+(\d+)/)
+		{
+			$midi_channel=int($1);
+		}
+		elsif($ttl=~/^\s*midi:controllerNumber\s+(\d+)/)
+		{
+			$midi_controller=int($1);
+		}
+
+		if(defined($midi_binding) && defined($midi_channel) && defined($midi_controller))
+		{
+			push(@midi_param,"$number/$midi_binding/$midi_channel/$midi_controller");
+			undef($midi_binding);
+			undef($midi_channel);
+			undef($midi_controller);
 		}
 	}
 	elsif($item ne "")
@@ -102,6 +127,11 @@ foreach (@plugin)
 foreach (@param)
 {
 	print $_."\n";
+}
+foreach (@midi_param)
+{
+	($number,$midi_binding,$midi_channel,$midi_controller)=split("/",$_);
+	print "midi_map ".$number." ".$midi_binding." ".$midi_channel." ".$midi_controller."\n";
 }
 foreach (@cable)
 {
