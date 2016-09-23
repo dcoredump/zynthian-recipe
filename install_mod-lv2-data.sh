@@ -1,5 +1,4 @@
 # install_mod-lv2-data.sh
-mkdir -p /home/pi/zynthian/zynthian-plugins/mod-gui-lv2
 cd "${HOME}"/zynthian/zynthian-sw
 sudo chown -R pi.pi "${HOME}"/zynthian/zynthian-plugins
 git clone https://github.com/moddevices/mod-lv2-data.git

@@ -17,6 +17,9 @@ while($ttl=<TTL>)
 		undef($tail);
 		undef($head);
 		undef($plugin_uri);
+		undef($midi_binding);
+		undef($midi_channel);
+		undef($midi_controller);
 		next;
 	}
 
@@ -37,18 +40,22 @@ while($ttl=<TTL>)
 		if($ttl=~/^\s*ingen:tail\s*\<(.+)\>/)
 		{
 			$tail=$1;
-			$tail=~s/serial_midi_in/ttymidi\/MIDI_in/;
-			$tail=~s/serial_midi_out/ttymidi\/MIDI_out/;
-			$tail=~s/(playback.+)/system\/\1/;
-			$tail=~s/(capture.+)/system\/\1/;
+			$tail=~s/^serial_midi_in/ttymidi\/MIDI_in/;
+			$tail=~s/^serial_midi_out/ttymidi\/MIDI_out/;
+			$tail=~s/^(midi_capture_.+)/system\/\1/;
+			$tail=~s/^(midi_playback_.+)/system\/\1/;
+			$tail=~s/^(playback.+)/system\/\1/;
+			$tail=~s/^(capture.+)/system\/\1/;
 		}
 		elsif($ttl=~/^\s*ingen:head\s*\<(.+)\>/)
 		{
 			$head=$1;
-			$head=~s/serial_midi_in/ttymidi\/MIDI_in/;
-			$head=~s/serial_midi_out/ttymidi\/MIDI_out/;
-			$head=~s/(playback.+)/system\/\1/;
-			$head=~s/(capture.+)/system\/\1/;
+			$head=~s/^serial_midi_in/ttymidi\/MIDI_in/;
+			$head=~s/^serial_midi_out/ttymidi\/MIDI_out/;
+			$head=~s/^(midi_capture_.+)/system\/\1/;
+			$head=~s/^(midi_playback_.+)/system\/\1/;
+			$head=~s/^(playback.+)/system\/\1/;
+			$head=~s/^(capture.+)/system\/\1/;
 		}
 
 		if($tail && $head)
@@ -58,7 +65,7 @@ while($ttl=<TTL>)
 			push(@cable,"$head:$tail");
 		}
 	}
-	# plugin or param
+	# plugin, param or midi-param
 	elsif($item=~/\//)
 	{
 		# param
@@ -75,6 +82,28 @@ while($ttl=<TTL>)
 			{
 				push(@param,"param_set $number $plugin_param $value");
 			}
+		}
+		# midi-param
+		elsif($ttl=~/^\s*midi:binding \[/)
+		{
+			($plugin_name,$plugin_param)=split("\/",$item);
+			$midi_binding=$plugin_param;
+		}
+		elsif($ttl=~/^\s*midi:channel\s+(\d+)/)
+		{
+			$midi_channel=int($1);
+		}
+		elsif($ttl=~/^\s*midi:controllerNumber\s+(\d+)/)
+		{
+			$midi_controller=int($1);
+		}
+
+		if(defined($midi_binding) && defined($midi_channel) && defined($midi_controller))
+		{
+			push(@midi_param,"$number/$midi_binding/$midi_channel/$midi_controller");
+			undef($midi_binding);
+			undef($midi_channel);
+			undef($midi_controller);
 		}
 	}
 	elsif($item ne "")
@@ -98,6 +127,11 @@ foreach (@plugin)
 foreach (@param)
 {
 	print $_."\n";
+}
+foreach (@midi_param)
+{
+	($number,$midi_binding,$midi_channel,$midi_controller)=split("/",$_);
+	print "midi_map ".$number." ".$midi_binding." ".$midi_channel." ".$midi_controller."\n";
 }
 foreach (@cable)
 {
