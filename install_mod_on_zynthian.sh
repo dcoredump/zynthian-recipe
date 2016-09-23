@@ -3,8 +3,9 @@ sudo apt-get update
 cd "${HOME}"/zynthian
 git clone https://github.com/dcoredump/zynthian-recipe.git
 sh "${HOME}"/zynthian/zynthian-recipe/install_lv2_lilv.sh # throws an error at the end - ignore it!
-sh "${HOME}"/zynthian/zynthian-recipe/install_jack2.sh    # You need jack2-git for MOD-UI
-sed -i -- 's/\/usr\/bin\/jackd -P70 -p16 -t2000 -s -dalsa -dhw:0 -r44100 -p256 -n2/#\/usr\/bin\/jackd -P70 -p16 -t2000 -s -dalsa -dhw:0 -r44100 -p256 -n2\n\t\/usr\/local\/bin\/jackd -P70 -t2000 -s -d alsa -dhw:0 -r44100 -p256 -X raw -n2/' "${HOME}"/zynthian/zynthian-ui/zynthian.sh
+#sh "${HOME}"/zynthian/zynthian-recipe/install_jack2.sh    # You need jack2-git for MOD-UI
+#sed -i -- 's/\/usr\/bin\/jackd -P70 -p16 -t2000 -s -dalsa -dhw:0 -r44100 -p256 -n2/#\/usr\/bin\/jackd -P70 -p16 -t2000 -s -dalsa -dhw:0 -r44100 -p256 -n2\n\t\/usr\/local\/bin\/jackd -P70 -t2000 -s -d alsa -dhw:0 -r44100 -p256 -X raw -n2/' "${HOME}"/zynthian/zynthian-ui/zynthian.sh
+sed -i -- 's/\/usr\/bin\/jackd -P70 -p16 -t2000 -s -dalsa -dhw:0 -r44100 -p256 -n2/#\/usr\/bin\/jackd -P70 -p16 -t2000 -s -dalsa -dhw:0 -r44100 -p256 -n2\n\t\/usr\/bin\/jackd -P70 -t2000 -s -d alsa -dhw:0 -r44100 -p256 -X raw -n2/' "${HOME}"/zynthian/zynthian-ui/zynthian.sh
 sudo chown -R pi.pi mod-ttymidi
 cd mod-ttymidi
 git pull
@@ -54,4 +55,5 @@ sh "${HOME}"/zynthian/zynthian-recipe/install_step-seq.sh
 #sh "${HOME}"/zynthian/zynthian-recipe/install_gxvoodofuzz.sh
 #sh "${HOME}"/zynthian/zynthian-recipe/install_gxsupersaturator.sh
 #sh "${HOME}"/zynthian/zynthian-recipe/install_gxhyperion.sh
+#sh "${HOME}"/zynthian/zynthian-recipe/install_calf.sh
 sh "${HOME}"/zynthian/zynthian-recipe/install_mod-lv2-data.sh
