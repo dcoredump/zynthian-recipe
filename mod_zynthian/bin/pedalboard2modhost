@@ -62,7 +62,7 @@ while($ttl=<TTL>)
 	elsif($item=~/\//)
 	{
 		# param
-		if($ttl=~/^\s*ingen:value\s+([0-9\.]+)/)
+		if($ttl=~/^\s*ingen:value\s+(\-?[0-9\.]+)/)
 		{
 			$value=$1;
 			($plugin_name,$plugin_param)=split("\/",$item);
