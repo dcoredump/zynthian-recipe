@@ -1,6 +1,6 @@
 # EQ10q
 cd "${HOME}"/zynthian/zynthian-sw
-sudo apt-get install -y subversion
+sudo apt-get install -y subversion libfftw3-dev
 svn checkout svn://svn.code.sf.net/p/eq10q/code/trunk eq10q-code
 cd eq10q-code
 sed -i -- 's/-msse -mfpmath=sse//' CMakeLists.txt
