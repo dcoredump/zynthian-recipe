@@ -489,70 +489,70 @@ AirFont320.lv2/FluidPlug.sf2:
 		rm airfont_a340u.tar*)
 
 AVL_Drumkits_Perc.lv2/FluidPlug.sf2:
-        -@mkdir -p $(shell dirname $@)
-        (cd AVL_Drumkits_Perc.lv2 && \
-                wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/AVL_Drumkits_Perc_1.1.tar.7z && \
-                7z x AVL_Drumkits_Perc_1.1.tar.7z && \
-                7z x AVL_Drumkits_Perc_1.1.tar && \
-                mv AVL_Drumkits_Perc_1.1/* . && \
-                mv AVL_Drumkits_Perc_1.1.sf2 FluidPlug.sf2 && \
-                mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
-                rmdir AVL_Drumkits_Perc_1.1)
+	-@mkdir -p $(shell dirname $@)
+	(cd AVL_Drumkits_Perc.lv2 && \
+		wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/AVL_Drumkits_Perc_1.1.tar.7z && \
+		7z x AVL_Drumkits_Perc_1.1.tar.7z && \
+		7z x AVL_Drumkits_Perc_1.1.tar && \
+		mv AVL_Drumkits_Perc_1.1/* . && \
+		mv AVL_Drumkits_Perc_1.1.sf2 FluidPlug.sf2 && \
+		mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
+		rmdir AVL_Drumkits_Perc_1.1)
 
 Black_Pearl_4A.lv2/FluidPlug.sf2:
-        -@mkdir -p $(shell dirname $@)
-        (cd Black_Pearl_4A.lv2 && \
-                wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/Black_Pearl_4A-1.1.tar.7z && \
-                7z x Black_Pearl_4A-1.1.tar.7z && \
-                7z x Black_Pearl_4A-1.1.tar && \
-                mv Black_Pearl_4A-1.1/* . && \
-                mv Black_Pearl_4A-1.1.sf2 FluidPlug.sf2 && \
-                mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
-                rmdir Black_Pearl_4A-1.1)
+	-@mkdir -p $(shell dirname $@)
+	(cd Black_Pearl_4A.lv2 && \
+		wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/Black_Pearl_4A-1.1.tar.7z && \
+		7z x Black_Pearl_4A-1.1.tar.7z && \
+		7z x Black_Pearl_4A-1.1.tar && \
+		mv Black_Pearl_4A-1.1/* . && \
+		mv Black_Pearl_4A-1.1.sf2 FluidPlug.sf2 && \
+		mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
+		rmdir Black_Pearl_4A-1.1)
 
 Black_Pearl_4B.lv2/FluidPlug.sf2:
-        -@mkdir -p $(shell dirname $@)
-        (cd Black_Pearl_4B.lv2 && \
-                wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/Black_Pearl_4B-1.1.tar.7z && \
-                7z x Black_Pearl_4B-1.1.tar.7z && \
-                7z x Black_Pearl_4B-1.1.tar && \
-                mv Black_Pearl_4B-1.1/* . && \
-                mv Black_Pearl_4B-1.1.sf2 FluidPlug.sf2 && \
-                mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
-                rmdir Black_Pearl_4B-1.1)
+	-@mkdir -p $(shell dirname $@)
+	(cd Black_Pearl_4B.lv2 && \
+		wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/Black_Pearl_4B-1.1.tar.7z && \
+		7z x Black_Pearl_4B-1.1.tar.7z && \
+		7z x Black_Pearl_4B-1.1.tar && \
+		mv Black_Pearl_4B-1.1/* . && \
+		mv Black_Pearl_4B-1.1.sf2 FluidPlug.sf2 && \
+		mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
+		rmdir Black_Pearl_4B-1.1)
 
 Black_Pearl_5.lv2/FluidPlug.sf2:
-        -@mkdir -p $(shell dirname $@)
-        (cd Black_Pearl_5.lv2 && \
-                wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/Black_Pearl_5-1.1.tar.7z && \
-                7z x Black_Pearl_5-1.1.tar.7z && \
-                7z x Black_Pearl_5-1.1.tar && \
-                mv Black_Pearl_5-1.1/* . && \
-                mv Black_Pearl_5-1.1.sf2 FluidPlug.sf2 && \
-                mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
-                rmdir Black_Pearl_5-1.1)
+	-@mkdir -p $(shell dirname $@)
+	(cd Black_Pearl_5.lv2 && \
+		wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/Black_Pearl_5-1.1.tar.7z && \
+		7z x Black_Pearl_5-1.1.tar.7z && \
+		7z x Black_Pearl_5-1.1.tar && \
+		mv Black_Pearl_5-1.1/* . && \
+		mv Black_Pearl_5-1.1.sf2 FluidPlug.sf2 && \
+		mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
+		rmdir Black_Pearl_5-1.1)
 
 Red_Zeppelin_4.lv2/FluidPlug.sf2:
-        -@mkdir -p $(shell dirname $@)
-        (cd Red_Zeppelin_4.lv2 && \
-                wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/Red_Zeppelin_4-1.1.tar.7z && \
-                7z x Red_Zeppelin_4-1.1.tar.7z && \
-                7z x Red_Zeppelin_4-1.1.tar && \
-                mv Red_Zeppelin_4-1.1/* . && \
-                mv Red_Zeppelin_4-1.1.sf2 FluidPlug.sf2 && \
-                mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
-                rmdir Red_Zeppelin_4-1.1)
+	-@mkdir -p $(shell dirname $@)
+	(cd Red_Zeppelin_4.lv2 && \
+		wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/Red_Zeppelin_4-1.1.tar.7z && \
+		7z x Red_Zeppelin_4-1.1.tar.7z && \
+		7z x Red_Zeppelin_4-1.1.tar && \
+		mv Red_Zeppelin_4-1.1/* . && \
+		mv Red_Zeppelin_4-1.1.sf2 FluidPlug.sf2 && \
+		mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
+		rmdir Red_Zeppelin_4-1.1)
 
 Red_Zeppelin_5.lv2/FluidPlug.sf2:
-        -@mkdir -p $(shell dirname $@)
-        (cd Red_Zeppelin_5.lv2 && \
-                wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/Red_Zeppelin_5-1.1.tar.7z && \
-                7z x Red_Zeppelin_5-1.1.tar.7z && \
-                7z x Red_Zeppelin_5-1.1.tar && \
-                mv Red_Zeppelin_5-1.1/* . && \
-                mv Red_Zeppelin_5-1.1.sf2 FluidPlug.sf2 && \
-                mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
-                rmdir Red_Zeppelin_5-1.1)
+	-@mkdir -p $(shell dirname $@)
+	(cd Red_Zeppelin_5.lv2 && \
+		wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/Red_Zeppelin_5-1.1.tar.7z && \
+		7z x Red_Zeppelin_5-1.1.tar.7z && \
+		7z x Red_Zeppelin_5-1.1.tar && \
+		mv Red_Zeppelin_5-1.1/* . && \
+		mv Red_Zeppelin_5-1.1.sf2 FluidPlug.sf2 && \
+		mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
+		rmdir Red_Zeppelin_5-1.1)
 
 FluidGM.lv2/FluidPlug.sf2:
 	-@mkdir -p $(shell dirname $@)
