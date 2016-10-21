@@ -1,7 +1,7 @@
 # calf
 cd "${HOME}/zynthian/zynthian-sw"
 #sudo apt-get install -y libtool-bin libfluidsynth1 libexpat-dev
-sudo apt-get install -y libtool-bin libexpat-dev
+sudo apt-get install -y libtool-bin libexpat-dev automake libglib2.0-dev
 # <BEGIN HACK> The following lines are a f***ing b***sh*t hack - only needed if no X-dev is installed
 # Kids: Don't do this at home!!! :-)
 sudo apt-get --download-only install -y libcairo2-dev
@@ -13,7 +13,7 @@ cd calf
 sudo mv /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-2.0.pc /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-2.0.pc.tmp
 sudo mv /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-3.0.pc /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-3.0.pc.tmp
 sh autogen.sh
-./configure --with-lv2-dir= --exec-prefix=/home/pi/zynthian/zynthian-plugins/mod-data --prefix=/home/pi/zynthian/zynthian-plugins/mod-data
+./configure --with-lv2-dir=/home/pi/zynthian/zynthian-plugins/mod-lv2 --exec-prefix=/home/pi/zynthian/zynthian-plugins/mod-data --prefix=/home/pi/zynthian/zynthian-plugins/mod-data
 sudo mv /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-2.0.pc.tmp /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-2.0.pc
 sudo mv /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-3.0.pc.tmp /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-3.0.pc
 sed -i -- 's/, 1e-20f/, (double)1e-20f/' src/analyzer.cpp
@@ -21,4 +21,5 @@ sed -i -- 's/, 1.0f/, (double)1.0f/' src/modules_limit.cpp
 make
 sudo make install
 make clean
+sudo apt-get purge -y libcairo2-dev
 cd ..
