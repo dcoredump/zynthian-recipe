@@ -3,11 +3,11 @@ sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y install git
 mkdir -p "${HOME}"/zynthian/zynthian-sw
 cd "${HOME}/zynthian"
 git clone https://github.com/dcoredump/zynthian-recipe.git
-sudo ntpdate time.fu-berlin.de
 
 # Start optimizing here
-sudo apt-get -y purge libraspberrypi-doc libopts25 ntp nano joe # we use vi!
+sudo apt-get purge -y libraspberrypi-doc libopts25 ntp nano joe # we use vi!
 sudo apt-get install -y vim aptitude build-essential python3 python3-cffi python3-pip jq ntpdate
+sudo ntpdate time.fu-berlin.de
 sudo pip3 install JACK-Client
 
 git clone https://github.com/zynthian/zynthian-sys.git
@@ -42,9 +42,9 @@ sudo update-rc.d -f rsyslog remove
 sudo update-rc.d -f ntp remove
 
 mkdir -p "${HOME}"/bin
-cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/mod_midi_autoconnect.py "${HOME}/bin"
+#cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/mod_midi_autoconnect.py "${HOME}/bin"
 cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/cpu-performance.sh "${HOME}/bin"
-cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/bin/pedalboard "${HOME}/bin"
+cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/bin/* "${HOME}/bin"
 sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/systemd/* /etc/systemd/system
 #sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/udev/* /etc/udev/rules.d
 sudo cp /boot/config.txt /boot/config.txt.orig
