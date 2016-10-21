@@ -24,6 +24,12 @@ distclean: clean
 
 install: \
 	install-AirFont320 \
+	install-AVL_Drumkits_Perc \
+	install-Black_Pearl_4A \
+	install-Black_Pearl_4B \
+	install Black_Pearl_5 \
+	install Red_Zeppelin_4 \
+	install Red_Zeppelin_5 \
 	install-FluidGM \
 	install-FluidBass \
 	install-FluidBrass \
@@ -50,7 +56,61 @@ install-AirFont320: AirFont320
 		AirFont320.lv2/*.ttl \
 		$(DESTDIR)/mod-lv2/AirFont320.lv2
 	mv AirFont320.lv2/*.sf2 $(DESTDIR)/mod-lv2/AirFont320.lv2
-	cp -r AirFont320.lv2/modgui      $(DESTDIR)/mod-lv2/AirFont320.lv2
+	cp -r AirFont320.lv2/modgui $(DESTDIR)/mod-lv2/AirFont320.lv2
+
+install-AVL_Drumkits_Perc: AVL_Drumkits_Perc
+	install -d $(DESTDIR)/mod-lv2/AVL_Drumkits_Perc.lv2
+	install -m 644 \
+		AVL_Drumkits_Perc.lv2/*.so \
+		AVL_Drumkits_Perc.lv2/*.ttl \
+		$(DESTDIR)/mod-lv2/AVL_Drumkits_Perc.lv2
+	mv AVL_Drumkits_Perc.lv2/*.sf2 $(DESTDIR)/mod-lv2/AVL_Drumkits_Perc.lv2
+	cp -r AVL_Drumkits_Perc.lv2/modgui $(DESTDIR)/mod-lv2/AVL_Drumkits_Perc.lv2
+
+install-Black_Pearl_4A: Black_Pearl_4A
+	install -d $(DESTDIR)/mod-lv2/Black_Pearl_4A.lv2
+	install -m 644 \
+		Black_Pearl_4A.lv2/*.so \
+		Black_Pearl_4A.lv2/*.ttl \
+		$(DESTDIR)/mod-lv2/Black_Pearl_4A.lv2
+	mv Black_Pearl_4A.lv2/*.sf2 $(DESTDIR)/mod-lv2/Black_Pearl_4A.lv2
+	cp -r Black_Pearl_4A.lv2/modgui $(DESTDIR)/mod-lv2/Black_Pearl_4A.lv2
+
+install-Black_Pearl_4B: Black_Pearl_4B
+	install -d $(DESTDIR)/mod-lv2/Black_Pearl_4BBlack_Pearl_4B.lv2
+	install -m 644 \
+		Black_Pearl_4BBlack_Pearl_4B.lv2/*.so \
+		Black_Pearl_4BBlack_Pearl_4B.lv2/*.ttl \
+		$(DESTDIR)/mod-lv2/Black_Pearl_4BBlack_Pearl_4B.lv2
+	mv Black_Pearl_4BBlack_Pearl_4B.lv2/*.sf2 $(DESTDIR)/mod-lv2/Black_Pearl_4BBlack_Pearl_4B.lv2
+	cp -r Black_Pearl_4BBlack_Pearl_4B.lv2/modgui $(DESTDIR)/mod-lv2/Black_Pearl_4BBlack_Pearl_4B.lv2
+
+install-Black_Pearl_5: Black_Pearl_5
+	install -d $(DESTDIR)/mod-lv2/Black_Pearl_4BBlack_Pearl_5.lv2
+	install -m 644 \
+		Black_Pearl_4BBlack_Pearl_5.lv2/*.so \
+		Black_Pearl_4BBlack_Pearl_5.lv2/*.ttl \
+		$(DESTDIR)/mod-lv2/Black_Pearl_4BBlack_Pearl_5.lv2
+	mv Black_Pearl_4BBlack_Pearl_5.lv2/*.sf2 $(DESTDIR)/mod-lv2/Black_Pearl_4BBlack_Pearl_5.lv2
+	cp -r Black_Pearl_4BBlack_Pearl_5.lv2/modgui $(DESTDIR)/mod-lv2/Black_Pearl_4BBlack_Pearl_5.lv2
+
+install-Red_Zeppelin_4: Red_Zeppelin_4
+	install -d $(DESTDIR)/mod-lv2/Red_Zeppelin_4.lv2
+	install -m 644 \
+		Red_Zeppelin_4.lv2/*.so \
+		Red_Zeppelin_4.lv2/*.ttl \
+		$(DESTDIR)/mod-lv2/Red_Zeppelin_4.lv2
+	mv Red_Zeppelin_4.lv2/*.sf2 $(DESTDIR)/mod-lv2/Red_Zeppelin_4.lv2
+	cp -r Red_Zeppelin_4.lv2/modgui $(DESTDIR)/mod-lv2/Red_Zeppelin_4.lv2
+
+install-Red_Zeppelin_5: Red_Zeppelin_5
+	install -d $(DESTDIR)/mod-lv2/Red_Zeppelin_5.lv2
+	install -m 644 \
+		Red_Zeppelin_5.lv2/*.so \
+		Red_Zeppelin_5.lv2/*.ttl \
+		$(DESTDIR)/mod-lv2/Red_Zeppelin_5.lv2
+	mv Red_Zeppelin_5.lv2/*.sf2 $(DESTDIR)/mod-lv2/Red_Zeppelin_5.lv2
+	cp -r Red_Zeppelin_5.lv2/modgui $(DESTDIR)/mod-lv2/Red_Zeppelin_5.lv2
 
 install-FluidGM: FluidGM
 	install -d $(DESTDIR)/mod-lv2/FluidGM.lv2
@@ -237,6 +297,12 @@ install-FluidSynthPads: FluidSynthPads
 
 build: \
 	install-AirFont320 \
+	install-AVL_Drumkits_Perc \
+	install-Black_Pearl_4A \
+	install-Black_Pearl_4B \
+	install Black_Pearl_5 \
+	install Red_Zeppelin_4 \
+	install Red_Zeppelin_5 \
 	install-FluidGM \
 	install-FluidBass \
 	install-FluidBrass \
@@ -263,6 +329,42 @@ AirFont320: \
 	AirFont320.lv2/FluidPlug.so \
 	AirFont320.lv2/FluidPlug.ttl \
 	AirFont320.lv2/manifest.ttl
+
+AVL_Drumkits_Perc: \
+        AVL_Drumkits_Perc.lv2/FluidPlug.sf2 \
+        AVL_Drumkits_Perc.lv2/FluidPlug.so \
+        AVL_Drumkits_Perc.lv2/FluidPlug.ttl \
+        AVL_Drumkits_Perc.lv2/manifest.ttl
+
+Black_Pearl_4A: \
+        Black_Pearl_4A.lv2/FluidPlug.sf2 \
+        Black_Pearl_4A.lv2/FluidPlug.so \
+        Black_Pearl_4A.lv2/FluidPlug.ttl \
+        Black_Pearl_4A.lv2/manifest.ttl
+
+Black_Pearl_4B: \
+        Black_Pearl_4B.lv2/FluidPlug.sf2 \
+        Black_Pearl_4B.lv2/FluidPlug.so \
+        Black_Pearl_4B.lv2/FluidPlug.ttl \
+        Black_Pearl_4B.lv2/manifest.ttl
+
+Black_Pearl_5: \
+        Black_Pearl_5.lv2/FluidPlug.sf2 \
+        Black_Pearl_5.lv2/FluidPlug.so \
+        Black_Pearl_5.lv2/FluidPlug.ttl \
+        Black_Pearl_5.lv2/manifest.ttl
+
+Red_Zeppelin_4: \
+        Red_Zeppelin_4.lv2/FluidPlug.sf2 \
+        Red_Zeppelin_4.lv2/FluidPlug.so \
+        Red_Zeppelin_4.lv2/FluidPlug.ttl \
+        Red_Zeppelin_4.lv2/manifest.ttl
+
+Red_Zeppelin_5: \
+        Red_Zeppelin_5.lv2/FluidPlug.sf2 \
+        Red_Zeppelin_5.lv2/FluidPlug.so \
+        Red_Zeppelin_5.lv2/FluidPlug.ttl \
+        Red_Zeppelin_5.lv2/manifest.ttl
 
 FluidGM: \
 	FluidGM.lv2/FluidPlug.sf2 \
@@ -385,6 +487,72 @@ AirFont320.lv2/FluidPlug.sf2:
 		mv readme README && \
 		rmdir airfont_a340u && \
 		rm airfont_a340u.tar*)
+
+AVL_Drumkits_Perc.lv2/FluidPlug.sf2:
+        -@mkdir -p $(shell dirname $@)
+        (cd AVL_Drumkits_Perc.lv2 && \
+                wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/AVL_Drumkits_Perc_1.1.tar.7z && \
+                7z x AVL_Drumkits_Perc_1.1.tar.7z && \
+                7z x AVL_Drumkits_Perc_1.1.tar && \
+                mv AVL_Drumkits_Perc_1.1/* . && \
+                mv AVL_Drumkits_Perc_1.1.sf2 FluidPlug.sf2 && \
+                mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
+                rmdir AVL_Drumkits_Perc_1.1)
+
+Black_Pearl_4A.lv2/FluidPlug.sf2:
+        -@mkdir -p $(shell dirname $@)
+        (cd Black_Pearl_4A.lv2 && \
+                wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/Black_Pearl_4A-1.1.tar.7z && \
+                7z x Black_Pearl_4A-1.1.tar.7z && \
+                7z x Black_Pearl_4A-1.1.tar && \
+                mv Black_Pearl_4A-1.1/* . && \
+                mv Black_Pearl_4A-1.1.sf2 FluidPlug.sf2 && \
+                mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
+                rmdir Black_Pearl_4A-1.1)
+
+Black_Pearl_4B.lv2/FluidPlug.sf2:
+        -@mkdir -p $(shell dirname $@)
+        (cd Black_Pearl_4B.lv2 && \
+                wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/Black_Pearl_4B-1.1.tar.7z && \
+                7z x Black_Pearl_4B-1.1.tar.7z && \
+                7z x Black_Pearl_4B-1.1.tar && \
+                mv Black_Pearl_4B-1.1/* . && \
+                mv Black_Pearl_4B-1.1.sf2 FluidPlug.sf2 && \
+                mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
+                rmdir Black_Pearl_4B-1.1)
+
+Black_Pearl_5.lv2/FluidPlug.sf2:
+        -@mkdir -p $(shell dirname $@)
+        (cd Black_Pearl_5.lv2 && \
+                wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/Black_Pearl_5-1.1.tar.7z && \
+                7z x Black_Pearl_5-1.1.tar.7z && \
+                7z x Black_Pearl_5-1.1.tar && \
+                mv Black_Pearl_5-1.1/* . && \
+                mv Black_Pearl_5-1.1.sf2 FluidPlug.sf2 && \
+                mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
+                rmdir Black_Pearl_5-1.1)
+
+Red_Zeppelin_4.lv2/FluidPlug.sf2:
+        -@mkdir -p $(shell dirname $@)
+        (cd Red_Zeppelin_4.lv2 && \
+                wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/Red_Zeppelin_4-1.1.tar.7z && \
+                7z x Red_Zeppelin_4-1.1.tar.7z && \
+                7z x Red_Zeppelin_4-1.1.tar && \
+                mv Red_Zeppelin_4-1.1/* . && \
+                mv Red_Zeppelin_4-1.1.sf2 FluidPlug.sf2 && \
+                mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
+                rmdir Red_Zeppelin_4-1.1)
+
+Red_Zeppelin_5.lv2/FluidPlug.sf2:
+        -@mkdir -p $(shell dirname $@)
+        (cd Red_Zeppelin_5.lv2 && \
+                wget http://download.linuxaudio.org/musical-instrument-libraries/sf2/AVL-Drumkits-1.1-SF2-splitted/Red_Zeppelin_5-1.1.tar.7z && \
+                7z x Red_Zeppelin_5-1.1.tar.7z && \
+                7z x Red_Zeppelin_5-1.1.tar && \
+                mv Red_Zeppelin_5-1.1/* . && \
+                mv Red_Zeppelin_5-1.1.sf2 FluidPlug.sf2 && \
+                mv 'AVL-Drumkits CC-BY-SA License.pdf' License.pdf && \
+                rmdir Red_Zeppelin_5-1.1)
 
 FluidGM.lv2/FluidPlug.sf2:
 	-@mkdir -p $(shell dirname $@)
