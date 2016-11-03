@@ -6,4 +6,5 @@ cd mod-host
 #patch -p1 <"${HOME}/zynthian/zynthian-recipe/mod-host.patch.txt"
 make
 sudo make install
+make clean
 cd ..
