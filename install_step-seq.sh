@@ -1,5 +1,5 @@
 # stepseq.lv2
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 git clone https://github.com/x42/stepseq.lv2.git
 cd stepseq.lv2
 sed -i -- 's/-msse -msse2 -mfpmath=sse //' Makefile

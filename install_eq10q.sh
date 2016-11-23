@@ -1,5 +1,5 @@
 # EQ10q
-cd "${HOME}"/zynthian/zynthian-sw
+cd $ZYNTHIAN_SW_DIR
 sudo apt-get install -y subversion libfftw3-dev
 svn checkout svn://svn.code.sf.net/p/eq10q/code/trunk eq10q-code
 cd eq10q-code

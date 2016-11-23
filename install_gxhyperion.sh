@@ -1,5 +1,5 @@
 # install_gxhyperion.sh
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 git clone https://github.com/moddevices/GxHyperion.lv2.git
 cd GxHyperion.lv2
 sed -i -- 's/-msse2 -mfpmath=sse//' Makefile

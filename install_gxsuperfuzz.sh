@@ -1,5 +1,5 @@
 # install_gxsupertoneblender.lv2
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 git clone https://github.com/moddevices/GxSuppaToneBender.lv2.git
 cd GxSuppaToneBender.lv2
 sed -i -- 's/-march=armv7 -mfpu=vfpv3//' Makefile

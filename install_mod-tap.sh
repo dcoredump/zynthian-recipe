@@ -1,5 +1,5 @@
 # install_mod-tap.sh
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 git clone https://github.com/moddevices/tap-lv2.git
 cd tap-lv2
 sed -i -- 's/-mtune=generic -msse -msse2 -mfpmath=sse//' Makefile.mk

@@ -1,5 +1,5 @@
 # Mod-Host
-cd "${HOME}"/zynthian/zynthian-sw
+cd $ZYNTHIAN_SW_DIR
 sudo apt-get install -y libreadline-dev
 git clone https://github.com/moddevices/mod-host.git
 cd mod-host
@@ -7,4 +7,3 @@ cd mod-host
 make
 sudo make install
 make clean
-cd ..

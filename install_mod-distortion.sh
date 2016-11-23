@@ -1,5 +1,5 @@
 # install_mod-distortion.sh
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 git clone https://github.com/moddevices/mod-distortion.git
 cd mod-distortion
 make

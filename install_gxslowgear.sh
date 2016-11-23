@@ -1,5 +1,5 @@
 # install_gxslowgear.sh
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 git clone https://github.com/moddevices/GxSlowGear.lv2.git
 cd GxSlowGear.lv2/
 sed -i -- 's/-msse2 -mfpmath=sse//' Makefile

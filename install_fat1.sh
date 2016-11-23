@@ -1,5 +1,5 @@
 # fat1.lv2
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 git clone https://github.com/x42/fat1.lv2.git
 cd fat1.lv2
 sed -i -- 's/-msse -msse2 -mfpmath=sse //' Makefile

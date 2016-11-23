@@ -1,5 +1,5 @@
 # Jack2
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 sudo apt-get install -y libasound2-dev
 git clone https://github.com/jackaudio/jack2.git
 cd jack2

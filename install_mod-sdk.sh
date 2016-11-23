@@ -1,5 +1,5 @@
 # mod-sdk
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 git clone --recursive https://github.com/moddevices/mod-sdk.git
 cd mod-sdk/utils
 make

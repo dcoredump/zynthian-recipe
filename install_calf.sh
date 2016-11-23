@@ -1,5 +1,5 @@
 # calf
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 #sudo apt-get install -y libtool-bin libfluidsynth1 libexpat-dev
 sudo apt-get install -y libtool-bin libexpat-dev automake libglib2.0-dev
 # <BEGIN HACK> The following lines are a f***ing b***sh*t hack - only needed if no X-dev is installed

@@ -1,5 +1,5 @@
 # guitarix.lv2
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 sudo apt-get install -y gettext intltool libgettextpo-dev libglib2.0-dev libglibmm-2.4-dev libfftw3-dev libeigen3-dev libsndfile-dev
 git clone http://git.code.sf.net/p/guitarix/git guitarix-git
 cd guitarix-git/trunk

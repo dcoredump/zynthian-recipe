@@ -1,5 +1,5 @@
 # LVtk
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 git clone https://github.com/lvtk/lvtk.git
 cd lvtk
 ./waf configure --disable-ui

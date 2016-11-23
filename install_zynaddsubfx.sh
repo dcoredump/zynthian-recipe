@@ -1,5 +1,5 @@
 # drmr.lv2
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 sudo apt-get install -y liblo0-dev libmxml-dev
 git clone git://git.code.sf.net/p/zynaddsubfx/code && mv code zynaddsubfx
 cd zynaddsubfx

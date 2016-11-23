@@ -1,5 +1,5 @@
 # openav-artyfx.sh
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 git clone https://github.com/openAVproductions/openAV-ArtyFX.git
 cd openAV-ArtyFX
 sed -i -- 's/\-msse2 \-mfpmath=sse/-march=armv6/' CMakeLists.txt

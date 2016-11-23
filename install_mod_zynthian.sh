@@ -1,6 +1,6 @@
 # install_mod_zynthian.sh
 sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y install git
-mkdir -p "${HOME}"/zynthian/zynthian-sw
+mkdir -p $ZYNTHIAN_SW_DIR
 cd "${HOME}/zynthian"
 git clone https://github.com/dcoredump/zynthian-recipe.git
 
@@ -42,14 +42,14 @@ sudo update-rc.d -f rsyslog remove
 sudo update-rc.d -f ntp remove
 
 mkdir -p "${HOME}"/bin
-#cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/mod_midi_autoconnect.py "${HOME}/bin"
-cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/cpu-performance.sh "${HOME}/bin"
-cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/bin/* "${HOME}/bin"
-sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/systemd/* /etc/systemd/system
-#sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/udev/* /etc/udev/rules.d
+#cp $ZYNTHIAN_RECIPE_DIR/mod_zynthian/mod_midi_autoconnect.py "${HOME}/bin"
+cp $ZYNTHIAN_RECIPE_DIR/mod_zynthian/cpu-performance.sh "${HOME}/bin"
+cp $ZYNTHIAN_RECIPE_DIR/mod_zynthian/bin/* "${HOME}/bin"
+sudo cp $ZYNTHIAN_RECIPE_DIR/mod_zynthian/systemd/* /etc/systemd/system
+#sudo cp $ZYNTHIAN_RECIPE_DIR/mod_zynthian/udev/* /etc/udev/rules.d
 sudo cp /boot/config.txt /boot/config.txt.orig
 sudo cp /boot/cmdline.txt /boot/cmdline.txt.orig
-sudo cp "${HOME}"/zynthian/zynthian-recipe/mod_zynthian/boot/* /boot
+sudo cp $ZYNTHIAN_RECIPE_DIR/mod_zynthian/boot/* /boot
 sudo systemctl enable jack2
 #sudo systemctl enable a2jmidid
 sudo systemctl enable mod-host

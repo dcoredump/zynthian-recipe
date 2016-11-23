@@ -1,5 +1,5 @@
 # drmr.lv2
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 sudo apt-get install -y samplerate-dev 
 git clone https://github.com/nicklan/drmr.git
 cd drmr

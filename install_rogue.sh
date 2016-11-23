@@ -1,5 +1,5 @@
 # rogue
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 sudo apt-get install -y libsamplerate0-dev lvtk-tools
 git clone https://github.com/timowest/rogue.git
 cd rogue

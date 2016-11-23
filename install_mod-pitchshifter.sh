@@ -1,5 +1,5 @@
 # install_mod-pitchshifter.sh
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 sudo apt-get install -y libarmadillo-dev libfftw3-dev python3-mpmath
 git clone https://github.com/moddevices/mod-pitchshifter.git
 cd mod-pitchshifter
