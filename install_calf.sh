@@ -11,7 +11,7 @@ cd calf
 sudo mv /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-2.0.pc /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-2.0.pc.tmp
 sudo mv /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-3.0.pc /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-3.0.pc.tmp
 sh autogen.sh
-./configure --with-lv2-dir=$ZYNTHIAN_PLUGINS_DIR/lv2 --exec-prefix=$ZYNTHIAN_PLUGINS_DIR/mod-lv2-data --prefix=$ZYNTHIAN_PLUGINS_DIR/mod-lv2-data
+./configure --with-lv2-dir=$ZYNTHIAN_PLUGINS_DIR/lv2 --exec-prefix=$ZYNTHIAN_PLUGINS_DIR --prefix=$ZYNTHIAN_PLUGINS_DIR
 sudo mv /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-2.0.pc.tmp /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-2.0.pc
 sudo mv /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-3.0.pc.tmp /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-3.0.pc
 sed -i -- 's/, 1e-20f/, (double)1e-20f/' src/analyzer.cpp
