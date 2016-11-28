@@ -1,8 +1,8 @@
 # install_mod-distortion.sh
-cd $ZYNTHIAN_SW_DIR
+cd $ZYNTHIAN_PLUGINS_SRC_DIR
 git clone https://github.com/moddevices/mod-distortion.git
 cd mod-distortion
-make
-sudo make INSTALL_PATH=/home/pi/zynthian/zynthian-plugins/mod-lv2 install
+make -j 4
+sudo make INSTALL_PATH=$ZYNTHIAN_PLUGINS_DIR/lv2 install
 make clean
 cd ..
