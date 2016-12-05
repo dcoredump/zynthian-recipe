@@ -4,23 +4,28 @@ echo zynthian >/etc/hostname
 sed -i -- 's/minibian/zynthian/' /etc/hosts
 cat <<EOF >>~/.bashrc
 export ZYNTHIAN_DIR="/zynthian"
-export ZYNTHIAN_SW_DIR="${ZYNTHIAN_DIR}/zynthian-sw"
-export ZYNTHIAN_UI_DIR="${ZYNTHIAN_DIR}/zynthian-ui"
-export ZYNTHIAN_SYS_DIR="${ZYNTHIAN_DIR}/zynthian-sys"
-export ZYNTHIAN_DATA_DIR="${ZYNTHIAN_DIR}/zynthian-data"
-export ZYNTHIAN_RECIPE_DIR="${ZYNTHIAN_DIR}/zynthian-recipe"
-export ZYNTHIAN_PLUGIN_DIR="${ZYNTHIAN_DIR}/zynthian-plugins/lv2/mod-lv2"
-export LV2_PATH="
+export ZYNTHIAN_SW_DIR="\${ZYNTHIAN_DIR}/zynthian-sw"
+export ZYNTHIAN_UI_DIR="\${ZYNTHIAN_DIR}/zynthian-ui"
+export ZYNTHIAN_SYS_DIR="\${ZYNTHIAN_DIR}/zynthian-sys"
+export ZYNTHIAN_DATA_DIR="\${ZYNTHIAN_DIR}/zynthian-data"
+export ZYNTHIAN_RECIPE_DIR="\${ZYNTHIAN_DIR}/zynthian-recipe"
+export ZYNTHIAN_PLUGIN_DIR="\${ZYNTHIAN_DIR}/zynthian-plugins/lv2/mod-lv2"
+export LV2_PATH="\${ZYNTHIAN_PLUGIN_DIR}"
 EOF
 . ~/.bashrc
-apt-get update && sudo apt-get -y upgrade && sudo apt-get -y install git aptitude sudo vim build-essential python python3 python3-cffi python3-pip jq ntpdate
+ln -s ${ZYNTHIAN_DIR} ${HOME}
+
+apt-get update && apt-get -y upgrade && apt-get -y install git aptitude sudo vim build-essential python python3 python3-cffi python3-pip jq ntpdate rpi-update
 apt-get purge -y libraspberrypi-doc libopts25 ntp nano joe # we use vi!
 ntpdate time.fu-berlin.de
-pip3 install JACK-Client
+rpi-update
 
+mkdir -p ${ZYNTHIAN_SW_DIR}
+cd "${ZYNTHIAN_DIR}"
 git clone https://github.com/zynthian/zynthian-sys.git
-cp "${ZYNTHIAN_SYS_DIR}/etc/modules" /etc
-cp "${ZYNTHIAN_SYS_DIR}/etc/udev/rules.d/*" /etc/udev/rules.d
+git clone https://github.com/dcoredump/zynthian-recipe.git
+cp "${ZYNTHIAN_SYS_DIR}"/etc/modules /etc
+cp "${ZYNTHIAN_SYS_DIR}"/etc/udev/rules.d/* /etc/udev/rules.d
 
 systemctl disable raspi-config
 systemctl disable dphys-swapfile
@@ -53,10 +58,10 @@ systemctl enable mod-ui
 systemctl enable performance
 reboot
 
-mkdir -p ${ZYNTHIAN_SW_DIR}
-cd "${ZYNTHIAN_DIR}"
-git clone https://github.com/dcoredump/zynthian-recipe.git
-
+#export CFLAGS="-mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits" # Raspi3
+#export CXXFLAGS="-mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits" # Raspi3
+#export CFLAGS="-mcpu=cortex-a7 -mthumb -mfpu=neon-vfpv4" # Raspi2
+#export CXXFLAGS="-mcpu=cortex-a7 -mthumb -mfpu=neon-vfpv4" # Raspi2
 cd ${ZYNTHIAN_RECIPE_DIR}
 sh ./install_jack2.sh
 sh ./install_mod-ttymidi.sh
@@ -64,5 +69,6 @@ sh ./install_lv2_lilv.sh
 sh ./install_lvtk.sh
 sh ./install_mod-host.sh
 sh ./install_mod-ui.sh
+sh ./install_phantomjs.sh
 sh ./install_modmeter.lv2.sh
 sh ./install_step-seq.sh

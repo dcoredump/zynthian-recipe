@@ -5,3 +5,4 @@ cd mod-ui
 sudo pip3 install -r requirements.txt
 cd utils
 make
+cd ../..
