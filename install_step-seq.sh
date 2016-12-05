@@ -1,5 +1,5 @@
 # stepseq.lv2
-cd $ZYNTHIAN_PLUGINS_SRC_DIR
+cd $ZYNTHIAN_SW
 git clone https://github.com/x42/stepseq.lv2.git
 cd stepseq.lv2
 sed -i -- 's/-msse -msse2 -mfpmath=sse/-march=armv6/' Makefile

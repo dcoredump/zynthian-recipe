@@ -5,4 +5,5 @@ git clone https://github.com/moddevices/mod-ttymidi.git
 cd mod-ttymidi
 make
 sudo make install
+make clean
 cd ..

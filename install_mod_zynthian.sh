@@ -15,7 +15,7 @@ EOF
 . ~/.bashrc
 ln -s ${ZYNTHIAN_DIR} ${HOME}
 
-apt-get update && apt-get -y upgrade && apt-get -y install git aptitude sudo vim build-essential python python3 python3-cffi python3-pip jq ntpdate rpi-update
+apt-get update && apt-get -y upgrade && apt-get -y install git aptitude sudo vim build-essential python python3 python3-cffi python3-pip jq ntpdate rpi-update htop
 apt-get purge -y libraspberrypi-doc libopts25 ntp nano joe # we use vi!
 ntpdate time.fu-berlin.de
 rpi-update
@@ -58,10 +58,9 @@ systemctl enable mod-ui
 systemctl enable performance
 reboot
 
-#export CFLAGS="-mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits" # Raspi3
-#export CXXFLAGS="-mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits" # Raspi3
+export CFLAGS="-mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits" # Raspi3
 #export CFLAGS="-mcpu=cortex-a7 -mthumb -mfpu=neon-vfpv4" # Raspi2
-#export CXXFLAGS="-mcpu=cortex-a7 -mthumb -mfpu=neon-vfpv4" # Raspi2
+export CXXFLAGS=${CFLAGS} # Raspi3
 cd ${ZYNTHIAN_RECIPE_DIR}
 sh ./install_jack2.sh
 sh ./install_mod-ttymidi.sh
@@ -70,5 +69,8 @@ sh ./install_lvtk.sh
 sh ./install_mod-host.sh
 sh ./install_mod-ui.sh
 sh ./install_phantomjs.sh
+sh ./install_mod-sdk.sh
 sh ./install_modmeter.lv2.sh
 sh ./install_step-seq.sh
+sh ./install_dexed.sh
+
