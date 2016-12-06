@@ -79,8 +79,8 @@ dtoverlay=i2s-mmap
 
 # Audio Device Driver:
 #dtoverlay=hifiberry-amp
-dtoverlay=hifiberry-dac
-#dtoverlay=hifiberry-dacplus
+#dtoverlay=hifiberry-dac
+dtoverlay=hifiberry-dacplus
 #dtoverlay=hifiberry-digi
 #dtoverlay=iqaudio-dac
 #dtoverlay=iqaudio-dacplus
