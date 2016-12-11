@@ -1,5 +1,5 @@
 # libne10
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 git clone https://github.com/projectNe10/Ne10
 cd Ne10
 mkdir build && cd build

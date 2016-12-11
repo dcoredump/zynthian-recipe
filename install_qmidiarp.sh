@@ -1,5 +1,5 @@
 # qmidiarp
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 git clone git://git.code.sf.net/p/qmidiarp/code qmidiarp-code
 cd qmidiarp-code
 libtoolize --force

@@ -1,5 +1,5 @@
 # a2jmidid
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 git clone git://repo.or.cz/a2jmidid.git
 cd a2jmidid
 ./waf configure

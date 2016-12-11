@@ -1,5 +1,5 @@
 #!/bin/sh
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 sudo apt-get install -y libyaml-tiny-perl
 
 

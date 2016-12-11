@@ -1,7 +1,9 @@
 # Mod-ttymidi
-cd "${HOME}"/zynthian/zynthian-sw
+cd $ZYNTHIAN_SW_DIR
+sudo apt-get install -y libasound-dev
 git clone https://github.com/moddevices/mod-ttymidi.git
 cd mod-ttymidi
 make
 sudo make install
+make clean
 cd ..

@@ -1,5 +1,5 @@
 # linuxsampler
-cd "${HOME}/zynthian/zynthian-sw"
+cd $ZYNTHIAN_SW_DIR
 sudo apt-get install -y subversion libtool flex bison
 svn co https://svn.linuxsampler.org/svn/libgig/trunk libgig
 cd libgig
