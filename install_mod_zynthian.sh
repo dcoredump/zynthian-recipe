@@ -1,4 +1,20 @@
 # install_mod_zynthian.sh based on MINIBIAN
+#
+# sudo dd if=2016-03-12-jessie-minibian.img of=/dev/mmcblk0 bs=4M
+#
+# After booting:
+# fdisk /dev/mmcblk0
+# d 2 n p 2 125056 <ENTER> w
+# reboot
+#
+# After 2nd boot:
+# resize2fs /dev/mmcblk0p2
+# apt update && apt install -y git screen
+# cd / && mkdir zynthian && cd /zynthian
+# git clone https://github.com/dcoredump/zynthian-recipe
+# cd zynthian-recipe
+# screen -L -d -m sh ./install_mod_zynthian.sh
+
 hostname zynthian
 echo zynthian >/etc/hostname
 sed -i -- 's/minibian/zynthian/' /etc/hosts
