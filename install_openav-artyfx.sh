@@ -1,5 +1,6 @@
 # openav-artyfx.sh
-cd $ZYNTHIAN_PLUGINS_SRC_DIR
+cd $ZYNTHIAN_SW_DIR
+sudo apt-get install -y cmake
 git clone https://github.com/openAVproductions/openAV-ArtyFX.git
 cd openAV-ArtyFX
 sed -i -- 's/\-msse2 \-mfpmath=sse/-march=armv6/' CMakeLists.txt
