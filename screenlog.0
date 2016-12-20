@@ -1,188 +1,0 @@
-^CCloning into 'setBfree'...
-remote: Counting objects: 4055, done.[K
-Receiving objects:   0% (1/4055)   Receiving objects:   1% (41/4055)   Receiving objects:   2% (82/4055)   Receiving objects:   3% (122/4055)   Receiving objects:   4% (163/4055)   Receiving objects:   5% (203/4055)   Receiving objects:   6% (244/4055)   Receiving objects:   7% (284/4055)   Receiving objects:   8% (325/4055)   Receiving objects:   9% (365/4055)   Receiving objects:  10% (406/4055)   Receiving objects:  11% (447/4055)   Receiving objects:  12% (487/4055)   Receiving objects:  13% (528/4055)   Receiving objects:  14% (568/4055)   Receiving objects:  15% (609/4055)   Receiving objects:  16% (649/4055)   Receiving objects:  17% (690/4055)   Receiving objects:  18% (730/4055)   Receiving objects:  19% (771/4055)   Receiving objects:  20% (811/4055), 884.00 KiB | 1.72 MiB/s   Receiving objects:  21% (852/4055), 884.00 KiB | 1.72 MiB/s   Receiving objects:  22% (893/4055), 884.00 KiB | 1.72 MiB/s   Receiving objects:  22% (904/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  23% (933/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  24% (974/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  25% (1014/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  26% (1055/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  27% (1095/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  28% (1136/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  29% (1176/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  30% (1217/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  31% (1258/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  32% (1298/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  33% (1339/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  34% (1379/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  35% (1420/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  36% (1460/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  37% (1501/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  38% (1541/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  39% (1582/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  40% (1622/4055), 5.03 MiB | 5.02 MiB/s   Receiving objects:  41% (1663/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  42% (1704/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  43% (1744/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  44% (1785/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  45% (1825/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  46% (1866/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  47% (1906/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  48% (1947/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  49% (1987/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  50% (2028/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  51% (2069/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  52% (2109/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  53% (2150/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  54% (2190/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  55% (2231/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  56% (2271/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  57% (2312/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  58% (2352/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  59% (2393/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  60% (2433/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  61% (2474/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  62% (2515/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  63% (2555/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  64% (2596/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  65% (2636/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  66% (2677/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  67% (2717/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  68% (2758/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  69% (2798/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  70% (2839/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  71% (2880/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  72% (2920/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  73% (2961/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  74% (3001/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  75% (3042/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  76% (3082/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  77% (3123/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  78% (3163/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  79% (3204/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  80% (3244/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  81% (3285/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  82% (3326/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  83% (3366/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  84% (3407/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  85% (3447/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  86% (3488/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  87% (3528/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  88% (3569/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  89% (3609/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  90% (3650/4055), 9.80 MiB | 6.53 MiB/s   remote: Total 4055 (delta 0), reused 0 (delta 0), pack-reused 4055[K
-Receiving objects:  91% (3691/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  92% (3731/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  93% (3772/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  94% (3812/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  95% (3853/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  96% (3893/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  97% (3934/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  98% (3974/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects:  99% (4015/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects: 100% (4055/4055), 9.80 MiB | 6.53 MiB/s   Receiving objects: 100% (4055/4055), 13.77 MiB | 6.53 MiB/s, done.
-Resolving deltas:   0% (0/2880)   Resolving deltas:   1% (30/2880)   Resolving deltas:   2% (59/2880)   Resolving deltas:   3% (94/2880)   Resolving deltas:   4% (135/2880)   Resolving deltas:   5% (144/2880)   Resolving deltas:   6% (173/2880)   Resolving deltas:   7% (204/2880)   Resolving deltas:   9% (267/2880)   Resolving deltas:  11% (320/2880)   Resolving deltas:  12% (346/2880)   Resolving deltas:  14% (405/2880)   Resolving deltas:  15% (438/2880)   Resolving deltas:  16% (465/2880)   Resolving deltas:  17% (511/2880)   Resolving deltas:  18% (547/2880)   Resolving deltas:  19% (548/2880)   Resolving deltas:  21% (605/2880)   Resolving deltas:  22% (645/2880)   Resolving deltas:  23% (664/2880)   Resolving deltas:  24% (692/2880)   Resolving deltas:  25% (728/2880)   Resolving deltas:  26% (761/2880)   Resolving deltas:  27% (778/2880)   Resolving deltas:  28% (809/2880)   Resolving deltas:  30% (872/2880)   Resolving deltas:  31% (917/2880)   Resolving deltas:  32% (923/2880)   Resolving deltas:  33% (961/2880)   Resolving deltas:  34% (980/2880)   Resolving deltas:  36% (1038/2880)   Resolving deltas:  40% (1154/2880)   Resolving deltas:  41% (1203/2880)   Resolving deltas:  42% (1219/2880)   Resolving deltas:  43% (1246/2880)   Resolving deltas:  44% (1274/2880)   Resolving deltas:  45% (1300/2880)   Resolving deltas:  46% (1327/2880)   Resolving deltas:  48% (1393/2880)   Resolving deltas:  49% (1434/2880)   Resolving deltas:  50% (1447/2880)   Resolving deltas:  51% (1480/2880)   Resolving deltas:  52% (1500/2880)   Resolving deltas:  53% (1547/2880)   Resolving deltas:  54% (1556/2880)   Resolving deltas:  55% (1586/2880)   Resolving deltas:  56% (1624/2880)   Resolving deltas:  57% (1653/2880)   Resolving deltas:  58% (1689/2880)   Resolving deltas:  62% (1814/2880)   Resolving deltas:  66% (1901/2880)   Resolving deltas:  67% (1937/2880)   Resolving deltas:  68% (1968/2880)   Resolving deltas:  69% (1990/2880)   Resolving deltas:  70% (2017/2880)   Resolving deltas:  71% (2058/2880)   Resolving deltas:  72% (2075/2880)   Resolving deltas:  73% (2117/2880)   Resolving deltas:  74% (2137/2880)   Resolving deltas:  75% (2166/2880)   Resolving deltas:  76% (2198/2880)   Resolving deltas:  77% (2218/2880)   Resolving deltas:  78% (2250/2880)   Resolving deltas:  79% (2276/2880)   Resolving deltas:  80% (2312/2880)   Resolving deltas:  81% (2335/2880)   Resolving deltas:  82% (2364/2880)   Resolving deltas:  83% (2401/2880)   Resolving deltas:  84% (2421/2880)   Resolving deltas:  85% (2455/2880)   Resolving deltas:  86% (2496/2880)   Resolving deltas:  89% (2573/2880)   Resolving deltas:  90% (2610/2880)   Resolving deltas:  91% (2626/2880)   Resolving deltas:  92% (2650/2880)   Resolving deltas:  93% (2682/2880)   Resolving deltas:  94% (2714/2880)   Resolving deltas:  95% (2740/2880)   Resolving deltas:  96% (2765/2880)   Resolving deltas:  97% (2795/2880)   Resolving deltas:  99% (2856/2880)   Resolving deltas: 100% (2880/2880)   Resolving deltas: 100% (2880/2880), done.
-Checking connectivity... done.
-make -C b_overdrive 
-make -C b_whirl 
-make -C b_reverb 
-make -C b_conv 
-make[1]: Entering directory '/root/setBfree/b_overdrive'
-make[1]: Entering directory '/root/setBfree/b_whirl'
-make[1]: Entering directory '/root/setBfree/b_reverb'
-make[1]: Entering directory '/root/setBfree/b_conv'
-make[1]: Nothing to be done for 'all'.
-make[1]: Leaving directory '/root/setBfree/b_conv'
-make -C src 
-make[1]: Entering directory '/root/setBfree/src'
-cc -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM -I../b_overdrive/ -I../b_whirl  -I../b_reverb -I../b_conv -DSHAREDIR="\"/usr/local/share/setBfree\"" `pkg-config --cflags jack`   -c -o midi.o midi.c
-Version: 0.8.0-42 -> 0 8 0 42
-Version: 0.8.0-42 -> 0 8 0 42
-Version: 0.8.0-42 -> 0 8 0 42
-LV2 Version: 2049 85
-LV2 Version: 2049 85
-Makefile:29: "whirl/leslie GUI will not be built"
-Makefile:30: "robtk or its dependencies are missing"
-LV2 Version: 2049 85
-cc -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM `pkg-config --cflags lv2` -fvisibility=hidden   -c -o reverb.o reverb.c
-cc  -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM -DHAVE_LIBLO `pkg-config --cflags liblo` -c -o overdrive.o overdrive.c
-cc -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM `pkg-config --cflags lv2` -fvisibility=hidden   -c -o whirl.o whirl.c
-sed "s/@LV2NAME@/b_reverb/;s/@LIB_EXT@/.so/" manifest.ttl.in > manifest.ttl
-cc  -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM `pkg-config --cflags lv2` -fvisibility=hidden \
-	-o b_reverb.so lv2.c reverb.o \
-  -shared -Wl,-Bstatic -Wl,-Bdynamic 
-sed "s/@LV2NAME@/b_overdrive/;s/@LIB_EXT@/.so/" manifest.ttl.in > manifest.ttl
-cc  -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM -DHAVE_LIBLO `pkg-config --cflags liblo` -fvisibility=hidden \
-	-o b_overdrive.so lv2.c overdrive.o \
-  -shared -Wl,-Bstatic -Wl,-Bdynamic 
-cc -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM -I../b_overdrive/ -I../b_whirl  -I../b_reverb -I../b_conv -DSHAREDIR="\"/usr/local/share/setBfree\"" `pkg-config --cflags jack`   -c -o midi_aseq.o midi_aseq.c
-sed "s/@VERSION@/lv2:microVersion 85 ;lv2:minorVersion 2049 ;/g" \
-	b_reverb.ttl.in > b_reverb.ttl
-make[1]: Leaving directory '/root/setBfree/b_reverb'
-cc -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM `pkg-config --cflags lv2` -fvisibility=hidden   -c -o eqcomp.o eqcomp.c
-cc -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM -I../b_overdrive/ -I../b_whirl  -I../b_reverb -I../b_conv -DSHAREDIR="\"/usr/local/share/setBfree\"" `pkg-config --cflags jack`   -c -o state.o state.c
-sed "s/@VERSION@/lv2:microVersion 85 ;lv2:minorVersion 2049 ;/g" \
-	b_overdrive.ttl.in > b_overdrive.ttl
-make[1]: Leaving directory '/root/setBfree/b_overdrive'
-sed "s/@LV2NAME@/b_whirl/;s/@LIB_EXT@/.so/" manifest.ttl.in > manifest.ttl
-make -C b_synth 
-cc -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM -I../b_overdrive/ -I../b_whirl  -I../b_reverb -I../b_conv -DSHAREDIR="\"/usr/local/share/setBfree\"" `pkg-config --cflags jack`   -c -o vibrato.o vibrato.c
-make[1]: Entering directory '/root/setBfree/b_synth'
-make -C ui 
-make[1]: Entering directory '/root/setBfree/ui'
-Makefile:50: standalone JACK/GL-GUI will not be built
-make[1]: Nothing to be done for 'all'.
-make[1]: Leaving directory '/root/setBfree/ui'
-sed "s/@VERSION@/lv2:microVersion 85 ;lv2:minorVersion 2049 ;/g" \
-	b_whirl-configurable.ttl.in > b_whirl-configurable.ttl
-cc -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM -I../b_overdrive/ -I../b_whirl  -I../b_reverb -I../b_conv -DSHAREDIR="\"/usr/local/share/setBfree\"" `pkg-config --cflags jack`   -c -o tonegen.o tonegen.c
-cc -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM -I../b_overdrive/ -I../b_whirl  -I../b_reverb -I../b_conv -DSHAREDIR="\"/usr/local/share/setBfree\"" `pkg-config --cflags jack`   -c -o program.o program.c
-sed "s/@VERSION@/lv2:microVersion 85 ;lv2:minorVersion 2049 ;/g" \
-	b_whirl.ttl.in > b_whirl.ttl
-Version: 0.8.0-42 -> 0 8 0 42
-cc  -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM `pkg-config --cflags lv2` -fvisibility=hidden \
-	-o b_whirl.so lv2.c whirl.o eqcomp.o \
-	-shared -Wl,-Bstatic -Wl,-Bdynamic 
-LV2 Version: 2049 85
-Makefile:18: "Synth GUI will not be built"
-Makefile:19: "either openGL/GLU is not available - install glu-dev, ftgl-dev"
-Makefile:20: "or /usr/share/fonts/truetype/ttf-bitstream-vera/VeraBd.ttf cannot be found"
-sed "s/@LV2NAME@/b_synth/;s/@LIB_EXT@/.so/" manifest.ttl.in > manifest.ttl
-cc  -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM -I../src -I../b_overdrive -I../b_reverb -I../b_whirl `pkg-config --cflags lv2` -DLV2SYNTH -fvisibility=hidden -std=c99  \
-	-o b_synth.so \
-	lv2.c ../src/midi.c ../src/cfgParser.c ../src/program.c ../src/vibrato.c ../src/state.c ../src/tonegen.c ../src/pgmParser.c ../src/memstream.c ../b_whirl/eqcomp.c ../b_whirl/whirl.c ../b_overdrive/overdrive.c ../b_reverb/reverb.c  \
-  -shared -Wl,-Bstatic -Wl,-Bdynamic  -lm 
-make[1]: Leaving directory '/root/setBfree/b_whirl'
-cc -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM -I../b_overdrive/ -I../b_whirl  -I../b_reverb -I../b_conv -DSHAREDIR="\"/usr/local/share/setBfree\"" `pkg-config --cflags jack`   -c -o pgmParser.o pgmParser.c
-sed "s/@VERSION@/lv2:microVersion 85 ;lv2:minorVersion 2049 ;/g" \
-	b_synth.ttl.in > b_synth.ttl
-cc -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM -I../b_overdrive/ -I../b_whirl  -I../b_reverb -I../b_conv -DSHAREDIR="\"/usr/local/share/setBfree\"" `pkg-config --cflags jack`   -c -o cfgParser.o cfgParser.c
-cc -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM -I../b_overdrive/ -I../b_whirl  -I../b_reverb -I../b_conv -DSHAREDIR="\"/usr/local/share/setBfree\"" `pkg-config --cflags jack`   -c -o main.o main.c
-cc -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM -I../b_overdrive/ -I../b_whirl  -I../b_reverb -I../b_conv -DSHAREDIR="\"/usr/local/share/setBfree\"" `pkg-config --cflags jack`   -c -o midnam.o midnam.c
-cc -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM -I../b_overdrive/ -I../b_whirl  -I../b_reverb -I../b_conv -DSHAREDIR="\"/usr/local/share/setBfree\"" `pkg-config --cflags jack`   -c -o memstream.o memstream.c
-cc  -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mneon-for-64bits -fPIC -DVERSION="\"0.8.0-42\"" -DHAVE_LV2_1_8 -DHAVE_MEMSTREAM -I../b_overdrive/ -I../b_whirl  -I../b_reverb -I../b_conv -DSHAREDIR="\"/usr/local/share/setBfree\"" `pkg-config --cflags jack` \
-	-o setBfree midi.o midi_aseq.o state.o vibrato.o tonegen.o program.o pgmParser.o cfgParser.o main.o midnam.o memstream.o ../b_reverb/reverb.c ../b_whirl/eqcomp.c ../b_whirl/whirl.c ../b_overdrive/overdrive.c  \
-	 -lm -lpthread `pkg-config --libs jack`
-make[1]: Leaving directory '/root/setBfree/src'
-make[1]: Leaving directory '/root/setBfree/b_synth'
-make -C b_overdrive install
-make[1]: Entering directory '/root/setBfree/b_overdrive'
-Version: 0.8.0-42 -> 0 8 0 42
-LV2 Version: 2049 85
-install -d /zynthian/zynthian-plugins/lv2/b_overdrive
-install -m755 b_overdrive.so /zynthian/zynthian-plugins/lv2/b_overdrive
-install -m644 manifest.ttl b_overdrive.ttl /zynthian/zynthian-plugins/lv2/b_overdrive
-make[1]: Leaving directory '/root/setBfree/b_overdrive'
-make -C b_whirl install
-make[1]: Entering directory '/root/setBfree/b_whirl'
-Version: 0.8.0-42 -> 0 8 0 42
-LV2 Version: 2049 85
-Makefile:29: "whirl/leslie GUI will not be built"
-Makefile:30: "robtk or its dependencies are missing"
-install -d /zynthian/zynthian-plugins/lv2/b_whirl
-install -m755 b_whirl.so /zynthian/zynthian-plugins/lv2/b_whirl
-install -m644 manifest.ttl b_whirl*.ttl /zynthian/zynthian-plugins/lv2/b_whirl
-make[1]: Leaving directory '/root/setBfree/b_whirl'
-make -C b_reverb install
-make[1]: Entering directory '/root/setBfree/b_reverb'
-Version: 0.8.0-42 -> 0 8 0 42
-LV2 Version: 2049 85
-install -d /zynthian/zynthian-plugins/lv2/b_reverb
-install -m755 b_reverb.so /zynthian/zynthian-plugins/lv2/b_reverb
-install -m644 manifest.ttl b_reverb.ttl /zynthian/zynthian-plugins/lv2/b_reverb
-make[1]: Leaving directory '/root/setBfree/b_reverb'
-make -C b_conv install
-make[1]: Entering directory '/root/setBfree/b_conv'
-make[1]: Nothing to be done for 'install'.
-make[1]: Leaving directory '/root/setBfree/b_conv'
-make -C src install
-make[1]: Entering directory '/root/setBfree/src'
-install -d /usr/local/bin
-install -m755 setBfree /usr/local/bin
-install -d /usr/local/share/setBfree/cfg
-install -d /usr/local/share/setBfree/pgm
-install -m644 ../cfg/*.cfg /usr/local/share/setBfree/cfg
-install -m644 ../pgm/*.pgm /usr/local/share/setBfree/pgm
-make[1]: Leaving directory '/root/setBfree/src'
-make -C b_synth install
-make[1]: Entering directory '/root/setBfree/b_synth'
-Version: 0.8.0-42 -> 0 8 0 42
-LV2 Version: 2049 85
-Makefile:18: "Synth GUI will not be built"
-Makefile:19: "either openGL/GLU is not available - install glu-dev, ftgl-dev"
-Makefile:20: "or /usr/share/fonts/truetype/ttf-bitstream-vera/VeraBd.ttf cannot be found"
-install -d /zynthian/zynthian-plugins/lv2/b_synth
-install -m755 b_synth.so /zynthian/zynthian-plugins/lv2/b_synth
-install -m644 manifest.ttl b_synth.ttl /zynthian/zynthian-plugins/lv2/b_synth
-make[1]: Leaving directory '/root/setBfree/b_synth'
-make -C ui install
-make[1]: Entering directory '/root/setBfree/ui'
-Makefile:50: standalone JACK/GL-GUI will not be built
-make[1]: Nothing to be done for 'install'.
-make[1]: Leaving directory '/root/setBfree/ui'
-make -C b_overdrive clean
-make[1]: Entering directory '/root/setBfree/b_overdrive'
-Version: 0.8.0-42 -> 0 8 0 42
-LV2 Version: 2049 85
-rm -f *.o jboverdrive overmaker manifest.ttl b_overdrive.so b_overdrive.ttl
-make[1]: Leaving directory '/root/setBfree/b_overdrive'
-make -C b_whirl clean
-make[1]: Entering directory '/root/setBfree/b_whirl'
-Version: 0.8.0-42 -> 0 8 0 42
-LV2 Version: 2049 85
-Makefile:29: "whirl/leslie GUI will not be built"
-Makefile:30: "robtk or its dependencies are missing"
-rm -f *.o manifest.ttl b_whirl.so b_whirl-configurable.ttl b_whirlUI_gl.so x42-whirl
-make[1]: Leaving directory '/root/setBfree/b_whirl'
-make -C b_reverb clean
-make[1]: Entering directory '/root/setBfree/b_reverb'
-Version: 0.8.0-42 -> 0 8 0 42
-LV2 Version: 2049 85
-rm -f *.o manifest.ttl b_reverb.so b_reverb.ttl
-make[1]: Leaving directory '/root/setBfree/b_reverb'
-make -C b_conv clean
-make[1]: Entering directory '/root/setBfree/b_conv'
-rm -f *.o
-make[1]: Leaving directory '/root/setBfree/b_conv'
-make -C src clean
-make[1]: Entering directory '/root/setBfree/src'
-rm -f *.o core *.log *~ setBfree configd programd
-make[1]: Leaving directory '/root/setBfree/src'
-make -C b_synth clean
-make[1]: Entering directory '/root/setBfree/b_synth'
-Version: 0.8.0-42 -> 0 8 0 42
-LV2 Version: 2049 85
-Makefile:18: "Synth GUI will not be built"
-Makefile:19: "either openGL/GLU is not available - install glu-dev, ftgl-dev"
-Makefile:20: "or /usr/share/fonts/truetype/ttf-bitstream-vera/VeraBd.ttf cannot be found"
-rm -f *.o manifest.ttl b_synth.ttl
-rm -f b_synth.so
-rm -f b_synthUI.so
-make[1]: Leaving directory '/root/setBfree/b_synth'
-make -C ui clean
-make[1]: Entering directory '/root/setBfree/ui'
-Makefile:50: standalone JACK/GL-GUI will not be built
-rm -f setBfreeUI
-rm -f win_icon.rc.o
-make[1]: Leaving directory '/root/setBfree/ui'
