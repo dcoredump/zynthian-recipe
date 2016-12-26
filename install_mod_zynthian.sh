@@ -21,11 +21,13 @@ sed -i -- 's/minibian/zynthian/' /etc/hosts
 cat <<EOF >>~/.bashrc
 export ZYNTHIAN_DIR="/zynthian"
 export ZYNTHIAN_SW_DIR="\${ZYNTHIAN_DIR}/zynthian-sw"
+export ZYNTHIAN_PLUGINS_SRC_DIR="\${ZYNTHIAN_SW_DIR}"
 export ZYNTHIAN_UI_DIR="\${ZYNTHIAN_DIR}/zynthian-ui"
 export ZYNTHIAN_SYS_DIR="\${ZYNTHIAN_DIR}/zynthian-sys"
 export ZYNTHIAN_DATA_DIR="\${ZYNTHIAN_DIR}/zynthian-data"
 export ZYNTHIAN_RECIPE_DIR="\${ZYNTHIAN_DIR}/zynthian-recipe"
 export ZYNTHIAN_PLUGIN_DIR="\${ZYNTHIAN_DIR}/zynthian-plugins/lv2"
+export ZYNTHIAN_PLUGINS_DIR="\${ZYNTHIAN_PLUGINS_DIR}"
 export LV2_PATH="\${ZYNTHIAN_PLUGIN_DIR}"
 EOF
 . ~/.bashrc
