@@ -1,6 +1,6 @@
 #!/bin/sh
 
-function zynth_git {
+zynth_git () {
     tmp=`basename ${1}`
     repo_dir=`basename ${tmp} .git`
     if [ -d "${repo_dir}" ]
@@ -13,7 +13,7 @@ function zynth_git {
     fi
 }
 
-function zynth_svn {
+zynth_svn () {
     tmp=`basename ${1}`
     repo_dir=`basename ${tmp} -code`
     if [ -d "${repo_dir}" ]
