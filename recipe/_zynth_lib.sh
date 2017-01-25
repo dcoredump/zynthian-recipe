@@ -1,6 +1,5 @@
 #!/bin/sh
 
-<<<<<<< HEAD
 machine=`uname -m 2>/dev/null || echo unknown`
 if [ "${machine}" = "armv7l" ]
 then
@@ -21,9 +20,13 @@ export CXXFLAGS=${CFLAGS}
 zynth_git () {
     ret=0
 
-=======
-zynth_git () {
->>>>>>> 0ae6349b3c50ba7ae2d586046dba36dd2b473e59
+    if [ ${2} ]
+    then
+        tmp=`basename ${2}`
+    else
+        tmp=`basename ${1}`
+    fi
+
     tmp=`basename ${1}`
     repo_dir=`basename ${tmp} .git`
     if [ -d "${repo_dir}" ]
@@ -43,8 +46,7 @@ zynth_git () {
     return ${ret}
 }
 
-zynth_svn () {
-<<<<<<< HEAD
+zynth_git_recursive () {
     ret=0
 
     if [ ${2} ]
@@ -53,9 +55,35 @@ zynth_svn () {
     else
         tmp=`basename ${1}`
     fi
-=======
+
     tmp=`basename ${1}`
->>>>>>> 0ae6349b3c50ba7ae2d586046dba36dd2b473e59
+    repo_dir=`basename ${tmp} .git`
+    if [ -d "${repo_dir}" ]
+    then
+        cd "${repo_dir}"
+        git pull 2>&1 | grep "Already up-to-date."
+        if [ ${?} -eq 1 ]
+	then
+		ret=1
+	fi
+        cd ..
+    else
+        git clone --recursive "${1}"
+        ret=1
+    fi
+
+    return ${ret}
+}
+
+zynth_svn () {
+    ret=0
+
+    if [ ${2} ]
+    then
+        tmp=`basename ${2}`
+    else
+        tmp=`basename ${1}`
+    fi
     repo_dir=`basename ${tmp} -code`
 
     if [ -d "${repo_dir}" ]
