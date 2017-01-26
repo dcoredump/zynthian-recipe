@@ -61,6 +61,7 @@ zynth_git () {
         if [ ${?} -eq 1 ]
 	then
 		ret=1
+		zynth_build_request ${0} clear
 	fi
         cd ..
     else
