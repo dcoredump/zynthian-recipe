@@ -3,7 +3,7 @@
 sudo apt-get install -y liblo0-dev libmxml-dev cmake fftw3-dev zlib1g-dev
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git git://git.code.sf.net/p/zynaddsubfx/code
-if [ ${?} -ne 0 -o  "${1}" = "build" ]
+if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	if [ -d code ]
 	then
@@ -30,6 +30,7 @@ then
 	make
 	sudo make install
 	sudo rm -rf /usr/local/lib/vst
+	zynth_build_request ${0} ready
 fi
 #make clean
 cd ../..

@@ -3,7 +3,7 @@
 cd $ZYNTHIAN_SW_DIR/plugins
 apt-get install -y autoconf automake libtool
 zynth_git https://github.com/emuse/qmidiarp.git
-if [ ${?} -ne 0 -o  "${1}" = "build" ]
+if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	cd qmidiarp
 	git checkout lv2extui
@@ -11,6 +11,7 @@ then
 	./configure --prefix=/usr --exec-prefix=/zynthian/zynthian-plugins --libdir=/zynthian/zynthian-plugins --enable-buildapp=no --enable-lv2pluginuis=no
 	make
 	sudo make install
+	zynth_build_request ${0} ready
 fi
 #make clean
 cd ..

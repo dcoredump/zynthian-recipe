@@ -2,7 +2,7 @@
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git https://github.com/x42/stepseq.lv2.git
-if [ ${?} -ne 0 -o  "${1}" = "build" ]
+if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	cd stepseq.lv2
 	quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}`
@@ -26,6 +26,7 @@ then
 	sed -i -- 's/N_NOTES ?= 8/N_NOTES ?= 4/' Makefile
 	make
 	sudo make install
+	zynth_build_request ${0} ready
 fi
 #make clean
 cd ../..

@@ -1,5 +1,30 @@
 #!/bin/sh
 
+zynth_build_request () {
+	project=${1}
+	flag=${2}
+	if [ "${flag}" = "clear" ]
+	then
+		rm -f "${ZYNTHIAN_SW_BUILD_DIR}/${project}_build"
+	elif [ "${flag}" = "ready" ]
+	then
+		touch "${ZYNTHIAN_SW_BUILD_DIR}/${project}_build"
+	fi
+}
+
+if [ "${1}" = "build" ]
+then
+	shift
+	build="build"
+	zynth_build_request ${0} clear
+fi
+
+if [ ! -d "${ZYNTHIAN_SW_DIR}/.build" ]
+then
+	mkdir "${ZYNTHIAN_SW_DIR}/.build"
+fi
+ZYNTHIAN_SW_BUILD_DIR="${ZYNTHIAN_SW_DIR}/.build"
+
 machine=`uname -m 2>/dev/null || echo unknown`
 if [ "${machine}" = "armv7l" ]
 then

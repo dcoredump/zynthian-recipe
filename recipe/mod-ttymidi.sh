@@ -3,11 +3,12 @@
 apt-get -y install libasound-dev
 cd $ZYNTHIAN_SW_DIR
 zynth_git https://github.com/moddevices/mod-ttymidi.git
-if [ ${?} -ne 0 -o  "${1}" = "build" ]
+if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	cd mod-ttymidi
 	make
 	sudo make install
+	zynth_build_request ${0} ready
 fi
 #	make clean
 cd ..

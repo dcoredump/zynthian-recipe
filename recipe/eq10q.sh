@@ -3,7 +3,7 @@
 cd $ZYNTHIAN_SW_DIR/plugins
 apt-get install -y cmake fftw-dev fftw3-dev
 zynth_svn svn://svn.code.sf.net/p/eq10q/code/trunk eq10q
-if [ ${?} -ne 0  -o  "${1}" = "build" ]
+if [ ${?} -ne 0  -o  "${build}" = "build" ]
 then
 	cd eq10q
         quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}`
@@ -14,6 +14,7 @@ then
 	cmake .
 	#sudo mv /usr/lib/arm-linux-gnueabihf/pkgconfig/glibmm-2.4.pc.tmp /usr/lib/arm-linux-gnueabihf/pkgconfig/glibmm-2.4.pc
 	make
+	zynth_build_request ${0} ready
 	sudo make install
 fi
 #make clean
