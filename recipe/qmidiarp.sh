@@ -2,7 +2,6 @@
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
 apt-get install -y autoconf automake libtool
-#git clone https://github.com/emuse/qmidiarp.git
 zynth_git https://github.com/emuse/qmidiarp.git
 if [ ${?} -ne 0 -o  "${1}" = "build" ]
 then

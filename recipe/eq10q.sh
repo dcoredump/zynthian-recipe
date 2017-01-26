@@ -7,7 +7,7 @@ if [ ${?} -ne 0  -o  "${1}" = "build" ]
 then
 	cd eq10q
         quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}`
-	sed -i -- 's/-msse -mfpmath=sse/${CPU}/' CMakeLists.txt
+	sed -i -- "s/-msse -mfpmath=sse/${CPU}/" CMakeLists.txt
 	sed -i -- "s/CMAKE_INSTALL_PREFIX  \"\/usr\/local\/lib\/lv2\"/CMAKE_INSTALL_PREFIX  \"$quoted_ZYNTHIAN_PLUGINS_DIR\"/" CMakeLists.txt
 	sed -i -- 's/^add_subdirectory(gui)/#add_subdirectory(gui)/' CMakeLists.txt
 	#sudo mv /usr/lib/arm-linux-gnueabihf/pkgconfig/glibmm-2.4.pc /usr/lib/arm-linux-gnueabihf/pkgconfig/glibmm-2.4.pc.tmp
