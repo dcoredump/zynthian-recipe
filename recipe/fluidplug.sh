@@ -2,7 +2,6 @@
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git https://github.com/falkTX/FluidPlug.git
-read x
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	cd FluidPlug
