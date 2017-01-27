@@ -38,6 +38,7 @@ then
         FPU="-mfpu=neon-vfpv4"
     fi
     FPU="${FPU} -mneon-for-64bits"
+    export RASPI=true
 fi
 export CFLAGS="${CPU} ${FPU}"
 export CXXFLAGS=${CFLAGS}
