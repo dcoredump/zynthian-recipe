@@ -6,12 +6,12 @@ zynth_git https://github.com/dcoredump/dexed.git
 if [ "${?}" -ne 0 -o "${build}" = "build" ]
 then
 	cd dexed
-	zynth_build_request `basename ${0}` clear
+	zynth_build_request clear
 	git checkout native-lv2
 	cd src
 	make
 	sudo make install
-	zynth_build_request `basename ${0}` ready 
+	zynth_build_request ready 
 fi
 #make clean
 cd ../..

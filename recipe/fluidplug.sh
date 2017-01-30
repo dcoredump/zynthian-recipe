@@ -5,6 +5,7 @@ zynth_git https://github.com/falkTX/FluidPlug.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	cd FluidPlug
+	zynth_build_request clear
 	tmp=`dirname ${ZYNTHIAN_PLUGINS_DIR}`
 	quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${tmp}`
 	sed -i -- "s/-ffast-math -mtune=generic -msse -msse2 -mfpmath=sse -fdata-sections -ffunction-sections/${CPU} ${FPU}/" Makefile.mk
@@ -14,7 +15,7 @@ then
 	sed -i -- 's/\$(PREFIX)\/lib//' Makefile
 	make
 	sudo make install
-	zynth_build_request ${0} ready
+	zynth_build_request ready
 	make distclean
 fi
 #make clean

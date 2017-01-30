@@ -1,14 +1,16 @@
 #!/bin/sh
 
+PROJECT=`basename ${0} .sh`
+echo "PROJECT: $PROJECT"
+
 zynth_build_request () {
-	project=${1}
-	flag=${2}
+	flag=${1}
 	if [ "${flag}" = "clear" ]
 	then
-		rm -f "${ZYNTHIAN_SW_BUILD_DIR}/${project}_build"
+		rm -f "${ZYNTHIAN_SW_BUILD_DIR}/${PROJECT}_build"
 	elif [ "${flag}" = "ready" ]
 	then
-		touch "${ZYNTHIAN_SW_BUILD_DIR}/${project}_build"
+		touch "${ZYNTHIAN_SW_BUILD_DIR}/${PROJECT}_build"
 	fi
 }
 
@@ -16,7 +18,7 @@ if [ "${1}" = "build" ]
 then
 	shift
 	build="build"
-	zynth_build_request ${0} clear
+	zynth_build_request clear
 fi
 
 if [ ! -d "${ZYNTHIAN_SW_DIR}/.build" ]
@@ -46,13 +48,6 @@ export CXXFLAGS=${CFLAGS}
 zynth_git () {
     ret=0
 
-    if [ ${2} ]
-    then
-        tmp=`basename ${2}`
-    else
-        tmp=`basename ${1}`
-    fi
-
     tmp=`basename ${1}`
     repo_dir=`basename ${tmp} .git`
     if [ -d "${repo_dir}" ]
@@ -62,7 +57,9 @@ zynth_git () {
         if [ ${?} -eq 1 ]
 	then
 		ret=1
-		zynth_build_request ${0} clear
+		zynth_build_request clear
+	else
+		zynth_build_request ready
 	fi
         cd ..
     else

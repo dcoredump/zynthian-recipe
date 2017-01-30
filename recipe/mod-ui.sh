@@ -6,10 +6,11 @@ zynth_git_recursive https://github.com/zynthian/mod-ui.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	cd mod-ui
+	zynth_build_request clear
 	sudo -H pip3 install -r requirements.txt
 	cd utils
 	make
 	cd ..
-	zynth_build_request ${0} ready
+	zynth_build_request ready
 fi
 cd ..

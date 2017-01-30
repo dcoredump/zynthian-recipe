@@ -6,12 +6,13 @@ zynth_git https://github.com/emuse/qmidiarp.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	cd qmidiarp
+	zynth_build_request clear
 	git checkout lv2extui
 	autoreconf -i
 	./configure --prefix=/usr --exec-prefix=/zynthian/zynthian-plugins --libdir=/zynthian/zynthian-plugins --enable-buildapp=no --enable-lv2pluginuis=no
 	make
 	sudo make install
-	zynth_build_request ${0} ready
+	zynth_build_request ready
 fi
 #make clean
 cd ..

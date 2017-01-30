@@ -5,6 +5,7 @@ zynth_git https://github.com/x42/stepseq.lv2.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	cd stepseq.lv2
+	zynth_build_request clear
 	quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}`
 	sed -i -- "s/-msse -msse2 -mfpmath=sse/${CPU}/" Makefile
 	sed -i -- "s/LV2DIR ?= \$(PREFIX)\/lib\/lv2/LV2DIR ?= $quoted_ZYNTHIAN_PLUGINS_DIR/" Makefile
@@ -26,7 +27,7 @@ then
 	sed -i -- 's/N_NOTES ?= 8/N_NOTES ?= 4/' Makefile
 	make
 	sudo make install
-	zynth_build_request ${0} ready
+	zynth_build_request ready
 fi
 #make clean
 cd ../..

@@ -5,10 +5,11 @@ zynth_git https://github.com/lvtk/lvtk.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	cd lvtk
+	zynth_build_request clear
 	CFLAGS="${CFLAGS} NDEBUG=1" ./waf configure --disable-ui --disable-examples
 	./waf build
 	sudo ./waf install
-	zynth_build_request ${0} ready
+	zynth_build_request ready
 fi
 #./waf clean
 cd ..

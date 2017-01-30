@@ -5,9 +5,10 @@ zynth_git https://github.com/moddevices/caps-lv2.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	cd caps-lv2
+	zynth_build_request clear
 	make
 	sudo cp -R plugins/* $ZYNTHIAN_PLUGINS_DIR
-	zynth_build_request ${0} ready
+	zynth_build_request ready
 fi
 #make clean
 cd ..

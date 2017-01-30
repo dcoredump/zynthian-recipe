@@ -15,6 +15,7 @@ then
 		mkdir build
 	fi
 	cd build
+	zynth_build_request clear
 	quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}`
 	OLD_DATE=`date +%Y%m%d%H%M.%S`
 	cmake ..
@@ -30,7 +31,7 @@ then
 	make
 	sudo make install
 	sudo rm -rf /usr/local/lib/vst
-	zynth_build_request ${0} ready
+	zynth_build_request ready
 fi
 #make clean
 cd ../..

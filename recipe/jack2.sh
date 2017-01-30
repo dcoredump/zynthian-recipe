@@ -7,10 +7,11 @@ zynth_git https://github.com/jackaudio/jack2.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	cd jack2
+	zynth_build_request clear
 	./waf configure --alsa=yes
 	./waf build
 	sudo ./waf install 
-	zynth_build_request ${0} ready
+	zynth_build_request ready
 fi
 #./waf clean
 cd ..
