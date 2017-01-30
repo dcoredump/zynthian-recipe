@@ -5,8 +5,8 @@ apt-get install -y autoconf automake libtool
 zynth_git https://github.com/emuse/qmidiarp.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
-	cd qmidiarp
 	zynth_build_request clear
+	cd qmidiarp
 	git checkout lv2extui
 	autoreconf -i
 	./configure --prefix=/usr --exec-prefix=/zynthian/zynthian-plugins --libdir=/zynthian/zynthian-plugins --enable-buildapp=no --enable-lv2pluginuis=no

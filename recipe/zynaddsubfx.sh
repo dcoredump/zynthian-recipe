@@ -5,6 +5,7 @@ cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git git://git.code.sf.net/p/zynaddsubfx/code
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
+	zynth_build_request clear
 	if [ -d code ]
 	then
 		ln -s code zynaddsubfx
@@ -15,7 +16,6 @@ then
 		mkdir build
 	fi
 	cd build
-	zynth_build_request clear
 	quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}`
 	OLD_DATE=`date +%Y%m%d%H%M.%S`
 	cmake ..

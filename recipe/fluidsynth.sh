@@ -5,12 +5,12 @@ cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git git://git.code.sf.net/p/fluidsynth/code-git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
+	zynth_build_request clear
 	if [ ! -d fluidsynth ]
 	then
 		ln -s code-git fluidsynth
 	fi
 	cd fluidsynth/fluidsynth
-	zynth_build_request clear
 r	sed -i -- 's/AM_INIT_AUTOMAKE(fluidsynth, \$FLUIDSYNTH_VERSION)/AM_INIT_AUTOMAKE(fluidsynth, \$FLUIDSYNTH_VERSION)\nAC_DEFINE(DEFAULT_SOUNDFONT, "share\/soundfonts\/default.sf2", \[Default soundfont\])/' configure.ac
 	autoreconf -i
 	automake

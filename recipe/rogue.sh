@@ -5,8 +5,8 @@ sudo apt-get install -y libsamplerate0-dev lvtk-tools
 zynth_git https://github.com/timowest/rogue.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
-	cd rogue
 	zynth_build_request clear
+	cd rogue
 	quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}`
 	sed -i -- "s/INSTALL_DIR = \/usr\/local\/lib\/lv2/INSTALL_DIR = ${quoted_ZYNTHIAN_PLUGINS_DIR}/" Makefile
 	sed -i -- 's/\$(BUNDLE): manifest.ttl rogue.ttl presets.ttl rogue.so rogue-gui.so presets styles/\$(BUNDLE): manifest.ttl rogue.ttl presets.ttl rogue.so presets styles/' Makefile

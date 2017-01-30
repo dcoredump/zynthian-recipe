@@ -6,8 +6,8 @@ then
 	zynth_git https://github.com/fg2it/phantomjs-on-raspberry.git
 	if [ ${?} -ne 0 ]
 	then
-		mkdir -p phantomjs-raspberrypi/bin
 		zynth_build_request clear
+		mkdir -p phantomjs-raspberrypi/bin
 		cp phantomjs-on-raspberry/rpi-2-3/wheezy-jessie/v2.1.1/phantomjs phantomjs-raspberrypi/bin
 		rm -rf phantomjs-on-raspberry
 		chmod 775 phantomjs-raspberrypi/bin/phantomjs

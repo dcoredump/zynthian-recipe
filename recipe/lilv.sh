@@ -5,8 +5,8 @@ cd $ZYNTHIAN_SW_DIR
 zynth_git_recursive http://git.drobilla.net/lilv.git lilv
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
-	cd lilv
 	zynth_build_request clear
+	cd lilv
 	./waf configure --bindings --python=/usr/bin/python3
 	./waf build
 	sudo ./waf install

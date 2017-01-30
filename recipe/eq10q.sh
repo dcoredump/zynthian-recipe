@@ -5,8 +5,8 @@ apt-get install -y cmake fftw-dev fftw3-dev
 zynth_svn svn://svn.code.sf.net/p/eq10q/code/trunk eq10q
 if [ ${?} -ne 0  -o  "${build}" = "build" ]
 then
-	cd eq10q
 	zynth_build_request clear
+	cd eq10q
         quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}`
 	sed -i -- "s/-msse -mfpmath=sse/${CPU}/" CMakeLists.txt
 	sed -i -- "s/CMAKE_INSTALL_PREFIX  \"\/usr\/local\/lib\/lv2\"/CMAKE_INSTALL_PREFIX  \"$quoted_ZYNTHIAN_PLUGINS_DIR\"/" CMakeLists.txt

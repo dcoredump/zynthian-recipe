@@ -5,8 +5,8 @@ cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git https://github.com/openAVproductions/openAV-ArtyFX.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
-	cd openAV-ArtyFX
 	zynth_build_request clear
+	cd openAV-ArtyFX
 	quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}`
 	sed -i -- "s/\-msse2 \-mfpmath=sse/${CPU} ${FPU}/" CMakeLists.txt
 	sed -i -- "s/ lib\/lv2\// ${quoted_ZYNTHIAN_PLUGINS_DIR}\//" CMakeLists.txt

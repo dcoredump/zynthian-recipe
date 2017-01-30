@@ -4,8 +4,8 @@ cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git https://github.com/calf-studio-gear/calf.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
-	cd calf
 	zynth_build_request clear
+	cd calf
 	if [ RASPI = "true" ]
 	then
 		# <BEGIN HACK> The following lines are a f***ing b***sh*t hack - only needed if no X-dev is installed
