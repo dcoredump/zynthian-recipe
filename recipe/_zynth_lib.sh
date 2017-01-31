@@ -30,8 +30,8 @@ ZYNTHIAN_SW_BUILD_DIR="${ZYNTHIAN_SW_DIR}/.build"
 machine=`uname -m 2>/dev/null || echo unknown`
 if [ "${machine}" = "armv7l" ]
 then
-    model=cat /sys/firmware/devicetree/base/model 2>/dev/null || echo unknown
-    if echo ${model} | egrep -Eq '[3]'
+    model=`cat /sys/firmware/devicetree/base/model` 2>/dev/null || echo unknown
+    if echo "${model}" | egrep -Eq '[3]'
     then
         CPU="-mcpu=cortex-a53"
         FPU="-mfpu=neon-fp-armv8"
@@ -43,7 +43,7 @@ then
     export RASPI=true
 fi
 export CFLAGS="${CPU} ${FPU}"
-export CXXFLAGS=${CFLAGS}
+export CXXFLAGS="${CFLAGS}"
 
 zynth_git () {
     ret=0
