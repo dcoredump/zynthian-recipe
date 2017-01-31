@@ -31,7 +31,7 @@
 #******************************************************************************
 
 cd "${HOME}"
-if [ ! -d "zynthian-sys" ]; then
+if [ ! -d "zynthian-recipe" ]; then
         cd
         apt-get update
         apt-get -y install apt-utils
@@ -47,4 +47,3 @@ if [ "$1" = "wiggle" ] || [ ! -f ~/.wiggled ]; then
 else
         ./setup_system_modraspi.sh
 fi
-
