@@ -9,11 +9,12 @@ then
 fi
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
+	zynth_build_request ready
 	cd guitarix/trunk
 	./waf configure --no-lv2-gui --lv2-only --disable-sse --lv2dir=$ZYNTHIAN_PLUGINS_DIR --no-avahi --no-bluez --no-ladspa --no-faust
 	./waf build
 	sudo ./waf install
-	zynth_build_request ${0} ready
+	zynth_build_request ready
 fi
 ./waf clean
 cd ..
