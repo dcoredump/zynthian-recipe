@@ -30,16 +30,16 @@
 # 
 #******************************************************************************
 
-cd "${HOME}"
-if [ ! -d "zynthian-recipe" ]; then
-        cd
+if [ ! -d "/zynthian/zynthian-recipe" ]; then
+        mkdir /zynthian
         apt-get update
         apt-get -y install apt-utils
         apt-get -y install sudo git parted screen
+	cd /zynthian
 	git clone https://github.com/dcoredump/zynthian-recipe.git
 fi
 
-cd "${HOME}"/zynthian-recipe
+cd /zynthian/zynthian-recipe
 
 if [ "$1" = "wiggle" ] || [ ! -f ~/.wiggled ]; then
         echo `date` >  ~/.wiggled

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+_git_options=""
+
 PROJECT=`basename ${0} .sh`
 echo "PROJECT: $PROJECT"
 
@@ -18,6 +20,11 @@ if [ "${1}" = "build" ]
 then
 	shift
 	build="build"
+	zynth_build_request clear
+elif [ "${1}" = "clean" ]
+then
+	shift
+	build="clean"
 	zynth_build_request clear
 fi
 
@@ -53,17 +60,20 @@ zynth_git () {
     if [ -d "${repo_dir}" ]
     then
         cd "${repo_dir}"
-        git pull 2>&1 | grep "Already up-to-date."
-        if [ ${?} -eq 1 ]
+        git_message=`git pull 2>&1`
+        if [ ! `echo "${message}" | grep -Eq "up-to-date"` ]
+	then
+		zynth_build_request ready
+	elif [ ! `echo "${message}" | grep -Eq "merge"` ]
 	then
 		ret=1
 		zynth_build_request clear
-	else
-		zynth_build_request ready
+        else
+		echo "Unknown git problem: ${message}"
 	fi
         cd ..
     else
-        git clone "${1}"
+        git clone "${_git_options}" "${1}"
         ret=1
     fi
 
@@ -71,32 +81,9 @@ zynth_git () {
 }
 
 zynth_git_recursive () {
-    ret=0
-
-    if [ ${2} ]
-    then
-        tmp=`basename ${2}`
-    else
-        tmp=`basename ${1}`
-    fi
-
-    tmp=`basename ${1}`
-    repo_dir=`basename ${tmp} .git`
-    if [ -d "${repo_dir}" ]
-    then
-        cd "${repo_dir}"
-        git pull 2>&1 | grep "Already up-to-date."
-        if [ ${?} -eq 1 ]
-	then
-		ret=1
-	fi
-        cd ..
-    else
-        git clone --recursive "${1}"
-        ret=1
-    fi
-
-    return ${ret}
+   _git_options="--recursive"
+   ret=`zynth_git $*`
+   return ${ret}
 }
 
 zynth_svn () {

@@ -3,10 +3,14 @@
 apt-get -y install libreadline-dev
 cd $ZYNTHIAN_SW_DIR
 zynth_git https://github.com/moddevices/mod-host.git
-if [ ${?} -ne 0 -o  "${build}" = "build" ]
+if [ ${?} -ne 0 -o  "x${build}" != "x" ]
 then
 	zynth_build_request clear
 	cd mod-host
+        if [ "${build}" = "clean" ]
+        then
+                make clean
+        fi
 	make
 	sudo make install
 	zynth_build_request ready

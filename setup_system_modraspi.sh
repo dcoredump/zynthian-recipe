@@ -1,6 +1,12 @@
 #
 
-cd "${HOME}"/zynthian-recipe
+. /zynthian/zynthian-recipe/zynthian_envars.sh
+
+mkdir -p "${ZYNTHIAN_PLUGINS_SRC_DIR}"
+mkdir -p "${ZYNTHIAN_MY_DATA_DIR}"
+mkdir -p "$7ZYNTHIAN_MY_PLUGINS_DIR}"
+
+cd "${ZYNTHIAN_DIR}"/zynthian-recipe
 
 # Update System
 apt-get -y update
@@ -84,3 +90,23 @@ sh mod-ui.sh
 sh mod-sdk.sh
 
 # LV2-Plugins
+sh calf.sh
+sh dexed.sh
+sh dxsyx.sh
+sh eq10q.sh
+sh fluidsynth.sh
+sh fluidplug.sh
+sh midifilter.sh
+sh mod-caps.sh
+sh mod-distortion.sh
+sh mod-mda.sh
+sh mod-pitchshifter.sh
+sh mod-tap.sh
+sh mod-utilities.sh
+sh modmeter.sh
+sh openav-artyfx.sh
+sh qmidiarp.sh
+sh rogue.sh
+sh setbfree.sh
+sh step-seq.sh
+sh zynaddsubfx.sh
