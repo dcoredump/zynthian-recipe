@@ -73,7 +73,12 @@ zynth_git () {
 	fi
         cd ..
     else
-        git clone "${_git_options}" "${1}"
+	if [ "${_git_options}" ]
+	then
+        	git clone "${_git_options}" "${1}"
+	else
+        	git clone "${1}"
+	fi
         ret=1
     fi
 
