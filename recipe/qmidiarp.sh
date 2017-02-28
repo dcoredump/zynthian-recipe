@@ -12,6 +12,9 @@ then
 	./configure --prefix=/usr --exec-prefix=/zynthian/zynthian-plugins --libdir=/zynthian/zynthian-plugins --enable-buildapp=no --enable-lv2pluginuis=no
 	make
 	sudo make install
+	cp -R qmidiarp_arp.lv2/modgui* /zynthian/zynthian-plugins/lv2/qmidiarp_arp.lv2
+	cp -R qmidiarp_lfo.lv2/modgui* /zynthian/zynthian-plugins/lv2/qmidiarp_lfo.lv2
+	cp -R qmidiarp_seq.lv2/modgui* /zynthian/zynthian-plugins/lv2/qmidiarp_seq.lv2
 	zynth_build_request ready
 fi
 #make clean
