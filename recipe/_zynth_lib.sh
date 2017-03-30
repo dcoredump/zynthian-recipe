@@ -63,6 +63,7 @@ zynth_git () {
         git_message=`git pull 2>&1`
         if [ ! `echo "${message}" | grep -Eq "up-to-date"` ]
 	then
+		echo "Up-to-date." >&2
 		zynth_build_request ready
 	elif [ ! `echo "${message}" | grep -Eq "merge"` ]
 	then
