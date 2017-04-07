@@ -18,6 +18,7 @@ apt-get -y install apt-utils
 apt-get -y install sudo rpi-update htpdate parted
 
 # Adjust System Date/Time
+dpkg-reconfigure tzdata
 htpdate www.isc.org
 
 # Update Firmware
@@ -54,6 +55,14 @@ apt-get -y autoremove
 echo "zynthian" > /etc/hostname
 sed -i -e "s/minibian/zynthian/" /etc/hosts
 
+# PiSound
+cd /root
+apt-get install -y libraspberrypi-bin
+wget http://blokas.io/pisound/install-pisound.sh -O install-pisound.sh
+chmod +x install-pisound.sh
+./install-pisound.sh
+cd "${ZYNTHIAN_DIR}"/zynthian-recipe
+
 cp mod_zynthian/boot/* /boot
 sed -i -e "s/#AUDIO_DEVICE_DTOVERLAY/dtoverlay=hifiberry-dacplus/g" /boot/config.txt
 
@@ -83,16 +92,16 @@ sh sord.sh
 sh sratom.sh
 sh lilv.sh
 sh lvtk.sh
-sh phantomjs.sh
 sh mod-ttymidi.sh
 sh mod-host.sh
 sh mod-ui.sh
 sh mod-sdk.sh
+sh phantomjs.sh
 
 # LV2-Plugins
-sh calf.sh
-sh dexed.sh
 sh dxsyx.sh
+sh dexed.sh
+sh calf.sh
 sh eq10q.sh
 sh fluidsynth.sh
 sh fluidplug.sh
