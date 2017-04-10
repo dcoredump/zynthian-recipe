@@ -16,7 +16,7 @@ then
 		mkdir build
 	fi
 	cd build
-	quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}`
+	quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}/lv2`
 	OLD_DATE=`date +%Y%m%d%H%M.%S`
 	cmake ..
 	for i in `find . -name "*.cmake"`

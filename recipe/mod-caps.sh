@@ -7,7 +7,7 @@ then
 	zynth_build_request clear
 	cd caps-lv2
 	make
-	sudo cp -R plugins/* $ZYNTHIAN_PLUGINS_DIR
+	sudo cp -R plugins/* $ZYNTHIAN_PLUGINS_DIR/lv2
 	zynth_build_request ready
 fi
 #make clean

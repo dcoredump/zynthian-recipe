@@ -10,7 +10,7 @@ then
 	git submodule init
 	git submodule update
 	./autogen.sh
-	./configure --enable-lv2 --disable-input-dummy --disable-input-test --disable-input-jackmidi --disable-input-midifile --disable-output-dummy --disable-output-jackaudio --disable-output-alsa --disable-output-wavfile --with-lv2dir=$ZYNTHIAN_PLUGINS_DIR
+	./configure --enable-lv2 --disable-input-dummy --disable-input-test --disable-input-jackmidi --disable-input-midifile --disable-output-dummy --disable-output-jackaudio --disable-output-alsa --disable-output-wavfile --with-lv2dir=$ZYNTHIAN_PLUGINS_DIR/lv2
 	make
 	sudo make install
 	zynth_build_request ready

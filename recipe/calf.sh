@@ -23,7 +23,7 @@ then
 		sudo mv /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-3.0.pc /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-3.0.pc.tmp
 	fi
 	sh autogen.sh
-	./configure --with-lv2-dir=$ZYNTHIAN_PLUGINS_DIR --exec-prefix=$ZYNTHIAN_PLUGINS_DIR --prefix=$ZYNTHIAN_PLUGINS_DIR
+	./configure --with-lv2-dir=$ZYNTHIAN_PLUGINS_DIR/lv2 --exec-prefix=/usr/local --prefix=/usr/local
 	if [ RASPI = "true" ]
 	then
 		sudo mv /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-2.0.pc.tmp /usr/lib/arm-linux-gnueabihf/pkgconfig/gtk+-2.0.pc

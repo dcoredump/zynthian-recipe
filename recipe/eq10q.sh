@@ -7,7 +7,7 @@ if [ ${?} -ne 0  -o  "${build}" = "build" ]
 then
 	zynth_build_request clear
 	cd eq10q
-        quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}`
+        quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}/lv2`
 	sed -i -- "s/-msse -mfpmath=sse/${CPU}/" CMakeLists.txt
 	sed -i -- "s/CMAKE_INSTALL_PREFIX  \"\/usr\/local\/lib\/lv2\"/CMAKE_INSTALL_PREFIX  \"$quoted_ZYNTHIAN_PLUGINS_DIR\"/" CMakeLists.txt
 	sed -i -- 's/^add_subdirectory(gui)/#add_subdirectory(gui)/' CMakeLists.txt
