@@ -9,7 +9,7 @@
 #
 # 1. Run first time: ./setup_mod_pisound.sh
 # 2. Reboot: It should reboot automaticly after step 1
-# 3. Run second time: ./setup_raspi.sh
+# 3. Run second time: ./setup_mod_pisound.sh
 # 4. Take a good beer, sit down and relax ... ;-)
 # 
 # Copyright (C) Holger Wirtz <dcoredump@googlemail.com>
