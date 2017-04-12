@@ -85,7 +85,6 @@ cp mod_pisound/systemd/* /etc/systemd/system
 mkdir ~/bin
 cp mod_pisound/cpu-performance.sh ~/bin
 cp -R mod_pisound/pedalboards ~/.pedalboards
-cp mod_pisound/favorites.json ${ZYNTHIAN_SW_DIR}/mod-ui/dados/favorites.json
 
 systemctl daemon-reload
 systemctl enable dhcpcd
@@ -105,5 +104,6 @@ systemctl enable mod-ui
 #############################################################################
 # MOD-UI-System and plugins
 bash /zynthian/zynthian-recipe/recipe/update_system.sh
+cp mod_pisound/favorites.json ${ZYNTHIAN_SW_DIR}/mod-ui/dados/favorites.json
 history -c
 reboot
