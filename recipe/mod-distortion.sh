@@ -7,7 +7,7 @@ then
 	zynth_build_request clear
 	cd mod-distortion
 	make
-	sudo make INSTALL_PATH=$ZYNTHIAN_PLUGINS_DIR install
+	sudo make INSTALL_PATH=$ZYNTHIAN_PLUGINS_DIR/lv2 install
 	zynth_build_request ready
 fi
 #make clean

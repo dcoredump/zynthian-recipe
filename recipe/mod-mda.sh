@@ -6,7 +6,7 @@ if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	zynth_build_request clear
 	cd mda-lv2
-	./waf configure --lv2-user --lv2dir=$ZYNTHIAN_PLUGINS_DIR
+	./waf configure --lv2-user --lv2dir=$ZYNTHIAN_PLUGINS_DIR/lv2
 	./waf build
 	sudo ./waf -j1 install
 	zynth_build_request ready

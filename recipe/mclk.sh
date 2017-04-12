@@ -1,13 +1,15 @@
-# mclk.lv2
-cd $ZYNTHIAN_PLUGINS_SRC_DIR
-git clone https://github.com/x42/mclk.lv2.git
-cd mclk.lv2
-sed -i -- 's/-msse -msse2 -mfpmath=sse/-march=armv6/' Makefile
-sed -i -- 's/LV2DIR ?= \$(PREFIX)\/$(LIBDIR)\/lv2/LV2DIR ?= \/zynthian\/zynthian-plugins\/lv2/' Makefile
-make -j 4
-sudo make install
-sudo cp -R modgui $ZYNTHIAN_PLUGINS_DIR/lv2/mclk.lv2
-cat <<EOF >>$ZYNTHIAN_PLUGINS_DIR/lv2/mclk.lv2/manifest.ttl
+# mclk
+. $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
+cd $ZYNTHIAN_SW_DIR/plugins
+zynth_git https://github.com/x42/mclk.lv2.git
+if [ ${?} -ne 0 -o  "${build}" = "build" ]
+then
+        zynth_build_request clear
+	cd mclk.lv2
+	make
+	sudo make install LV2DIR=$ZYNTHIAN_PLUGINS_DIR/lv2
+	sudo cp -R modgui $ZYNTHIAN_PLUGINS_DIR/lv2/mclk.lv2
+	cat <<EOF >>$ZYNTHIAN_PLUGINS_DIR/lv2/mclk.lv2/manifest.ttl
 <http://gareus.org/oss/lv2/mclk>
     modgui:gui [
         modgui:resourcesDirectory <modgui> ;
@@ -24,4 +26,8 @@ cat <<EOF >>$ZYNTHIAN_PLUGINS_DIR/lv2/mclk.lv2/manifest.ttl
         ] ;
     ] .
 EOF
+	zynth_build_request ready
+fi
+cd ..
+
 make clean

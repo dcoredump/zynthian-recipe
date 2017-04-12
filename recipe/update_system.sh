@@ -1,0 +1,45 @@
+#!/bin/bash
+
+. /zynthian/zynthian-recipe/zynthian_envars.sh
+
+cd ${ZYNTHIAN_DIR}/zynthian-recipe/recipe
+# System
+sh jack2.sh
+sh lv2.sh
+sh serd.sh
+sh sord.sh
+sh sratom.sh
+sh lilv.sh
+sh lvtk.sh
+sh mod-ttymidi.sh
+sh mod-host.sh
+sh mod-ui.sh
+sh mod-sdk.sh
+#sh uphantomjs.sh
+# Utilities
+sh mclk.sh
+sh modmeter.sh
+sh midifilter.sh
+sh step-seq.sh
+sh qmidiarp.sh
+# Generator
+sh dxsyx.sh
+sh dexed.sh
+sh setbfreak.sh
+sh fluidsynth.sh
+sh fluidplug.sh
+sh mod-mda.sh
+sh rogue.sh
+sh zynaddsubfx.sh
+# Div
+sh eq10q.sh
+sh calf.sh
+sh guitarix.sh
+sh mod-caps.sh
+sh mod-distortion.sh
+sh mod-pitchshifter.sh
+sh mod-tap.sh
+sh mod-utilities.sh
+sh openav-artyfx.sh
+
+systemctl restart jack2

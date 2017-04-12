@@ -8,7 +8,7 @@ then
 	cd tap-lv2
 	sed -i -- "s/-mtune=generic -msse -msse2 -mfpmath=sse/${CPU} ${FPU}/" Makefile.mk
 	make
-	sudo make INSTALL_PATH=$ZYNTHIAN_PLUGINS_DIR install
+	sudo make INSTALL_PATH=$ZYNTHIAN_PLUGINS_DIR/lv2 install
 	zynth_build_request ready
 fi
 #make clean

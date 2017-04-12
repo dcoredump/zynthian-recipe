@@ -6,17 +6,14 @@ if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	zynth_build_request clear
 	cd FluidPlug
-	tmp=`dirname ${ZYNTHIAN_PLUGINS_DIR}`
-	quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${tmp}`
+	quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}`
 	sed -i -- "s/-ffast-math -mtune=generic -msse -msse2 -mfpmath=sse -fdata-sections -ffunction-sections/${CPU} ${FPU}/" Makefile.mk
 	sed -i -- "s/-msse -msse2/${CPU} ${FPU}/" Makefile.mk
-	sed -i -- "s/^DESTDIR =/DESTDIR =${quoted_ZYNTHIAN_PLUGINS_DIR}/" Makefile
 	sed -i -- 's/^PREFIX  = \/usr//' Makefile
 	sed -i -- 's/\$(PREFIX)\/lib//' Makefile
 	make
-	sudo make install
+	sudo make DESTDIR=${ZYNTHIAN_PLUGINS_DIR} install
 	zynth_build_request ready
 	make distclean
 fi
-#make clean
 cd ..
