@@ -2,7 +2,7 @@
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git https://github.com/calf-studio-gear/calf.git
-sudo apt-get install libcairo2-dev
+sudo apt-get install -y libcairo2-dev
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	zynth_build_request clear

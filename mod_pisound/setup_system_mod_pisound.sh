@@ -79,11 +79,13 @@ rm -r /etc/xdg
 #############################################################################
 # System Adjustments
 
-# Copy "etc" config files
-cd /zynthian/zynthian-recipe
-cp mod_zynthian/systemd/* /etc/systemd/system
+# Copy config files
+cd ${ZYNTHIAN_DIR}/zynthian-recipe
+cp mod_pisound/systemd/* /etc/systemd/system
 mkdir ~/bin
-cp /zynthian/zynthian-recipe/mod_zynthian/cpu-performance.sh ~/bin
+cp mod_pisound/cpu-performance.sh ~/bin
+cp -R mod_pisound/pedalboards ~/.pedalboards
+cp mod_pisound/favorites.json ${ZYNTHIAN_SW_DIR}/mod-ui/dados/favorites.json
 
 systemctl daemon-reload
 systemctl enable dhcpcd
