@@ -12,7 +12,7 @@ then
 	zynth_build_request ready
 	cd guitarix/trunk
 	git checkout 589dd79b2d7ad2b5e0db4c18c25279d6e94a1552
-	./waf configure --lv2-only --lv2dir=$ZYNTHIAN_P/lv2LUGINS_DIR/lv2 --no-avahi --no-bluez --no-ladspa --no-new-ladspa --shared-lib --optimization --download --no-lv2-gui --no-faust
+	./waf configure --lv2-only --lv2dir=$ZYNTHIAN_PLUGINS_DIR/lv2 --no-avahi --no-bluez --no-ladspa --no-new-ladspa --shared-lib --optimization --download --no-lv2-gui --no-faust
 	./waf build
 	sudo ./waf install
 	zynth_build_request ready

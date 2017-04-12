@@ -13,7 +13,7 @@ then
 	cmake -DBUILD_GUI=OFF -DBUILD_SSE=OFF .
 	make
 	sudo make install
+	make clean
 	zynth_build_request ready
 fi
-#make clean
 cd ..
