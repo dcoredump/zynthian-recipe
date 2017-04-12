@@ -94,6 +94,7 @@ systemctl disable raspi-config
 systemctl disable cron
 systemctl disable rsyslog
 systemctl disable ntp
+systemctl disable htptime
 systemctl disable triggerhappy
 systemctl enable cpu-performance
 systemctl enable pisound-btn
@@ -104,4 +105,5 @@ systemctl enable mod-ui
 #############################################################################
 # MOD-UI-System and plugins
 bash /zynthian/zynthian-recipe/recipe/update_system.sh
+history -c
 reboot
