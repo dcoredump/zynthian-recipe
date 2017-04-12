@@ -17,3 +17,12 @@ then
 fi
 make clean
 cd ..
+exit 0
+#
+        DrumGizmo gizmo(settings, *oe.get(), *ie.get());
+        settings.drumkit_file.store(kitfile);
+        Settings settings;
+        settings.disk_cache_enable = false;
+
+bool DrumGizmoPlugin::ConfigStringIO::set(std::string config_string)
+

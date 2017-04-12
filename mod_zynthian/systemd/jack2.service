@@ -6,7 +6,6 @@ After=sound.target
 LimitRTPRIO=infinity
 LimitMEMLOCK=infinity
 ExecStart=/usr/local/bin/jackd -P70 -t2000 -s -d alsa -dhw:0 -r44100 -p256 -X raw -n2
-#ExecStartPre=/usr/local/bin/jack_wait -w
 
 [Install]
 WantedBy=multi-user.target
