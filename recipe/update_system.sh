@@ -23,11 +23,12 @@ sh midifilter.sh
 sh step-seq.sh
 sh qmidiarp.sh
 # Generator
+sh fluidsynth.sh
+sh fluidplug.sh
 sh dxsyx.sh
 sh dexed.sh
 sh setbfreak.sh
-sh fluidsynth.sh
-sh fluidplug.sh
+sh setbfree.sh
 sh mod-mda.sh
 sh rogue.sh
 sh zynaddsubfx.sh

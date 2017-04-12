@@ -8,6 +8,7 @@ then
 	cd mclk.lv2
 	make
 	sudo make install LV2DIR=$ZYNTHIAN_PLUGINS_DIR/lv2
+        sed -i -- "s/a lv2:Plugin/a lv2:Plugin, mod:MIDIPlugin/" $ZYNTHIAN_PLUGINS_DIR/lv2/mclk.lv2/manifest.ttl
 	sudo cp -R modgui $ZYNTHIAN_PLUGINS_DIR/lv2/mclk.lv2
 	cat <<EOF >>$ZYNTHIAN_PLUGINS_DIR/lv2/mclk.lv2/manifest.ttl
 <http://gareus.org/oss/lv2/mclk>

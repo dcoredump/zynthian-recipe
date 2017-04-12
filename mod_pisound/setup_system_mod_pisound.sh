@@ -1,4 +1,4 @@
-#
+#!/bin/bash
 
 . /zynthian/zynthian-recipe/zynthian_envars.sh
 
@@ -12,16 +12,34 @@ cd "${ZYNTHIAN_DIR}"/zynthian-recipe
 apt-get -y update
 apt-get -y upgrade
 apt-get -y dist-upgrade
+reboot
 
 # Install required dependencies if needed
 apt-get -y install apt-utils
 apt-get -y install sudo rpi-update htpdate parted
 
 # Adjust System Date/Time
-htpdate www.isc.org
+htpdate -t -s www.isc.org
+
+# Load pisound firmare
+cat >> /boot/config.txt << EOF
+dtoverlay=pisound
+dtoverlay=i2s-mmap
+dtoverlay=pi3-disable-bt
+# Adjust Serial Port Clock to allow MIDI baudrate 31250
+init_uart_clock=2441000
+init_uart_baud=38400
+dtparam=uart0_clkrate=3000000
+EOF
+echo "dwc_otg.lpm_enable=0 console=tty1 elevator=deadline root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes rootwait" > /boot/cmdline.txt
+
+# Change system name
+echo "mod-pisound" > /etc/hostname
+sed -i -e "s/minibian/mod-pisound/" /etc/hosts
 
 # Update Firmware
 rpi-update
+reboot
 
 # System
 apt-get -y install systemd dhcpcd-dbus avahi-daemon
@@ -49,16 +67,23 @@ python3-mpmath
 # Clean
 apt-get -y autoremove
 
+# Install pi-btn
+cd ~
+mkdir -p /etc/xdg/autostart/
+git clone https://github.com/BlokasLabs/pisound.git
+cd pisound/pisound-btn
+make
+sudo make install
+rm -r /etc/xdg
+
 #############################################################################
 # System Adjustments
-echo "zynthian" > /etc/hostname
-sed -i -e "s/minibian/zynthian/" /etc/hosts
-
-cp mod_zynthian/boot/* /boot
-sed -i -e "s/#AUDIO_DEVICE_DTOVERLAY/dtoverlay=hifiberry-dacplus/g" /boot/config.txt
 
 # Copy "etc" config files
-cp mod_zynthian//systemd/* /etc/systemd/system
+cd /zynthian/zynthian-recipe
+cp mod_zynthian/systemd/* /etc/systemd/system
+mkdir ~/bin
+cp /zynthian/zynthian-recipe/mod_zynthian/cpu-performance.sh ~/bin
 
 systemctl daemon-reload
 systemctl enable dhcpcd
@@ -69,44 +94,12 @@ systemctl disable rsyslog
 systemctl disable ntp
 systemctl disable triggerhappy
 systemctl enable cpu-performance
+systemctl enable pisound-btn
 systemctl enable jack2
 systemctl enable mod-ttymidi
 systemctl enable mod-ui
 
-cd recipe
 #############################################################################
-# MOD-UI-System
-sh jack2.sh
-sh lv2.sh
-sh serd.sh
-sh sord.sh
-sh sratom.sh
-sh lilv.sh
-sh lvtk.sh
-sh phantomjs.sh
-sh mod-ttymidi.sh
-sh mod-host.sh
-sh mod-ui.sh
-sh mod-sdk.sh
-
-# LV2-Plugins
-sh calf.sh
-sh dexed.sh
-sh dxsyx.sh
-sh eq10q.sh
-sh fluidsynth.sh
-sh fluidplug.sh
-sh midifilter.sh
-sh mod-caps.sh
-sh mod-distortion.sh
-sh mod-mda.sh
-sh mod-pitchshifter.sh
-sh mod-tap.sh
-sh mod-utilities.sh
-sh modmeter.sh
-sh openav-artyfx.sh
-sh qmidiarp.sh
-sh rogue.sh
-sh setbfree.sh
-sh step-seq.sh
-sh zynaddsubfx.sh
+# MOD-UI-System and plugins
+bash /zynthian/zynthian-recipe/recipe/update_system.sh
+reboot

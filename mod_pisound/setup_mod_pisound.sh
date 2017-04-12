@@ -1,6 +1,6 @@
 #!/bin/bash
 #******************************************************************************
-# ZYNTHIAN PROJECT: MOD-RASPI Standalone Setup Script
+# ZYNTHIAN PROJECT: MOD-RASPI with Pi-Sound standalone Setup Script
 # 
 # Setup MOD-UI on a Raspi from scratch in a completely fresh minibian-jessie
 # image.
@@ -10,7 +10,11 @@
 # 1. Run first time: ./setup_mod_pisound.sh
 # 2. Reboot: It should reboot automaticly after step 1
 # 3. Run second time: ./setup_mod_pisound.sh
-# 4. Take a good beer, sit down and relax ... ;-)
+# 4. During installation another reboot apears - start ./setup_mod_pisound.sh
+#    a third time.
+# 5. ... and for updating the firmware the next reboot apears - start
+#    ./setup_mod_pisound.sh again.
+# 6. Take a good beer, sit down and relax ... ;-)
 # 
 # Copyright (C) Holger Wirtz <dcoredump@googlemail.com>
 #
@@ -31,8 +35,11 @@
 #******************************************************************************
 
 if [ ! -d "/zynthian/zynthian-recipe" ]; then
-        mkdir /zynthian
+        if [ ! -d "/zynthian" ]; then
+		mkdir /zynthian
+	fi
         apt-get update
+        apt-get upgrade -y
         apt-get -y install apt-utils
         apt-get -y install sudo git parted screen
 	cd /zynthian
@@ -41,9 +48,9 @@ fi
 
 cd /zynthian/zynthian-recipe
 
-if [ "$1" = "wiggle" ] || [ ! -f ~/.wiggled ]; then
+if [ ! -f ~/.wiggled ]; then
         echo `date` >  ~/.wiggled
         ./rpi-wiggle.sh
 else
-        ./setup_system_modraspi.sh
+        ./mod_pisound/setup_system_mod_pisound.sh
 fi

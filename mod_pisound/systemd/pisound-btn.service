@@ -1,0 +1,8 @@
+[Unit]
+Description=pisound-btn server
+
+[Service]
+ExecStart=/usr/local/bin/pisound-btn
+
+[Install]
+WantedBy=multi-user.target

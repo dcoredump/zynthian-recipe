@@ -1,7 +1,7 @@
 # setbfree
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
-zynth_git https://github.com/dcoredump/setBfree.git
+zynth_git https://github.com/pantherb/setBfree.git
 if [ ${?} -ne 0 -o  "x${build}" != "x" ]
 then
 	zynth_build_request clear
