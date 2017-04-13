@@ -15,7 +15,7 @@ sh mod-ttymidi.sh
 sh mod-host.sh
 sh mod-ui.sh
 sh mod-sdk.sh
-#sh uphantomjs.sh
+sh phantomjs.sh
 # Utilities
 sh mclk.sh
 sh modmeter.sh
