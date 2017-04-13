@@ -9,6 +9,8 @@ then
 	./waf configure --lv2-user --lv2dir=$ZYNTHIAN_PLUGINS_DIR/lv2
 	./waf build
 	sudo ./waf -j1 install
+	mkdir -p /zynthian/zynthian-plugins/lv2/mod-mda-Combo.lv2/modgui/heads/model-001
+	cp /zynthian/zynthian-sw/mod-sdk/html/resources/heads/model-001/model-0800.png /zynthian/zynthian-plugins/lv2/mod-mda-Combo.lv2/modgui/heads/model-001
 	zynth_build_request ready
 fi
 #./waf clean
