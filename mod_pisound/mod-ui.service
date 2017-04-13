@@ -1,0 +1,29 @@
+[Unit]
+Description=mod-ui
+BindsTo=jack2.service
+After=mod-ttymidi.service
+
+[Service]
+Environment=HOME=/root
+Environment=LV2_PATH=/zynthian/zynthian-plugins/lv2:/zynthian/zynthian-my-plugins/lv2
+Environment=MOD_DEV_ENVIRONMENT=0
+Environment=MOD_SCREENSHOT_JS=/zynthian/zynthian-sw/mod-ui/screenshot.js
+Environment=MOD_PHANTOM_BINARY=/usr/bin/phantomjs
+Environment=MOD_DEVICE_WEBSERVER_PORT=8888
+WorkingDirectory=/zynthian/zynthian-sw/mod-ui
+ExecStartPre=/usr/local/bin/jack_wait -w
+ExecStartPre=/usr/local/bin/jack_alias system:playback_1 mod-monitor:in_1
+ExecStartPre=/usr/local/bin/jack_alias system:playback_2 mod-monitor:in_2
+ExecStartPre=/usr/local/bin/jack_alias system:midi_capture_1 ttymidi:MIDI_in
+ExecStartPre=/usr/local/bin/jack_alias system:midi_playback_1 ttymidi:MIDI_out
+ExecStart=/zynthian/zynthian-sw/mod-ui/server.py
+ExecStop=/usr/local/bin/jack_alias -u mod-monitor:in_1
+ExecStop=/usr/local/bin/jack_alias -u mod-monitor:in_2
+ExecStop=/usr/local/bin/jack_alias -u ttymidi:MIDI_in
+ExecStop=/usr/local/bin/jack_alias -u ttymidi:MIDI_out
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
+#WantedBy=network.target

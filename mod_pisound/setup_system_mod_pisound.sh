@@ -42,7 +42,7 @@ rpi-update
 reboot
 
 # System
-apt-get -y install systemd dhcpcd-dbus avahi-daemon
+apt-get -y install systemd dhcpcd-dbus avahi-daemon cpufrequtils
 apt-get -y remove isc-dhcp-client
 
 # CLI Tools
@@ -79,6 +79,10 @@ rm -r /etc/xdg
 #############################################################################
 # System Adjustments
 
+# CPU mode performance
+/usr/bin/cpufreq-set -g performance
+sed -i -- 's/GOVERNOR="ondemand"/GOVERNOR="performance"/' /etc/init.d/cpufrequtils
+
 # Copy config files
 cd ${ZYNTHIAN_DIR}/zynthian-recipe
 cp mod_pisound/systemd/* /etc/systemd/system
@@ -93,12 +97,12 @@ systemctl disable raspi-config
 systemctl disable cron
 systemctl disable rsyslog
 systemctl disable ntp
-systemctl disable htptime
+systemctl disable htpdate
 systemctl disable triggerhappy
 systemctl enable cpu-performance
 systemctl enable pisound-btn
 systemctl enable jack2
-systemctl enable mod-ttymidi
+systemctl enable mod-host
 systemctl enable mod-ui
 
 #############################################################################
