@@ -56,4 +56,4 @@ sh bolliedelay.sh
 sh midigen.sh
 sh infamous.sh
 
-systemctl restart jack2
+systemctl daemon-reload && systemctl restart jack2

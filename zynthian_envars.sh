@@ -54,7 +54,7 @@ if [ ${machine} = "armv7l" ]; then
 fi
 export MACHINE_HW_NAME=$machine
 export RBPI_VERSION=$model
-export CFLAGS="${CPU} ${FPU}"
+export CFLAGS="${CPU} ${FPU} ${CFLAGS_UNSAFE}"
 export CXXFLAGS=${CFLAGS}
 export CFLAGS_UNSAFE
 #echo "Hardware Architecture: ${machine}"

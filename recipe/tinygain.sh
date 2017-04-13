@@ -7,7 +7,7 @@ then
         zynth_build_request clear
 	cd tinyamp.lv2
 	make
-	sudo make install LV2DIR=$ZYNTHIAN_PLUGINS_DIR/lv2
+	sudo make install MOD=1 LV2DIR=$ZYNTHIAN_PLUGINS_DIR/lv2
 	make clean
 	zynth_build_request ready
 	cd ..
