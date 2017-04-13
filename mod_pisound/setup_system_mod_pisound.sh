@@ -87,7 +87,6 @@ sed -i -- 's/GOVERNOR="ondemand"/GOVERNOR="performance"/' /etc/init.d/cpufrequti
 cd ${ZYNTHIAN_DIR}/zynthian-recipe
 cp mod_pisound/systemd/* /etc/systemd/system
 mkdir ~/bin
-cp mod_pisound/cpu-performance.sh ~/bin
 cp -R mod_pisound/pedalboards ~/.pedalboards
 
 systemctl daemon-reload

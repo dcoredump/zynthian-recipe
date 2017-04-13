@@ -10,7 +10,7 @@ then
 	unzip /tmp/masterpiece.zip -d /tmp/masterpiece
 	rm /tmp/masterpiece.zip
 	export MODSDK=/zynthian/zynthian-sw/mod-sdk
-	perl ./genericfluidplug  -boxy-style=wood4 -knob-style=black /tmp/masterpiece/Masterpiece.sf2 /zynthian/zynthian-sw/plugins/Masterpiece $ZYNTHIAN_PLUGINS_DIR
+	perl ./genericfluidplug  -boxy-style=wood4 -knob-style=black /tmp/masterpiece/Masterpiece.sf2 /zynthian/zynthian-sw/plugins/Masterpiece $ZYNTHIAN_PLUGINS_DIR/lv2
 	cd /zynthian/zynthian-sw/plugins/Masterpiece
 	make install
 	rm -r /tmp/masterpiece

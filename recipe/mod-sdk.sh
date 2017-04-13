@@ -1,6 +1,6 @@
 # mod-sdk
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-sudo apt-get install -y python3-pip
+sudo apt-get install -y python3-pip python3-pystache python3-tornado
 cd $ZYNTHIAN_SW_DIR
 zynth_git_recursive https://github.com/moddevices/mod-sdk.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]

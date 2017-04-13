@@ -14,6 +14,7 @@ then
 		rm -rf $ZYNTHIAN_SW_DIR/mod-ui/phantomjs-1.9.0-linux-x86_64/bin
 		mkdir -p $ZYNTHIAN_SW_DIR/mod-ui/phantomjs-1.9.0-linux-x86_64/bin
 		ln -s $ZYNTHIAN_SW_DIR/phantomjs-raspberrypi/bin/phantomjs $ZYNTHIAN_SW_DIR/mod-ui/phantomjs-1.9.0-linux-x86_64/bin 
+		ln -s $ZYNTHIAN_SW_DIR/phantomjs-raspberrypi/bin/phantomjs /usr/local/bin
 		zynth_build_request ready
 	fi
 fi

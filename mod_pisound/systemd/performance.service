@@ -1,9 +1,0 @@
-[Unit]
-Description=Tune CPU perfoamnce
-
-[Service]
-Type=oneshot
-ExecStart=/root/bin/cpu-performance.sh
-
-[Install]
-WantedBy=multi-user.target
