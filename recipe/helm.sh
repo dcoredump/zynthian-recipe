@@ -16,6 +16,7 @@ then
 	IFS="$OIFS"
 	make
 	sudo make install
+	ln -s /usr/lib/lv2/helm.lv2 $ZYNTHIAN_PLUGINS_DIR/lv2
 	zynth_build_request ready
 	make clean
 	cd ..
