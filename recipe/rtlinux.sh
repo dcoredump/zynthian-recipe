@@ -21,8 +21,8 @@ then
 	cd rpilinux-rt
 	git clone --depth=1 https://github.com/raspberrypi/linux.git
 	#wget https://www.kernel.org/pub/linux/kernel/projects/rt/4.9/patch-4.9.20-rt16.patch.xz
-	wget https://www.kernel.org/pub/linux/kernel/projects/rt/4.9/patch-4.9.27-rt17.patch.xz
-	xz -d patch-4.9.27-rt17.patch.xz
+	wget https://www.kernel.org/pub/linux/kernel/projects/rt/4.9/patch-4.9.30-rt21.patch.xz
+	xz -d patch-4.9.30-rt21.patch.xz
 	cd linux
 	cat ../patch-4.9.27-rt17.patch | patch -p 1 | tee log
 	grep_failed=`grep -i failed log`

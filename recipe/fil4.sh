@@ -14,7 +14,7 @@ then
 	make submodules
 	make MOD=1
 	sudo make DESTDIR="" MOD=1 install
-	rm -r ${ZYNTHIAN_PLUGINS_DIR}/lv2/share ${ZYNTHIAN_PLUGINS_DIR}/lv2/bin
+	rm -rf ${ZYNTHIAN_PLUGINS_DIR}/lv2/share ${ZYNTHIAN_PLUGINS_DIR}/lv2/bin
 	zynth_build_request ready
 	make clean
 	cd ..

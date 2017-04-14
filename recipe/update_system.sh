@@ -50,7 +50,6 @@ sh mod-tap.sh
 sh mod-utilities.sh
 sh openav-artyfx.sh
 sh fil4.sh
-sh calf.sh
 sh invada.sh
 sh zam.sh
 sh rkrlv2.sh
