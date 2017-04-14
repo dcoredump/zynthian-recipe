@@ -1,4 +1,4 @@
-# mclk
+# tinygain
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git https://github.com/x42/tinyamp.lv2.git

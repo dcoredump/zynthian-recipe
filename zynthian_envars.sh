@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #******************************************************************************
 # ZYNTHIAN PROJECT: Zynthian Environment Vars
 # 
@@ -36,13 +36,15 @@ export ZYNTHIAN_PLUGINS_DIR="$ZYNTHIAN_DIR/zynthian-plugins"
 export ZYNTHIAN_PLUGINS_MODGUI_DIR="$ZYNTHIAN_DIR/zynthian-modgui"
 export ZYNTHIAN_MY_PLUGINS_DIR="$ZYNTHIAN_DIR/zynthian-my-plugins"
 export ZYNTHIAN_PLUGINS_SRC_DIR="$ZYNTHIAN_SW_DIR/plugins"
-export LV2_PATH="${ZYNTHIAN_PLUGINS_DIR}/lv2:${ZYNTHIAN_MY_PLUGINS_DIR}/lv2":"${ZYNTHIAN_PLUGINS_MODGUI_DIR}"
+export LV2_PATH="${ZYNTHIAN_PLUGINS_DIR}/lv2:${ZYNTHIAN_MY_PLUGINS_DIR}/lv2:${ZYNTHIAN_PLUGINS_MODGUI_DIR}"
 
 # Hardware Architecture & Optimization Options
-machine=`uname -m 2>/dev/null`
-if [ ${machine} = "armv7l" ]; then
-	model=`cat /sys/firmware/devicetree/base/model 2>/dev/null`
-	if [[ ${model} =~ [3] ]]; then
+machine=$(uname -m 2>/dev/null)
+if [ "${machine}" = "armv7l" ]; then
+	model=$(cat /sys/firmware/devicetree/base/model 2>/dev/null)
+	#if [[ ${model} =~ [3] ]]; then
+	if echo "${model}" | grep -Eq '([3])'
+	then
 		CPU="-mcpu=cortex-a53"
 		FPU="-mfpu=neon-fp-armv8 -mneon-for-64bits"
 	else
@@ -52,10 +54,10 @@ if [ ${machine} = "armv7l" ]; then
 	FPU="${FPU} -mfloat-abi=hard -mvectorize-with-neon-quad"
 	CFLAGS_UNSAFE="-funsafe-loop-optimizations -funsafe-math-optimizations"
 fi
-export MACHINE_HW_NAME=$machine
-export RBPI_VERSION=$model
+export MACHINE_HW_NAME="${machine}"
+export RBPI_VERSION="${model}"
 export CFLAGS="${CPU} ${FPU} ${CFLAGS_UNSAFE}"
-export CXXFLAGS=${CFLAGS}
-export CFLAGS_UNSAFE
+export CXXFLAGS="${CFLAGS}"
+export CFLAGS_UNSAFE="${CFLAGS_UNSAFE}"
 #echo "Hardware Architecture: ${machine}"
 #echo "Hardware Model: ${model}"

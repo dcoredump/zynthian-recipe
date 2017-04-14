@@ -55,5 +55,6 @@ sh shiro.sh
 sh bolliedelay.sh
 sh midigen.sh
 sh infamous.sh
+sh distrho.sh
 
 systemctl daemon-reload && systemctl restart jack2
