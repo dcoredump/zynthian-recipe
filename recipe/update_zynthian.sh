@@ -37,6 +37,7 @@ sh mod-mda.sh
 sh rogue.sh
 #sh zynaddsubfx.sh
 sh remid.sh
+sh helm.sh
 # Div
 sh eq10q.sh
 sh calf.sh
