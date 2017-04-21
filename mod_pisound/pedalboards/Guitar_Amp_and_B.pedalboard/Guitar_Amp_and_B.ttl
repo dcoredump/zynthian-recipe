@@ -9,249 +9,185 @@
 
 _:b1
     ingen:tail <capture_2> ;
-    ingen:head <Compress/in> .
+    ingen:head <GUITARIX/in> .
 
 _:b2
-    ingen:tail <Compress/out> ;
-    ingen:head <AmpVTS/in> .
+    ingen:tail <capture_1> ;
+    ingen:head <GUITARIX/in> .
 
 _:b3
-    ingen:tail <AmpVTS/out> ;
-    ingen:head <CABINET/in> .
-
-_:b4
-    ingen:tail <CABINET/out> ;
+    ingen:tail <_room_simulator_/out> ;
     ingen:head <playback_1> .
 
-_:b5
-    ingen:tail <CABINET/out> ;
+_:b4
+    ingen:tail <_room_simulator_/out> ;
     ingen:head <playback_2> .
 
-<CABINET>
-    ingen:canvasX 2720.9 ;
-    ingen:canvasY 650.2 ;
+_:b5
+    ingen:tail <GUITARIX/out> ;
+    ingen:head <_room_simulator_/in> .
+
+<GUITARIX>
+    ingen:canvasX 406.9 ;
+    ingen:canvasY 410.3 ;
     ingen:enabled true ;
     ingen:polyphonic false ;
     lv2:microVersion 3 ;
     lv2:minorVersion 28 ;
     mod:builderVersion 0 ;
     mod:releaseNumber 0 ;
-    lv2:port <CABINET/in> ,
-             <CABINET/out> ,
-             <CABINET/CLevel> ,
-             <CABINET/CBass> ,
-             <CABINET/CTreble> ,
-             <CABINET/c_model> ,
-             <CABINET/SCHEDULE> ,
-             <CABINET/:bypass> ;
-    lv2:prototype <http://guitarix.sourceforge.net/plugins/gx_cabinet#CABINET> ;
+    lv2:port <GUITARIX/in> ,
+             <GUITARIX/out> ,
+             <GUITARIX/MasterGain> ,
+             <GUITARIX/PreGain> ,
+             <GUITARIX/Distortion> ,
+             <GUITARIX/Drive> ,
+             <GUITARIX/Middle> ,
+             <GUITARIX/Bass> ,
+             <GUITARIX/Treble> ,
+             <GUITARIX/Cabinet> ,
+             <GUITARIX/Presence> ,
+             <GUITARIX/model> ,
+             <GUITARIX/t_model> ,
+             <GUITARIX/c_model> ,
+             <GUITARIX/SCHEDULE> ,
+             <GUITARIX/:bypass> ;
+    lv2:prototype <http://guitarix.sourceforge.net/plugins/gx_amp#GUITARIX> ;
     pedal:preset <> ;
     a ingen:Block .
 
-<CABINET/in>
+<GUITARIX/in>
     a lv2:AudioPort ,
         lv2:InputPort .
 
-<CABINET/in>
+<GUITARIX/in>
     a lv2:AudioPort ,
         lv2:OutputPort .
 
-<CABINET/CTreble>
+<GUITARIX/MasterGain>
+    ingen:value -4.375000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<GUITARIX/Cabinet>
+    ingen:value 12.875000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<GUITARIX/model>
+    ingen:value 6.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<GUITARIX/Distortion>
+    ingen:value 22.656250 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<GUITARIX/c_model>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<CABINET/c_model>
-    ingen:value 0.000000 ;
+<GUITARIX/PreGain>
+    ingen:value 5.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<CABINET/CLevel>
-    ingen:value 1.000000 ;
+<GUITARIX/Middle>
+    ingen:value 0.718750 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<CABINET/CBass>
-    ingen:value 0.000000 ;
+<GUITARIX/Treble>
+    ingen:value 0.328125 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<CABINET/SCHEDULE>
-    a lv2:ControlPort ,
-        lv2:OutputPort .
-
-<CABINET/:bypass>
-    ingen:value 0 ;
+<GUITARIX/Drive>
+    ingen:value 0.628750 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<AmpVTS>
-    ingen:canvasX 1333.9 ;
-    ingen:canvasY 705.4 ;
-    ingen:enabled true ;
-    ingen:polyphonic false ;
-    lv2:microVersion 24 ;
-    lv2:minorVersion 9 ;
-    mod:builderVersion 0 ;
-    mod:releaseNumber 0 ;
-    lv2:port <AmpVTS/in> ,
-             <AmpVTS/out> ,
-             <AmpVTS/over> ,
-             <AmpVTS/gain> ,
-             <AmpVTS/bright> ,
-             <AmpVTS/power> ,
-             <AmpVTS/tonestack> ,
-             <AmpVTS/bass> ,
-             <AmpVTS/mid> ,
-             <AmpVTS/treble> ,
-             <AmpVTS/attack> ,
-             <AmpVTS/squash> ,
-             <AmpVTS/low_cut> ,
-             <AmpVTS/:bypass> ;
-    lv2:prototype <http://moddevices.com/plugins/caps/AmpVTS> ;
-    pedal:preset <> ;
-    a ingen:Block .
-
-<AmpVTS/in>
-    a lv2:AudioPort ,
-        lv2:InputPort .
-
-<AmpVTS/in>
-    a lv2:AudioPort ,
-        lv2:OutputPort .
-
-<AmpVTS/squash>
-    ingen:value 0.250000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<AmpVTS/bass>
-    ingen:value 0.250000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<AmpVTS/over>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<AmpVTS/low_cut>
-    ingen:value 0.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<AmpVTS/treble>
-    ingen:value 0.750000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<AmpVTS/gain>
-    ingen:value 0.250000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<AmpVTS/attack>
-    ingen:value 0.750000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<AmpVTS/power>
-    ingen:value 0.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<AmpVTS/bright>
-    ingen:value 0.750000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<AmpVTS/mid>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<AmpVTS/tonestack>
+<GUITARIX/t_model>
     ingen:value 4.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<AmpVTS/:bypass>
+<GUITARIX/Bass>
+    ingen:value 0.359375 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<GUITARIX/Presence>
+    ingen:value 5.781250 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<GUITARIX/SCHEDULE>
+    a lv2:ControlPort ,
+        lv2:OutputPort .
+
+<GUITARIX/:bypass>
     ingen:value 0 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Compress>
-    ingen:canvasX 592.4 ;
-    ingen:canvasY 625.4 ;
+<_room_simulator_>
+    ingen:canvasX 1989.0 ;
+    ingen:canvasY 345.0 ;
     ingen:enabled true ;
     ingen:polyphonic false ;
-    lv2:microVersion 24 ;
-    lv2:minorVersion 9 ;
+    lv2:microVersion 3 ;
+    lv2:minorVersion 28 ;
     mod:builderVersion 0 ;
     mod:releaseNumber 0 ;
-    lv2:port <Compress/in> ,
-             <Compress/out> ,
-             <Compress/measure> ,
-             <Compress/mode> ,
-             <Compress/threshold> ,
-             <Compress/strength> ,
-             <Compress/attack> ,
-             <Compress/release> ,
-             <Compress/gain> ,
-             <Compress/state> ,
-             <Compress/:bypass> ;
-    lv2:prototype <http://moddevices.com/plugins/caps/Compress> ;
+    lv2:port <_room_simulator_/in> ,
+             <_room_simulator_/out> ,
+             <_room_simulator_/EFFECT> ,
+             <_room_simulator_/PREDELAYMS> ,
+             <_room_simulator_/RT> ,
+             <_room_simulator_/ROOMSIZE> ,
+             <_room_simulator_/DRYWET> ,
+             <_room_simulator_/:bypass> ;
+    lv2:prototype <http://guitarix.sourceforge.net/plugins/gx_room_simulator_#_room_simulator_> ;
     pedal:preset <> ;
     a ingen:Block .
 
-<Compress/in>
+<_room_simulator_/in>
     a lv2:AudioPort ,
         lv2:InputPort .
 
-<Compress/in>
+<_room_simulator_/in>
     a lv2:AudioPort ,
         lv2:OutputPort .
 
-<Compress/measure>
-    ingen:value 0.000000 ;
+<_room_simulator_/PREDELAYMS>
+    ingen:value 13.437500 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Compress/mode>
-    ingen:value 1.000000 ;
+<_room_simulator_/EFFECT>
+    ingen:value 0.765625 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Compress/attack>
-    ingen:value 0.750000 ;
+<_room_simulator_/DRYWET>
+    ingen:value 0.609375 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Compress/gain>
-    ingen:value 3.000000 ;
+<_room_simulator_/RT>
+    ingen:value 0.421875 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Compress/strength>
-    ingen:value 0.250000 ;
+<_room_simulator_/ROOMSIZE>
+    ingen:value 2.062500 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Compress/threshold>
-    ingen:value 0.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Compress/release>
-    ingen:value 0.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Compress/state>
-    a lv2:ControlPort ,
-        lv2:OutputPort .
-
-<Compress/:bypass>
+<_room_simulator_/:bypass>
     ingen:value 0 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -343,9 +279,8 @@ _:b5
               _:b3 ,
               _:b4 ,
               _:b5 ;
-    ingen:block <CABINET> ,
-                <AmpVTS> ,
-                <Compress> ;
+    ingen:block <GUITARIX> ,
+                <_room_simulator_> ;
     lv2:port <control_in> ,
              <control_out> ,
              <serial_midi_in> ,

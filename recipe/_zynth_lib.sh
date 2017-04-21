@@ -76,9 +76,11 @@ zynth_git () {
     else
 	if [ "${_git_options}" ]
 	then
-        	git clone "${_git_options}" "${1}"
+        	#git clone "${_git_options}" "${1}"
+        	git clone "${_git_options}" ${*}
 	else
-        	git clone "${1}"
+        	#git clone "${1}"
+        	git clone ${*}
 	fi
         ret=1
     fi

@@ -8,113 +8,53 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:b1
-    ingen:tail <roomy/out_left> ;
+    ingen:tail <GenericFluidPlug_Masterpiece/audio_out_l> ;
     ingen:head <playback_1> .
 
 _:b2
-    ingen:tail <roomy/out_right> ;
+    ingen:tail <GenericFluidPlug_Masterpiece/audio_out_r> ;
     ingen:head <playback_2> .
 
 _:b3
-    ingen:tail <b_synth/outL> ;
-    ingen:head <roomy/in_left> .
-
-_:b4
-    ingen:tail <b_synth/outR> ;
-    ingen:head <roomy/in_right> .
-
-_:b5
     ingen:tail <serial_midi_in> ;
-    ingen:head <b_synth/control> .
+    ingen:head <GenericFluidPlug_Masterpiece/events> .
 
-<roomy>
-    ingen:canvasX 2326.0 ;
-    ingen:canvasY 249.0 ;
+<GenericFluidPlug_Masterpiece>
+    ingen:canvasX 1620.2 ;
+    ingen:canvasY 476.2 ;
     ingen:enabled true ;
     ingen:polyphonic false ;
-    lv2:microVersion 0 ;
+    lv2:microVersion 1 ;
     lv2:minorVersion 2 ;
     mod:builderVersion 0 ;
     mod:releaseNumber 0 ;
-    lv2:port <roomy/in_left> ,
-             <roomy/in_right> ,
-             <roomy/out_left> ,
-             <roomy/out_right> ,
-             <roomy/time> ,
-             <roomy/damping> ,
-             <roomy/dry_wet> ,
-             <roomy/:bypass> ;
-    lv2:prototype <http://www.openavproductions.com/artyfx#roomy> ;
+    lv2:port <GenericFluidPlug_Masterpiece/audio_out_l> ,
+             <GenericFluidPlug_Masterpiece/audio_out_r> ,
+             <GenericFluidPlug_Masterpiece/level> ,
+             <GenericFluidPlug_Masterpiece/program> ,
+             <GenericFluidPlug_Masterpiece/events> ,
+             <GenericFluidPlug_Masterpiece/:bypass> ;
+    lv2:prototype <https://github.com/dcoredump/GenericFluidPlug_Masterpiece> ;
     pedal:preset <> ;
     a ingen:Block .
 
-<roomy/in_left>
-    a lv2:AudioPort ,
-        lv2:InputPort .
-
-<roomy/in_right>
-    a lv2:AudioPort ,
-        lv2:InputPort .
-
-<roomy/in_left>
-    a lv2:AudioPort ,
-        lv2:OutputPort .
-
-<roomy/in_right>
-    a lv2:AudioPort ,
-        lv2:OutputPort .
-
-<roomy/damping>
-    ingen:value 0.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<roomy/dry_wet>
-    ingen:value 0.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<roomy/time>
-    ingen:value 0.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<roomy/:bypass>
-    ingen:value 0 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<b_synth>
-    ingen:canvasX 1444.0 ;
-    ingen:canvasY 367.0 ;
-    ingen:enabled true ;
-    ingen:polyphonic false ;
-    lv2:microVersion 0 ;
-    lv2:minorVersion 2056 ;
-    mod:builderVersion 0 ;
-    mod:releaseNumber 0 ;
-    lv2:port <b_synth/outL> ,
-             <b_synth/outR> ,
-             <b_synth/control> ,
-             <b_synth/notify> ,
-             <b_synth/:bypass> ;
-    lv2:prototype <http://gareus.org/oss/lv2/b_synth> ;
-    pedal:preset <> ;
-    a ingen:Block .
-
-<b_synth/control>
+<GenericFluidPlug_Masterpiece/events>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
     a atom:AtomPort ,
         lv2:InputPort .
 
-<b_synth/notify>
-    atom:bufferType atom:Sequence ;
-    atom:supports midi:MidiEvent ;
-    a atom:AtomPort ,
-        lv2:OutputPort .
+<GenericFluidPlug_Masterpiece/program>
+    ingen:value 11.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
 
-<b_synth/:bypass>
+<GenericFluidPlug_Masterpiece/level>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<GenericFluidPlug_Masterpiece/:bypass>
     ingen:value 0 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -216,7 +156,7 @@ _:b5
         lv2:OutputPort .
 
 <>
-    doap:name "setBfree Reverb" ;
+    doap:name "Masterpiece" ;
     pedal:width 0 ;
     pedal:height 0 ;
     pedal:addressings <addressings.json> ;
@@ -225,11 +165,8 @@ _:b5
     ingen:polyphony 1 ;
     ingen:arc _:b1 ,
               _:b2 ,
-              _:b3 ,
-              _:b4 ,
-              _:b5 ;
-    ingen:block <roomy> ,
-                <b_synth> ;
+              _:b3 ;
+    ingen:block <GenericFluidPlug_Masterpiece> ;
     lv2:port <control_in> ,
              <control_out> ,
              <serial_midi_in> ,

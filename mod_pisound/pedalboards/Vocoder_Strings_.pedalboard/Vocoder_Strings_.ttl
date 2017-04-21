@@ -8,24 +8,24 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:b1
-    ingen:tail <FluidPlug_FluidStrings/audio_out_l> ;
-    ingen:head <Vocoder/right_in> .
+    ingen:tail <capture_2> ;
+    ingen:head <Vocoder/left_in> .
 
 _:b2
     ingen:tail <FluidPlug_FluidStrings/audio_out_r> ;
     ingen:head <Vocoder/right_in> .
 
 _:b3
-    ingen:tail <capture_2> ;
-    ingen:head <Vocoder/left_in> .
-
-_:b4
-    ingen:tail <Echo/lv2_audio_out_1> ;
-    ingen:head <playback_1> .
-
-_:b5
     ingen:tail <Vocoder/left_out> ;
     ingen:head <Echo/lv2_audio_in_1> .
+
+_:b4
+    ingen:tail <FluidPlug_FluidStrings/audio_out_l> ;
+    ingen:head <Vocoder/right_in> .
+
+_:b5
+    ingen:tail <Echo/lv2_audio_out_1> ;
+    ingen:head <playback_1> .
 
 _:b6
     ingen:tail <Vocoder/right_out> ;
@@ -36,12 +36,143 @@ _:b7
     ingen:head <playback_2> .
 
 _:b8
-    ingen:tail <midi_capture_1> ;
+    ingen:tail <capture_1> ;
+    ingen:head <Vocoder/left_in> .
+
+_:b9
+    ingen:tail <serial_midi_in> ;
     ingen:head <FluidPlug_FluidStrings/events> .
 
+<Vocoder>
+    ingen:canvasX 1646.0 ;
+    ingen:canvasY 313.0 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 3 ;
+    lv2:minorVersion 0 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <Vocoder/left_in> ,
+             <Vocoder/right_in> ,
+             <Vocoder/left_out> ,
+             <Vocoder/right_out> ,
+             <Vocoder/mod_in> ,
+             <Vocoder/output> ,
+             <Vocoder/hi_thru> ,
+             <Vocoder/hi_band> ,
+             <Vocoder/envelope> ,
+             <Vocoder/filter_q> ,
+             <Vocoder/mid_freq> ,
+             <Vocoder/quality> ,
+             <Vocoder/:bypass> ;
+    lv2:prototype <http://moddevices.com/plugins/mda/Vocoder> ;
+    pedal:preset <> ;
+    a ingen:Block .
+
+<Vocoder/left_in>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<Vocoder/right_in>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<Vocoder/left_in>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<Vocoder/right_in>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<Vocoder/mid_freq>
+    ingen:value 1000.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Vocoder/mod_in>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Vocoder/hi_band>
+    ingen:value 40.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Vocoder/hi_thru>
+    ingen:value 40.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Vocoder/output>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Vocoder/filter_q>
+    ingen:value 55.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Vocoder/quality>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Vocoder/envelope>
+    ingen:value 1602.239990 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Vocoder/:bypass>
+    ingen:value 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<FluidPlug_FluidStrings>
+    ingen:canvasX 1010.0 ;
+    ingen:canvasY 849.0 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 0 ;
+    lv2:minorVersion 2 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <FluidPlug_FluidStrings/audio_out_l> ,
+             <FluidPlug_FluidStrings/audio_out_r> ,
+             <FluidPlug_FluidStrings/level> ,
+             <FluidPlug_FluidStrings/program> ,
+             <FluidPlug_FluidStrings/events> ,
+             <FluidPlug_FluidStrings/:bypass> ;
+    lv2:prototype <http://kxstudio.linuxaudio.org/plugins/FluidPlug_FluidStrings> ;
+    pedal:preset <> ;
+    a ingen:Block .
+
+<FluidPlug_FluidStrings/events>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<FluidPlug_FluidStrings/program>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<FluidPlug_FluidStrings/level>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<FluidPlug_FluidStrings/:bypass>
+    ingen:value 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
 <Echo>
-    ingen:canvasX 2543.7 ;
-    ingen:canvasY 223.9 ;
+    ingen:canvasX 2543.0 ;
+    ingen:canvasY 223.0 ;
     ingen:enabled true ;
     ingen:polyphonic false ;
     lv2:microVersion 0 ;
@@ -83,16 +214,6 @@ _:b8
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Echo/lrdelay>
-    ingen:value 64.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Echo/lrcross>
-    ingen:value 30.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
 <Echo/fb>
     ingen:value 59.000000 ;
     a lv2:ControlPort ,
@@ -103,134 +224,17 @@ _:b8
     a lv2:ControlPort ,
         lv2:InputPort .
 
+<Echo/lrcross>
+    ingen:value 30.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Echo/lrdelay>
+    ingen:value 64.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
 <Echo/:bypass>
-    ingen:value 0 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<FluidPlug_FluidStrings>
-    ingen:canvasX 920.9 ;
-    ingen:canvasY 557.8 ;
-    ingen:enabled true ;
-    ingen:polyphonic false ;
-    lv2:microVersion 0 ;
-    lv2:minorVersion 2 ;
-    mod:builderVersion 0 ;
-    mod:releaseNumber 0 ;
-    lv2:port <FluidPlug_FluidStrings/audio_out_l> ,
-             <FluidPlug_FluidStrings/audio_out_r> ,
-             <FluidPlug_FluidStrings/level> ,
-             <FluidPlug_FluidStrings/program> ,
-             <FluidPlug_FluidStrings/events> ,
-             <FluidPlug_FluidStrings/:bypass> ;
-    lv2:prototype <http://kxstudio.linuxaudio.org/plugins/FluidPlug_FluidStrings> ;
-    pedal:preset <> ;
-    a ingen:Block .
-
-<FluidPlug_FluidStrings/events>
-    atom:bufferType atom:Sequence ;
-    atom:supports midi:MidiEvent ;
-    a atom:AtomPort ,
-        lv2:InputPort .
-
-<FluidPlug_FluidStrings/level>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<FluidPlug_FluidStrings/program>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<FluidPlug_FluidStrings/:bypass>
-    ingen:value 0 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Vocoder>
-    ingen:canvasX 1646.9 ;
-    ingen:canvasY 313.3 ;
-    ingen:enabled true ;
-    ingen:polyphonic false ;
-    lv2:microVersion 3 ;
-    lv2:minorVersion 0 ;
-    mod:builderVersion 0 ;
-    mod:releaseNumber 0 ;
-    lv2:port <Vocoder/left_in> ,
-             <Vocoder/right_in> ,
-             <Vocoder/left_out> ,
-             <Vocoder/right_out> ,
-             <Vocoder/mod_in> ,
-             <Vocoder/output> ,
-             <Vocoder/hi_thru> ,
-             <Vocoder/hi_band> ,
-             <Vocoder/envelope> ,
-             <Vocoder/filter_q> ,
-             <Vocoder/mid_freq> ,
-             <Vocoder/quality> ,
-             <Vocoder/:bypass> ;
-    lv2:prototype <http://moddevices.com/plugins/mda/Vocoder> ;
-    pedal:preset <> ;
-    a ingen:Block .
-
-<Vocoder/left_in>
-    a lv2:AudioPort ,
-        lv2:InputPort .
-
-<Vocoder/right_in>
-    a lv2:AudioPort ,
-        lv2:InputPort .
-
-<Vocoder/left_in>
-    a lv2:AudioPort ,
-        lv2:OutputPort .
-
-<Vocoder/right_in>
-    a lv2:AudioPort ,
-        lv2:OutputPort .
-
-<Vocoder/filter_q>
-    ingen:value 55.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Vocoder/mid_freq>
-    ingen:value 1000.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Vocoder/hi_band>
-    ingen:value 40.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Vocoder/quality>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Vocoder/hi_thru>
-    ingen:value 40.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Vocoder/mod_in>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Vocoder/envelope>
-    ingen:value 1602.239990 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Vocoder/output>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Vocoder/:bypass>
     ingen:value 0 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -346,10 +350,11 @@ _:b8
               _:b5 ,
               _:b6 ,
               _:b7 ,
-              _:b8 ;
-    ingen:block <Echo> ,
+              _:b8 ,
+              _:b9 ;
+    ingen:block <Vocoder> ,
                 <FluidPlug_FluidStrings> ,
-                <Vocoder> ;
+                <Echo> ;
     lv2:port <control_in> ,
              <control_out> ,
              <serial_midi_in> ,

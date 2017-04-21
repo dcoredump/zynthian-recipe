@@ -2,14 +2,10 @@
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 apt-get install -y libglib2.0-dev libsndfile-dev cmake
 cd $ZYNTHIAN_SW_DIR/plugins
-zynth_git git://git.code.sf.net/p/fluidsynth/code-git
+zynth_git git://git.code.sf.net/p/fluidsynth/code-git fluidsynth
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	zynth_build_request clear
-	if [ ! -d fluidsynth ]
-	then
-		ln -s code-git fluidsynth
-	fi
 	cd fluidsynth/fluidsynth
 	#sed -i -- 's/AM_INIT_AUTOMAKE(fluidsynth, \$FLUIDSYNTH_VERSION)/AM_INIT_AUTOMAKE(fluidsynth, \$FLUIDSYNTH_VERSION)\nAC_DEFINE(DEFAULT_SOUNDFONT, "share\/soundfonts\/default.sf2", \[Default soundfont\])/' configure.ac
 	#autoreconf -i
@@ -20,6 +16,5 @@ then
 	make
 	sudo make install
 	zynth_build_request ready
+	cd ..
 fi
-#make clean
-cd ..
