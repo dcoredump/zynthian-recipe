@@ -27,5 +27,5 @@ then
 	fi
 	./waf clean
 	zynth_build_request ready
+	cd ..
 fi
-cd ..
