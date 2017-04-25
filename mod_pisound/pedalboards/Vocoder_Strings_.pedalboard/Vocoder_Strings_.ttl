@@ -8,39 +8,43 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:b1
-    ingen:tail <capture_2> ;
-    ingen:head <Vocoder/left_in> .
-
-_:b2
-    ingen:tail <FluidPlug_FluidStrings/audio_out_r> ;
-    ingen:head <Vocoder/right_in> .
-
-_:b3
-    ingen:tail <Vocoder/left_out> ;
-    ingen:head <Echo/lv2_audio_in_1> .
-
-_:b4
-    ingen:tail <FluidPlug_FluidStrings/audio_out_l> ;
-    ingen:head <Vocoder/right_in> .
-
-_:b5
     ingen:tail <Echo/lv2_audio_out_1> ;
     ingen:head <playback_1> .
 
-_:b6
+_:b2
     ingen:tail <Vocoder/right_out> ;
     ingen:head <Echo/lv2_audio_in_2> .
 
-_:b7
+_:b3
+    ingen:tail <capture_2> ;
+    ingen:head <Vocoder/left_in> .
+
+_:b4
+    ingen:tail <Vocoder/left_out> ;
+    ingen:head <Echo/lv2_audio_in_1> .
+
+_:b5
+    ingen:tail <FluidPlug_FluidStrings/audio_out_l> ;
+    ingen:head <Vocoder/right_in> .
+
+_:b6
     ingen:tail <Echo/lv2_audio_out_2> ;
     ingen:head <playback_2> .
 
-_:b8
+_:b7
     ingen:tail <capture_1> ;
     ingen:head <Vocoder/left_in> .
 
-_:b9
+_:b8
     ingen:tail <serial_midi_in> ;
+    ingen:head <FluidPlug_FluidStrings/events> .
+
+_:b9
+    ingen:tail <FluidPlug_FluidStrings/audio_out_r> ;
+    ingen:head <Vocoder/right_in> .
+
+_:b10
+    ingen:tail <midi_capture_1> ;
     ingen:head <FluidPlug_FluidStrings/events> .
 
 <Vocoder>
@@ -85,13 +89,13 @@ _:b9
     a lv2:AudioPort ,
         lv2:OutputPort .
 
-<Vocoder/mid_freq>
-    ingen:value 1000.000000 ;
+<Vocoder/mod_in>
+    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Vocoder/mod_in>
-    ingen:value 0.000000 ;
+<Vocoder/quality>
+    ingen:value 1.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -100,23 +104,23 @@ _:b9
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Vocoder/hi_thru>
-    ingen:value 40.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Vocoder/output>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
 <Vocoder/filter_q>
     ingen:value 55.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Vocoder/quality>
-    ingen:value 1.000000 ;
+<Vocoder/hi_thru>
+    ingen:value 40.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Vocoder/mid_freq>
+    ingen:value 1000.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Vocoder/output>
+    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -155,13 +159,13 @@ _:b9
     a atom:AtomPort ,
         lv2:InputPort .
 
-<FluidPlug_FluidStrings/program>
-    ingen:value 0.000000 ;
+<FluidPlug_FluidStrings/level>
+    ingen:value 1.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<FluidPlug_FluidStrings/level>
-    ingen:value 1.000000 ;
+<FluidPlug_FluidStrings/program>
+    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -209,18 +213,8 @@ _:b9
     a lv2:AudioPort ,
         lv2:OutputPort .
 
-<Echo/delay>
-    ingen:value 21.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
 <Echo/fb>
     ingen:value 59.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Echo/damp>
-    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -231,6 +225,16 @@ _:b9
 
 <Echo/lrdelay>
     ingen:value 64.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Echo/damp>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Echo/delay>
+    ingen:value 21.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -313,28 +317,6 @@ _:b9
     a atom:AtomPort ,
         lv2:OutputPort .
 
-<serial_midi_in>
-    atom:bufferType atom:Sequence ;
-    atom:supports midi:MidiEvent ;
-    lv2:index 8 ;
-    lv2:name "Serial MIDI In" ;
-    lv2:portProperty lv2:connectionOptional ;
-    lv2:symbol "serial_midi_in" ;
-    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
-    a atom:AtomPort ,
-        lv2:InputPort .
-
-<serial_midi_out>
-    atom:bufferType atom:Sequence ;
-    atom:supports midi:MidiEvent ;
-    lv2:index 9 ;
-    lv2:name "Serial MIDI In" ;
-    lv2:portProperty lv2:connectionOptional ;
-    lv2:symbol "serial_midi_out" ;
-    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
-    a atom:AtomPort ,
-        lv2:OutputPort .
-
 <>
     doap:name "Vocoder-Strings Delay" ;
     pedal:width 0 ;
@@ -351,14 +333,13 @@ _:b9
               _:b6 ,
               _:b7 ,
               _:b8 ,
-              _:b9 ;
+              _:b9 ,
+              _:b10 ;
     ingen:block <Vocoder> ,
                 <FluidPlug_FluidStrings> ,
                 <Echo> ;
     lv2:port <control_in> ,
              <control_out> ,
-             <serial_midi_in> ,
-             <serial_midi_out> ,
              <midi_capture_1> ,
              <midi_playback_1> ,
              <capture_1> ,

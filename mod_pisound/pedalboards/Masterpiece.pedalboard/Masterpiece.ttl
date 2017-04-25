@@ -12,11 +12,15 @@ _:b1
     ingen:head <playback_1> .
 
 _:b2
+    ingen:tail <serial_midi_in> ;
+    ingen:head <GenericFluidPlug_Masterpiece/events> .
+
+_:b3
     ingen:tail <GenericFluidPlug_Masterpiece/audio_out_r> ;
     ingen:head <playback_2> .
 
-_:b3
-    ingen:tail <serial_midi_in> ;
+_:b4
+    ingen:tail <midi_capture_1> ;
     ingen:head <GenericFluidPlug_Masterpiece/events> .
 
 <GenericFluidPlug_Masterpiece>
@@ -44,13 +48,13 @@ _:b3
     a atom:AtomPort ,
         lv2:InputPort .
 
-<GenericFluidPlug_Masterpiece/program>
-    ingen:value 11.000000 ;
+<GenericFluidPlug_Masterpiece/level>
+    ingen:value 1.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<GenericFluidPlug_Masterpiece/level>
-    ingen:value 1.000000 ;
+<GenericFluidPlug_Masterpiece/program>
+    ingen:value 11.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -133,28 +137,6 @@ _:b3
     a atom:AtomPort ,
         lv2:OutputPort .
 
-<serial_midi_in>
-    atom:bufferType atom:Sequence ;
-    atom:supports midi:MidiEvent ;
-    lv2:index 8 ;
-    lv2:name "Serial MIDI In" ;
-    lv2:portProperty lv2:connectionOptional ;
-    lv2:symbol "serial_midi_in" ;
-    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
-    a atom:AtomPort ,
-        lv2:InputPort .
-
-<serial_midi_out>
-    atom:bufferType atom:Sequence ;
-    atom:supports midi:MidiEvent ;
-    lv2:index 9 ;
-    lv2:name "Serial MIDI In" ;
-    lv2:portProperty lv2:connectionOptional ;
-    lv2:symbol "serial_midi_out" ;
-    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
-    a atom:AtomPort ,
-        lv2:OutputPort .
-
 <>
     doap:name "Masterpiece" ;
     pedal:width 0 ;
@@ -165,12 +147,11 @@ _:b3
     ingen:polyphony 1 ;
     ingen:arc _:b1 ,
               _:b2 ,
-              _:b3 ;
+              _:b3 ,
+              _:b4 ;
     ingen:block <GenericFluidPlug_Masterpiece> ;
     lv2:port <control_in> ,
              <control_out> ,
-             <serial_midi_in> ,
-             <serial_midi_out> ,
              <midi_capture_1> ,
              <midi_playback_1> ,
              <capture_1> ,

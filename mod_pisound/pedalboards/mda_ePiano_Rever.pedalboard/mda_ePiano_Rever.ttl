@@ -8,32 +8,32 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:b1
-    ingen:tail <_reverb_stereo/out1> ;
-    ingen:head <playback_2> .
-
-_:b2
     ingen:tail <EPiano/right_out> ;
     ingen:head <Gain2x2/In2> .
 
-_:b3
-    ingen:tail <Gain2x2/Out2> ;
-    ingen:head <_chorus_stereo/in1> .
-
-_:b4
+_:b2
     ingen:tail <_chorus_stereo/out> ;
     ingen:head <_reverb_stereo/in> .
 
+_:b3
+    ingen:tail <_reverb_stereo/out1> ;
+    ingen:head <playback_2> .
+
+_:b4
+    ingen:tail <Gain2x2/Out2> ;
+    ingen:head <_chorus_stereo/in1> .
+
 _:b5
+    ingen:tail <_reverb_stereo/out> ;
+    ingen:head <playback_1> .
+
+_:b6
     ingen:tail <_chorus_stereo/out1> ;
     ingen:head <_reverb_stereo/in1> .
 
-_:b6
+_:b7
     ingen:tail <Gain2x2/Out1> ;
     ingen:head <_chorus_stereo/in> .
-
-_:b7
-    ingen:tail <_reverb_stereo/out> ;
-    ingen:head <playback_1> .
 
 _:b8
     ingen:tail <EPiano/left_out> ;
@@ -41,6 +41,10 @@ _:b8
 
 _:b9
     ingen:tail <serial_midi_in> ;
+    ingen:head <EPiano/event_in> .
+
+_:b10
+    ingen:tail <midi_capture_1> ;
     ingen:head <EPiano/event_in> .
 
 <Gain2x2>
@@ -126,13 +130,13 @@ _:b9
     a lv2:AudioPort ,
         lv2:OutputPort .
 
-<_chorus_stereo/depth>
-    ingen:value 0.062500 ;
+<_chorus_stereo/freq>
+    ingen:value 0.873438 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<_chorus_stereo/delay>
-    ingen:value 0.037500 ;
+<_chorus_stereo/depth>
+    ingen:value 0.062500 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -141,8 +145,8 @@ _:b9
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<_chorus_stereo/freq>
-    ingen:value 0.873438 ;
+<_chorus_stereo/delay>
+    ingen:value 0.037500 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -186,12 +190,7 @@ _:b9
     a atom:AtomPort ,
         lv2:InputPort .
 
-<EPiano/hardness>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/fine_tuning>
+<EPiano/treble_boost>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -201,13 +200,33 @@ _:b9
     a lv2:ControlPort ,
         lv2:InputPort .
 
+<EPiano/env_release>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/lfo_rate>
+    ingen:value 23.285000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/fine_tuning>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
 <EPiano/modulation>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<EPiano/env_release>
-    ingen:value 50.000000 ;
+<EPiano/polyphonic>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/overdrive>
+    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -221,27 +240,12 @@ _:b9
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<EPiano/lfo_rate>
-    ingen:value 23.285000 ;
+<EPiano/hardness>
+    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
 <EPiano/vel_sense>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/polyphonic>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/treble_boost>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/overdrive>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -290,8 +294,13 @@ _:b9
     a lv2:AudioPort ,
         lv2:OutputPort .
 
-<_reverb_stereo/mode>
-    ingen:value 0.000000 ;
+<_reverb_stereo/dry_wet>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<_reverb_stereo/damp>
+    ingen:value 0.200000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -300,13 +309,8 @@ _:b9
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<_reverb_stereo/dry_wet>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<_reverb_stereo/damp>
-    ingen:value 0.200000 ;
+<_reverb_stereo/mode>
+    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -394,28 +398,6 @@ _:b9
     a atom:AtomPort ,
         lv2:OutputPort .
 
-<serial_midi_in>
-    atom:bufferType atom:Sequence ;
-    atom:supports midi:MidiEvent ;
-    lv2:index 8 ;
-    lv2:name "Serial MIDI In" ;
-    lv2:portProperty lv2:connectionOptional ;
-    lv2:symbol "serial_midi_in" ;
-    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
-    a atom:AtomPort ,
-        lv2:InputPort .
-
-<serial_midi_out>
-    atom:bufferType atom:Sequence ;
-    atom:supports midi:MidiEvent ;
-    lv2:index 9 ;
-    lv2:name "Serial MIDI In" ;
-    lv2:portProperty lv2:connectionOptional ;
-    lv2:symbol "serial_midi_out" ;
-    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
-    a atom:AtomPort ,
-        lv2:OutputPort .
-
 <>
     doap:name "mda-ePiano Reverb" ;
     pedal:width 0 ;
@@ -432,15 +414,14 @@ _:b9
               _:b6 ,
               _:b7 ,
               _:b8 ,
-              _:b9 ;
+              _:b9 ,
+              _:b10 ;
     ingen:block <Gain2x2> ,
                 <_chorus_stereo> ,
                 <EPiano> ,
                 <_reverb_stereo> ;
     lv2:port <control_in> ,
              <control_out> ,
-             <serial_midi_in> ,
-             <serial_midi_out> ,
              <midi_capture_1> ,
              <midi_playback_1> ,
              <capture_1> ,
