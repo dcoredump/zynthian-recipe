@@ -11,7 +11,21 @@ then
 	./waf configure --alsa=yes
 	./waf build
 	sudo ./waf install 
+	if grep -q '@audio - memlock 256000' /etc/security/limits.conf
+	then
+		echo "memlock already set"
+	else
+		sudo sh -c "echo @audio - memlock 256000 >> /etc/security/limits.conf"
+		echo "setting memlock"
+	fi
+	if grep -q '@audio - rtprio 75' /etc/security/limits.conf
+	then
+		echo "rtprio already set"
+	else
+		sudo sh -c "echo @audio - rtprio 75 >> /etc/security/limits.conf"
+		echo "setting rtprio"
+	fi
+	./waf clean
 	zynth_build_request ready
 fi
-#./waf clean
 cd ..

@@ -10,6 +10,11 @@ Environment=MOD_DEV_ENVIRONMENT=0
 Environment=MOD_SCREENSHOT_JS=/zynthian/zynthian-sw/mod-ui/screenshot.js
 Environment=MOD_PHANTOM_BINARY=/usr/bin/phantomjs
 Environment=MOD_DEVICE_WEBSERVER_PORT=8888
+Environment=MOD_DEV_ENVIRONMENT=0
+Environment=MOD_LOG=1
+Environment=MOD_APP=0
+Environment=MOD_LIVE_ISO=0
+Environment=MOD_SYSTEM_OUTPUT=1
 WorkingDirectory=/zynthian/zynthian-sw/mod-ui
 ExecStartPre=/usr/local/bin/jack_wait -w
 ExecStartPre=/usr/local/bin/jack_alias system:playback_1 mod-monitor:in_1
