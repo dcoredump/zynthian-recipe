@@ -33,9 +33,10 @@ export ZYNTHIAN_DATA_DIR="$ZYNTHIAN_DIR/zynthian-data"
 export ZYNTHIAN_MY_DATA_DIR="$ZYNTHIAN_DIR/zynthian-my-data"
 export ZYNTHIAN_RECIPE_DIR="$ZYNTHIAN_SYS_DIR/scripts/recipes"
 export ZYNTHIAN_PLUGINS_DIR="$ZYNTHIAN_DIR/zynthian-plugins"
+export ZYNTHIAN_PLUGINS_MODGUI_DIR="$ZYNTHIAN_DIR/zynthian-modgui"
 export ZYNTHIAN_MY_PLUGINS_DIR="$ZYNTHIAN_DIR/zynthian-my-plugins"
 export ZYNTHIAN_PLUGINS_SRC_DIR="$ZYNTHIAN_SW_DIR/plugins"
-export LV2_PATH="${ZYNTHIAN_PLUGINS_DIR}/lv2:${ZYNTHIAN_MY_PLUGINS_DIR}/lv2"
+export LV2_PATH="${ZYNTHIAN_PLUGINS_DIR}/lv2:${ZYNTHIAN_MY_PLUGINS_DIR}/lv2":"${ZYNTHIAN_PLUGINS_MODGUI_DIR}"
 
 # Hardware Architecture & Optimization Options
 machine=`uname -m 2>/dev/null`
