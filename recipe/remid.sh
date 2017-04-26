@@ -9,6 +9,8 @@ then
 	cd reMID/trunk
         quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}/lv2`
 	sed -i -- "s/DESTINATION lib\/lv2\/remid.lv2/DESTINATION ${quoted_ZYNTHIAN_PLUGINS_DIR}\/remid/" CMakeLists.txt
+	sed -i -- "s/DESTINATION lib\/lv2\/remid.lv2/DESTINATION ${quoted_ZYNTHIAN_PLUGINS_DIR}\/remid/" src/CMakeLists.txt
+	sed -i -- "s/DESTINATION bin/DESTINATION ${quoted_ZYNTHIAN_PLUGINS_DIR}\/remid/" src/CMakeLists.txt
 	cmake -DCMAKE_INSTALL_PREFIX="${ZYNTHIAN_PLUGINS_DIR}/lv2" .
 	make
 	sudo make install
