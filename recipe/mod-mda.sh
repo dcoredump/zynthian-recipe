@@ -12,6 +12,6 @@ then
 	mkdir -p /zynthian/zynthian-plugins/lv2/mod-mda-Combo.lv2/modgui/heads/model-001
 	cp /zynthian/zynthian-sw/mod-sdk/html/resources/heads/model-001/model-0800.png /zynthian/zynthian-plugins/lv2/mod-mda-Combo.lv2/modgui/heads/model-001
 	zynth_build_request ready
+	./waf clean
+	cd ..
 fi
-#./waf clean
-cd ..

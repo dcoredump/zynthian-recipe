@@ -9,6 +9,6 @@ then
 	make
 	sudo make INSTALL_PATH=$ZYNTHIAN_PLUGINS_DIR/lv2 install
 	zynth_build_request ready
+	make clean
+	cd ..
 fi
-#make clean
-cd ..

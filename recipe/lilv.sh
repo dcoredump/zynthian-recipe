@@ -11,6 +11,6 @@ then
 	./waf build
 	sudo ./waf install
 	zynth_build_request ready
+	./waf clean
+	cd ..
 fi
-#	./waf clean
-cd ..

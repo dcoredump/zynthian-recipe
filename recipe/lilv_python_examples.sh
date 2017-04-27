@@ -10,5 +10,5 @@ then
 	2to3 -w *.py
 	PYTHONPATH="/usr/local/lib/python3/dist-packages" python3 lv2ls.py
 	zynth_build_request ready
+	cd ..
 fi
-cd ..

@@ -15,5 +15,6 @@ then
 	make install
 	rm -r /tmp/masterpiece
 	zynth_build_request ready
+	make clean
+	cd ..
 fi
-cd ..

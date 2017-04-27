@@ -17,6 +17,6 @@ then
 	make
 	zynth_build_request ready
 	sudo make install
+	make clean
+	cd ..
 fi
-#make clean
-cd ..

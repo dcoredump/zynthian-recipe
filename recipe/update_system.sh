@@ -34,6 +34,7 @@ sh setbfree.sh
 sh mod-mda.sh
 sh rogue.sh
 sh zynaddsubfx.sh
+sh remid.sh
 # Div
 sh eq10q.sh
 sh calf.sh
@@ -44,5 +45,12 @@ sh mod-pitchshifter.sh
 sh mod-tap.sh
 sh mod-utilities.sh
 sh openav-artyfx.sh
+sh fil4.sh
+sh calf.sh
+sh invada.sh
+sh zam.sh
+sh rkrlv2.sh
+sh shiro.sh
+sh bolliedelay.sh
 
 systemctl restart jack2

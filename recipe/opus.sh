@@ -9,7 +9,7 @@ then
 	./configure
 	make
 	sudo make install
-	make clean
 	zynth_build_request ready
+	make clean
 	cd ..
 fi

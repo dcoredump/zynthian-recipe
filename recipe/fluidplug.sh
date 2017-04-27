@@ -15,5 +15,5 @@ then
 	sudo make DESTDIR=${ZYNTHIAN_PLUGINS_DIR} install
 	zynth_build_request ready
 	make distclean
+	cd ..
 fi
-cd ..

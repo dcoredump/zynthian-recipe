@@ -12,7 +12,6 @@ then
 	#pip3 install --upgrade Pillow
 	cd utils
 	make
-	cd ..
 	zynth_build_request ready
+	cd ../..
 fi
-cd ..

@@ -16,7 +16,6 @@ then
 	make ENABLE_LV2=1 ENABLE_JACK=0
 	sudo make install MOD=1
 	zynth_build_request ready
+	make clean
+	cd ..
 fi
-cd ..
-
-exit 0

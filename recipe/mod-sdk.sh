@@ -9,6 +9,5 @@ then
 	cd mod-sdk/utils
 	make
 	zynth_build_request ready
-	cd ..
+	cd ../..
 fi
-cd ..

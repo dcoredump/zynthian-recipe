@@ -10,6 +10,6 @@ then
 	sudo cp bin/dxsyx /usr/local/bin
 	sudo chmod 755 /usr/local/bin/dxsyx
 	zynth_build_request ready
+	make clean
+	cd ..
 fi
-#make clean
-cd ..

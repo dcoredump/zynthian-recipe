@@ -9,5 +9,5 @@ then
 	cd GenericFluidPlug
 	git checkout generic
 	zynth_build_request ready
+	cd ..
 fi
-cd ..

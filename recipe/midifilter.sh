@@ -15,6 +15,6 @@ then
 	make MOD=1
 	sudo make install MOD=1
 	zynth_build_request ready
+	make clean
+	cd ..
 fi
-#make clean
-cd ..

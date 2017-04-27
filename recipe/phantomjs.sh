@@ -18,5 +18,3 @@ then
 		zynth_build_request ready
 	fi
 fi
-#make clean
-cd ..

@@ -71,5 +71,6 @@ then
 	sudo make install
 	sudo mv /usr/local/lib/lv2/linuxsampler.lv2 "${ZYNTHIAN_PLUGINS_DIR}/lv2"
 	zynth_build_request ready 
+	make clean
 	cd ../..
 fi
