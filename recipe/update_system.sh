@@ -52,5 +52,6 @@ sh zam.sh
 sh rkrlv2.sh
 sh shiro.sh
 sh bolliedelay.sh
+sh midigen.sh
 
 systemctl restart jack2
