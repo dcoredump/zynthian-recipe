@@ -2,8 +2,11 @@
 
 _git_options=""
 
-PROJECT=`basename ${0} .sh`
-echo "PROJECT: $PROJECT"
+if [ -z ${0} ]
+then
+	PROJECT=`basename ${0} .sh`
+	echo "PROJECT: $PROJECT"
+fi
 
 zynth_build_request () {
 	flag=${1}

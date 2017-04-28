@@ -6,6 +6,7 @@ if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	zynth_build_request clear
 	cd rkrlv2
+	sed -i -- "s/-msse -msse2 -mfpmath=sse -ffast-math/${CPU} ${FPU}/" lv2/CMakeLists.txt
 	mkdir build
 	cd build
 	cmake ..
