@@ -77,7 +77,7 @@ systemctl disable cron
 systemctl disable rsyslog
 systemctl disable ntp
 systemctl disable triggerhappy
-systemctl enable cpu-performance
+systemctl enable performance
 systemctl enable jack2
 systemctl enable mod-ttymidi
 systemctl enable mod-ui

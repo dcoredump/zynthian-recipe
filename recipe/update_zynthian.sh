@@ -1,5 +1,6 @@
 #!/bin/bash
 
+apt-get update
 . /zynthian/zynthian-recipe/zynthian_envars.sh
 
 cd ${ZYNTHIAN_DIR}/zynthian-recipe/recipe
@@ -46,7 +47,6 @@ sh mod-tap.sh
 sh mod-utilities.sh
 sh openav-artyfx.sh
 sh fil4.sh
-sh calf.sh
 sh invada.sh
 sh zam.sh
 sh rkrlv2.sh

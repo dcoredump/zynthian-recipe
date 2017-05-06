@@ -1,5 +1,6 @@
 # fil4
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
+apt-get install -y libpango1.0-dev libcairo2-dev
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git https://github.com/x42/fil4.lv2.git fil4
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
@@ -9,6 +10,7 @@ then
 	quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}/lv2`
 	sed -i -- "s/LV2DIR ?= \$(PREFIX)\/lib\/lv2/LV2DIR ?= $quoted_ZYNTHIAN_PLUGINS_DIR/" Makefile
 	sed -i -- "s/PREFIX ?= \/usr\/local/PREFIX ?= $quoted_ZYNTHIAN_PLUGINS_DIR/" Makefile
+	sed -i -- "s/-msse -msse2 -mfpmath=sse//" Makefile
 	make submodules
 	make
 	sudo make DESTDIR="" install
