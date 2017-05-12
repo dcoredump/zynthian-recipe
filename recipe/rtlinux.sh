@@ -4,10 +4,15 @@
 # Ideas taken from:
 # https://www.raspberrypi.org/documentation/linux/kernel/building.md
 # https://raspberrypi.stackexchange.com/questions/13137/how-can-i-mount-a-raspberry-pi-linux-distro-image
+# http://www.frank-durr.de/?p=203
 #
 ZYNTHIAN_SD_IMAGE=${HOME}/Downloads/zynthian_gorgonilla_rbpi3-rt-2016-12-21.img
 TMP_MNT="/mnt"
+RT_INSTALLATION_PATH="/tmp/rpi-rt-linux"
+RPI=2 # DON'T TOUCH!
 #
+mkdir -p $RT_INSTALLATION_PATH
+cd ${RT_INSTALLATION_PATH}
 case $1 in
 *)
 	sudo apt install gcc-arm-linux-gnueabihf git bc
@@ -31,11 +36,21 @@ case $1 in
 	fi
 	;;
 fixed)
+	cd rpilinux-rt/linux
 	KERNEL=kernel7
-	make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2709_defconfig
+	if [ RPI = 2 ]
+	then
+		make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2709_defconfig # RPi2
+	else
+		make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2835_defconfig #RPi3
+	fi
 # check for the following vars and set them:
 	sed -i -- 's/# CONFIG_PREEMPT_RT_FULL is not set/CONFIG_PREEMPT_RT_FULL=y/' .config
-	sed -i -- 's/# CONFIG_PREEMPT_RT_FULL is not set/CONFIG_PREEMPT_RT_FULL=y/' .config
+	sed -i -- 's/# CONFIG_HIGH_RES_TIMERS is not set/CONFIG_HIGH_RES_TIMERS=y/' .config
+	sed -i -- 's/# CONFIG_MODULES is not set/CONFIG_MODULES=y/' .config
+	echo "CONFIG_DEBUG_PREEMPT=n" >> .config
+	echo "CONFIG_RCU_CPU_STALL_TIMEOUT=21" >> .config
+	echo "CONFIG_PREEMPT_TRACER=n" >> .config
 	make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j4 zImage modules dtbs
 	SD_BOOT_START_BLOCK=`fdisk -l ${ZYNTHIAN_SD_IMAGE} | grep img1 | cut -d" " -f11`
 	SD_ZYNTHIAN_START_BLOCK=`fdisk -l ${ZYNTHIAN_SD_IMAGE} | grep img2 | cut -d" " -f7`
