@@ -13,8 +13,9 @@ RPI=2 # DON'T TOUCH!
 #
 mkdir -p $RT_INSTALLATION_PATH
 cd ${RT_INSTALLATION_PATH}
-case $1 in
-*)
+
+if [ ! -d $RT_INSTALLATION_PATH/rpilinux-rt/linux ]
+then
 	sudo apt install gcc-arm-linux-gnueabihf git bc
 	mkdir rpilinux-rt
 	cd rpilinux-rt
@@ -26,19 +27,24 @@ case $1 in
 	grep_failed=`grep -i failed log`
 	if [ $? = 0 ]
 	then
-		echo "##################################################################################"
-		echo "Errors during patching - please fix them by yourself an restart with \'$0 fixed\':"
-		echo "##################################################################################"
-		echo $grep_failed
+		echo "#########################################################################"
+		echo "Errors during patching - fix them by yourself an restart with '$0 fixed':"
+		echo "#########################################################################"
+		find . -iname "*.rej"
 		exit 1
 	else
 		$0 fixed
 	fi
-	;;
-fixed)
+else
+	if [ `find . -iname "*.rej"` ]
+	then
+		echo "Remove *.rej file after fixing by hand and try again:"
+		find . -iname "*.rej"
+		exit 2
+	fi
 	cd rpilinux-rt/linux
 	KERNEL=kernel7
-	if [ RPI = 2 ]
+	if [ ${RPI} = 2 ]
 	then
 		make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2709_defconfig # RPi2
 	else
@@ -48,6 +54,8 @@ fixed)
 	sed -i -- 's/# CONFIG_PREEMPT_RT_FULL is not set/CONFIG_PREEMPT_RT_FULL=y/' .config
 	sed -i -- 's/# CONFIG_HIGH_RES_TIMERS is not set/CONFIG_HIGH_RES_TIMERS=y/' .config
 	sed -i -- 's/# CONFIG_MODULES is not set/CONFIG_MODULES=y/' .config
+	sed -i -- 's/CONFIG_CPU_FREQ_DEFAULT_GOV_POWERSAVE=y/CONFIG_CPU_FREQ_DEFAULT_GOV_POWERSAVE=n/' .config
+	sed -i -- 's/# CONFIG_CPU_FREQ_DEFAULT_GOV_PERFORMANCE is not set/CONFIG_CPU_FREQ_DEFAULT_GOV_PERFORMANCE=y/' .config
 	echo "CONFIG_DEBUG_PREEMPT=n" >> .config
 	echo "CONFIG_RCU_CPU_STALL_TIMEOUT=21" >> .config
 	echo "CONFIG_PREEMPT_TRACER=n" >> .config
@@ -69,6 +77,5 @@ fixed)
 	sudo make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- INSTALL_MOD_PATH=${TMP_MNT}/zynthian modules_install
 	sudo umount ${TMP_MNT}/zynthian
 	sudo rm -r ${TMP_MNT}/zynthian
-	;;
-esac
+fi
 echo "Done."
