@@ -8,7 +8,7 @@
 #
 ZYNTHIAN_SD_IMAGE=${HOME}/Downloads/zynthian_gorgonilla_rbpi3-rt-2016-12-21.img
 TMP_MNT="/mnt"
-RT_INSTALLATION_PATH="/tmp/rpi-rt-linux"
+RT_INSTALLATION_PATH="${HOME}/tmp/rpi-rt-linux"
 RPI=2 # DON'T TOUCH!
 #
 mkdir -p $RT_INSTALLATION_PATH
@@ -16,14 +16,15 @@ cd ${RT_INSTALLATION_PATH}
 
 if [ ! -d $RT_INSTALLATION_PATH/rpilinux-rt/linux ]
 then
-	sudo apt install gcc-arm-linux-gnueabihf git bc
+	sudo apt install -y gcc-arm-linux-gnueabihf git bc
 	mkdir rpilinux-rt
 	cd rpilinux-rt
 	git clone --depth=1 https://github.com/raspberrypi/linux.git
-	wget https://www.kernel.org/pub/linux/kernel/projects/rt/4.9/patch-4.9.20-rt16.patch.xz
-	xz -d patch-4.9.20-rt16.patch.xz
+	#wget https://www.kernel.org/pub/linux/kernel/projects/rt/4.9/patch-4.9.20-rt16.patch.xz
+	wget https://www.kernel.org/pub/linux/kernel/projects/rt/4.9/patch-4.9.27-rt17.patch.xz
+	xz -d patch-4.9.27-rt17.patch.xz
 	cd linux
-	cat ../patch-4.9.20-rt16.patch | patch -p 1 | tee log
+	cat ../patch-4.9.27-rt17.patch | patch -p 1 | tee log
 	grep_failed=`grep -i failed log`
 	if [ $? = 0 ]
 	then
