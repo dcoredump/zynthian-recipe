@@ -71,7 +71,7 @@ else
 	sudo cp arch/arm/boot/dts/overlays/*.dtb* ${TMP_MNT}/zynthian/overlays/
 	sudo cp arch/arm/boot/dts/overlays/README ${TMP_MNT}/zynthian/overlays
 	sudo sed -i -- 's/# Load RT Kernel for RBPI2/#Load RT Kernel for RBPI3/' ${TMP_MNT}/zynthian/config.txt
-	sudo sed -i -- 's/#kernel=kernel7-rt.img/kernel=$KERNEL-rt.img/' ${TMP_MNT}/zynthian/config.txt
+	sudo sed -i -- "s/#kernel=kernel7-rt.img/kernel=$KERNEL-rt.img/" ${TMP_MNT}/zynthian/config.txt
 	sudo umount ${TMP_MNT}/zynthian
 	# install new modules
 	sudo mount -v -o offset=`echo "512 * ${SD_ZYNTHIAN_START_BLOCK}" | bc` -t ext4 ${ZYNTHIAN_SD_IMAGE} ${TMP_MNT}/zynthian
