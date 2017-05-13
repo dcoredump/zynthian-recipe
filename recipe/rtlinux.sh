@@ -6,7 +6,7 @@
 # https://raspberrypi.stackexchange.com/questions/13137/how-can-i-mount-a-raspberry-pi-linux-distro-image
 # http://www.frank-durr.de/?p=203
 #
-ZYNTHIAN_SD_IMAGE=${HOME}/Downloads/zynthian_gorgonilla_rbpi3-rt-2016-12-21.img
+ZYNTHIAN_SD_IMAGE=${HOME}/Downloads/zynthian_gorgona_rbpi3-2017-05-13-rt.img
 TMP_MNT="/mnt"
 RT_INSTALLATION_PATH="${HOME}/tmp/rpi-rt-linux"
 RPI=2 # DON'T TOUCH!
@@ -33,8 +33,6 @@ then
 		echo "#########################################################################"
 		find . -iname "*.rej"
 		exit 1
-	else
-		$0 fixed
 	fi
 else
 	if [ `find . -iname "*.rej"` ]
@@ -54,7 +52,6 @@ else
 # check for the following vars and set them:
 	sed -i -- 's/# CONFIG_PREEMPT_RT_FULL is not set/CONFIG_PREEMPT_RT_FULL=y/' .config
 	sed -i -- 's/# CONFIG_HIGH_RES_TIMERS is not set/CONFIG_HIGH_RES_TIMERS=y/' .config
-	sed -i -- 's/# CONFIG_MODULES is not set/CONFIG_MODULES=y/' .config
 	sed -i -- 's/CONFIG_CPU_FREQ_DEFAULT_GOV_POWERSAVE=y/CONFIG_CPU_FREQ_DEFAULT_GOV_POWERSAVE=n/' .config
 	sed -i -- 's/# CONFIG_CPU_FREQ_DEFAULT_GOV_PERFORMANCE is not set/CONFIG_CPU_FREQ_DEFAULT_GOV_PERFORMANCE=y/' .config
 	echo "CONFIG_DEBUG_PREEMPT=n" >> .config
