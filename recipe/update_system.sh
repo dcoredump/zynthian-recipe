@@ -24,6 +24,7 @@ sh modmeter.sh
 sh midifilter.sh
 sh step-seq.sh
 sh qmidiarp.sh
+sh tinyamp.sh
 # Generator
 sh fluidsynth.sh
 sh fluidplug.sh
