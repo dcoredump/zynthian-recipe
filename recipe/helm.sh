@@ -1,12 +1,13 @@
-# heim
+# helm
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
-#sudo apt-get install -y libsamplerate0-dev lvtk-tools
+sudo apt-get install -y libxinerama-dev
 zynth_git https://github.com/mtytel/helm.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	zynth_build_request clear
 	cd helm
+	export DEBCXXFLAGS="${CXXFLAGS}"
 	find . -type f -name "Makefile*" -exec sed -i -- "s/-msse2/${CPU} ${FPU}/" {} \;
 	make
 	sudo make install
