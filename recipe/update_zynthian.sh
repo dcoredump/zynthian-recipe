@@ -19,6 +19,7 @@ sh mod-ui.sh
 sh mod-sdk.sh
 sh phantomjs.sh
 sh jack_capture.sh
+sh zynthian-modgui.sh
 # Utilities
 sh mclk.sh
 sh modmeter.sh
