@@ -59,7 +59,12 @@ zynth_git () {
     ret=0
 
     tmp=`basename ${1}`
-    repo_dir=`basename ${tmp} .git`
+    if [ "${2}" ]
+    then
+        repo_dir=`/usr/bin/basename $2 .git`
+    else
+        repo_dir=`/usr/bin/basename $tmp .git`
+    fi
     if [ -d "${repo_dir}" ]
     then
         cd "${repo_dir}"

@@ -12,7 +12,7 @@ then
 		then
 			rm $ZYNTHIAN_PLUGINS_DIR/lv2/$i
 		fi
-		ln -s $i $ZYNTHIAN_PLUGINS_DIR/lv2
+		ln -s $ZYNTHIAN_DIR/zynthian-modgui/$i $ZYNTHIAN_PLUGINS_DIR/lv2
 	done
 	zynth_build_request ready
 fi

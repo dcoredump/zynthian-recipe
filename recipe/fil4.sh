@@ -10,10 +10,10 @@ then
 	quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}/lv2`
 	sed -i -- "s/LV2DIR ?= \$(PREFIX)\/lib\/lv2/LV2DIR ?= $quoted_ZYNTHIAN_PLUGINS_DIR/" Makefile
 	sed -i -- "s/PREFIX ?= \/usr\/local/PREFIX ?= $quoted_ZYNTHIAN_PLUGINS_DIR/" Makefile
-	sed -i -- "s/-msse -msse2 -mfpmath=sse//" Makefile
+	sed -i -- "s/-msse -msse2 -mfpmath=sse/${CPU} ${FPU}/" Makefile
 	make submodules
-	make
-	sudo make DESTDIR="" install
+	make MOD=1
+	sudo make DESTDIR="" MOD=1 install
 	rm -r ${ZYNTHIAN_PLUGINS_DIR}/lv2/share ${ZYNTHIAN_PLUGINS_DIR}/lv2/bin
 	zynth_build_request ready
 	make clean
