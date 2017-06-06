@@ -6,8 +6,8 @@ if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
         zynth_build_request clear
 	cd tinyamp.lv2
-	make
-	sudo make install MOD=1 LV2DIR=$ZYNTHIAN_PLUGINS_DIR/lv2
+	make MOD=1
+	sudo make MOD=1 LV2DIR=$ZYNTHIAN_PLUGINS_DIR/lv2 install
 	make clean
 	zynth_build_request ready
 	cd ..

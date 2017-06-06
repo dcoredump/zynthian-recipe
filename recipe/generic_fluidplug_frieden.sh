@@ -1,5 +1,6 @@
 # generic_fluidplug_frieden
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
+apt-get install -y unzip
 cd $ZYNTHIAN_SW_DIR/plugins
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
