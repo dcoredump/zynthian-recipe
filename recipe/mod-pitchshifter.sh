@@ -11,9 +11,9 @@ then
 	#sed -i -- "s/INSTALLATION_PATH = \$(DESTDIR)\$(INSTALL_PATH)\/\$(EFFECT_PATH)/INSTALLATION_PATH = ${quoted_ZYNTHIAN_PLUGINS_DIR}\/mod-pitchshifter/" Makefile.mk
 	sed -i -- "s,-mtune=generic -msse -msse2 -mfpmath=sse,${CPU} ${FPU},g" Makefile.mk
 sed -i -- "s,INSTALL_PATH = /usr/local/lib/lv2,INSTALL_PATH = ${ZYNTHIAN_PLUGINS_DIR}/lv2,g" Makefile.mk
-sed -i -- "s,INSTALLATION_PATH = \$(DESTDIR)\$(INSTALL_PATH)/\$(EFFECT_PATH),INSTALLATION_PATH = ${ZYNTHIAN_PLUGINS_DIR}/lv2/\$(EFFECT_PATH),g" Makefile.mk
+sed -i -- "s,INSTALLATION_PATH = \$(DESTDIR)\$(INSTALL_PATH)/\$\(EFFECT_PATH\),INSTALLATION_PATH = ${ZYNTHIAN_PLUGINS_DIR}/lv2/\$\(EFFECT_PATH\),g" Makefile.mk
 	make NOOPT=true
-	sudo make install INSTALL_PATH="${ZYNTHIAN_PLUGINS_DIR}/lv2"
+	sudo make INSTALL_PATH="${ZYNTHIAN_PLUGINS_DIR}/lv2" install
 	zynth_build_request ready
 	make clean
 	cd ..

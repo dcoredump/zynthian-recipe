@@ -8,10 +8,12 @@ then
 	cd SHIRO-Plugins
 	git submodule init
 	git submodule update
+	sed -i -- "s,-mtune=generic -msse -msse2,${CPU} ${FPU},g" Makefile.mk
+	sed -i -- "s,-mfpmath=sse,,g" Makefile.mk
 	make
 	for i in `ls -d bin/*.lv2`
 	do
-		cp -R $i ${ZYNTHIAN_PLUGINS_DIR}/lv2
+		sudo cp -R $i ${ZYNTHIAN_PLUGINS_DIR}/lv2
 	done
 	zynth_build_request ready
 	make clean
