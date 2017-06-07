@@ -42,6 +42,7 @@ sh helm.sh
 sh eq10q.sh
 sh calf.sh
 sh guitarix.sh
+sh guitarix-new.sh
 sh mod-caps.sh
 sh mod-distortion.sh
 sh mod-pitchshifter.sh
@@ -58,5 +59,5 @@ sh bolliedelay.sh
 sh midigen.sh
 sh infamous.sh
 sh distrho.sh
-
+sh x42tuna.sh
 systemctl daemon-reload && systemctl restart jack2
