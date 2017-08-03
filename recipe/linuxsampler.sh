@@ -55,17 +55,23 @@ then
 	autoheader
 	automake --force-missing --add-missing
 	autoconf
-	./configure
+	./configure --enable-max-voices=21 --enable-max-streams=64 --enable-stream-min-refill=4096 --enable-refill-streams=2 --enable-stream-max-refill=131072 --enable-stream-size=262144 --disable-asm --enable-subfragment-size=64 --enable-eg-min-release-time=0.001 --enable-eg-bottom=0.0025 --enable-max-pitch=2 --enable-preload-samples=65536
 	cd src/scriptvm
 	yacc -o parser parser.y
 	cd ../..
 	if [ ${RASPI} ]
 	then
-		git clone https://github.com/coolder/rpi_linuxsampler_patch.git
-		patch -p0 <rpi_linuxsampler_patch/atomic.h.diff 
-		cd src/common/
-		patch <../../rpi_linuxsampler_patch/RTMath.cpp.diff
-		cd ../..
+		rm -rf rpi_linuxsampler_patch
+		#git clone https://github.com/coolder/rpi_linuxsampler_patch.git
+		#patch -p0 <rpi_linuxsampler_patch/atomic.h.diff 
+		#cd src/common/
+		#patch <../../rpi_linuxsampler_patch/RTMath.cpp.diff
+		#cd ../..
+		git clone https://github.com/steveb/rpi_linuxsampler_patch.git
+		if ! patch -R -p1 --dry-run <rpi_linuxsampler_patch/linuxsampler-arm.patch
+		then
+			patch -p1 <rpi_linuxsampler_patch/linuxsampler-arm.patch
+		fi
 	fi
 	make
 	sudo make install
