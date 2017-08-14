@@ -12,7 +12,7 @@ then
 	make
 	sudo make install
 	mv /usr/local/lib/lv2/amsynth.lv2 $ZYNTHIAN_PLUGINS_DIR/lv2
-	ln -s $ZYNTHIAN_PLUGINS_DIR/lv2/amsynth.lv2 /usr/local/lib/lv2/amsynth.lv2
+	ln -s $ZYNTHIAN_PLUGINS_DIR/lv2/amsynth.lv2 /usr/local/lib/lv2
 	zynth_build_request ready
 fi
 #make clean
