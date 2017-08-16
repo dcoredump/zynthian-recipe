@@ -8,7 +8,7 @@ then
 	zynth_build_request clear
 	cd amsynth
 	sh autogen.sh
-	./configure CXXFLAGS="${CXXFLAGS} -std=c++11" --without-gui --without-jack --without-alsa --without-oss --without-vst --without-sndfile --with-lv2
+	./configure CXXFLAGS="${CXXFLAGS} -std=c++11" --without-jack --without-alsa --without-oss --without-vst --without-sndfile --without-dssi --without-lash --with-lv2
 	make
 	sudo make install
 	rm -rf $ZYNTHIAN_PLUGINS_DIR/lv2/amsynth.lv2
