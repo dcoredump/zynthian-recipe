@@ -7,6 +7,7 @@ if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	zynth_build_request clear
 	cd zynaddsubfx
+	git submodule update --init --recursive
 	if [ ! -d build ]
 	then
 		mkdir build
