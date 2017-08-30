@@ -68,17 +68,14 @@ zynth_git () {
     if [ -d "${repo_dir}" ]
     then
         cd "${repo_dir}"
-        git_message=`git pull 2>&1`
-        if [ ! `echo "${message}" | grep -Eq "up-to-date"` ]
+	if [ "`git log --pretty=%H ...refs/heads/master^ | head -n 1`" = "`git ls-remote origin -h refs/heads/master |cut -f1`" ]
 	then
-		echo "Up-to-date." >&2
 		zynth_build_request ready
-	elif [ ! `echo "${message}" | grep -Eq "merge"` ]
-	then
+		echo "Up-to-date."
+	else
+		git pull
 		ret=1
 		zynth_build_request clear
-        else
-		echo "Unknown git problem: ${message}"
 	fi
         cd ..
     else
