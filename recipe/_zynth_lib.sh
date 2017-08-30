@@ -71,9 +71,8 @@ zynth_git () {
 	if [ "`git log --pretty=%H ...refs/heads/master^ | head -n 1`" = "`git ls-remote origin -h refs/heads/master |cut -f1`" ]
 	then
 		zynth_build_request ready
-		echo "Up-to-date."
 	else
-		git pull
+		git pull 1>&2
 		ret=1
 		zynth_build_request clear
 	fi
