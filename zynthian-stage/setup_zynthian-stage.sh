@@ -3,18 +3,18 @@
 
 if [ ! -f "${HOME}/.install-stage1" ]
 then
+	chmod 700 "/zynthian/zynthian-recipe/zynthian-stage/setup_zynthian-stage.sh"
 	mkdir -p "${ZYNTHIAN_PLUGINS_SRC_DIR}"
 	mkdir -p "${ZYNTHIAN_MY_DATA_DIR}"
-	mkdir -p "$7ZYNTHIAN_MY_PLUGINS_DIR}"
+	mkdir -p "${ZYNTHIAN_MY_PLUGINS_DIR}"
 
 	cd "${ZYNTHIAN_DIR}"/zynthian-recipe
 
 	# Update System
-	apt-get -y update
 	apt-get -y upgrade
 	apt-get -y dist-upgrade
 	touch "${HOME}/.install-stage1"
-	echo "/zynthian/zynthian-recipe/zynthian-stage/setup_zynthian-stage.sh" >> "${HOME}/.bashrc"
+	echo "sh /zynthian/zynthian-recipe/zynthian-stage/setup_zynthian-stage.sh" >> "${HOME}/.bashrc"
 	reboot
 elif [ -f "${HOME}/.install-stage1" ]
 then
@@ -50,6 +50,8 @@ EOF
 	reboot
 elif [ -f "${HOME}/.install-stage2" ]
 then
+	rm "${HOME}/.install-stage2"
+
 	# System
 	apt-get -y install systemd dhcpcd-dbus avahi-daemon cpufrequtils
 	apt-get -y remove isc-dhcp-client
@@ -119,7 +121,6 @@ then
 	# MOD-UI-System and plugins
 	bash /zynthian/zynthian-recipe/recipe/update_system.sh
 	cp mod_pisound/favorites.json ${ZYNTHIAN_SW_DIR}/mod-ui/dados/favorites.json
-	rm "${HOME}/.install-stage2"
 	sed -i -- "s/\/zynthian\/zynthian-recipe\/zynthian-stage\/setup_zynthian-stage.sh//" "${HOME}/.bashrc"
 	history -c
 	reboot

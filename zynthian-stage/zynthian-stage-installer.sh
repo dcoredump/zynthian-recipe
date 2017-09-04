@@ -28,22 +28,22 @@
 # 
 #******************************************************************************
 
-if [ ! -f ~/.wiggled ]
+if [ ! -f "${HOME}/.wiggled" ]
 then
+    chmod 700 "/root/zynthian-stage-installer.sh"
     apt-get update
     apt-get -y install parted git
-    if [ ! -d "/zynthian/zynthian-recipe" ]; then
-        if [ ! -d "/zynthian" ]; then 
-            mkdir /zynthian
-        fi
-        cd /zynthian
+    if [ ! -d "/zynthian" ]
+    then
+        mkdir /zynthian
+        cd "/zynthian"
         git clone https://github.com/dcoredump/zynthian-recipe.git
     fi
     echo `date` >  ~/.wiggled
     echo "/root/zynthian-stage-installer.sh" >> "${HOME}/.bashrc"
-    ./rpi-wiggle.sh
+    sh /zynthian/zynthian-recipe/rpi-wiggle.sh
 else
     sed -i -- "s/\/root\/zynthian-stage-installer.sh//" "${HOME}/.bashrc"
     cd /zynthian/zynthian-recipe
-    ./zynthian-stage/setup_zynthian-stage.sh
+    sh zynthian-stage/setup_zynthian-stage.sh
 fi
