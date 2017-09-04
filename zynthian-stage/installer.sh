@@ -30,5 +30,6 @@ then
     fi
     echo `date` >  ~/.wiggled
     echo "/zynthian/zynthian-recipe/zynthian-stage/setup.sh" >> "${HOME}/.bashrc"
+    touch "${HOME}/.install-stage1"
     sh /zynthian/zynthian-recipe/rpi-wiggle.sh
 fi

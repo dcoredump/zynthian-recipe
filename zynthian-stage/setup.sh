@@ -1,7 +1,7 @@
 #!/bin/bash
 . /zynthian/zynthian-recipe/zynthian_envars.sh
 
-if [ ! -f "${HOME}/.install-stage1" ]
+if [ -f "${HOME}/.install-stage1" ]
 then
 	echo "###########"
 	echo "# Stage 1 #"
@@ -18,7 +18,8 @@ then
 	# Update System
 	apt-get -y upgrade
 	apt-get -y dist-upgrade
-	echo "sh /zynthian/zynthian-recipe/zynthian-stage/setup_zynthian-stage.sh" >> "${HOME}/.bashrc"
+	echo "sh /zynthian/zynthian-recipe/zynthian-stage/setup.sh" >> "${HOME}/.bashrc"
+	rm "${HOME}/.install-stage1"
 	touch "${HOME}/.install-stage2"
 	reboot
 elif [ -f "${HOME}/.install-stage2" ]
