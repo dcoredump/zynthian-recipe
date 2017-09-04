@@ -3,22 +3,29 @@
 
 if [ ! -f "${HOME}/.install-stage1" ]
 then
-	chmod 700 "/zynthian/zynthian-recipe/zynthian-stage/setup_zynthian-stage.sh"
+	echo "###########"
+	echo "# Stage 1 #"
+	echo "###########"
+
+	chmod 700 "/zynthian/zynthian-recipe/zynthian-stage/setup.sh"
+
 	mkdir -p "${ZYNTHIAN_PLUGINS_SRC_DIR}"
 	mkdir -p "${ZYNTHIAN_MY_DATA_DIR}"
 	mkdir -p "${ZYNTHIAN_MY_PLUGINS_DIR}"
 
-	cd "${ZYNTHIAN_DIR}"/zynthian-recipe
+	cd "${ZYNTHIAN_DIR}/zynthian-recipe"
 
 	# Update System
 	apt-get -y upgrade
 	apt-get -y dist-upgrade
-	touch "${HOME}/.install-stage1"
 	echo "sh /zynthian/zynthian-recipe/zynthian-stage/setup_zynthian-stage.sh" >> "${HOME}/.bashrc"
+	touch "${HOME}/.install-stage2"
 	reboot
-elif [ -f "${HOME}/.install-stage1" ]
+elif [ -f "${HOME}/.install-stage2" ]
 then
-	rm "${HOME}/.install-stage1"
+	echo "###########"
+	echo "# Stage 2 #"
+	echo "###########"
 
 	# Install required dependencies if needed
 	apt-get -y install apt-utils screen
@@ -46,11 +53,14 @@ EOF
 
 	# Update Firmware
 	rpi-update
-	touch "${HOME}/.install-stage2"
-	reboot
-elif [ -f "${HOME}/.install-stage2" ]
-then
 	rm "${HOME}/.install-stage2"
+	touch "${HOME}/.install-stage3"
+	reboot
+elif [ -f "${HOME}/.install-stage3" ]
+then
+	echo "###########"
+	echo "# Stage 3 #"
+	echo "###########"
 
 	# System
 	apt-get -y install systemd dhcpcd-dbus avahi-daemon cpufrequtils
@@ -121,7 +131,14 @@ then
 	# MOD-UI-System and plugins
 	bash /zynthian/zynthian-recipe/recipe/update_system.sh
 	cp mod_pisound/favorites.json ${ZYNTHIAN_SW_DIR}/mod-ui/dados/favorites.json
-	sed -i -- "s/\/zynthian\/zynthian-recipe\/zynthian-stage\/setup_zynthian-stage.sh//" "${HOME}/.bashrc"
+	rm "${HOME}/.install-stage3"
+
 	history -c
 	reboot
+else
+	echo "#########################"
+	echo "# Installation finished #"
+	echo "#########################"
+
+	sed -i -- "s/\/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh//" "${HOME}/.bashrc"
 fi
