@@ -7,6 +7,7 @@ then
 	echo "# Stage 1 #"
 	echo "###########"
 
+	rm "${HOME}/installer.sh"
 	chmod 700 "/zynthian/zynthian-recipe/zynthian-stage/setup.sh"
 
 	mkdir -p "${ZYNTHIAN_PLUGINS_SRC_DIR}"
@@ -54,6 +55,7 @@ EOF
 
 	# Update Firmware
 	rpi-update
+
 	rm "${HOME}/.install-stage2"
 	touch "${HOME}/.install-stage3"
 	reboot
@@ -65,11 +67,9 @@ then
 
 	# System
 	apt-get -y install systemd dhcpcd-dbus avahi-daemon cpufrequtils
-	apt-get -y remove isc-dhcp-client
 
 	# CLI Tools
 	apt-get -y install raspi-config psmisc tree vim joe
-	update-alternatives --set editor /usr/bin/vim.basic
 	apt-get -y install p7zip-full i2c-tools
 
 	# Tools
@@ -87,8 +87,12 @@ then
 	apt-get -y install python3 python3-dev python3-pip cython3 python3-cffi \
 	python3-mpmath
 
-	# Clean
+	# Cleanup
+	apt-get -y remove isc-dhcp-client
 	apt-get -y autoremove
+
+	# Set vim as main editor
+	update-alternatives --set editor /usr/bin/vim.basic
 
 	# Install pi-btn
 	cd "${HOME}"
@@ -141,5 +145,5 @@ else
 	echo "# Installation finished #"
 	echo "#########################"
 
-	sed -i -- "s/\/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh//" "${HOME}/.bashrc"
+	sed -i -- "s/sh \/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh//" "${HOME}/.bashrc"
 fi
