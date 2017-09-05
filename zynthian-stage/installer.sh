@@ -32,5 +32,5 @@ then
     echo ". /zynthian/zynthian-recipe/zynthian_envars.sh" >> "${HOME}/.bashrc"
     echo "/zynthian/zynthian-recipe/zynthian-stage/setup.sh" >> "${HOME}/.bashrc"
     touch "${HOME}/.install-stage1"
-    sudo /zynthian/zynthian-recipe/rpi-wiggle.sh
+    bash /zynthian/zynthian-recipe/rpi-wiggle.sh
 fi

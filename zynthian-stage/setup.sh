@@ -128,14 +128,15 @@ then
 	systemctl disable triggerhappy
 	systemctl enable cpu-performance
 	systemctl enable pisound-btn
+
+	#########################################################################
+	# MOD-UI-System and plugins
+	sh /zynthian/zynthian-recipe/zynthian-stage/plugins.sh
+	cp mod_pisound/favorites.json ${ZYNTHIAN_SW_DIR}/mod-ui/dados/favorites.json
 	systemctl enable jack2
 	systemctl enable mod-host
 	systemctl enable mod-ui
 
-	#########################################################################
-	# MOD-UI-System and plugins
-	bash /zynthian/zynthian-recipe/recipe/update_system.sh
-	cp mod_pisound/favorites.json ${ZYNTHIAN_SW_DIR}/mod-ui/dados/favorites.json
 	rm "${HOME}/.install-stage3"
 
 	history -c
