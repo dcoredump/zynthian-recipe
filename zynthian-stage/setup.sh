@@ -131,6 +131,7 @@ then
 
 	#########################################################################
 	# MOD-UI-System and plugins
+	sed -i -- "s/\/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh//" "${HOME}/.bashrc"
 	sh /zynthian/zynthian-recipe/zynthian-stage/plugins.sh
 	cp mod_pisound/favorites.json ${ZYNTHIAN_SW_DIR}/mod-ui/dados/favorites.json
 	systemctl enable jack2
@@ -140,11 +141,9 @@ then
 	rm "${HOME}/.install-stage3"
 
 	history -c
-	reboot
-else
+
 	echo "#########################"
 	echo "# Installation finished #"
 	echo "#########################"
 
-	sed -i -- "s/\/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh//" "${HOME}/.bashrc"
 fi
