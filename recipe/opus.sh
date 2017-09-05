@@ -7,7 +7,7 @@ then
 	zynth_build_request clear
 	cd opus
 	./autogen.sh
-	./configure
+	./configure --enable-float-approx --enable-fuzzing --enable-check-asm --disable-doc --with-NE10-libraries=/usr/local/lib --with-NE10-includes=/usr/local/include/NE10
 	make
 	sudo make install
 	zynth_build_request ready

@@ -4,6 +4,7 @@
 
 cd ${ZYNTHIAN_DIR}/zynthian-recipe/recipe
 # System
+sh ne10.sh
 sh opus.sh
 sh jack2.sh
 sh lv2.sh

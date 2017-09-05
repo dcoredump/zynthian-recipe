@@ -1,9 +1,14 @@
 #!/bin/bash
 
+echo "####################"
+echo "# Building plugins #"
+echo "####################"
+
 . /zynthian/zynthian-recipe/zynthian_envars.sh
 
 cd ${ZYNTHIAN_DIR}/zynthian-recipe/recipe
 # System
+sh ne10.sh
 sh opus.sh
 sh jack2.sh
 sh lv2.sh
