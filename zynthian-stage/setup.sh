@@ -112,10 +112,8 @@ then
 	sed -i -- 's/GOVERNOR="ondemand"/GOVERNOR="performance"/' /etc/init.d/cpufrequtils
 
 	# Copy config files
-	cd ${ZYNTHIAN_DIR}/zynthian-recipe
-	cp mod_pisound/systemd/* /etc/systemd/system
-	mkdir "${HOME}/bin"
-	cp -R mod_pisound/pedalboards "${HOME}/.pedalboards"
+	cd ${ZYNTHIAN_DIR}/zynthian-recipe/zynthian-stage
+	cp systemd/* /etc/systemd/system
 
 	systemctl daemon-reload
 	systemctl enable dhcpcd
@@ -133,7 +131,11 @@ then
 	# MOD-UI-System and plugins
 	sed -i -- "s/\/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh//" "${HOME}/.bashrc"
 	sh /zynthian/zynthian-recipe/zynthian-stage/plugins.sh
-	cp mod_pisound/favorites.json ${ZYNTHIAN_SW_DIR}/mod-ui/dados/favorites.json
+
+	cd ${ZYNTHIAN_DIR}/zynthian-recipe/zynthian-stage
+	cp -R pedalboards "${HOME}/.pedalboards"
+	cp favorites.json ${ZYNTHIAN_SW_DIR}/mod-ui/dados/favorites.json
+
 	systemctl enable jack2
 	systemctl enable mod-host
 	systemctl enable mod-ui
@@ -146,4 +148,6 @@ then
 	echo "# Installation finished #"
 	echo "#########################"
 
+	sleep 5
+	reboot
 fi
