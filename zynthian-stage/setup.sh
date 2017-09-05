@@ -19,7 +19,7 @@ then
 	# Update System
 	apt-get -y upgrade
 	apt-get -y dist-upgrade
-	echo "sh /zynthian/zynthian-recipe/zynthian-stage/setup.sh" >> "${HOME}/.bashrc"
+
 	rm "${HOME}/.install-stage1"
 	touch "${HOME}/.install-stage2"
 	reboot
@@ -145,5 +145,5 @@ else
 	echo "# Installation finished #"
 	echo "#########################"
 
-	sed -i -- "s/sh \/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh//" "${HOME}/.bashrc"
+	sed -i -- "s/\/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh//" "${HOME}/.bashrc"
 fi

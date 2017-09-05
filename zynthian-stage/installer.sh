@@ -21,7 +21,7 @@ if [ ! -f "${HOME}/.wiggled" ]
 then
     chmod 700 "/root/installer.sh"
     apt-get update
-    apt-get -y install parted git
+    apt-get -y install parted git sudo
     if [ ! -d "/zynthian" ]
     then
         mkdir /zynthian
@@ -31,5 +31,5 @@ then
     echo `date` >  ~/.wiggled
     echo "/zynthian/zynthian-recipe/zynthian-stage/setup.sh" >> "${HOME}/.bashrc"
     touch "${HOME}/.install-stage1"
-    sh /zynthian/zynthian-recipe/rpi-wiggle.sh
+    sudo /zynthian/zynthian-recipe/rpi-wiggle.sh
 fi
