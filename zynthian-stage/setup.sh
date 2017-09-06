@@ -65,6 +65,8 @@ then
 	echo "# Stage 3 #"
 	echo "###########"
 
+	sed -i -- "s/\/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh.*//" "${HOME}/.bashrc"
+
 	# System
 	apt-get -y install systemd dhcpcd-dbus avahi-daemon cpufrequtils
 
@@ -129,7 +131,6 @@ then
 
 	#########################################################################
 	# MOD-UI-System and plugins
-	sed -i -- "s/\/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh//" "${HOME}/.bashrc"
 	sh /zynthian/zynthian-recipe/zynthian-stage/plugins.sh
 
 	cd ${ZYNTHIAN_DIR}/zynthian-recipe/zynthian-stage
@@ -140,6 +141,10 @@ then
 	systemctl enable jack2
 	systemctl enable mod-host
 	systemctl enable mod-ui
+
+	systemctl start jack2
+	systemctl start mod-host
+	systemctl start mod-ui
 
 	rm "${HOME}/.install-stage3"
 
