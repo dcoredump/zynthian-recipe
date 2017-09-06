@@ -31,6 +31,7 @@ sh midifilter.sh
 sh step-seq.sh
 sh qmidiarp.sh
 sh tinyamp.sh
+sh mod-midi-utilities.sh
 # Generator
 sh fluidsynth.sh
 sh fluidplug.sh

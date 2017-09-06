@@ -7,8 +7,6 @@ if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	zynth_build_request clear
 	cd calf
-	rm -rf /zynthian/zynthian-plugins/calf.lv2.old
-	mv /zynthian/zynthian-plugins/lv2/calf.lv2 /zynthian/zynthian-plugins/calf.lv2.old
 	sh autogen.sh
 	./configure --with-lv2-dir=$ZYNTHIAN_PLUGINS_DIR/lv2 --exec-prefix=/usr/local --prefix=/usr/local
 	if [ RASPI = "true" ]
