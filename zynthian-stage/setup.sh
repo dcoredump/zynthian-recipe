@@ -113,7 +113,7 @@ then
 
 	# Copy config files
 	cd ${ZYNTHIAN_DIR}/zynthian-recipe/zynthian-stage
-	cp systemd/* /etc/systemd/system
+	cp etc/systemd/* /etc/systemd/system
 
 	systemctl daemon-reload
 	systemctl enable dhcpcd
@@ -134,6 +134,7 @@ then
 
 	cd ${ZYNTHIAN_DIR}/zynthian-recipe/zynthian-stage
 	cp -R pedalboards "${HOME}/.pedalboards"
+	mkdir -p ${ZYNTHIAN_SW_DIR}/mod-ui/dados
 	cp favorites.json ${ZYNTHIAN_SW_DIR}/mod-ui/dados/favorites.json
 
 	systemctl enable jack2
