@@ -1,7 +1,7 @@
 [Unit]
 Description=mod-ui
 BindsTo=jack2.service
-After=jack2.service
+After=mod-host.service
 
 [Service]
 Environment=HOME=/root
