@@ -8,7 +8,7 @@ if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	zynth_build_request clear
 	cd jack2
-	./waf configure --alsa=yes
+	./waf configure --alsa=yes --opus=no --autostart=default --doxygen=no
 	./waf build
 	sudo ./waf install 
 	if grep -q '@audio - memlock 256000' /etc/security/limits.conf
