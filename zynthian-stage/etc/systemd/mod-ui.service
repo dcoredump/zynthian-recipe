@@ -17,7 +17,7 @@ Environment=MOD_DEVICE_WEBSERVER_PORT=8888
 #Environment=MOD_SYSTEM_OUTPUT=1
 WorkingDirectory=/zynthian/zynthian-sw/mod-ui
 ExecStart=/zynthian/zynthian-sw/mod-ui/server.py
-ExecStartPre=/usr/local/bin/jack_wait -w
+ExecStartPre=/usr/bin/jack_wait -w
 Restart=always
 RestartSec=2
 

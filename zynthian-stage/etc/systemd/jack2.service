@@ -5,7 +5,7 @@ After=sound.target
 [Service]
 LimitRTPRIO=infinity
 LimitMEMLOCK=infinity
-ExecStart=/usr/local/bin/jackd -v -t2000 -s -d alsa -dhw:pisound -r48000 -p 256 -X raw -n2
+ExecStart=/usr/bin/jackd -v -t2000 -s -d alsa -dhw:pisound -r48000 -p 256 -n 2 -X seq
 
 [Install]
 WantedBy=multi-user.target

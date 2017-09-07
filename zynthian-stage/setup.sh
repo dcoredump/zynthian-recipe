@@ -20,6 +20,11 @@ then
 	apt-get -y upgrade
 	apt-get -y dist-upgrade
 
+	# Add autostaic repo
+	wget -q -O - http://rpi.autostatic.com/autostatic.gpg.key | apt-key add -
+	wget -q -O /etc/apt/sources.list.d/autostatic-audio-raspbian.list http://rpi.autostatic.com/autostatic-audio-raspbian.list
+a	apt-get update
+
 	rm "${HOME}/.install-stage1"
 	touch "${HOME}/.install-stage2"
 	reboot
@@ -68,7 +73,7 @@ then
 	sed -i -- "s/\/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh.*//" "${HOME}/.bashrc"
 
 	# System
-	apt-get -y install systemd dhcpcd-dbus avahi-daemon cpufrequtils
+	apt-get -y install systemd dhcpcd-dbus avahi-daemon cpufrequtils jackd2
 
 	# CLI Tools
 	apt-get -y install raspi-config psmisc tree vim joe

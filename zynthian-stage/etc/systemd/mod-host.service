@@ -8,21 +8,21 @@ Type=oneshot
 Environment=HOME=/root
 Environment=LV2_PATH=/zynthian/zynthian-plugins/lv2:/zynthian/zynthian-my-plugins/lv2
 WorkingDirectory=/root
-ExecStartPre=/usr/local/bin/jack_wait -w
-#ExecStart=/usr/local/bin/mod-host
-ExecStart=/usr/local/bin/jack_load mod-host
-#ExecStart=/usr/local/bin/jack_load mod-monitor
-ExecStart=/usr/local/bin/jack_alias system:midi_capture_1 ttymidi:MIDI_in
-ExecStart=/usr/local/bin/jack_alias system:midi_playback_1 ttymidi:MIDI_out
-ExecStart=/usr/local/bin/jack_alias system:playback_1 mod-monitor:in_1
-ExecStart=/usr/local/bin/jack_alias system:playback_2 mod-monitor:in_2
-ExecStopPre=/usr/local/bin/jack_wait -w
-ExecStop=/usr/local/bin/jack_unload mod-host
-#ExecStop=/usr/local/bin/jack_unload mod-monitor
-ExecStop=/usr/local/bin/jack_alias -u ttymidi:MIDI_in
-ExecStop=/usr/local/bin/jack_alias -u ttymidi:MIDI_out
-ExecStop=/usr/local/bin/jack_alias -u mod-monitor:in_1
-ExecStop=/usr/local/bin/jack_alias -u mod-monitor:in_2
+ExecStartPre=/usr/bin/jack_wait -w
+#ExecStart=/usr/bin/mod-host
+ExecStart=/usr/bin/jack_load mod-host
+#ExecStart=/usr/bin/jack_load mod-monitor
+#ExecStart=/usr/bin/jack_alias system:midi_capture_1 ttymidi:MIDI_in
+#ExecStart=/usr/bin/jack_alias system:midi_playback_1 ttymidi:MIDI_out
+ExecStart=/usr/bin/jack_alias system:playback_1 mod-monitor:in_1
+ExecStart=/usr/bin/jack_alias system:playback_2 mod-monitor:in_2
+ExecStopPre=/usr/bin/jack_wait -w
+ExecStop=/usr/bin/jack_unload mod-host
+#ExecStop=/usr/bin/jack_unload mod-monitor
+#ExecStop=/usr/bin/jack_alias -u ttymidi:MIDI_in
+#ExecStop=/usr/bin/jack_alias -u ttymidi:MIDI_out
+ExecStop=/usr/bin/jack_alias -u mod-monitor:in_1
+ExecStop=/usr/bin/jack_alias -u mod-monitor:in_2
 
 [Install]
 WantedBy=multi-user.target
