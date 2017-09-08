@@ -150,6 +150,18 @@ then
 	fi
 
 	#########################################################################
+	# RT Kernel
+	wget http://www.parasitstudio.de/zynthian/linux-firmware-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
+	wget http://www.parasitstudio.de/zynthian/linux-headers-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
+	wget http://www.parasitstudio.de/zynthian/linux-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
+	wget http://www.parasitstudio.de/zynthian/linux-libc-dev_4.9.47-rt37-v7+-1_armhf.deb
+	dpkg -i linux-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
+	dpkg -i linux-headers-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
+	dpkg -i linux-firmware-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
+	dpkg -i linux-libc-dev_4.9.47-rt37-v7+-1_armhf.deb
+	echo "kernel=vmlinuz-4.9.47-rt37-v7+" >> /boot/config.txt
+
+	#########################################################################
 	# MOD-UI-System and plugins
 	sh /zynthian/zynthian-recipe/zynthian-stage/plugins.sh
 
