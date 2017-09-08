@@ -1,0 +1,11 @@
+--- mod/host.py.orig	2017-09-07 16:47:01.213999849 +0100
++++ mod/host.py	2017-09-07 15:23:30.671999424 +0100
+@@ -174,7 +174,7 @@
+         self.processing_pending_flag = False
+         self.init_plugins_data()
+ 
+-        if APP and os.getenv("MOD_LIVE_ISO") is not None
++        if APP and os.getenv("MOD_LIVE_ISO") is not None or os.getenv("MOD_SYSTEM_OUTPUT"):
+             self.jack_hwin_prefix  = "system:playback_"
+             self.jack_hwout_prefix = "system:capture_"
+         else:
