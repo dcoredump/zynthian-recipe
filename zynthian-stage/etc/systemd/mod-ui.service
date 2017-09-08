@@ -1,23 +1,23 @@
 [Unit]
 Description=mod-ui
 BindsTo=jack2.service
-After=mod-host.service
+After=jack2.service
 
 [Service]
 Environment=HOME=/root
 Environment=LV2_PATH=/zynthian/zynthian-plugins/lv2:/zynthian/zynthian-my-plugins/lv2
-#Environment=MOD_DEV_ENVIRONMENT=0
 Environment=MOD_SCREENSHOT_JS=/zynthian/zynthian-sw/mod-ui/screenshot.js
 Environment=MOD_PHANTOM_BINARY=/usr/bin/phantomjs
 Environment=MOD_DEVICE_WEBSERVER_PORT=8888
-#Environment=MOD_DEV_ENVIRONMENT=0
-#Environment=MOD_LOG=1
-#Environment=MOD_APP=0
-#Environment=MOD_LIVE_ISO=0
-#Environment=MOD_SYSTEM_OUTPUT=1
+Environment=MOD_DEV_ENVIRONMENT=0
+Environment=MOD_SYSTEM_OUTPUT=1
 WorkingDirectory=/zynthian/zynthian-sw/mod-ui
+ExecStartPre=/usr/local/bin/jack_wait -w
+ExecStartPre=/usr/local/bin/jack_alias system:midi_capture_1 ttymidi:MIDI_in
+ExecStartPre=/usr/local/bin/jack_alias system:midi_playback_1 ttymidi:MIDI_out
 ExecStart=/zynthian/zynthian-sw/mod-ui/server.py
-ExecStartPre=/usr/bin/jack_wait -w
+ExecStopPost=/usr/local/bin/jack_alias -u ttymidi:MIDI_in
+ExecStopPost=/usr/local/bin/jack_alias -u ttymidi:MIDI_out
 Restart=always
 RestartSec=2
 
