@@ -5,7 +5,7 @@ zynth_git https://github.com/projectNe10/Ne10
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	zynth_build_request clear
-	cd ne10
+	cd Ne10
 	mkdir build && cd build
 	export NE10_LINUX_TARGET_ARCH="${MACHINE_HW_NAME}"
 	cmake -DGNULINUX_PLATFORM=ON -DNE10_BUILD_SHARED=ON ..
