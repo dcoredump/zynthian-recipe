@@ -3,9 +3,9 @@
 @prefix pedal: <http://moddevices.com/ns/modpedal#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
-<setBfreak_Reverb.ttl>
+<MDA_E_Piano.ttl>
     lv2:prototype ingen:GraphPrototype ;
     a lv2:Plugin ,
         ingen:Graph ,
         pedal:Pedalboard ;
-    rdfs:seeAlso <setBfreak_Reverb.ttl> .
+    rdfs:seeAlso <MDA_E_Piano.ttl> .

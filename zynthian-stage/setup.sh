@@ -29,7 +29,7 @@ a	apt-get update
 	apt-get -y install apt-utils screen sudo htpdate
 
 	# Adjust System Date/Time
-	#htpdate -t -s www.isc.org
+	htpdate -t -s www.isc.org
 
 	# Load pisound firmare
 	cat >> /boot/config.txt << EOF

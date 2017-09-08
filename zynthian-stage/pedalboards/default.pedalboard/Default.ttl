@@ -7,65 +7,27 @@
 @prefix pedal: <http://moddevices.com/ns/modpedal#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
-_:b1
-    ingen:tail <GenericFluidPlug_Masterpiece/audio_out_l> ;
-    ingen:head <playback_1> .
-
-_:b2
-    ingen:tail <serial_midi_in> ;
-    ingen:head <GenericFluidPlug_Masterpiece/events> .
-
-_:b3
-    ingen:tail <GenericFluidPlug_Masterpiece/audio_out_r> ;
-    ingen:head <playback_2> .
-
-_:b4
-    ingen:tail <midi_capture_1> ;
-    ingen:head <GenericFluidPlug_Masterpiece/events> .
-
-<GenericFluidPlug_Masterpiece>
-    ingen:canvasX 1620.2 ;
-    ingen:canvasY 476.2 ;
-    ingen:enabled true ;
-    ingen:polyphonic false ;
-    lv2:microVersion 1 ;
-    lv2:minorVersion 2 ;
-    mod:builderVersion 0 ;
-    mod:releaseNumber 0 ;
-    lv2:port <GenericFluidPlug_Masterpiece/audio_out_l> ,
-             <GenericFluidPlug_Masterpiece/audio_out_r> ,
-             <GenericFluidPlug_Masterpiece/level> ,
-             <GenericFluidPlug_Masterpiece/program> ,
-             <GenericFluidPlug_Masterpiece/events> ,
-             <GenericFluidPlug_Masterpiece/:bypass> ;
-    lv2:prototype <https://github.com/dcoredump/GenericFluidPlug_Masterpiece> ;
-    pedal:preset <> ;
-    a ingen:Block .
-
-<GenericFluidPlug_Masterpiece/events>
-    atom:bufferType atom:Sequence ;
-    atom:supports midi:MidiEvent ;
-    a atom:AtomPort ,
-        lv2:InputPort .
-
-<GenericFluidPlug_Masterpiece/level>
-    ingen:value 1.000000 ;
+<:bpb>
+    ingen:value 4.000000 ;
+    lv2:index 0 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<GenericFluidPlug_Masterpiece/program>
-    ingen:value 11.000000 ;
+<:bpm>
+    ingen:value 120.000000 ;
+    lv2:index 1 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<GenericFluidPlug_Masterpiece/:bypass>
+<:rolling>
     ingen:value 0 ;
+    lv2:index 2 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
 <control_in>
     atom:bufferType atom:Sequence ;
-    lv2:index 0 ;
+    lv2:index 3 ;
     lv2:name "Control In" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "control_in" ;
@@ -75,7 +37,7 @@ _:b4
 
 <control_out>
     atom:bufferType atom:Sequence ;
-    lv2:index 1 ;
+    lv2:index 4 ;
     lv2:name "Control Out" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "control_out" ;
@@ -84,7 +46,7 @@ _:b4
         lv2:OutputPort .
 
 <capture_1>
-    lv2:index 2 ;
+    lv2:index 5 ;
     lv2:name "Capture 1" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "capture_1" ;
@@ -92,7 +54,7 @@ _:b4
         lv2:InputPort .
 
 <capture_2>
-    lv2:index 3 ;
+    lv2:index 6 ;
     lv2:name "Capture 2" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "capture_2" ;
@@ -100,7 +62,7 @@ _:b4
         lv2:InputPort .
 
 <playback_1>
-    lv2:index 4 ;
+    lv2:index 7 ;
     lv2:name "Playback 1" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "playback_1" ;
@@ -108,52 +70,51 @@ _:b4
         lv2:OutputPort .
 
 <playback_2>
-    lv2:index 5 ;
+    lv2:index 8 ;
     lv2:name "Playback 2" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "playback_2" ;
     a lv2:AudioPort ,
         lv2:OutputPort .
 
-<midi_capture_1>
+<serial_midi_in>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 6 ;
-    lv2:name "pisound MIDI PS 19FP3ND" ;
+    lv2:index 9 ;
+    lv2:name "Serial MIDI In" ;
     lv2:portProperty lv2:connectionOptional ;
-    lv2:symbol "midi_capture_1" ;
+    lv2:symbol "serial_midi_in" ;
     <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
     a atom:AtomPort ,
         lv2:InputPort .
 
-<midi_playback_1>
+<serial_midi_out>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 7 ;
-    lv2:name "pisound MIDI PS 19FP3ND" ;
+    lv2:index 10 ;
+    lv2:name "Serial MIDI In" ;
     lv2:portProperty lv2:connectionOptional ;
-    lv2:symbol "midi_playback_1" ;
+    lv2:symbol "serial_midi_out" ;
     <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
     a atom:AtomPort ,
         lv2:OutputPort .
 
 <>
-    doap:name "Masterpiece" ;
+    doap:name "Default" ;
     pedal:width 0 ;
     pedal:height 0 ;
     pedal:addressings <addressings.json> ;
     pedal:screenshot <screenshot.png> ;
     pedal:thumbnail <thumbnail.png> ;
     ingen:polyphony 1 ;
-    ingen:arc _:b1 ,
-              _:b2 ,
-              _:b3 ,
-              _:b4 ;
-    ingen:block <GenericFluidPlug_Masterpiece> ;
-    lv2:port <control_in> ,
+    ingen:block <> ;
+    lv2:port <:bpb> ,
+             <:bpm> ,
+             <:rolling> ,
+             <control_in> ,
              <control_out> ,
-             <midi_capture_1> ,
-             <midi_playback_1> ,
+             <serial_midi_in> ,
+             <serial_midi_out> ,
              <capture_1> ,
              <capture_2> ,
              <playback_1> ,

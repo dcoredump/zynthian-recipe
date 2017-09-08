@@ -3,9 +3,9 @@
 @prefix pedal: <http://moddevices.com/ns/modpedal#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
-<Vocoder_Strings_.ttl>
+<Dexed.ttl>
     lv2:prototype ingen:GraphPrototype ;
     a lv2:Plugin ,
         ingen:Graph ,
         pedal:Pedalboard ;
-    rdfs:seeAlso <Vocoder_Strings_.ttl> .
+    rdfs:seeAlso <Dexed.ttl> .
