@@ -25,21 +25,11 @@ then
 	wget -q -O /etc/apt/sources.list.d/autostatic-audio-raspbian.list http://rpi.autostatic.com/autostatic-audio-raspbian.list
 a	apt-get update
 
-	rm "${HOME}/.install-stage1"
-	touch "${HOME}/.install-stage2"
-	reboot
-elif [ -f "${HOME}/.install-stage2" ]
-then
-	echo "###########"
-	echo "# Stage 2 #"
-	echo "###########"
-
 	# Install required dependencies if needed
-	apt-get -y install apt-utils screen
-	apt-get -y install sudo rpi-update htpdate parted
+	apt-get -y install apt-utils screen sudo htpdate
 
 	# Adjust System Date/Time
-	htpdate -t -s www.isc.org
+	#htpdate -t -s www.isc.org
 
 	# Load pisound firmare
 	cat >> /boot/config.txt << EOF
@@ -59,27 +49,26 @@ EOF
 	sed -i -e "s/minibian/zynthian-stage/" /etc/hosts
 
 	# Update Firmware
-	rpi-update
+	#rpi-update
 
-	rm "${HOME}/.install-stage2"
-	touch "${HOME}/.install-stage3"
+	rm "${HOME}/.install-stage1"
+	touch "${HOME}/.install-stage2"
 	reboot
-elif [ -f "${HOME}/.install-stage3" ]
+elif [ -f "${HOME}/.install-stage2" ]
 then
 	echo "###########"
-	echo "# Stage 3 #"
+	echo "# Stage 2 #"
 	echo "###########"
 
 	sed -i -- "s/\/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh.*//" "${HOME}/.bashrc"
 
 	# System
-	apt-get -y install systemd dhcpcd-dbus avahi-daemon cpufrequtils jackd2
+	apt-get -y install systemd dhcpcd-dbus avahi-daemon cpufrequtils
 
 	# CLI Tools
-	apt-get -y install raspi-config psmisc tree vim joe
-	apt-get -y install p7zip-full i2c-tools
+	apt-get -y install raspi-config psmisc tree vim joe p7zip-full i2c-tools
 
-	# Tools
+	# Dev-Tools
 	apt-get -y install build-essential git swig subversion pkg-config \
 	autoconf automake premake gettext intltool libtool libtool-bin cmake \
 	cmake-curses-gui
@@ -172,17 +161,17 @@ then
 	systemctl enable jack2
 	systemctl enable mod-ui
 
-	systemctl start jack2
-	systemctl start mod-ui
+	#systemctl start jack2
+	#systemctl start mod-ui
 
-	rm "${HOME}/.install-stage3"
+	rm "${HOME}/.install-stage2"
 
 	history -c
 
 	echo "#########################"
 	echo "# Installation finished #"
 	echo "#########################"
-
+	echo "... rebooting"
 	sleep 5
 	reboot
 fi
