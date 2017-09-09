@@ -1,7 +1,7 @@
 # helm
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
-sudo apt-get install -y libxcursor-dev libxinerama-dev libcurl4-openssl-dev mesa-common-dev
+sudo apt-get install -y libxcursor-dev libxinerama-dev libcurl4-openssl-dev mesa-common-dev libgl1-mesa-dev
 zynth_git https://github.com/mtytel/helm.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
