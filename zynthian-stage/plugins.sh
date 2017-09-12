@@ -65,5 +65,6 @@ sh bolliedelay.sh
 sh midigen.sh
 sh infamous.sh
 sh distrho.sh
+sh xfade.sh
 sh x42tuna.sh
 #systemctl daemon-reload && systemctl restart jack2

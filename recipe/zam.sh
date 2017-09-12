@@ -15,10 +15,13 @@ then
 	sed -i -- "s,-mtune=generic -msse -msse2,${CPU} ${FPU},g" Makefile.mk dpf/dgl/Makefile.mk
 	sed -i -- 's,-mfpmath=sse,${CPU} ${FPU},g' Makefile.mk dpf/dgl/Makefile.mk
 	make
-#	for i in `ls -d bin/*.lv2`
-#	do
-#		cp -R $i ${ZYNTHIAN_PLUGINS_DIR}/lv2
-#	done
+	#for i in `ls -d ${ZYNTHIAN_PLUGINS_DIR}/lib/*.lv2`
+	#do
+	#	mv $i ${ZYNTHIAN_PLUGINS_DIR}/lv2
+	#done
+	rm -r ${ZYNTHIAN_PLUGINS_DIR}/bin
+	rm -r ${ZYNTHIAN_PLUGINS_DIR}/ladspa
+	rm -r ${ZYNTHIAN_PLUGINS_DIR}/vst
 	sudo make install
 	zynth_build_request ready
 	make clean

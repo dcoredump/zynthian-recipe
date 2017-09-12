@@ -6,7 +6,7 @@ After=sound.target
 LimitRTPRIO=infinity
 LimitMEMLOCK=infinity
 Environment=LV2_PATH=/zynthian/zynthian-plugins/lv2:/zynthian/zynthian-my-plugins/lv2
-ExecStart=/usr/local/bin/jackd -t2000 -s -d alsa -dhw:pisound -r48000 -p 256 -n 2 -X raw
+ExecStart=/usr/local/bin/jackd -s -d alsa -dhw:pisound -r48000 -p 256 -n 2 -X raw
 ExecStartPost=/usr/local/bin/jack_wait -w
 ExecStartPost=/usr/local/bin/jack_load mod-host
 
