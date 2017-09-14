@@ -134,18 +134,18 @@ then
 	fi
 
 	# Tune jack2
-	if grep -q '@audio - memlock 256000' /etc/security/limits.conf
+	if grep -q '@audio - memlock unlimited' /etc/security/limits.conf
 	then
 		echo "memlock already set"
 	else
-		echo @audio - memlock 256000 >> /etc/security/limits.conf
+		echo @audio - memlock unlimited >> /etc/security/limits.conf
 		echo "setting memlock"
 	fi
-	if grep -q '@audio - rtprio 75' /etc/security/limits.conf
+	if grep -q '@audio - rtprio 95' /etc/security/limits.conf
 	then
 		echo "rtprio already set"
 	else
-		echo @audio - rtprio 75 >> /etc/security/limits.conf
+		echo @audio - rtprio 95 >> /etc/security/limits.conf
 		echo "setting rtprio"
 	fi
 
@@ -155,11 +155,11 @@ then
 	wget http://www.parasitstudio.de/zynthian/linux-headers-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
 	wget http://www.parasitstudio.de/zynthian/linux-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
 	wget http://www.parasitstudio.de/zynthian/linux-libc-dev_4.9.47-rt37-v7+-1_armhf.deb
-	#dpkg -i linux-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
-	#dpkg -i linux-headers-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
-	#dpkg -i linux-firmware-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
-	#dpkg -i linux-libc-dev_4.9.47-rt37-v7+-1_armhf.deb
-	#echo "kernel=vmlinuz-4.9.47-rt37-v7+" >> /boot/config.txt
+	dpkg -i linux-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
+	dpkg -i linux-headers-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
+	dpkg -i linux-firmware-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
+	dpkg -i linux-libc-dev_4.9.47-rt37-v7+-1_armhf.deb
+	echo "kernel=vmlinuz-4.9.47-rt37-v7+" >> /boot/config.txt
 
 	#########################################################################
 	# MOD-UI-System and plugins
@@ -171,6 +171,7 @@ then
 	cp favorites.json ${ZYNTHIAN_SW_DIR}/mod-ui/dados/favorites.json
 
 	systemctl enable jack2
+	systemctl enable mod-host
 	systemctl enable mod-ui
 
 	#systemctl start jack2
