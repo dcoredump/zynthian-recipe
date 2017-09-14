@@ -19,10 +19,10 @@ then
 	#do
 	#	mv $i ${ZYNTHIAN_PLUGINS_DIR}/lv2
 	#done
+	sudo make install
 	rm -r ${ZYNTHIAN_PLUGINS_DIR}/bin
 	rm -r ${ZYNTHIAN_PLUGINS_DIR}/ladspa
 	rm -r ${ZYNTHIAN_PLUGINS_DIR}/vst
-	sudo make install
 	zynth_build_request ready
 	make clean
 	cd ..

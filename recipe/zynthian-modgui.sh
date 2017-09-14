@@ -6,6 +6,7 @@ if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	zynth_build_request clear
 	cd zynthian-modgui
+	mkdir -p $ZYNTHIAN_PLUGINS_DIR/lv2
 	for i in *.modgui
 	do
 		if [ -L $ZYNTHIAN_PLUGINS_DIR/lv2/$i ]
