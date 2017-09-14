@@ -7,6 +7,46 @@
 @prefix pedal: <http://moddevices.com/ns/modpedal#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
+_:b1
+    ingen:tail <midi_capture_1> ;
+    ingen:head <reMID_lv2/MIDI_IN> .
+
+_:b2
+    ingen:tail <reMID_lv2/OUTPUT_R> ;
+    ingen:head <playback_1> .
+
+_:b3
+    ingen:tail <reMID_lv2/OUTPUT_L> ;
+    ingen:head <playback_2> .
+
+<reMID_lv2>
+    ingen:canvasX 1347.2 ;
+    ingen:canvasY 697.9 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 1 ;
+    lv2:minorVersion 0 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <reMID_lv2/OUTPUT_R> ,
+             <reMID_lv2/OUTPUT_L> ,
+             <reMID_lv2/MIDI_IN> ,
+             <reMID_lv2/:bypass> ;
+    lv2:prototype <http://github.com/ssj71/reMID.lv2> ;
+    pedal:preset <> ;
+    a ingen:Block .
+
+<reMID_lv2/MIDI_IN>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<reMID_lv2/:bypass>
+    ingen:value 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
 <:bpb>
     ingen:value 4.000000 ;
     lv2:index 0 ;
@@ -100,14 +140,17 @@
         lv2:OutputPort .
 
 <>
-    doap:name "Default" ;
+    doap:name "ReMID (SID emulator)" ;
     pedal:width 0 ;
     pedal:height 0 ;
     pedal:addressings <addressings.json> ;
     pedal:screenshot <screenshot.png> ;
     pedal:thumbnail <thumbnail.png> ;
     ingen:polyphony 1 ;
-    ingen:block <> ;
+    ingen:arc _:b1 ,
+              _:b2 ,
+              _:b3 ;
+    ingen:block <reMID_lv2> ;
     lv2:port <:bpb> ,
              <:bpm> ,
              <:rolling> ,

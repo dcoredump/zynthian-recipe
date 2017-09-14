@@ -122,6 +122,7 @@ then
 	systemctl disable triggerhappy
 	systemctl enable cpu-performance
 	systemctl enable pisound-btn
+	cd ${HOME}
 
 	# Set pisound as default audio card
 	echo "setting pisound as the default audio device"
@@ -159,6 +160,7 @@ then
 	dpkg -i linux-headers-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
 	dpkg -i linux-firmware-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
 	dpkg -i linux-libc-dev_4.9.47-rt37-v7+-1_armhf.deb
+	rm *.deb
 	echo "kernel=vmlinuz-4.9.47-rt37-v7+" >> /boot/config.txt
 
 	#########################################################################

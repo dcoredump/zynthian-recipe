@@ -8,183 +8,142 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:b1
-    ingen:tail <stereo/outL> ;
-    ingen:head <playback_1> .
+    ingen:tail <midi_capture_1> ;
+    ingen:head <zynaddsubfx_sourceforge_net/lv2_events_in> .
 
 _:b2
-    ingen:tail <stereo/outR> ;
-    ingen:head <playback_2> .
+    ingen:tail <zynaddsubfx_sourceforge_net/lv2_audio_out_1> ;
+    ingen:head <playback_1> .
 
 _:b3
-    ingen:tail <EPiano/left_out> ;
-    ingen:head <stereo/inL> .
+    ingen:tail <zynaddsubfx_sourceforge_net/lv2_audio_out_2> ;
+    ingen:head <playback_2> .
 
-_:b4
-    ingen:tail <EPiano/right_out> ;
-    ingen:head <stereo/inR> .
-
-_:b5
-    ingen:tail <serial_midi_in> ;
-    ingen:head <EPiano/event_in> .
-
-<EPiano>
-    ingen:canvasX 1107.5 ;
-    ingen:canvasY 508.1 ;
+<zynaddsubfx_sourceforge_net>
+    ingen:canvasX 1101.5 ;
+    ingen:canvasY 585.2 ;
     ingen:enabled true ;
     ingen:polyphonic false ;
-    lv2:microVersion 3 ;
-    lv2:minorVersion 0 ;
+    lv2:microVersion 0 ;
+    lv2:minorVersion 4 ;
     mod:builderVersion 0 ;
     mod:releaseNumber 0 ;
-    lv2:port <EPiano/left_out> ,
-             <EPiano/right_out> ,
-             <EPiano/env_decay> ,
-             <EPiano/env_release> ,
-             <EPiano/hardness> ,
-             <EPiano/treble_boost> ,
-             <EPiano/modulation> ,
-             <EPiano/lfo_rate> ,
-             <EPiano/vel_sense> ,
-             <EPiano/stereo_width> ,
-             <EPiano/polyphonic> ,
-             <EPiano/fine_tuning> ,
-             <EPiano/random_tuning> ,
-             <EPiano/overdrive> ,
-             <EPiano/event_in> ,
-             <EPiano/:bypass> ;
-    lv2:prototype <http://moddevices.com/plugins/mda/EPiano> ;
+    lv2:port <zynaddsubfx_sourceforge_net/lv2_audio_out_1> ,
+             <zynaddsubfx_sourceforge_net/lv2_audio_out_2> ,
+             <zynaddsubfx_sourceforge_net/slot1> ,
+             <zynaddsubfx_sourceforge_net/slot2> ,
+             <zynaddsubfx_sourceforge_net/slot3> ,
+             <zynaddsubfx_sourceforge_net/slot4> ,
+             <zynaddsubfx_sourceforge_net/slot5> ,
+             <zynaddsubfx_sourceforge_net/slot6> ,
+             <zynaddsubfx_sourceforge_net/slot7> ,
+             <zynaddsubfx_sourceforge_net/slot8> ,
+             <zynaddsubfx_sourceforge_net/slot9> ,
+             <zynaddsubfx_sourceforge_net/slot10> ,
+             <zynaddsubfx_sourceforge_net/slot11> ,
+             <zynaddsubfx_sourceforge_net/slot12> ,
+             <zynaddsubfx_sourceforge_net/slot13> ,
+             <zynaddsubfx_sourceforge_net/slot14> ,
+             <zynaddsubfx_sourceforge_net/slot15> ,
+             <zynaddsubfx_sourceforge_net/slot16> ,
+             <zynaddsubfx_sourceforge_net/osc_port> ,
+             <zynaddsubfx_sourceforge_net/lv2_events_in> ,
+             <zynaddsubfx_sourceforge_net/:bypass> ;
+    lv2:prototype <http://zynaddsubfx.sourceforge.net> ;
     pedal:preset <> ;
     a ingen:Block .
 
-<EPiano/event_in>
+<zynaddsubfx_sourceforge_net/lv2_events_in>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
     a atom:AtomPort ,
         lv2:InputPort .
 
-<EPiano/random_tuning>
-    ingen:value 7.300000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/modulation>
+<zynaddsubfx_sourceforge_net/slot15>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<EPiano/stereo_width>
-    ingen:value 100.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/lfo_rate>
-    ingen:value 23.285000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/env_decay>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/fine_tuning>
+<zynaddsubfx_sourceforge_net/slot7>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<EPiano/hardness>
+<zynaddsubfx_sourceforge_net/slot3>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<EPiano/env_release>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/polyphonic>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/overdrive>
+<zynaddsubfx_sourceforge_net/slot2>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<EPiano/vel_sense>
+<zynaddsubfx_sourceforge_net/slot13>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<EPiano/treble_boost>
+<zynaddsubfx_sourceforge_net/slot4>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<EPiano/:bypass>
-    ingen:value 0 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<stereo>
-    ingen:canvasX 2368.7 ;
-    ingen:canvasY 605.4 ;
-    ingen:enabled true ;
-    ingen:polyphonic false ;
-    lv2:microVersion 0 ;
-    lv2:minorVersion 770 ;
-    mod:builderVersion 0 ;
-    mod:releaseNumber 0 ;
-    lv2:port <stereo/inL> ,
-             <stereo/inR> ,
-             <stereo/outL> ,
-             <stereo/outR> ,
-             <stereo/gain> ,
-             <stereo/enable> ,
-             <stereo/mute> ,
-             <stereo/level> ,
-             <stereo/:bypass> ;
-    lv2:prototype <http://gareus.org/oss/lv2/tinygain#stereo> ;
-    pedal:preset <> ;
-    a ingen:Block .
-
-<stereo/inL>
-    a lv2:AudioPort ,
-        lv2:InputPort .
-
-<stereo/inR>
-    a lv2:AudioPort ,
-        lv2:InputPort .
-
-<stereo/inL>
-    a lv2:AudioPort ,
-        lv2:OutputPort .
-
-<stereo/inR>
-    a lv2:AudioPort ,
-        lv2:OutputPort .
-
-<stereo/enable>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<stereo/mute>
+<zynaddsubfx_sourceforge_net/slot6>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<stereo/gain>
+<zynaddsubfx_sourceforge_net/slot9>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<stereo/level>
+<zynaddsubfx_sourceforge_net/slot14>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<zynaddsubfx_sourceforge_net/slot5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<zynaddsubfx_sourceforge_net/slot12>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<zynaddsubfx_sourceforge_net/slot8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<zynaddsubfx_sourceforge_net/slot16>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<zynaddsubfx_sourceforge_net/slot11>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<zynaddsubfx_sourceforge_net/slot1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<zynaddsubfx_sourceforge_net/slot10>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<zynaddsubfx_sourceforge_net/osc_port>
     a lv2:ControlPort ,
         lv2:OutputPort .
 
-<stereo/:bypass>
+<zynaddsubfx_sourceforge_net/:bypass>
     ingen:value 0 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -259,30 +218,30 @@ _:b5
     a lv2:AudioPort ,
         lv2:OutputPort .
 
-<serial_midi_in>
+<midi_capture_1>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
     lv2:index 9 ;
-    lv2:name "Serial MIDI In" ;
+    lv2:name "pisound MIDI PS 19FP3ND" ;
     lv2:portProperty lv2:connectionOptional ;
-    lv2:symbol "serial_midi_in" ;
+    lv2:symbol "midi_capture_1" ;
     <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
     a atom:AtomPort ,
         lv2:InputPort .
 
-<serial_midi_out>
+<midi_playback_1>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
     lv2:index 10 ;
-    lv2:name "Serial MIDI In" ;
+    lv2:name "pisound MIDI PS 19FP3ND" ;
     lv2:portProperty lv2:connectionOptional ;
-    lv2:symbol "serial_midi_out" ;
+    lv2:symbol "midi_playback_1" ;
     <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
     a atom:AtomPort ,
         lv2:OutputPort .
 
 <>
-    doap:name "MDA-E-Piano" ;
+    doap:name "ZynAddSubFX" ;
     pedal:width 0 ;
     pedal:height 0 ;
     pedal:addressings <addressings.json> ;
@@ -291,18 +250,15 @@ _:b5
     ingen:polyphony 1 ;
     ingen:arc _:b1 ,
               _:b2 ,
-              _:b3 ,
-              _:b4 ,
-              _:b5 ;
-    ingen:block <EPiano> ,
-                <stereo> ;
+              _:b3 ;
+    ingen:block <zynaddsubfx_sourceforge_net> ;
     lv2:port <:bpb> ,
              <:bpm> ,
              <:rolling> ,
              <control_in> ,
              <control_out> ,
-             <serial_midi_in> ,
-             <serial_midi_out> ,
+             <midi_capture_1> ,
+             <midi_playback_1> ,
              <capture_1> ,
              <capture_2> ,
              <playback_1> ,

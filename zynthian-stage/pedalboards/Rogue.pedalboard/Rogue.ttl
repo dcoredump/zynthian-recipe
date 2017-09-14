@@ -1,0 +1,1698 @@
+@prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix ingen: <http://drobilla.net/ns/ingen#> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix midi:  <http://lv2plug.in/ns/ext/midi#> .
+@prefix mod:   <http://moddevices.com/ns/mod#> .
+@prefix pedal: <http://moddevices.com/ns/modpedal#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+_:b1
+    ingen:tail <midi_capture_1> ;
+    ingen:head <rogue/control> .
+
+_:b2
+    ingen:tail <rogue/left> ;
+    ingen:head <playback_1> .
+
+_:b3
+    ingen:tail <rogue/right> ;
+    ingen:head <playback_2> .
+
+<rogue>
+    ingen:canvasX 1085.4 ;
+    ingen:canvasY 619.7 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 0 ;
+    lv2:minorVersion 0 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <rogue/left> ,
+             <rogue/right> ,
+             <rogue/osc1_on> ,
+             <rogue/osc1_type> ,
+             <rogue/osc1_inv> ,
+             <rogue/osc1_free> ,
+             <rogue/osc1_tracking> ,
+             <rogue/osc1_ratio> ,
+             <rogue/osc1_coarse> ,
+             <rogue/osc1_fine> ,
+             <rogue/osc1_start> ,
+             <rogue/osc1_width> ,
+             <rogue/osc1_level_a> ,
+             <rogue/osc1_level_b> ,
+             <rogue/osc1_level> ,
+             <rogue/osc1_input> ,
+             <rogue/osc1_pm> ,
+             <rogue/osc1_sync> ,
+             <rogue/osc1_input2> ,
+             <rogue/osc1_out_mod> ,
+             <rogue/osc2_on> ,
+             <rogue/osc2_type> ,
+             <rogue/osc2_inv> ,
+             <rogue/osc2_free> ,
+             <rogue/osc2_tracking> ,
+             <rogue/osc2_ratio> ,
+             <rogue/osc2_coarse> ,
+             <rogue/osc2_fine> ,
+             <rogue/osc2_start> ,
+             <rogue/osc2_width> ,
+             <rogue/osc2_level_a> ,
+             <rogue/osc2_level_b> ,
+             <rogue/osc2_level> ,
+             <rogue/osc2_input> ,
+             <rogue/osc2_pm> ,
+             <rogue/osc2_sync> ,
+             <rogue/osc2_input2> ,
+             <rogue/osc2_out_mod> ,
+             <rogue/osc3_on> ,
+             <rogue/osc3_type> ,
+             <rogue/osc3_inv> ,
+             <rogue/osc3_free> ,
+             <rogue/osc3_tracking> ,
+             <rogue/osc3_ratio> ,
+             <rogue/osc3_coarse> ,
+             <rogue/osc3_fine> ,
+             <rogue/osc3_start> ,
+             <rogue/osc3_width> ,
+             <rogue/osc3_level_a> ,
+             <rogue/osc3_level_b> ,
+             <rogue/osc3_level> ,
+             <rogue/osc3_input> ,
+             <rogue/osc3_pm> ,
+             <rogue/osc3_sync> ,
+             <rogue/osc3_input2> ,
+             <rogue/osc3_out_mod> ,
+             <rogue/osc4_on> ,
+             <rogue/osc4_type> ,
+             <rogue/osc4_inv> ,
+             <rogue/osc4_free> ,
+             <rogue/osc4_tracking> ,
+             <rogue/osc4_ratio> ,
+             <rogue/osc4_coarse> ,
+             <rogue/osc4_fine> ,
+             <rogue/osc4_start> ,
+             <rogue/osc4_width> ,
+             <rogue/osc4_level_a> ,
+             <rogue/osc4_level_b> ,
+             <rogue/osc4_level> ,
+             <rogue/osc4_input> ,
+             <rogue/osc4_pm> ,
+             <rogue/osc4_sync> ,
+             <rogue/osc4_input2> ,
+             <rogue/osc4_out_mod> ,
+             <rogue/filter1_on> ,
+             <rogue/filter1_type> ,
+             <rogue/filter1_source> ,
+             <rogue/filter1_freq> ,
+             <rogue/filter1_q> ,
+             <rogue/filter1_distortion> ,
+             <rogue/filter1_level> ,
+             <rogue/filter1_pan> ,
+             <rogue/filter1_key_to_f> ,
+             <rogue/filter1_vel_to_f> ,
+             <rogue/filter2_on> ,
+             <rogue/filter2_type> ,
+             <rogue/filter2_source> ,
+             <rogue/filter2_freq> ,
+             <rogue/filter2_q> ,
+             <rogue/filter2_distortion> ,
+             <rogue/filter2_level> ,
+             <rogue/filter2_pan> ,
+             <rogue/filter2_key_to_f> ,
+             <rogue/filter2_vel_to_f> ,
+             <rogue/lfo1_on> ,
+             <rogue/lfo1_type> ,
+             <rogue/lfo1_inv> ,
+             <rogue/lfo1_reset_type> ,
+             <rogue/lfo1_freq> ,
+             <rogue/lfo1_start> ,
+             <rogue/lfo1_width> ,
+             <rogue/lfo1_humanize> ,
+             <rogue/lfo2_on> ,
+             <rogue/lfo2_type> ,
+             <rogue/lfo2_inv> ,
+             <rogue/lfo2_reset_type> ,
+             <rogue/lfo2_freq> ,
+             <rogue/lfo2_start> ,
+             <rogue/lfo2_width> ,
+             <rogue/lfo2_humanize> ,
+             <rogue/lfo3_on> ,
+             <rogue/lfo3_type> ,
+             <rogue/lfo3_inv> ,
+             <rogue/lfo3_reset_type> ,
+             <rogue/lfo3_freq> ,
+             <rogue/lfo3_start> ,
+             <rogue/lfo3_width> ,
+             <rogue/lfo3_humanize> ,
+             <rogue/lfo4_on> ,
+             <rogue/lfo4_type> ,
+             <rogue/lfo4_inv> ,
+             <rogue/lfo4_reset_type> ,
+             <rogue/lfo4_freq> ,
+             <rogue/lfo4_start> ,
+             <rogue/lfo4_width> ,
+             <rogue/lfo4_humanize> ,
+             <rogue/env1_on> ,
+             <rogue/env1_pre_delay> ,
+             <rogue/env1_attack> ,
+             <rogue/env1_hold> ,
+             <rogue/env1_decay> ,
+             <rogue/env1_sustain> ,
+             <rogue/env1_release> ,
+             <rogue/env1_curve> ,
+             <rogue/env1_retrigger> ,
+             <rogue/env2_on> ,
+             <rogue/env2_pre_delay> ,
+             <rogue/env2_attack> ,
+             <rogue/env2_hold> ,
+             <rogue/env2_decay> ,
+             <rogue/env2_sustain> ,
+             <rogue/env2_release> ,
+             <rogue/env2_curve> ,
+             <rogue/env2_retrigger> ,
+             <rogue/env3_on> ,
+             <rogue/env3_pre_delay> ,
+             <rogue/env3_attack> ,
+             <rogue/env3_hold> ,
+             <rogue/env3_decay> ,
+             <rogue/env3_sustain> ,
+             <rogue/env3_release> ,
+             <rogue/env3_curve> ,
+             <rogue/env3_retrigger> ,
+             <rogue/env4_on> ,
+             <rogue/env4_pre_delay> ,
+             <rogue/env4_attack> ,
+             <rogue/env4_hold> ,
+             <rogue/env4_decay> ,
+             <rogue/env4_sustain> ,
+             <rogue/env4_release> ,
+             <rogue/env4_curve> ,
+             <rogue/env4_retrigger> ,
+             <rogue/mod1_src> ,
+             <rogue/mod1_target> ,
+             <rogue/mod1_amount> ,
+             <rogue/mod2_src> ,
+             <rogue/mod2_target> ,
+             <rogue/mod2_amount> ,
+             <rogue/mod3_src> ,
+             <rogue/mod3_target> ,
+             <rogue/mod3_amount> ,
+             <rogue/mod4_src> ,
+             <rogue/mod4_target> ,
+             <rogue/mod4_amount> ,
+             <rogue/mod5_src> ,
+             <rogue/mod5_target> ,
+             <rogue/mod5_amount> ,
+             <rogue/mod6_src> ,
+             <rogue/mod6_target> ,
+             <rogue/mod6_amount> ,
+             <rogue/mod7_src> ,
+             <rogue/mod7_target> ,
+             <rogue/mod7_amount> ,
+             <rogue/mod8_src> ,
+             <rogue/mod8_target> ,
+             <rogue/mod8_amount> ,
+             <rogue/mod9_src> ,
+             <rogue/mod9_target> ,
+             <rogue/mod9_amount> ,
+             <rogue/mod10_src> ,
+             <rogue/mod10_target> ,
+             <rogue/mod10_amount> ,
+             <rogue/mod11_src> ,
+             <rogue/mod11_target> ,
+             <rogue/mod11_amount> ,
+             <rogue/mod12_src> ,
+             <rogue/mod12_target> ,
+             <rogue/mod12_amount> ,
+             <rogue/mod13_src> ,
+             <rogue/mod13_target> ,
+             <rogue/mod13_amount> ,
+             <rogue/mod14_src> ,
+             <rogue/mod14_target> ,
+             <rogue/mod14_amount> ,
+             <rogue/mod15_src> ,
+             <rogue/mod15_target> ,
+             <rogue/mod15_amount> ,
+             <rogue/mod16_src> ,
+             <rogue/mod16_target> ,
+             <rogue/mod16_amount> ,
+             <rogue/mod17_src> ,
+             <rogue/mod17_target> ,
+             <rogue/mod17_amount> ,
+             <rogue/mod18_src> ,
+             <rogue/mod18_target> ,
+             <rogue/mod18_amount> ,
+             <rogue/mod19_src> ,
+             <rogue/mod19_target> ,
+             <rogue/mod19_amount> ,
+             <rogue/mod20_src> ,
+             <rogue/mod20_target> ,
+             <rogue/mod20_amount> ,
+             <rogue/bus_a_level> ,
+             <rogue/bus_a_pan> ,
+             <rogue/bus_b_level> ,
+             <rogue/bus_b_pan> ,
+             <rogue/volume> ,
+             <rogue/play_mode> ,
+             <rogue/glide_time> ,
+             <rogue/pitchbend_range> ,
+             <rogue/chorus_on> ,
+             <rogue/chorus_delay> ,
+             <rogue/chorus_amount> ,
+             <rogue/chorus_rate> ,
+             <rogue/chorus_depth> ,
+             <rogue/chorus_feedback> ,
+             <rogue/phaser_on> ,
+             <rogue/phaser_min_freq> ,
+             <rogue/phaser_max_freq> ,
+             <rogue/phaser_rate> ,
+             <rogue/phaser_depth> ,
+             <rogue/phaser_feedback> ,
+             <rogue/delay_on> ,
+             <rogue/delay_bpm> ,
+             <rogue/delay_divider_l> ,
+             <rogue/delay_divider_r> ,
+             <rogue/delay_depth> ,
+             <rogue/delay_feedback> ,
+             <rogue/delay_pingpong> ,
+             <rogue/delay_lowcut> ,
+             <rogue/delay_highcut> ,
+             <rogue/reverb_on> ,
+             <rogue/reverb_predelay> ,
+             <rogue/reverb_decay> ,
+             <rogue/reverb_lowcut> ,
+             <rogue/reverb_highcut> ,
+             <rogue/reverb_depth> ,
+             <rogue/control> ,
+             <rogue/:bypass> ;
+    lv2:prototype <http://www.github.com/timowest/rogue> ;
+    pedal:preset <> ;
+    a ingen:Block .
+
+<rogue/control>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<rogue/osc2_sync>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_level_b>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_on>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod6_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/delay_lowcut>
+    ingen:value 10.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod7_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env1_release>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_start>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env3_sustain>
+    ingen:value 0.800000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter1_pan>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod14_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo3_on>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/delay_feedback>
+    ingen:value 0.750000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter1_vel_to_f>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_free>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod2_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/phaser_max_freq>
+    ingen:value 1000.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_start>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo1_humanize>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo2_on>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_sync>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_tracking>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/pitchbend_range>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter2_on>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_coarse>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo3_freq>
+    ingen:value 10.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod1_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter1_freq>
+    ingen:value 440.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env1_curve>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env2_on>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo4_freq>
+    ingen:value 10.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/chorus_on>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter1_source>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter2_type>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod5_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_input2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/delay_depth>
+    ingen:value 0.750000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_out_mod>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_coarse>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_start>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env4_release>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod9_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/phaser_on>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo4_type>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_width>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo1_width>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod8_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_inv>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod12_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo4_reset_type>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod10_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/reverb_on>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/chorus_amount>
+    ingen:value 0.300000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env1_retrigger>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_coarse>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_type>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env2_retrigger>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/chorus_depth>
+    ingen:value 0.300000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod19_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/volume>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_fine>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_sync>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_ratio>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_ratio>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_free>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_out_mod>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod8_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env4_on>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod9_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_width>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter2_freq>
+    ingen:value 440.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_free>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod18_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo3_humanize>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod10_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_level_a>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env1_attack>
+    ingen:value 0.010000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod17_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod17_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_start>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo2_inv>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_on>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod16_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_width>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env3_attack>
+    ingen:value 0.010000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod16_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo2_humanize>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_level_b>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_pm>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/reverb_depth>
+    ingen:value 0.300000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_tracking>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod19_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod15_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_free>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/delay_on>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env3_release>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_level_a>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo3_width>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo3_inv>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod2_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo4_humanize>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env3_pre_delay>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env3_decay>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_level>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/delay_highcut>
+    ingen:value 10000.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/phaser_min_freq>
+    ingen:value 300.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod18_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod1_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod2_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/reverb_highcut>
+    ingen:value 10000.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env3_curve>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter2_pan>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_level_b>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env1_hold>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod9_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo2_start>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env1_on>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env2_pre_delay>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/reverb_predelay>
+    ingen:value 0.010000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/phaser_depth>
+    ingen:value 0.300000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo3_reset_type>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_input>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod20_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/delay_divider_l>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod1_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod11_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo1_type>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod3_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_level>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_ratio>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_fine>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod20_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_fine>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env4_pre_delay>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env2_attack>
+    ingen:value 0.010000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod13_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod15_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_sync>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_out_mod>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod11_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/glide_time>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter1_type>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/chorus_rate>
+    ingen:value 0.200000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter1_distortion>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo2_type>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/delay_divider_r>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo2_width>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo1_reset_type>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_input2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod17_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter1_q>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod13_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_input>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter2_source>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod18_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod10_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env4_decay>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter1_on>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo2_reset_type>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo4_inv>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod14_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/bus_b_level>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/play_mode>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo1_freq>
+    ingen:value 10.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod19_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo3_start>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo1_inv>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter2_distortion>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/chorus_feedback>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_input2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_fine>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_pm>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/bus_a_level>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env2_release>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_on>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_type>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_level_a>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod8_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo3_type>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env2_curve>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo1_on>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env4_curve>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo4_width>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_pm>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod7_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env1_decay>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_input>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod4_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/delay_bpm>
+    ingen:value 97.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_inv>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env4_sustain>
+    ingen:value 0.800000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_level>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_input>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_on>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_pm>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_ratio>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo4_start>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod16_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env2_decay>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_inv>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_out_mod>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod15_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_type>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_input2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env2_sustain>
+    ingen:value 0.800000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/phaser_rate>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_inv>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/delay_pingpong>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc1_tracking>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/phaser_feedback>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod4_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/bus_b_pan>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod5_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod13_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env3_retrigger>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env1_sustain>
+    ingen:value 0.800000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_level_a>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env3_on>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod14_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_level>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/reverb_lowcut>
+    ingen:value 10.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_type>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo2_freq>
+    ingen:value 10.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc3_width>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo4_on>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod3_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod7_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc4_coarse>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod11_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter2_key_to_f>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/reverb_decay>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod4_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/lfo1_start>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod6_src>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env4_attack>
+    ingen:value 0.010000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env1_pre_delay>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_level_b>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/chorus_delay>
+    ingen:value 0.020000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod12_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod5_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod12_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env2_hold>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod20_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter2_q>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter1_key_to_f>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod6_target>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter2_level>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/osc2_tracking>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env4_retrigger>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/mod3_amount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/bus_a_pan>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env4_hold>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter1_level>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/filter2_vel_to_f>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/env3_hold>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<rogue/:bypass>
+    ingen:value 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<:bpb>
+    ingen:value 4.000000 ;
+    lv2:index 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<:bpm>
+    ingen:value 120.000000 ;
+    lv2:index 1 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<:rolling>
+    ingen:value 0 ;
+    lv2:index 2 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<control_in>
+    atom:bufferType atom:Sequence ;
+    lv2:index 3 ;
+    lv2:name "Control In" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "control_in" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<control_out>
+    atom:bufferType atom:Sequence ;
+    lv2:index 4 ;
+    lv2:name "Control Out" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "control_out" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:OutputPort .
+
+<capture_1>
+    lv2:index 5 ;
+    lv2:name "Capture 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "capture_1" ;
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<capture_2>
+    lv2:index 6 ;
+    lv2:name "Capture 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "capture_2" ;
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<playback_1>
+    lv2:index 7 ;
+    lv2:name "Playback 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "playback_1" ;
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<playback_2>
+    lv2:index 8 ;
+    lv2:name "Playback 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "playback_2" ;
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<midi_capture_1>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 9 ;
+    lv2:name "pisound MIDI PS 19FP3ND" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_capture_1" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<midi_playback_1>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 10 ;
+    lv2:name "pisound MIDI PS 19FP3ND" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_playback_1" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:OutputPort .
+
+<>
+    doap:name "Rogue" ;
+    pedal:width 0 ;
+    pedal:height 0 ;
+    pedal:addressings <addressings.json> ;
+    pedal:screenshot <screenshot.png> ;
+    pedal:thumbnail <thumbnail.png> ;
+    ingen:polyphony 1 ;
+    ingen:arc _:b1 ,
+              _:b2 ,
+              _:b3 ;
+    ingen:block <rogue> ;
+    lv2:port <:bpb> ,
+             <:bpm> ,
+             <:rolling> ,
+             <control_in> ,
+             <control_out> ,
+             <midi_capture_1> ,
+             <midi_playback_1> ,
+             <capture_1> ,
+             <capture_2> ,
+             <playback_1> ,
+             <playback_2> ;
+    lv2:extensionData <http://lv2plug.in/ns/ext/state#interface> ;
+    a lv2:Plugin ,
+        ingen:Graph ,
+        pedal:Pedalboard .

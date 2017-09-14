@@ -1,0 +1,1237 @@
+@prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix ingen: <http://drobilla.net/ns/ingen#> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix midi:  <http://lv2plug.in/ns/ext/midi#> .
+@prefix mod:   <http://moddevices.com/ns/mod#> .
+@prefix pedal: <http://moddevices.com/ns/modpedal#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+_:b1
+    ingen:tail <extended/left> ;
+    ingen:head <xfade/inB_left> .
+
+_:b2
+    ingen:tail <xfade/out_right> ;
+    ingen:head <bolliedelay/in_r> .
+
+_:b3
+    ingen:tail <extended/right> ;
+    ingen:head <roomy/in_right> .
+
+_:b4
+    ingen:tail <xfade/out_left> ;
+    ingen:head <bolliedelay/in_l> .
+
+_:b5
+    ingen:tail <bolliedelay/out_l> ;
+    ingen:head <stereo/inL> .
+
+_:b6
+    ingen:tail <extended/left> ;
+    ingen:head <roomy/in_left> .
+
+_:b7
+    ingen:tail <extended/right> ;
+    ingen:head <xfade/inB_right> .
+
+_:b8
+    ingen:tail <bolliedelay/out_r> ;
+    ingen:head <stereo/inR> .
+
+_:b9
+    ingen:tail <mono/out> ;
+    ingen:head <setBfreak_overdrive/in> .
+
+_:b10
+    ingen:tail <setBfreak_overdrive/out> ;
+    ingen:head <extended/in> .
+
+_:b11
+    ingen:tail <stereo/outL> ;
+    ingen:head <playback_1> .
+
+_:b12
+    ingen:tail <stereo/outR> ;
+    ingen:head <playback_2> .
+
+_:b13
+    ingen:tail <setBfreak_synth/out> ;
+    ingen:head <mono/in> .
+
+_:b14
+    ingen:tail <serial_midi_in> ;
+    ingen:head <setBfreak_synth/control> .
+
+_:b15
+    ingen:tail <roomy/out_left> ;
+    ingen:head <xfade/inA_left> .
+
+_:b16
+    ingen:tail <roomy/out_right> ;
+    ingen:head <xfade/inA_right> .
+
+_:b17
+    ingen:tail <midi_capture_1> ;
+    ingen:head <setBfreak_synth/control> .
+
+<roomy>
+    ingen:canvasX 438.4 ;
+    ingen:canvasY 158.2 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 0 ;
+    lv2:minorVersion 2 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <roomy/in_left> ,
+             <roomy/in_right> ,
+             <roomy/out_left> ,
+             <roomy/out_right> ,
+             <roomy/time> ,
+             <roomy/damping> ,
+             <roomy/dry_wet> ,
+             <roomy/:bypass> ;
+    lv2:prototype <http://www.openavproductions.com/artyfx#roomy> ;
+    pedal:preset <> ;
+    a ingen:Block .
+
+<roomy/in_left>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<roomy/in_right>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<roomy/in_left>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<roomy/in_right>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<roomy/damping>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<roomy/dry_wet>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<roomy/time>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<roomy/:bypass>
+    ingen:value 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_overdrive>
+    ingen:canvasX 1072.0 ;
+    ingen:canvasY 1004.0 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 67 ;
+    lv2:minorVersion 2057 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <setBfreak_overdrive/in> ,
+             <setBfreak_overdrive/out> ,
+             <setBfreak_overdrive/bias> ,
+             <setBfreak_overdrive/feedback> ,
+             <setBfreak_overdrive/sagtobias> ,
+             <setBfreak_overdrive/postfeed> ,
+             <setBfreak_overdrive/globfeed> ,
+             <setBfreak_overdrive/gainin> ,
+             <setBfreak_overdrive/gainout> ,
+             <setBfreak_overdrive/:bypass> ;
+    lv2:prototype <https://github.com/dcoredump/setBfreak/setBfreak_overdrive> ;
+    pedal:preset <> ;
+    a ingen:Block .
+
+<setBfreak_overdrive/in>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<setBfreak_overdrive/in>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<setBfreak_overdrive/bias>
+    ingen:value 0.873990 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_overdrive/globfeed>
+    ingen:value 0.582600 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_overdrive/gainout>
+    ingen:value 0.078730 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_overdrive/feedback>
+    ingen:value 0.582100 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_overdrive/postfeed>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_overdrive/sagtobias>
+    ingen:value 0.188000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_overdrive/gainin>
+    ingen:value 0.356700 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_overdrive/:bypass>
+    ingen:value 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth>
+    ingen:canvasX 229.0 ;
+    ingen:canvasY 996.3 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 57 ;
+    lv2:minorVersion 2057 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <setBfreak_synth/out> ,
+             <setBfreak_synth/drawbar_pedal_1> ,
+             <setBfreak_synth/drawbar_pedal_2> ,
+             <setBfreak_synth/drawbar_pedal_3> ,
+             <setBfreak_synth/drawbar_pedal_4> ,
+             <setBfreak_synth/drawbar_pedal_5> ,
+             <setBfreak_synth/drawbar_pedal_6> ,
+             <setBfreak_synth/drawbar_pedal_7> ,
+             <setBfreak_synth/drawbar_pedal_8> ,
+             <setBfreak_synth/drawbar_pedal_9> ,
+             <setBfreak_synth/drawbar_lower_1> ,
+             <setBfreak_synth/drawbar_lower_2> ,
+             <setBfreak_synth/drawbar_lower_3> ,
+             <setBfreak_synth/drawbar_lower_4> ,
+             <setBfreak_synth/drawbar_lower_5> ,
+             <setBfreak_synth/drawbar_lower_6> ,
+             <setBfreak_synth/drawbar_lower_7> ,
+             <setBfreak_synth/drawbar_lower_8> ,
+             <setBfreak_synth/drawbar_lower_9> ,
+             <setBfreak_synth/drawbar_upper_1> ,
+             <setBfreak_synth/drawbar_upper_2> ,
+             <setBfreak_synth/drawbar_upper_3> ,
+             <setBfreak_synth/drawbar_upper_4> ,
+             <setBfreak_synth/drawbar_upper_5> ,
+             <setBfreak_synth/drawbar_upper_6> ,
+             <setBfreak_synth/drawbar_upper_7> ,
+             <setBfreak_synth/drawbar_upper_8> ,
+             <setBfreak_synth/drawbar_upper_9> ,
+             <setBfreak_synth/vibrato> ,
+             <setBfreak_synth/vibratoupper> ,
+             <setBfreak_synth/vibratolower> ,
+             <setBfreak_synth/perc> ,
+             <setBfreak_synth/percvol> ,
+             <setBfreak_synth/percspeed> ,
+             <setBfreak_synth/percharm> ,
+             <setBfreak_synth/keysplitpedals> ,
+             <setBfreak_synth/keysplitlowers> ,
+             <setBfreak_synth/trssplitpedals> ,
+             <setBfreak_synth/trssplitlower> ,
+             <setBfreak_synth/trssplitupper> ,
+             <setBfreak_synth/transpose> ,
+             <setBfreak_synth/transpose_upper> ,
+             <setBfreak_synth/transpose_lower> ,
+             <setBfreak_synth/transpose_pedals> ,
+             <setBfreak_synth/control> ,
+             <setBfreak_synth/:bypass> ;
+    lv2:prototype <https://github.com/dcoredump/setBfreak/setBfreak_synth> ;
+    pedal:preset <https://github.com/dcoredump/setBfreak/setBfreak_synth#most_popular__35__Steve_Winwood_2> ;
+    a ingen:Block .
+
+<setBfreak_synth/control>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/transpose>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_upper_5>
+    ingen:value 8.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_pedal_6>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_lower_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/perc>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/percharm>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_pedal_1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_upper_4>
+    ingen:value 8.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_lower_8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/percspeed>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/transpose_lower>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_upper_3>
+    ingen:value 8.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/trssplitlower>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_pedal_2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_upper_7>
+    ingen:value 8.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/transpose_upper>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_pedal_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/trssplitupper>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_lower_6>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_lower_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_lower_2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_upper_9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_pedal_5>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_upper_2>
+    ingen:value 8.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_lower_7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_pedal_4>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_pedal_8>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/transpose_pedals>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/percvol>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/vibratolower>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/vibrato>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_lower_1>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_upper_6>
+    ingen:value 8.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/vibratoupper>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_lower_4>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_upper_8>
+    ingen:value 8.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/keysplitlowers>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_pedal_7>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/keysplitpedals>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/trssplitpedals>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_pedal_9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_upper_1>
+    ingen:value 8.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/drawbar_lower_9>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<setBfreak_synth/:bypass>
+    ingen:value 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<stereo>
+    ingen:canvasX 3463.0 ;
+    ingen:canvasY 527.4 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 0 ;
+    lv2:minorVersion 770 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <stereo/inL> ,
+             <stereo/inR> ,
+             <stereo/outL> ,
+             <stereo/outR> ,
+             <stereo/gain> ,
+             <stereo/enable> ,
+             <stereo/mute> ,
+             <stereo/level> ,
+             <stereo/:bypass> ;
+    lv2:prototype <http://gareus.org/oss/lv2/tinygain#stereo> ;
+    pedal:preset <> ;
+    a ingen:Block .
+
+<stereo/inL>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<stereo/inR>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<stereo/inL>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<stereo/inR>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<stereo/gain>
+    ingen:value -2.991071 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<stereo/mute>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<stereo/enable>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<stereo/level>
+    a lv2:ControlPort ,
+        lv2:OutputPort .
+
+<stereo/:bypass>
+    ingen:value 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<bolliedelay>
+    ingen:canvasX 2681.0 ;
+    ingen:canvasY 1142.0 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 6 ;
+    lv2:minorVersion 2 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <bolliedelay/in_l> ,
+             <bolliedelay/in_r> ,
+             <bolliedelay/out_l> ,
+             <bolliedelay/out_r> ,
+             <bolliedelay/tempo_host> ,
+             <bolliedelay/tempo_user> ,
+             <bolliedelay/tempo_mode> ,
+             <bolliedelay/tap> ,
+             <bolliedelay/mix> ,
+             <bolliedelay/feedback> ,
+             <bolliedelay/crossf> ,
+             <bolliedelay/low_on> ,
+             <bolliedelay/low_f> ,
+             <bolliedelay/low_q> ,
+             <bolliedelay/high_on> ,
+             <bolliedelay/high_f> ,
+             <bolliedelay/high_q> ,
+             <bolliedelay/div_l> ,
+             <bolliedelay/div_r> ,
+             <bolliedelay/tempo_out> ,
+             <bolliedelay/:bypass> ;
+    lv2:prototype <https://ca9.eu/lv2/bolliedelay> ;
+    pedal:preset <> ;
+    a ingen:Block .
+
+<bolliedelay/in_l>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<bolliedelay/in_r>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<bolliedelay/in_l>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<bolliedelay/in_r>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<bolliedelay/div_l>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<bolliedelay/mix>
+    ingen:value 30.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<bolliedelay/low_on>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<bolliedelay/tempo_user>
+    ingen:value 120.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<bolliedelay/high_on>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<bolliedelay/low_q>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<bolliedelay/high_q>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<bolliedelay/tempo_mode>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<bolliedelay/low_f>
+    ingen:value 20.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<bolliedelay/feedback>
+    ingen:value 40.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<bolliedelay/crossf>
+    ingen:value 20.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<bolliedelay/tempo_host>
+    ingen:value 120.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<bolliedelay/high_f>
+    ingen:value 7500.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<bolliedelay/tap>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<bolliedelay/div_r>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<bolliedelay/tempo_out>
+    a lv2:ControlPort ,
+        lv2:OutputPort .
+
+<bolliedelay/:bypass>
+    ingen:value 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended>
+    ingen:canvasX 1511.0 ;
+    ingen:canvasY 1006.1 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 67 ;
+    lv2:minorVersion 2057 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <extended/in> ,
+             <extended/left> ,
+             <extended/right> ,
+             <extended/motor> ,
+             <extended/speed_toggle> ,
+             <extended/rt_speed_slow> ,
+             <extended/rt_speed> ,
+             <extended/hornlvl> ,
+             <extended/drumlvl> ,
+             <extended/drumwidth> ,
+             <extended/hornrpmslow> ,
+             <extended/hornrpmfast> ,
+             <extended/hornaccel> ,
+             <extended/horndecel> ,
+             <extended/hornbrakepos> ,
+             <extended/filtatype> ,
+             <extended/filtafreq> ,
+             <extended/filtaq> ,
+             <extended/filtagain> ,
+             <extended/filtbtype> ,
+             <extended/filtbfreq> ,
+             <extended/filtbq> ,
+             <extended/filtbgain> ,
+             <extended/drumrpmslow> ,
+             <extended/drumrpmfast> ,
+             <extended/drumaccel> ,
+             <extended/drumdecel> ,
+             <extended/drumbrake> ,
+             <extended/filtdtype> ,
+             <extended/filtdfreq> ,
+             <extended/filtdq> ,
+             <extended/filtdgain> ,
+             <extended/hornleak> ,
+             <extended/hornradius> ,
+             <extended/drumradius> ,
+             <extended/hornxoff> ,
+             <extended/hornzoff> ,
+             <extended/micdist> ,
+             <extended/guitrigger> ,
+             <extended/link> ,
+             <extended/micangle> ,
+             <extended/hornwidth> ,
+             <extended/hornrpm> ,
+             <extended/drumrpm> ,
+             <extended/hornang> ,
+             <extended/drumang> ,
+             <extended/:bypass> ;
+    lv2:prototype <https://github.com/dcoredump/setBfreak/setBfreak_whirl#extended> ;
+    pedal:preset <> ;
+    a ingen:Block .
+
+<extended/in>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<extended/in>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<extended/rt_speed_slow>
+    ingen:value 4.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/filtbgain>
+    ingen:value -30.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/hornlvl>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/hornrpmfast>
+    ingen:value 423.359985 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/filtafreq>
+    ingen:value 4500.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/rt_speed>
+    ingen:value 8.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/drumradius>
+    ingen:value 22.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/hornxoff>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/motor>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/filtaq>
+    ingen:value 2.745600 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/hornbrakepos>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/filtdgain>
+    ingen:value -38.929100 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/filtatype>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/micdist>
+    ingen:value 42.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/hornzoff>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/hornradius>
+    ingen:value 19.200001 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/filtagain>
+    ingen:value -30.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/horndecel>
+    ingen:value 1.853493 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/hornwidth>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/hornaccel>
+    ingen:value 1.507546 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/hornleak>
+    ingen:value -16.469999 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/link>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/drumaccel>
+    ingen:value 4.127000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/drumrpmslow>
+    ingen:value 36.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/filtbtype>
+    ingen:value 7.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/drumrpmfast>
+    ingen:value 357.299988 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/drumwidth>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/filtdtype>
+    ingen:value 8.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/speed_toggle>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/guitrigger>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/drumdecel>
+    ingen:value 1.371000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/filtbfreq>
+    ingen:value 300.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/drumbrake>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/drumlvl>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/micangle>
+    ingen:value 180.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/filtdq>
+    ingen:value 1.601600 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/filtdfreq>
+    ingen:value 811.969482 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/filtbq>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/hornrpmslow>
+    ingen:value 40.320000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<extended/hornrpm>
+    a lv2:ControlPort ,
+        lv2:OutputPort .
+
+<extended/drumrpm>
+    a lv2:ControlPort ,
+        lv2:OutputPort .
+
+<extended/hornang>
+    a lv2:ControlPort ,
+        lv2:OutputPort .
+
+<extended/drumang>
+    a lv2:ControlPort ,
+        lv2:OutputPort .
+
+<extended/:bypass>
+    ingen:value 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<mono>
+    ingen:canvasX 700.0 ;
+    ingen:canvasY 1049.0 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 0 ;
+    lv2:minorVersion 770 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <mono/in> ,
+             <mono/out> ,
+             <mono/gain> ,
+             <mono/enable> ,
+             <mono/mute> ,
+             <mono/level> ,
+             <mono/:bypass> ;
+    lv2:prototype <http://gareus.org/oss/lv2/tinygain#mono> ;
+    pedal:preset <> ;
+    a ingen:Block .
+
+<mono/in>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<mono/in>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<mono/gain>
+    ingen:value -0.133929 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<mono/mute>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<mono/enable>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<mono/level>
+    a lv2:ControlPort ,
+        lv2:OutputPort .
+
+<mono/:bypass>
+    ingen:value 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<xfade>
+    ingen:canvasX 2287.0 ;
+    ingen:canvasY 159.0 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 0 ;
+    lv2:minorVersion 520 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <xfade/inA_left> ,
+             <xfade/inA_right> ,
+             <xfade/inB_left> ,
+             <xfade/inB_right> ,
+             <xfade/out_left> ,
+             <xfade/out_right> ,
+             <xfade/xfade> ,
+             <xfade/shape> ,
+             <xfade/mode> ,
+             <xfade/:bypass> ;
+    lv2:prototype <http://gareus.org/oss/lv2/xfade> ;
+    pedal:preset <> ;
+    a ingen:Block .
+
+<xfade/inA_left>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<xfade/inA_right>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<xfade/inB_left>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<xfade/inB_right>
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<xfade/inA_left>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<xfade/inA_right>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<xfade/inB_left>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<xfade/inB_right>
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<xfade/mode>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<xfade/shape>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<xfade/xfade>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<xfade/:bypass>
+    ingen:value 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<:bpb>
+    ingen:value 4.000000 ;
+    lv2:index 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<:bpm>
+    ingen:value 120.000000 ;
+    lv2:index 1 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<:rolling>
+    ingen:value 0 ;
+    lv2:index 2 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<control_in>
+    atom:bufferType atom:Sequence ;
+    lv2:index 3 ;
+    lv2:name "Control In" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "control_in" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<control_out>
+    atom:bufferType atom:Sequence ;
+    lv2:index 4 ;
+    lv2:name "Control Out" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "control_out" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:OutputPort .
+
+<capture_1>
+    lv2:index 5 ;
+    lv2:name "Capture 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "capture_1" ;
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<capture_2>
+    lv2:index 6 ;
+    lv2:name "Capture 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "capture_2" ;
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<playback_1>
+    lv2:index 7 ;
+    lv2:name "Playback 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "playback_1" ;
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<playback_2>
+    lv2:index 8 ;
+    lv2:name "Playback 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "playback_2" ;
+    a lv2:AudioPort ,
+        lv2:OutputPort .
+
+<midi_capture_1>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 9 ;
+    lv2:name "pisound MIDI PS 19FP3ND" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_capture_1" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<midi_playback_1>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 10 ;
+    lv2:name "pisound MIDI PS 19FP3ND" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_playback_1" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:OutputPort .
+
+<>
+    doap:name "setBfreak" ;
+    pedal:width 0 ;
+    pedal:height 0 ;
+    pedal:addressings <addressings.json> ;
+    pedal:screenshot <screenshot.png> ;
+    pedal:thumbnail <thumbnail.png> ;
+    ingen:polyphony 1 ;
+    ingen:arc _:b1 ,
+              _:b2 ,
+              _:b3 ,
+              _:b4 ,
+              _:b5 ,
+              _:b6 ,
+              _:b7 ,
+              _:b8 ,
+              _:b9 ,
+              _:b10 ,
+              _:b11 ,
+              _:b12 ,
+              _:b13 ,
+              _:b14 ,
+              _:b15 ,
+              _:b16 ,
+              _:b17 ;
+    ingen:block <roomy> ,
+                <setBfreak_overdrive> ,
+                <setBfreak_synth> ,
+                <stereo> ,
+                <bolliedelay> ,
+                <extended> ,
+                <mono> ,
+                <xfade> ;
+    lv2:port <:bpb> ,
+             <:bpm> ,
+             <:rolling> ,
+             <control_in> ,
+             <control_out> ,
+             <midi_capture_1> ,
+             <midi_playback_1> ,
+             <capture_1> ,
+             <capture_2> ,
+             <playback_1> ,
+             <playback_2> ;
+    lv2:extensionData <http://lv2plug.in/ns/ext/state#interface> ;
+    a lv2:Plugin ,
+        ingen:Graph ,
+        pedal:Pedalboard .
