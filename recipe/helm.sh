@@ -8,12 +8,12 @@ then
 	zynth_build_request clear
 	cd helm
 	sed -i -- "s/SDEBCXXFLAGS := \$(shell dpkg-buildflags --get CXXFLAGS)/SDEBCXXFLAGS = -O2 -fstack-protector-strong -Wformat -Werror=format-security ${CPU} ${FPU}/" Makefile
+	A
 	sed -i -- "s/PDEBCXXFLAGS := \$(shell dpkg-buildflags --get CXXFLAGS)/PDEBCXXFLAGS = -O2 -fstack-protector-strong -Wformat -Werror=format-security ${CPU} ${FPU}/" Makefile
 	sed -i -- "s/-march=armv8-a -mtune=cortex-a53/${CPU} ${FPU}/" Makefile
 	make lv2
-	sudo make install
-	mkdir -p "${ZYNTHIAN_PLUGINS_DIR}"/lv2/helm.lv2
-	cp builds/linux/LV2/helm.lv2/* "${ZYNTHIAN_PLUGINS_DIR}"/lv2/helm.lv2
+	#sudo make install_lv2
+	cp -R builds/linux/LV2/helm.lv2 "${ZYNTHIAN_PLUGINS_DIR}"/lv2
 	zynth_build_request ready
 	make clean
 	cd ..
