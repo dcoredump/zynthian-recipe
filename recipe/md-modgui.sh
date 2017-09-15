@@ -12,19 +12,15 @@ do
 		if [ ! -e "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/modgui" ]
 		then
 			echo "and can be gui-fied."
-			if [ `grep modguis.ttl "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/manifest.ttl" | wc -l` -eq 0 ]
-			then
-				echo "* Adding modgui.ttl to manifest.ttl"
-				cp "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/manifest.ttl" "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/manifest.ttl.bak"
-				sed -i -- 's/rdfs:seeAlso/rdfs:seeAlso <modguis.ttl>, /' "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/manifest.ttl"
-			elif [ `grep modgui.ttl "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/manifest.ttl" | wc -l` -eq 0 ]
+			if [ `grep modgui "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/manifest.ttl" | wc -l` -eq 0 ]
 			then
 				echo "* Adding modgui.ttl to manifest.ttl"
 				cp "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/manifest.ttl" "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/manifest.ttl.bak"
 				sed -i -- 's/rdfs:seeAlso/rdfs:seeAlso <modgui.ttl>, /' "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/manifest.ttl"
 			fi
 			echo "* copying modgui dir"
-			cp -R "${plugin_path_name}"/modgui* "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}"
+			cp -R "${plugin_path_name}"/modgui "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}"
+			cp "${plugin_path_name}"/modgui*.ttl "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/modgui.ttl"
 		else
 			echo "and has already a gui."
 		fi
