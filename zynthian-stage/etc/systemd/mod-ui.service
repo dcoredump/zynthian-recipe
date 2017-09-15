@@ -4,6 +4,9 @@ Description=mod-ui
 After=mod-host.service
 
 [Service]
+User=root
+Group=root
+Nice=-17
 Environment=HOME=/root
 Environment=LV2_PATH=/zynthian/zynthian-plugins/lv2:/zynthian/zynthian-my-plugins/lv2
 Environment=MOD_SCREENSHOT_JS=/zynthian/zynthian-sw/mod-ui/screenshot.js
