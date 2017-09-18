@@ -81,3 +81,18 @@ do
         chromium-browser  --app=http://localhost:8888 --no-sandbox
 done;
 EOF
+sed -i -r -- '/^# 1900x1200 at 32bit depth, DMT mode/d' /boot/config.txt
+sed -i -r -- '/^framebuffer.+/d' /boot/config.txt
+sed -i -r -- '/^hdmi_.+/d' /boot/config.txt
+sed -i -r -- '/^disable_overscan.+/d' /boot/config.txt
+cat <<EOF >>/boot/config.txt
+# 1900x1200 at 32bit depth, DMT mode
+disable_overscan=1
+framebuffer_width=1900
+framebuffer_height=1200
+framebuffer_depth=32
+framebuffer_ignore_alpha=1
+hdmi_pixel_encoding=1
+hdmi_group=2
+EOF
+sed -i -r -- 's/^gpu_mem=[0-9]+/gpu_mem=64/' /boot/config.txt
