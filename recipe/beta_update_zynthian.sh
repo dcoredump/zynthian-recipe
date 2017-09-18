@@ -15,8 +15,8 @@ sh sratom.sh
 sh lilv.sh
 sh lvtk.sh
 sh mod-ttymidi.sh
-sh mod-host.sh
-sh mod-ui.sh
+sh zynthian-mod-host.sh
+sh zynthian-mod-ui.sh
 sh mod-sdk.sh
 sh phantomjs.sh
 sh jack_capture.sh
