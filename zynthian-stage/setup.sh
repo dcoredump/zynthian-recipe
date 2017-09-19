@@ -118,7 +118,6 @@ then
 	systemctl disable cron
 	systemctl disable rsyslog
 	systemctl disable ntp
-	systemctl disable htpdate
 	systemctl disable triggerhappy
 	systemctl enable cpu-performance
 	systemctl enable pisound-btn
@@ -135,20 +134,14 @@ then
 	fi
 
 	# Tune jack2
-	if grep -q '@audio - memlock unlimited' /etc/security/limits.conf
-	then
-		echo "memlock already set"
-	else
-		echo @audio - memlock unlimited >> /etc/security/limits.conf
-		echo "setting memlock"
-	fi
-	if grep -q '@audio - rtprio 95' /etc/security/limits.conf
-	then
-		echo "rtprio already set"
-	else
-		echo @audio - rtprio 95 >> /etc/security/limits.conf
-		echo "setting rtprio"
-	fi
+	sed -i -r -- '/@audio - memlock/d' /etc/security/limits.conf
+	sed -i -r -- '/@audio - rtprio/d' /etc/security/limits.conf
+	echo "@audio - memlock unlimited" >> /etc/security/limits.conf
+	echo "@audio - rtprio 95" >> /etc/security/limits.conf
+
+	# enable hotplugging network - minimizes boot time
+	sed -i.old-`date +%Y%m%d-%H%M%S` '/^auto lo$/!s/^auto /allow-hotplug /' /etc/network/interfaces
+
 
 	#########################################################################
 	# RT Kernel
