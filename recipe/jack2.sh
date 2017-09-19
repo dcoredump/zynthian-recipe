@@ -10,21 +10,11 @@ then
 	cd jack2
 	./waf configure --alsa=yes --opus=no --autostart=default --doxygen=no
 	./waf build
-	sudo ./waf install 
-	if grep -q '@audio - memlock 256000' /etc/security/limits.conf
-	then
-		echo "memlock already set"
-	else
-		sudo sh -c "echo @audio - memlock 256000 >> /etc/security/limits.conf"
-		echo "setting memlock"
-	fi
-	if grep -q '@audio - rtprio 75' /etc/security/limits.conf
-	then
-		echo "rtprio already set"
-	else
-		sudo sh -c "echo @audio - rtprio 75 >> /etc/security/limits.conf"
-		echo "setting rtprio"
-	fi
+	sudo ./waf install
+        sed -i -r -- '/@audio - memlock/d' /etc/security/limits.conf
+        sed -i -r -- '/@audio - rtprio/d' /etc/security/limits.conf
+        echo "@audio - memlock unlimited" >> /etc/security/limits.conf
+        echo "@audio - rtprio 95" >> /etc/security/limits.conf
 	./waf clean
 	zynth_build_request ready
 	cd ..
