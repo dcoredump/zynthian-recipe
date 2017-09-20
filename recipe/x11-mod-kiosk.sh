@@ -1,6 +1,8 @@
 # zynthian-mod-kiosk
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-apt-get -y install chromium-browser matchbox x11-xserver-utils sqlite3 libnss3 xinit fbset
+#apt-get -y install chromium-browser matchbox x11-xserver-utils sqlite3 libnss3 xinit fbset 
+apt-get -y install matchbox x11-xserver-utils sqlite3 libnss3 xinit fbset midori
+
 cat <<EOF >/etc/rc.local
 #!/bin/sh -e
 #
@@ -78,8 +80,13 @@ do
         matchbox-window-manager -use_titlebar no -use_cursor no &
 
         # Start the browser (See http://peter.sh/experiments/chromium-command-line-switches/)
-        chromium-browser  --app=http://localhost:8888 --no-sandbox
-done;
+        #chromium-browser  --app=http://localhost:8888 --no-sandbox
+	midori -e Fullscreen -a http://localhost:8888
+        if [ -e /sys/fs/cgroup/cpuset/rt/tasks ]
+        then
+                echo `pidof midori` > /sys/fs/cgroup/cpuset/nrt/tasks
+        fi
+done
 EOF
 sed -i -r -- '/^# 1900x1200 at 32bit depth, DMT mode/d' /boot/config.txt
 sed -i -r -- '/^framebuffer.+/d' /boot/config.txt

@@ -133,11 +133,12 @@ then
 		printf 'pcm.!default {\n\ttype hw\n\tcard 1\n}\n\nctl.!default {\n\ttype hw\n\tcard 1\n}\n' >> "${HOME}/.asoundrc"
 	fi
 
-	# Tune jack2
+	# Tune for jack2
 	sed -i -r -- '/@audio - memlock/d' /etc/security/limits.conf
 	sed -i -r -- '/@audio - rtprio/d' /etc/security/limits.conf
 	echo "@audio - memlock unlimited" >> /etc/security/limits.conf
-	echo "@audio - rtprio 95" >> /etc/security/limits.conf
+	echo "@audio - rtprio 99" >> /etc/security/limits.conf
+	usermod -a -G audio root
 
 	# enable hotplugging network - minimizes boot time
 	sed -i.old-`date +%Y%m%d-%H%M%S` '/^auto lo$/!s/^auto /allow-hotplug /' /etc/network/interfaces
@@ -156,6 +157,10 @@ then
 	rm *.deb
 	echo "kernel=vmlinuz-4.9.47-rt37-v7+" >> /boot/config.txt
 
+	# Remove unneeded packages
+	apt purge modemmanager
+	apt-get autoremove
+
 	#########################################################################
 	# MOD-UI-System and plugins
 	sh /zynthian/zynthian-recipe/zynthian-stage/plugins.sh
@@ -169,17 +174,13 @@ then
 	systemctl enable mod-host
 	systemctl enable mod-ui
 
-	#systemctl start jack2
-	#systemctl start mod-ui
-
 	rm "${HOME}/.install-stage2"
-
-	history -c
 
 	echo "#########################"
 	echo "# Installation finished #"
 	echo "#########################"
 	echo "... rebooting"
 	sleep 5
+	history -c
 	reboot
 fi
