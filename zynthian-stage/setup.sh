@@ -42,7 +42,7 @@ dtoverlay=pi3-disable-bt
 #dtparam=uart0_clkrate=3000000
 dtoverlay=midi-uart0
 EOF
-	echo "dwc_otg.lpm_enable=0 console=tty1 elevator=deadline root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes rootwait" > /boot/cmdline.txt
+	echo "dwc_otg.lpm_enable=0 console=tty1 elevator=deadline root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes cgroup_enable=cpuset rootwait" > /boot/cmdline.txt
 
 	# Change system name
 	echo "zynthian-stage" > /etc/hostname
