@@ -1,7 +1,7 @@
 # tune-rt
 # http://linuxrealtime.org/index.php/Improving_the_Real-Time_Properties
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-# Add "cgroup_enable=cpuset" to /boot/cmdline.txt
+# Add "cgroup_enable=cpuset" to /boot/cmdline.txt!
 
 # create rt/nrt cgroups
 mount -t tmpfs none /sys/fs/cgroup
@@ -11,15 +11,11 @@ mkdir /sys/fs/cgroup/cpuset/rt
 mkdir /sys/fs/cgroup/cpuset/nrt
 
 # advice CPUs to rt/nrt
-echo 0 > /sys/fs/cgroup/cpuset/nrt/cpuset.cpus
-echo 1,2,3 > /sys/fs/cgroup/cpuset/rt/cpuset.cpus
+echo 0,1,2 > /sys/fs/cgroup/cpuset/nrt/cpuset.cpus
+echo 3 > /sys/fs/cgroup/cpuset/rt/cpuset.cpus
 echo 1 > /sys/fs/cgroup/cpuset/rt/cpuset.cpu_exclusive
 
 # enable CPU hotplugging for RT CPUs
-echo 0 > /sys/devices/system/cpu/cpu1/online
-echo 1 > /sys/devices/system/cpu/cpu1/online
-echo 0 > /sys/devices/system/cpu/cpu2/online
-echo 1 > /sys/devices/system/cpu/cpu2/online
 echo 0 > /sys/devices/system/cpu/cpu3/online
 echo 1 > /sys/devices/system/cpu/cpu3/online
 
@@ -33,7 +29,7 @@ echo 0 > /sys/fs/cgroup/cpuset/rt/cpuset.sched_load_balance
 echo 1 > /sys/fs/cgroup/cpuset/nrt/cpuset.sched_load_balance
 
 # move unwanted IRQs to nrt
-echo 3 > /proc/irq/default_smp_affinity
+echo 7 > /proc/irq/default_smp_affinity
 
 # BDI writeback affinity
 echo 0 > /sys/bus/workqueue/devices/writeback/numa
