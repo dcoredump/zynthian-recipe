@@ -1,6 +1,7 @@
 [Unit]
 Description=JACK2 Audio Server
-After=sound.target
+#After=sound.target
+After=cgroup.service
 
 [Service]
 LimitRTPRIO=infinity
@@ -14,9 +15,9 @@ IOSchedulingPriority=0
 CPUSchedulingPriority=99
 Environment=LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 Environment=LV2_PATH=/zynthian/zynthian-plugins/lv2:/zynthian/zynthian-my-plugins/lv2
+ExecStartPre=/usr/local/bin/partrt create 0xc
 ExecStart=/usr/local/bin/jackd -R -P99 -d alsa -dhw:pisound -r48000 -p256 -n2 -Xraw
-#ExecStartPost=/usr/local/bin/jack_wait -w
-#ExecStartPost=/usr/local/bin/jack_load mod-host
+ExecStartPost=/usr/local/bin/partrt move $MAINPID rt
 
 [Install]
 WantedBy=multi-user.target

@@ -56,8 +56,7 @@ hdmi_mode=1
 hdmi_mode=87
 hdmi_cvt 1280 800 60 6 0 0 0
 EOF
-	#echo "dwc_otg.lpm_enable=0 console=tty1 elevator=deadline root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes cgroup_enable=cpuset rootwait" > /boot/cmdline.txt
-	echo "dwc_otg.lpm_enable=0 console=tty1 elevator=noop root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes cgroup_enable=cpuset rootwait" > /boot/cmdline.txt
+	echo "dwc_otg.lpm_enable=0 console=tty1 elevator=noop root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes cgroup_enable=cpuset isolcpus=2,3 rootwait" > /boot/cmdline.txt
 
 	# Change system name
 	echo "zynthian-stage" > /etc/hostname

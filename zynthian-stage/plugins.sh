@@ -8,6 +8,7 @@ echo "####################"
 
 cd ${ZYNTHIAN_DIR}/zynthian-recipe/recipe
 # System
+sh rt-tools.sh
 sh ne10.sh
 #sh opus.sh
 sh jack2.sh
