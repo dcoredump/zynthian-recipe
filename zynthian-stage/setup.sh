@@ -171,10 +171,6 @@ then
 #	rm *.deb
 #	echo "kernel=vmlinuz-4.9.47-rt37-v7+" >> /boot/config.txt
 
-	# Remove unneeded packages
-	apt purge modemmanager
-	apt-get autoremove
-
 	#########################################################################
 	# MOD-UI-System and plugins
 	sh /zynthian/zynthian-recipe/zynthian-stage/plugins.sh
@@ -189,6 +185,10 @@ then
 	systemctl enable mod-ui
 
 	rm "${HOME}/.install-stage2"
+
+	# Remove unneeded packages
+	apt purge modemmanager
+	apt-get -y auto-remove
 
 	echo "#########################"
 	echo "# Installation finished #"

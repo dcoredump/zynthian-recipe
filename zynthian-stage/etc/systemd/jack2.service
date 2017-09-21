@@ -17,6 +17,8 @@ Environment=LV2_PATH=/zynthian/zynthian-plugins/lv2:/zynthian/zynthian-my-plugin
 ExecStartPre=/usr/local/bin/partrt create 0xc
 ExecStart=/usr/local/bin/jackd -R -P99 -d alsa -dhw:pisound -r48000 -p256 -n2 -Xraw
 ExecStartPost=/usr/local/bin/partrt move $MAINPID rt
+#ExecStartPost=echo 0 > /sys/bus/workqueue/devices/writeback/numa #BDI writeback affinity
+ExecStartPost=echo 1500 > /proc/sys/vm/dirty_writeback_centisecs #Increase flush time to disk
 
 [Install]
 WantedBy=multi-user.target
