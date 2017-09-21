@@ -1,7 +1,6 @@
 [Unit]
 Description=JACK2 Audio Server
-#After=sound.target
-After=cgroup.service
+After=sound.target
 
 [Service]
 LimitRTPRIO=infinity

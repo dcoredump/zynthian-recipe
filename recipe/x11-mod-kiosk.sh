@@ -1,7 +1,6 @@
 # zynthian-mod-kiosk
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-#apt-get -y install chromium-browser matchbox x11-xserver-utils sqlite3 libnss3 xinit fbset 
-apt-get -y install matchbox x11-xserver-utils sqlite3 libnss3 xinit fbset midori
+x#apt-get -y install midori chromium-browser matchbox x11-xserver-utils sqlite3 libnss3 xinit fbset 
 
 cat <<EOF >/etc/rc.local
 #!/bin/sh -e
@@ -10,6 +9,7 @@ cat <<EOF >/etc/rc.local
 #
 # This script is executed at the end of each multiuser runlevel.
 # Make sure that the script will "exit 0" on success or any other
+A
 # value on error.
 #
 # In order to enable or disable this script just change the execution
@@ -80,26 +80,28 @@ do
         matchbox-window-manager -use_titlebar no -use_cursor no &
 
         # Start the browser (See http://peter.sh/experiments/chromium-command-line-switches/)
-        #chromium-browser  --app=http://localhost:8888 --no-sandbox
-	midori -e Fullscreen -a http://localhost:8888
-        if [ -e /sys/fs/cgroup/cpuset/rt/tasks ]
-        then
-                echo `pidof midori` > /sys/fs/cgroup/cpuset/nrt/tasks
-        fi
+        chromium-browser  --app=http://localhost:8888 --no-sandbox
+	#midori -e Fullscreen -a http://localhost:8888
 done
 EOF
 sed -i -r -- '/^# 1900x1200 at 32bit depth, DMT mode/d' /boot/config.txt
 sed -i -r -- '/^framebuffer.+/d' /boot/config.txt
 sed -i -r -- '/^hdmi_.+/d' /boot/config.txt
 sed -i -r -- '/^disable_overscan.+/d' /boot/config.txt
+sed -i -r -- '/^max_usb_current.+/d' /boot/config.txt
 cat <<EOF >>/boot/config.txt
-# 1900x1200 at 32bit depth, DMT mode
+# 1900x1200 at 16bit depth, DMT mode
 disable_overscan=1
 framebuffer_width=1900
 framebuffer_height=1200
-framebuffer_depth=32
+framebuffer_depth=16
 framebuffer_ignore_alpha=1
 hdmi_pixel_encoding=1
+# for Waveshare Display:
+max_usb_current=1
 hdmi_group=2
+hdmi_mode=1
+hdmi_mode=87
+hdmi_cvt 1280 800 60 6 0 0 0
 EOF
 sed -i -r -- 's/^gpu_mem=[0-9]+/gpu_mem=64/' /boot/config.txt
