@@ -41,8 +41,23 @@ dtoverlay=pi3-disable-bt
 #init_uart_baud=38400
 #dtparam=uart0_clkrate=3000000
 dtoverlay=midi-uart0
+# 1900x1200 at 16bit depth, DMT mode
+disable_overscan=1
+framebuffer_width=1900
+framebuffer_height=1200
+framebuffer_depth=16
+framebuffer_ignore_alpha=1
+hdmi_pixel_encoding=1
+#hdmi_group=2
+# for Waveshare Display:
+max_usb_current=1
+hdmi_group=2
+hdmi_mode=1
+hdmi_mode=87
+hdmi_cvt 1280 800 60 6 0 0 0
 EOF
-	echo "dwc_otg.lpm_enable=0 console=tty1 elevator=deadline root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes cgroup_enable=cpuset rootwait" > /boot/cmdline.txt
+	#echo "dwc_otg.lpm_enable=0 console=tty1 elevator=deadline root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes cgroup_enable=cpuset rootwait" > /boot/cmdline.txt
+	echo "dwc_otg.lpm_enable=0 console=tty1 elevator=noop root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes cgroup_enable=cpuset rootwait" > /boot/cmdline.txt
 
 	# Change system name
 	echo "zynthian-stage" > /etc/hostname
@@ -144,18 +159,18 @@ then
 	sed -i.old-`date +%Y%m%d-%H%M%S` '/^auto lo$/!s/^auto /allow-hotplug /' /etc/network/interfaces
 
 
-	#########################################################################
-	# RT Kernel
-	wget http://www.parasitstudio.de/zynthian/linux-firmware-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
-	wget http://www.parasitstudio.de/zynthian/linux-headers-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
-	wget http://www.parasitstudio.de/zynthian/linux-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
-	wget http://www.parasitstudio.de/zynthian/linux-libc-dev_4.9.47-rt37-v7+-1_armhf.deb
-	dpkg -i linux-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
-	dpkg -i linux-headers-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
-	dpkg -i linux-firmware-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
-	dpkg -i linux-libc-dev_4.9.47-rt37-v7+-1_armhf.deb
-	rm *.deb
-	echo "kernel=vmlinuz-4.9.47-rt37-v7+" >> /boot/config.txt
+#	#########################################################################
+#	# RT Kernel
+#	wget http://www.parasitstudio.de/zynthian/linux-firmware-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
+#	wget http://www.parasitstudio.de/zynthian/linux-headers-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
+#	wget http://www.parasitstudio.de/zynthian/linux-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
+#	wget http://www.parasitstudio.de/zynthian/linux-libc-dev_4.9.47-rt37-v7+-1_armhf.deb
+#	dpkg -i linux-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
+#	dpkg -i linux-headers-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
+#	dpkg -i linux-firmware-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
+#	dpkg -i linux-libc-dev_4.9.47-rt37-v7+-1_armhf.deb
+#	rm *.deb
+#	echo "kernel=vmlinuz-4.9.47-rt37-v7+" >> /boot/config.txt
 
 	# Remove unneeded packages
 	apt purge modemmanager
