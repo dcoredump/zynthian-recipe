@@ -6,7 +6,7 @@ if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	zynth_build_request clear
 	cd rt-tools
-	mkdir build && cd build
+	mkdir -p build && cd build
 	cmake ..
 	make
 	sudo make install
