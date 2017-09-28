@@ -1,5 +1,7 @@
 #!/bin/bash
 . /zynthian/zynthian-recipe/zynthian_envars.sh
+SOUNDCARD="hifiberry-dacplus"
+#SOUNDCARD="pisound"
 
 if [ -f "${HOME}/.install-stage1" ]
 then
@@ -31,9 +33,9 @@ a	apt-get update
 	# Adjust System Date/Time
 	htpdate -t -s www.isc.org
 
-	# Load pisound firmare
+	# Load sound firmare
 	cat >> /boot/config.txt << EOF
-dtoverlay=pisound
+dtoverlay=${SOUNDCARD}
 dtoverlay=i2s-mmap
 dtoverlay=pi3-disable-bt
 # Adjust Serial Port Clock to allow MIDI baudrate 31250
@@ -41,20 +43,20 @@ dtoverlay=pi3-disable-bt
 #init_uart_baud=38400
 #dtparam=uart0_clkrate=3000000
 dtoverlay=midi-uart0
-# 1900x1200 at 16bit depth, DMT mode
-disable_overscan=1
-framebuffer_width=1900
-framebuffer_height=1200
-framebuffer_depth=16
-framebuffer_ignore_alpha=1
-hdmi_pixel_encoding=1
+## 1900x1200 at 16bit depth, DMT mode
+#disable_overscan=1
+#framebuffer_width=1900
+#framebuffer_height=1200
+#framebuffer_depth=16
+#framebuffer_ignore_alpha=1
+#hdmi_pixel_encoding=1
+##hdmi_group=2
+## for Waveshare Display:
+#max_usb_current=1
 #hdmi_group=2
-# for Waveshare Display:
-max_usb_current=1
-hdmi_group=2
-hdmi_mode=1
-hdmi_mode=87
-hdmi_cvt 1280 800 60 6 0 0 0
+#hdmi_mode=1
+#hdmi_mode=87
+#hdmi_cvt 1280 800 60 6 0 0 0
 EOF
 	echo "dwc_otg.lpm_enable=0 console=tty1 elevator=noop root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes cgroup_enable=cpuset isolcpus=2,3 rootwait" > /boot/cmdline.txt
 
@@ -96,6 +98,12 @@ then
 	# Python
 	apt-get -y install python3 python3-dev python3-pip cython3 python3-cffi \
 	python3-mpmath
+
+	# a2jmidid for Hifiberry
+	if [ "${SOUNDCARD}" != "pisound" ]
+	then
+		apt-get -y install a2jmidid
+	fi
 
 	# Cleanup
 	apt-get -y remove isc-dhcp-client
