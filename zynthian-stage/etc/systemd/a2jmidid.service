@@ -1,0 +1,18 @@
+[Unit]
+Description=JACK2 alsa-jack bridge
+After=sound.target
+
+[Service]
+User=root
+Group=root
+Nice=-19
+OOMScoreAdjust=-1000
+IOSchedulingClass=realtime
+IOSchedulingPriority=0
+CPUSchedulingPriority=99
+Environment=LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+ExecStart=/usr/local/bin/a2jmidid --export-hw
+ExecStartPost=/root/bin/realtime $MAINPID
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,30 @@
+#!/bin/bash
+
+PARTRT="/usr/local/bin/partrt"
+BITCALC="/usr/local/bin/bitcalc"
+CPUS="#1-3" # CPU0 is nrt
+
+if [ ! -e ${PARTRT} -o ! -e ${BITCALC} ]
+then
+	echo "No realtime tools (partrt/bitcalc) found - doing nothing."
+	exit 0
+fi
+
+if [[ `ps ax | grep ${0} | grep -v grep | wc -l` == 0 ]]
+then
+	echo "PID ${0} not found."
+	exit 10
+fi
+
+if [ -z "${1}" ]
+then
+	echo "Usage: ${0} <PID-of-RT-process>"
+	exit 1
+fi
+
+if [[ `${PARTRT} list` == "Could not find any partitions" ]]
+then
+	${PARTRT} create 0x`${BITCALC} ${CPUS}`
+fi
+
+${PARTRT} move "${1}" rt

@@ -13,4 +13,7 @@ then
 	zynth_build_request ready
 	make clean
 	cd ..
+	sed -i -r -- "s/\s+cgroup_enable=.+ / /" /boot/cmdline.txt
+	sed -i -r -- "s/\s+isolcpus==.+/ /" /boot/cmdline.txt
+	sed -i -r -- "s/\s+rootwait\s*/ cgroup_enable=cpuset isolcpus=2,3 rootwait/" /boot/cmdline.txt
 fi

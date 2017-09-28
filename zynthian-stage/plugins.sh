@@ -12,6 +12,7 @@ sh rt-tools.sh
 sh ne10.sh
 #sh opus.sh
 sh jack2.sh
+sh a2jmidid.sh
 sh lv2.sh
 sh serd.sh
 sh sord.sh
@@ -68,4 +69,6 @@ sh infamous.sh
 sh distrho.sh
 sh xfade.sh
 sh x42tuna.sh
+#
+sh rt-tools.sh
 #systemctl daemon-reload && systemctl restart jack2
