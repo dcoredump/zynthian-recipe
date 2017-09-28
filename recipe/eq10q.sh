@@ -1,7 +1,7 @@
 # EQ10q
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
-apt-get install -y cmake fftw-dev fftw3-dev
+apt-get install -y cmake fftw-dev fftw3-dev --no-install-recommends
 zynth_svn svn://svn.code.sf.net/p/eq10q/code/trunk eq10q
 if [ ${?} -ne 0  -o  "${build}" = "build" ]
 then

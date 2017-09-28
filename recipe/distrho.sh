@@ -1,7 +1,7 @@
 # distrho
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
-sudo apt-get install -y premake ladspa-sdk libxcursor-dev
+sudo apt-get install -y premake ladspa-sdk libxcursor-dev --no-install-recommends
 zynth_git https://github.com/DISTRHO/DISTRHO-Ports.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then

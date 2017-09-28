@@ -1,6 +1,6 @@
 # zynaddsubfx
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-sudo apt-get install -y liblo0-dev libmxml-dev cmake fftw3-dev zlib1g-dev
+sudo apt-get install -y liblo0-dev libmxml-dev cmake fftw3-dev zlib1g-dev --no-install-recommends
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git git://git.code.sf.net/p/zynaddsubfx/code zynaddsubfx
 if [ ${?} -ne 0 -o  "${build}" = "build" ]

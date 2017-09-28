@@ -1,6 +1,6 @@
 # guitarix
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-apt-get install -y libglibmm-2.4-dev libeigen3-dev libzita-convolver-dev libzita-resampler-dev libglibmm-2.4-dev
+apt-get install -y libglibmm-2.4-dev libeigen3-dev libzita-convolver-dev libzita-resampler-dev libglibmm-2.4-dev --no-install-recommends
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git http://git.code.sf.net/p/guitarix/git guitarix
 if [ ${?} -ne 0 -o  "${build}" = "build" ]

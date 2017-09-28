@@ -202,7 +202,7 @@ then
 
 	# Remove unneeded packages
 	apt purge modemmanager
-	apt-get -y auto-remove
+	apt-get -y autoremove
 
 	echo "#########################"
 	echo "# Installation finished #"

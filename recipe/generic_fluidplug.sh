@@ -1,7 +1,7 @@
 # generic_fluidplug
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
-apt-get install -y libipc-system-simple-perl templatetoolkit-perl
+apt-get install -y libipc-system-simple-perl templatetoolkit-perl --no-install-recommends
 zynth_git https://github.com/dcoredump/GenericFluidPlug
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then

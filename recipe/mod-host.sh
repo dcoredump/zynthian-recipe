@@ -1,6 +1,6 @@
 # mod-host
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-apt-get -y install libreadline-dev
+apt-get -y install libreadline-dev --no-install-recommends
 cd $ZYNTHIAN_SW_DIR
 zynth_git https://github.com/moddevices/mod-host.git
 if [ ${?} -ne 0 -o  "x${build}" != "x" ]

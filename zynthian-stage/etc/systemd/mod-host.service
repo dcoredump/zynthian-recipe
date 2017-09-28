@@ -10,8 +10,7 @@ Environment=LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 Environment=LV2_PATH=/zynthian/zynthian-plugins/lv2:/zynthian/zynthian-my-plugins/lv2
 WorkingDirectory=/root
 ExecStartPre=/usr/local/bin/jack_wait -w
-ExecStart=/usr/local/bin/mod-host -p 5555 -f 5556
-ExecStartPost=/root/realtime $MAINPID
+ExecStart=/usr/local/bin/partrt run -f99 rt /usr/local/bin/mod-host -p 5555 -f 5556
 
 [Install]
 WantedBy=multi-user.target

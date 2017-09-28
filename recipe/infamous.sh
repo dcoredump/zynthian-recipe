@@ -1,7 +1,7 @@
 # infamous
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
-sudo apt-get install -y libzita-resampler-dev
+sudo apt-get install -y libzita-resampler-dev --no-install-recommends
 zynth_git https://github.com/ssj71/infamousPlugins.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then

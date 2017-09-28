@@ -1,7 +1,7 @@
 # swh
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
-sudo apt-get install -y xsltproc
+sudo apt-get install -y xsltproc --no-install-recommends
 zynth_git https://github.com/moddevices/swh-lv2.git
 if [ ${?} -ne 0  -o  "${build}" = "build" ]
 then

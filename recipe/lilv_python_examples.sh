@@ -1,6 +1,6 @@
 # lilv_python_examples
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-apt-get -y install python3
+apt-get -y install python3 --no-install-recommends
 cd $ZYNTHIAN_SW_DIR
 zynth_git https://github.com/brunogola/lilv_python_examples
 if [ ${?} -ne 0 -o  "${build}" = "build" ]

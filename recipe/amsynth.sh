@@ -1,6 +1,6 @@
 # amsynth
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-apt-get install -y autoconf libgtk2.0-dev intltool libgtkmm-2.4-dev
+apt-get install -y autoconf libgtk2.0-dev intltool libgtkmm-2.4-dev --no-install-recommends
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git https://github.com/amsynth/amsynth.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]

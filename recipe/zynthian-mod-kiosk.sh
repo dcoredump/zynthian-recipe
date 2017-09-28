@@ -1,6 +1,6 @@
 # zynthian-mod-kiosk
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-apt-get -y install xserver-xorg-video-fbdev midori chromium-browser matchbox x11-xserver-utils sqlite3 libnss3 xinit fbset 
+apt-get -y install xserver-xorg-video-fbdev midori chromium-browser matchbox x11-xserver-utils sqlite3 libnss3 xinit fbset --no-install-recommends
 __DEPTH=32
 cat <<EOF >/etc/rc.local
 #!/bin/sh -e

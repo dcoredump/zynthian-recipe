@@ -1,6 +1,6 @@
 # generic_fluidplug_piano
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-apt-get install -y unrar
+apt-get install -y unrar --no-install-recommends
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_build_request clear
 cd GenericFluidPlug

@@ -1,7 +1,7 @@
 # rogue
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
-sudo apt-get install -y libsamplerate0-dev lvtk-tools
+sudo apt-get install -y libsamplerate0-dev lvtk-tools --no-install-recommends
 zynth_git https://github.com/timowest/rogue.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then

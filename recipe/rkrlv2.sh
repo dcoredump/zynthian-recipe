@@ -10,9 +10,10 @@ then
 	mkdir build
 	cd build
 	cmake ..
+	A
 	make
 	make install
-	rm -r ${ZYNTHIAN_PLUGINS_DIR}/lv2/rkr.lv2
+	rm -rf ${ZYNTHIAN_PLUGINS_DIR}/lv2/rkr.lv2
 	mv /usr/local/lib/lv2/rkr.lv2 ${ZYNTHIAN_PLUGINS_DIR}/lv2
 	zynth_build_request ready
 	make clean

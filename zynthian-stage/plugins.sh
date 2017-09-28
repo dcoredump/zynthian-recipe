@@ -13,12 +13,14 @@ sh ne10.sh
 #sh opus.sh
 sh jack2.sh
 sh a2jmidid.sh
+sh portaudio.sh
 sh lv2.sh
 sh serd.sh
 sh sord.sh
 sh sratom.sh
 sh lilv.sh
 sh lvtk.sh
+sh pedalpi.sh
 #sh mod-ttymidi.sh
 sh mod-host.sh
 sh mod-ui.sh
@@ -69,6 +71,6 @@ sh infamous.sh
 sh distrho.sh
 sh xfade.sh
 sh x42tuna.sh
-#
+# RT tools
 sh rt-tools.sh
 #systemctl daemon-reload && systemctl restart jack2

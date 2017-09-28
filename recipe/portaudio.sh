@@ -1,13 +1,15 @@
-# mod-sdk
+# portaudio
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-sudo apt-get install -y python3-pip --no-install-recommends
 cd $ZYNTHIAN_SW_DIR
-zynth_git_recursive https://github.com/moddevices/mod-sdk.git
+zynth_git https://git.assembla.com/portaudio.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	zynth_build_request clear
-	cd mod-sdk/utils
+	cd portaudio/build
+	cmake ..
 	make
+	sudo make install
 	zynth_build_request ready
-	cd ../..
+	make clean
+	cd ../../..
 fi

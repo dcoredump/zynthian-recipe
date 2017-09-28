@@ -1,6 +1,6 @@
 # fil4
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-apt-get install -y libpango1.0-dev libcairo2-dev
+apt-get install -y libpango1.0-dev libcairo2-dev --no-install-recommends
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git https://github.com/x42/fil4.lv2.git fil4
 if [ ${?} -ne 0 -o  "${build}" = "build" ]

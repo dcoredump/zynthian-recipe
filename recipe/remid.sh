@@ -1,7 +1,7 @@
 # remid
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
-apt-get install -y cmake 
+apt-get install -y cmake --no-install-recommends
 zynth_svn https://github.com/ssj71/reMID.lv2.git reMID
 if [ ${?} -ne 0  -o  "${build}" = "build" ]
 then

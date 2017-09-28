@@ -1,6 +1,6 @@
 # zynthian-mod-ui
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-sudo apt-get install -y python3-pip
+sudo apt-get install -y python3-pip --no-install-recommends
 cd $ZYNTHIAN_SW_DIR
 zynth_git_recursive https://github.com/zynthian/mod-ui.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
