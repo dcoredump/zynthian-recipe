@@ -1,5 +1,12 @@
 #!/bin/bash
-MD_PATH="${HOME}/tmp/MOD/root-mod-duo/.lv2"
+MD_PATH="${HOME}/tmp/MOD/root-mod-duo"
+
+apt-get -y install unzip
+
+wget http://www.parasitstudio.de/modgui.zip
+mkdir -p "${HOME}/tmp/MOD/root-mod-duo"
+cd "${HOME}/tmp/MOD/root-mod-duo/"
+unzip "${HOME}/modgui.zip" && rm "${HOME}/modgui.zip"
 
 cd "${MD_PATH}"
 find . -maxdepth 2 -type d -name "modgui" | while read p
