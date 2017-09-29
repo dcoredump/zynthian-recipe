@@ -1,6 +1,6 @@
 # jack_capture
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-apt-get install -y libmp3lame-dev --no-install-recommends
+sudo apt-get install -y --no-install-recommends libmp3lame-dev
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git https://github.com/kmatheussen/jack_capture.git
 if [ "${?}" -ne 0 -o "x${build}" != "x" ]

@@ -1,8 +1,8 @@
 # zynthian-mod-kiosk
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-apt-get -y install xserver-xorg-video-fbdev midori chromium-browser matchbox x11-xserver-utils sqlite3 libnss3 xinit fbset --no-install-recommends
+sudo apt-get -y --no-install-recommends install xserver-xorg-video-fbdev midori chromium-browser matchbox x11-xserver-utils sqlite3 libnss3 xinit fbset
 __DEPTH=32
-cat <<EOF >/etc/rc.local
+sudo cat <<EOF >/etc/rc.local
 #!/bin/sh -e
 #
 # rc.local
@@ -45,7 +45,7 @@ fi
 exit 0
 EOF
 
-cat << EOF >/boot/xinitrc
+sudo cat << EOF >/boot/xinitrc
 #!/bin/sh
 while true
 do
@@ -82,9 +82,9 @@ do
         chromium-browser  --app=http://localhost:8888 --no-sandbox
 done
 EOF
-sed -i -r -- '/^hdmi_.+/d' /boot/config.txt
-sed -i -r -- '/^max_usb_current.+/d' /boot/config.txt
-cat <<EOF >>/boot/config.txt
+sudo sed -i -r -- '/^hdmi_.+/d' /boot/config.txt
+sudo sed -i -r -- '/^max_usb_current.+/d' /boot/config.txt
+sudo cat <<EOF >>/boot/config.txt
 # for Waveshare Display:
 max_usb_current=1
 hdmi_group=2
@@ -92,4 +92,4 @@ hdmi_mode=1
 hdmi_mode=87
 hdmi_cvt 1280 800 60 6 0 0 0
 EOF
-sed -i -r -- 's/^gpu_mem=[0-9]+/gpu_mem=128/' /boot/config.txt
+sudo sed -i -r -- 's/^gpu_mem=[0-9]+/gpu_mem=128/' /boot/config.txt

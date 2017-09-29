@@ -1,6 +1,6 @@
 # openav-artyfx
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-sudo apt-get install -y cmake --no-install-recommends
+sudo apt-get install -y --no-install-recommends cmake
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git https://github.com/openAVproductions/openAV-ArtyFX.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]

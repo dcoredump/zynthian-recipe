@@ -1,7 +1,7 @@
 # linuxsampler
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
-sudo apt-get install -y subversion libtool flex bison libsqlite3-dev --no-install-recommends
+sudo apt-get install -y --no-install-recommends subversion libtool flex bison libsqlite3-dev
 zynth_svn https://svn.linuxsampler.org/svn/libgig/trunk libgig
 if [ "${?}" -ne 0 ]
 then

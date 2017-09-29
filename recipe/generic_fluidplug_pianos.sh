@@ -1,6 +1,6 @@
 # generic_fluidplug_piano
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-apt-get install -y unrar --no-install-recommends
+sudo apt-get install --no-install-recommends -y unrar
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_build_request clear
 cd GenericFluidPlug
@@ -15,7 +15,7 @@ do
 	mv "${i}" "Soundfont/${plugin_filename}"
 	perl ./genericfluidplug  -boxy-style=wood2 -knob-style=black "Soundfont/${plugin_filename}" /zynthian/zynthian-sw/plugins/"${plugin_filename}" $ZYNTHIAN_PLUGINS_DIR/lv2
 	cd /zynthian/zynthian-sw/plugins/"${plugin_filename}"
-	make install
+	sudo make install
 	make clean
 	cd "${ZYNTHIAN_SW_DIR}/plugins/GenericFluidPlug"
 	rm "Soundfonts/${plugin_filename}"

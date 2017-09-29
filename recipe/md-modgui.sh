@@ -1,8 +1,6 @@
 #!/bin/bash
 MD_PATH="${HOME}/tmp/MOD/root-mod-duo"
-
-apt-get -y install unzip
-
+sudo apt-get -y --no-install-recommends install unzip
 wget http://www.parasitstudio.de/modgui.zip
 mkdir -p "${HOME}/tmp/MOD/root-mod-duo"
 cd "${HOME}/tmp/MOD/root-mod-duo/"
@@ -22,12 +20,12 @@ do
 			if [ `grep modgui "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/manifest.ttl" | wc -l` -eq 0 ]
 			then
 				echo "* Adding modgui.ttl to manifest.ttl"
-				cp "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/manifest.ttl" "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/manifest.ttl.bak"
-				sed -i -- 's/rdfs:seeAlso/rdfs:seeAlso <modgui.ttl>, /' "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/manifest.ttl"
+				sudo cp "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/manifest.ttl" "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/manifest.ttl.bak"
+				sudo sed -i -- 's/rdfs:seeAlso/rdfs:seeAlso <modgui.ttl>, /' "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/manifest.ttl"
 			fi
 			echo "* copying modgui dir"
-			cp -R "${plugin_path_name}"/modgui "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}"
-			cp "${plugin_path_name}"/modgui*.ttl "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/modgui.ttl"
+			sudo cp -R "${plugin_path_name}"/modgui "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}"
+			sudo cp "${plugin_path_name}"/modgui*.ttl "${ZYNTHIAN_PLUGINS_DIR}/lv2/${plugin_path_name}/modgui.ttl"
 		else
 			echo "and has already a gui."
 		fi

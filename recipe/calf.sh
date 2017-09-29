@@ -1,7 +1,7 @@
 # calf
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
-sudo apt-get install -y libcairo2-dev --no-install-recommends
+sudo apt-get install -y --no-install-recommends libcairo2-dev
 zynth_git https://github.com/calf-studio-gear/calf.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then

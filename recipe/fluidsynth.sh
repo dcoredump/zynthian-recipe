@@ -1,6 +1,6 @@
 # fluidsynth
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-apt-get install -y libglib2.0-dev libsndfile-dev cmake libpthread-stubs0-dev --no-install-recommends
+sudo apt-get install -y --no-install-recommends libglib2.0-dev libsndfile-dev cmake libpthread-stubs0-dev
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git git://git.code.sf.net/p/fluidsynth/code-git fluidsynth
 if [ ${?} -ne 0 -o  "${build}" = "build" ]

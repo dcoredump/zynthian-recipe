@@ -1,13 +1,23 @@
 #!/bin/bash
 . /zynthian/zynthian-recipe/zynthian_envars.sh
-SOUNDCARD="hifiberry-dacplus"
-#SOUNDCARD="pisound"
 
 if [ -f "${HOME}/.install-stage1" ]
 then
-	echo "###########"
-	echo "# Stage 1 #"
-	echo "###########"
+	if (whiptail --title "Stage 1" --yesno "Start stage 1?" 8 78)
+	then
+		echo "###########"
+		echo "# Stage 1 #"
+		echo "###########"
+	else
+		exit 1
+	fi
+
+	# Select soundcard
+	SOUNDCARD=$(whiptail --title "Soundcard" --radiolist "Choose a soundcard" 25 78 16 \
+		"hifiberry-dacplus" "" on \
+		"pisound" "" off \
+		3>&1 1>&2 2>&3)
+	echo "${SOUNDCARD}" >> ~/.bashrc
 
 	rm "${HOME}/installer.sh"
 	chmod 700 "/zynthian/zynthian-recipe/zynthian-stage/setup.sh"
@@ -23,7 +33,7 @@ then
 	apt-get -y dist-upgrade
 
 	# Install required dependencies if needed
-	apt-get -y install apt-utils screen sudo htpdate
+	apt-get -y --no-install-recommends install apt-utils screen sudo htpdate whiptail
 
 	# Add autostaic repo
 	wget -q -O - http://rpi.autostatic.com/autostatic.gpg.key | apt-key add -
@@ -72,37 +82,52 @@ EOF
 	reboot
 elif [ -f "${HOME}/.install-stage2" ]
 then
-	echo "###########"
-	echo "# Stage 2 #"
-	echo "###########"
+	if (whiptail --title "Stage 2" --yesno "Start stage 2?" 8 78)
+	then
+		echo "###########"
+		echo "# Stage 2 #"
+		echo "###########"
+	else
+		exit 1
+	fi
 
 	sed -i -- "s/\/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh.*//" "${HOME}/.bashrc"
 
 	# System
-	apt-get -y install systemd dhcpcd-dbus avahi-daemon cpufrequtils htop tcpdump lsof
+	apt-get -y --no-install-recommends install systemd dhcpcd-dbus avahi-daemon cpufrequtils htop tcpdump lsof
 
 	# CLI Tools
-	apt-get -y install raspi-config psmisc tree vim joe p7zip-full i2c-tools
+	apt-get -y --no-install-recommends install raspi-config psmisc tree vim joe p7zip-full i2c-tools
 
 	# Dev-Tools
-	apt-get -y install build-essential git swig subversion pkg-config \
+	apt-get -y --no-install-recommends install build-essential git swig subversion pkg-config \
 	autoconf automake premake gettext intltool libtool libtool-bin cmake \
 	cmake-curses-gui
 
 	# Libraries
-	apt-get -y install wiringpi libfftw3-dev libmxml-dev zlib1g-dev \
+	apt-get -y --no-install-recommends install wiringpi libfftw3-dev libmxml-dev zlib1g-dev \
 	libncurses5-dev liblo-dev libasound2-dev libffi-dev libglib2.0-dev \
 	libeigen3-dev libsndfile-dev libsamplerate-dev libarmadillo-dev \
 	libreadline-dev lv2-c++-tools python3-numpy-dev 
 
 	# Python
-	apt-get -y install python3 python3-dev python3-pip cython3 python3-cffi \
+	apt-get -y --no-install-recommends install python3 python3-dev python3-pip cython3 python3-cffi \
 	python3-mpmath
 
 	# a2jmidid for Hifiberry
 	if [ "${SOUNDCARD}" != "pisound" ]
 	then
-		apt-get -y install a2jmidid
+		apt-get -y --no-install-recommends install a2jmidid
+	else
+		# Install pi-btn
+		cd "${HOME}"
+		mkdir -p /etc/xdg/autostart/
+		git clone https://github.com/BlokasLabs/pisound.git
+		cd pisound/pisound-btn
+		make
+		sudo make install
+		rm -r /etc/xdg
+		cd "${HOME}"
 	fi
 
 	# Cleanup
@@ -111,16 +136,6 @@ then
 
 	# Set vim as main editor
 	update-alternatives --set editor /usr/bin/vim.basic
-
-	# Install pi-btn
-	cd "${HOME}"
-	mkdir -p /etc/xdg/autostart/
-	git clone https://github.com/BlokasLabs/pisound.git
-	cd pisound/pisound-btn
-	make
-	sudo make install
-	rm -r /etc/xdg
-	cd "${HOME}"
 
 	#########################################################################
 	# System Adjustments
@@ -146,7 +161,7 @@ then
 	systemctl enable pisound-btn
 	cd ${HOME}
 
-	# Set pisound as default audio card
+	# Setting default audio card
 	echo "setting pisound as the default audio device"
 	touch "${HOME}/.asoundrc"
 	if grep -q 'pcm.!default' "${HOME}/.asoundrc"
@@ -204,6 +219,7 @@ then
 	apt purge modemmanager
 	apt-get -y autoremove
 
+	whiptail --title "Installation finished" --msgbox "A reboot is needed." 8 78
 	echo "#########################"
 	echo "# Installation finished #"
 	echo "#########################"

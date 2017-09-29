@@ -1,6 +1,6 @@
 # a2jmidid
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-apt-get -y install libdbus-1-dev --no-install-recommends
+sudo apt-get -y --no-install-recommends install libdbus-1-dev
 cd $ZYNTHIAN_SW_DIR
 zynth_git https://github.com/nick87720z/a2jmidid.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]

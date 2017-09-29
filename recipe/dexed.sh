@@ -1,6 +1,6 @@
 # dexed.lv2
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-sudo apt-get install -y lvtk-tools --no-install-recommends
+sudo apt-get install -y --no-install-recommends lvtk-tools
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git https://github.com/dcoredump/dexed.git
 if [ "${?}" -ne 0 -o "x${build}" != "x" ]

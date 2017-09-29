@@ -1,7 +1,7 @@
 # infamous
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
-sudo apt-get install -y libzita-resampler-dev --no-install-recommends
+sudo apt-get install -y --no-install-recommends libzita-resampler-dev
 zynth_git https://github.com/ssj71/infamousPlugins.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
@@ -16,7 +16,7 @@ then
 	done
 	make
 	sudo make install
-	mv /zynthian/zynthian-plugins/bin/infamous-rule /usr/local/bin
+	sudo mv /zynthian/zynthian-plugins/bin/infamous-rule /usr/local/bin
 	make clean
 	cd ..
 fi

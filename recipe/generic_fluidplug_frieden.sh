@@ -1,6 +1,6 @@
 # generic_fluidplug_frieden
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-apt-get install -y unzip --no-install-recommends
+sudo apt-get install --no-install-recommends -y unzip
 cd $ZYNTHIAN_SW_DIR/plugins
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
@@ -12,7 +12,7 @@ then
 	perl ./genericfluidplug  -boxy-style=wood1 -knob-style=blue frieden-synths.sf2 /zynthian/zynthian-sw/plugins/Frieden $ZYNTHIAN_PLUGINS_DIR/lv2
 	rm frieden-synths.sf2
 	cd /zynthian/zynthian-sw/plugins/Frieden
-	make install
+	sudo make install
 	zynth_build_request ready
 	make clean
 	cd ..

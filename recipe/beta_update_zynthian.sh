@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get update
+sudo apt-get update
 . /zynthian/zynthian-recipe/zynthian_envars.sh
 
 cd ${ZYNTHIAN_DIR}/zynthian-recipe/recipe

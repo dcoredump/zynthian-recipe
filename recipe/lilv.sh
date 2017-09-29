@@ -1,6 +1,6 @@
 # lilv
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-apt-get -y install swig python3-numpy-dev --no-install-recommends
+sudo apt-get -y install --no-install-recommends swig python3-numpy-dev
 cd $ZYNTHIAN_SW_DIR
 zynth_git_recursive http://git.drobilla.net/lilv.git lilv 
 if [ ${?} -ne 0 -o "${build}" = "build" ]
