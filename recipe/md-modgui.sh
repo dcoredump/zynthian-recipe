@@ -1,10 +1,10 @@
 #!/bin/bash
 MD_PATH="${HOME}/tmp/MOD/root-mod-duo"
 sudo apt-get -y --no-install-recommends install unzip
-wget http://www.parasitstudio.de/modgui.zip
 mkdir -p "${HOME}/tmp/MOD/root-mod-duo"
 cd "${HOME}/tmp/MOD/root-mod-duo/"
-unzip "${HOME}/modgui.zip" && rm "${HOME}/modgui.zip"
+wget http://www.parasitstudio.de/modgui.zip
+unzip "modgui.zip" && rm "modgui.zip"
 
 cd "${MD_PATH}"
 find . -maxdepth 2 -type d -name "modgui" | while read p
@@ -32,4 +32,6 @@ do
 	else
 		echo "does not exist"
 	fi
+	cd /zynthian/zynthian-recipe
+	rm -rf cd "${HOME}/tmp/MOD/root-mod-duo/"
 done
