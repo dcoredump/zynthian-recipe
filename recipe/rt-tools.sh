@@ -15,5 +15,5 @@ then
 	cd ..
 	sed -i -r -- "s/\s+cgroup_enable=.+ / /" /boot/cmdline.txt
 	sed -i -r -- "s/\s+isolcpus==.+/ /" /boot/cmdline.txt
-	sed -i -r -- "s/\s+rootwait\s*/ cgroup_enable=cpuset isolcpus=2,3 rootwait/" /boot/cmdline.txt
+	sed -i -r -- "s/\s+rootwait\s*/ cgroup_enable=cpuset isolcpus=1,2,3 rootwait/" /boot/cmdline.txt
 fi
