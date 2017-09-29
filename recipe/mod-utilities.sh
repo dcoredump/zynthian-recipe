@@ -8,8 +8,8 @@ then
 	cd mod-utilities
 	quoted_ZYNTHIAN_PLUGINS_DIR=`quote_path ${ZYNTHIAN_PLUGINS_DIR}/lv2`
 	sed -i -- "s/^INSTALL_PATH = \/usr\/local\/lib\/lv2/INSTALL_PATH = ${quoted_ZYNTHIAN_PLUGINS_DIR}/" Makefile
-	make
-	sudo make install
+	make MOD=1
+	sudo make MOD=1 install 
 	zynth_build_request ready
 	make clean
 	cd ..

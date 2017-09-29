@@ -28,6 +28,7 @@ mod_host.connect()
 manager.register(mod_host)
 
 pedalboard = Pedalboard('MDA-EP')
+modhost.pedalboard = pedalboard
 
 builder = Lv2EffectBuilder()
 
