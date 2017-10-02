@@ -6,7 +6,7 @@ if [ "${?}" -ne 0 -o "x${build}" != "x" ]
 then
 	zynth_build_request clear
 	cd libfmsynth/lv2
-	sed -i -- 's/INSTALL_DIR = \/usr\/lib\/lv2/INSTALL_DIR = \/home\/pi\/zynthian\/zynthian-plugins\/mod-lv2/' GNUmakefile
+	sed -i -- 's/INSTALL_DIR = \/usr\/lib\/lv2/INSTALL_DIR = \/zynthian\/zynthian-plugins\/lv2/' GNUmakefile
 	sed -i -- 's/pkg-config lvtk-plugin-1/pkg-config lvtk-plugin-2/' GNUmakefile
 	sed -i -- 's/pkg-config lvtk-1/pkg-config lvtk-plugin-1/' GNUmakefile
 	sed -i -- 's/LV2_GUI_CFLAGS := $(shell pkg-config --cflags lvtk-gtkui-1)//' GNUmakefile
