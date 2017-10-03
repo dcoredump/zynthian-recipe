@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# curl -F 'bundlepath=/root/.pedalboards/TEST.pedalboard' http://zynthian-stage.local:8888/pedalboard/load_bundle/
+#curl -s http://zynthian-stage.local:8888/pedalboard/list | python3 -mjson.tool | grep title
+
+
 export LV2_PATH=/zynthian/zynthian-plugins/lv2:/zynthian/zynthian-my-plugins/lv2
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
@@ -25,11 +29,9 @@ fi
 pedalboards[0]="MOD-UI"
 if [[ $(ps ax | grep server.py | grep -v grep | wc -l) == 0 ]]
 then
-	echo "Start MOD-UI"
-	pedalboards[1]='Stop'
-else
-	echo "Stop MOD-UI"
 	pedalboards[1]='Start'
+else
+	pedalboards[1]='Stop'
 fi
 
 let i=2
@@ -74,7 +76,8 @@ do
 	*)
 		echo "remove -1" > ${PIPE}
 		cat /root/.pedalboards/${choice}.pedalboard/${choice}.ttl > ${PIPE}
-		whiptail --title "Pedalboard loading" --msgbox "Loading pedalboard ${choice}" 8 78
+		TERM=linux whiptail --title "Pedalboard loading" --infobox "Loading pedalboard ${choice}" 8 78
+		sleep 2
 		;;
 	esac
 done
