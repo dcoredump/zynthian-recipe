@@ -1,5 +1,5 @@
 [Unit]
-Description=mod-host
+Description=mod-host-pipe
 BindsTo=jack2.service
 After=jack2.service
 
@@ -9,9 +9,7 @@ Environment=LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 Environment=LV2_PATH=/zynthian/zynthian-plugins/lv2:/zynthian/zynthian-my-plugins/lv2
 WorkingDirectory=/root
 ExecStartPre=/usr/local/bin/jack_wait -w
-ExecStartPre=mkfifo /tmp/mod-host
-ExecStart=tail -f /tmp/mod-host | /usr/local/bin/partrt run -f99 rt /usr/local/bin/mod-host -i
-ExecStopPost=rm -f /tmp/mod-host
+ExecStart=/root/bin/mod-host-pipe.sh
 
 [Install]
 WantedBy=multi-user.target
