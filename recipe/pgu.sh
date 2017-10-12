@@ -1,6 +1,6 @@
-# mod-ui
+# pgu
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-sudo apt-get install python3-pygame
+sudo apt-get -y --no-install-recommends install python3-pygame
 cd $ZYNTHIAN_SW_DIR
 zynth_git_recursive https://github.com/dcoredump/pgu.git
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
