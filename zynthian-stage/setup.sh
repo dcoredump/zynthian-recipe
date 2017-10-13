@@ -68,7 +68,7 @@ dtoverlay=midi-uart0
 #hdmi_mode=87
 #hdmi_cvt 1280 800 60 6 0 0 0
 EOF
-	echo "dwc_otg.lpm_enable=0 console=tty1 elevator=noop root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes rootwait" > /boot/cmdline.txt
+	echo "dwc_otg.lpm_enable=0 logo.nologo console=tty1 elevator=noop root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes rootwait quiet" > /boot/cmdline.txt
 
 	# Change system name
 	echo "zynthian-stage" > /etc/hostname
@@ -158,17 +158,20 @@ then
 	systemctl disable ntp
 	systemctl disable triggerhappy
 	systemctl enable cpu-performance
-	systemctl enable pisound-btn
 	cd ${HOME}
 
 	# Setting default audio card
-	echo "setting pisound as the default audio device"
-	touch "${HOME}/.asoundrc"
-	if grep -q 'pcm.!default' "${HOME}/.asoundrc"
-	then
-		sed -i '/pcm.!default\|ctl.!default/,/}/ { s/type .*/type hw/g; s/card .*/card 1/g; }'"${HOME}/.asoundrc"
-	else
-		printf 'pcm.!default {\n\ttype hw\n\tcard 1\n}\n\nctl.!default {\n\ttype hw\n\tcard 1\n}\n' >> "${HOME}/.asoundrc"
+	if [ "${SOUNDCARD}" == "pisound" ]
+        then
+		systemctl enable pisound-btn
+		echo "setting pisound as the default audio device"
+		touch "${HOME}/.asoundrc"
+		if grep -q 'pcm.!default' "${HOME}/.asoundrc"
+		then
+			sed -i '/pcm.!default\|ctl.!default/,/}/ { s/type .*/type hw/g; s/card .*/card 1/g; }'"${HOME}/.asoundrc"
+		else
+			printf 'pcm.!default {\n\ttype hw\n\tcard 1\n}\n\nctl.!default {\n\ttype hw\n\tcard 1\n}\n' >> "${HOME}/.asoundrc"
+		fi
 	fi
 
 	# Tune for jack2
