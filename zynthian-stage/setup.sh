@@ -17,7 +17,7 @@ then
 		"hifiberry-dacplus" "" on \
 		"pisound" "" off \
 		3>&1 1>&2 2>&3)
-	echo "SOUNDCARD=${SOUNDCARD}" >> ~/.bashrc
+	echo "export SOUNDCARD=${SOUNDCARD}" >> ~/.bashrc
 
 	rm "${HOME}/installer.sh"
 	chmod 700 "/zynthian/zynthian-recipe/zynthian-stage/setup.sh"
