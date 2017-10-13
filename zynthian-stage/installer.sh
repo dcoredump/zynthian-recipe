@@ -30,7 +30,7 @@ then
     fi
     echo `date` >  ~/.wiggled
     echo ". /zynthian/zynthian-recipe/zynthian_envars.sh" >> "${HOME}/.bashrc"
-    echo "/zynthian/zynthian-recipe/zynthian-stage/setup.sh 2>&1 | tee /tmp/log" >> "${HOME}/.bashrc"
+    echo "/zynthian/zynthian-recipe/zynthian-stage/setup.sh 2>&1" >> "${HOME}/.bashrc"
     touch "${HOME}/.install-stage1"
     bash /zynthian/zynthian-recipe/rpi-wiggle.sh
 fi

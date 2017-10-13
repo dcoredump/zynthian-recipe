@@ -115,10 +115,8 @@ then
 	python3-mpmath
 
 	# a2jmidid for Hifiberry
-	if [ "${SOUNDCARD}" != "pisound" ]
+	if [ "${SOUNDCARD}" == "pisound" ]
 	then
-		apt-get -y --no-install-recommends install a2jmidid
-	else
 		# Install pi-btn
 		cd "${HOME}"
 		mkdir -p /etc/xdg/autostart/
