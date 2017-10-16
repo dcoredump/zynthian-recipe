@@ -95,7 +95,7 @@ then
 	sed -i -- "s/\/usr\/bin\/screen -S install \/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh.*//" "${HOME}/.bashrc"
 
 	# System
-	apt-get -y --no-install-recommends install systemd dhcpcd-dbus avahi-daemon cpufrequtils htop tcpdump lsof
+	apt-get -y --no-install-recommends install systemd dhcpcd-dbus avahi-daemon cpufrequtils htop tcpdump lsof xsel
 
 	# CLI Tools
 	apt-get -y --no-install-recommends install raspi-config psmisc tree vim joe p7zip-full i2c-tools
