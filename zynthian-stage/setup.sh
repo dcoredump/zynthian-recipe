@@ -38,7 +38,7 @@ then
 	# Add autostaic repo
 	wget -q -O - http://rpi.autostatic.com/autostatic.gpg.key | apt-key add -
 	wget -q -O /etc/apt/sources.list.d/autostatic-audio-raspbian.list http://rpi.autostatic.com/autostatic-audio-raspbian.list
-a	apt-get update
+	apt-get update
 
 	# Adjust System Date/Time
 	htpdate -t -s www.isc.org
