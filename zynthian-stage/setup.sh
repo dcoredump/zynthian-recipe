@@ -29,7 +29,7 @@ then
 	cd "${ZYNTHIAN_DIR}/zynthian-recipe"
 
 	# Update System
-	apt-get -y purge emacs
+	apt-get -y purge emacs emacs24 emacs24-bin-common emacs24-common
 	apt-get -y upgrade
 	apt-get -y dist-upgrade
 
