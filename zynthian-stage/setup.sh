@@ -91,8 +91,7 @@ then
 	else
 		exit 1
 	fi
-
-	sed -i -- "s/\/usr\/bin\/screen -S install \/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh.*//" "${HOME}/.bashrc"
+	sed -r -i -- "s/\/usr\/bin\/screen .+ \/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh.*//" "${HOME}/.bashrc"
 
 	# System
 	apt-get -y --no-install-recommends install systemd dhcpcd-dbus avahi-daemon cpufrequtils htop tcpdump lsof xsel

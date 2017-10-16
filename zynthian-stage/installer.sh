@@ -31,7 +31,7 @@ then
     echo `date` >  ~/.wiggled
     echo ". /zynthian/zynthian-recipe/zynthian_envars.sh" >> "${HOME}/.bashrc"
     mkdir /usr/local/tmp
-    echo "/usr/bin/screen -S install -L /usr/local/tmp/log /zynthian/zynthian-recipe/zynthian-stage/setup.sh" >> "${HOME}/.bashrc"
+    echo "/usr/bin/screen -L /usr/local/tmp/log -S install /zynthian/zynthian-recipe/zynthian-stage/setup.sh" >> "${HOME}/.bashrc"
     touch "${HOME}/.install-stage1"
     sed -r -i.bak -- "s/^(.+tmpfs.+size)=[0-9]+m(.+)$/\1=128m\2/" /etc/fstab
     bash /zynthian/zynthian-recipe/rpi-wiggle.sh
