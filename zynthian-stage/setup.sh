@@ -187,9 +187,14 @@ then
 	sed -i -r -- "s/^(vm.dirty_writeback_centisecs.+)/#\1/" /etc/sysctl.conf
 	echo "vm.dirty_writeback_centisecs=1500" >> /etc/sysctl.conf
 
+	# Turn back tmpfs to 16M
+	if [ -e /etc/fstab.bak ]
+	then
+		mv /etc/fstab.bak /etc/fstab
+	fi
 
-#	#########################################################################
-#	# RT Kernel
+	########################################################################
+	# RT Kernel
 #	wget http://www.parasitstudio.de/zynthian/linux-firmware-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
 #	wget http://www.parasitstudio.de/zynthian/linux-headers-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
 #	wget http://www.parasitstudio.de/zynthian/linux-image-4.9.47-rt37-v7+_4.9.47-rt37-v7+-1_armhf.deb
@@ -201,7 +206,7 @@ then
 #	rm *.deb
 #	echo "kernel=vmlinuz-4.9.47-rt37-v7+" >> /boot/config.txt
 
-	#########################################################################
+	########################################################################
 	# MOD-UI-System and plugins
 	sh /zynthian/zynthian-recipe/zynthian-stage/plugins.sh
 
