@@ -16,6 +16,7 @@ Environment=LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 Environment=LV2_PATH=/zynthian/zynthian-plugins/lv2:/zynthian/zynthian-my-plugins/lv2
 ExecStartPre=/usr/local/bin/partrt create 0xe
 ExecStart=/usr/local/bin/partrt run -f 99 rt /usr/local/bin/jackd -R -P99 -d alsa -dhw:0 -r48000 -p256 -n2 -Xraw
+ExecStop=/usr/local/bin/partrt undo
 
 [Install]
 WantedBy=multi-user.target
