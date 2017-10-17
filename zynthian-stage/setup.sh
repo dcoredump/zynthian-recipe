@@ -70,7 +70,7 @@ dtoverlay=midi-uart0
 #hdmi_mode=87
 #hdmi_cvt 1280 800 60 6 0 0 0
 EOF
-	echo "dwc_otg.lpm_enable=0 logo.nologo console=tty1 elevator=noop root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes rootwait quiet" > /boot/cmdline.txt
+	echo "dwc_otg.lpm_enable=0 logo.nologo console=tty1 elevator=noop root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes rootwait" > /boot/cmdline.txt
 
 	# Change system name
 	echo "zynthian-stage" > /etc/hostname
