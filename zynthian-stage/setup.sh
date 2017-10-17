@@ -75,6 +75,7 @@ EOF
 	# Change system name
 	echo "zynthian-stage" > /etc/hostname
 	sed -i -e "s/minibian/zynthian-stage/" /etc/hosts
+	sed -i -e "s/kivypie/zynthian-stage/" /etc/hosts
 
 	# Update Firmware
 	#rpi-update
@@ -99,6 +100,14 @@ then
 
 	# CLI Tools
 	apt-get -y --no-install-recommends install raspi-config psmisc tree vim joe p7zip-full i2c-tools
+
+	# Fancy optical things
+	apt-get install -y --no-install-recommends plymouth plymouth-themes
+	plymouth-set-default-theme spinner
+	update-initramfs -u
+	cp /boot/cmdline.txt /boot/cmdline.txt.bak
+	echo -n "fbcon=map:10 splash quiet plymouth.ignore-serial-consoles" >/boot/cmdline.txt
+	cat /boot/cmdline.txt.bak >>/boot/cmdline.txt
 
 	# Dev-Tools
 	apt-get -y --no-install-recommends install build-essential git swig subversion pkg-config \

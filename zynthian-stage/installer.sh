@@ -29,7 +29,7 @@ then
         git clone https://github.com/dcoredump/zynthian-recipe.git
     fi
     echo ". /zynthian/zynthian-recipe/zynthian_envars.sh" >> "${HOME}/.bashrc"
-    echo "if [ `last $USER | wc -l` -lt 2 ] # remove_me_after_installation" >> "${HOME}/.bashrc"
+    echo 'if [ `screen -ls | wc -l` -lt 3 ] # remove_me_after_installation' >> "${HOME}/.bashrc"
     echo "then # remove_me_after_installation" >> "${HOME}/.bashrc"
     echo "    /usr/bin/screen -L -S install /zynthian/zynthian-recipe/zynthian-stage/setup.sh # remove_me_after_installation" >> "${HOME}/.bashrc"
     echo "fi # remove_me_after_installation" >> "${HOME}/.bashrc"

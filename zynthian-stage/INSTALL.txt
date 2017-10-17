@@ -5,3 +5,4 @@ wget http://www.parasitstudio.de/installer.sh
 sh installer.sh
 
 Reboots 2 times - installation continues after reboot and login as root.
+
