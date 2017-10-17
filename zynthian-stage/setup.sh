@@ -234,6 +234,7 @@ then
 	# Remove unneeded packages
 	apt purge modemmanager
 	apt-get -y autoremove
+	rm /var/cache/apt/archives/*.deb
 
 	whiptail --title "Installation finished" --msgbox "A reboot is needed." 8 78
 	echo "#########################"
