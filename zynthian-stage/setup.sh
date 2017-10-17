@@ -81,7 +81,6 @@ EOF
 
 	rm "${HOME}/.install-stage1"
 	touch "${HOME}/.install-stage2"
-	mv "${HOME}/screenlog.0" "${HOME}/screenlog.stage1"
 	reboot
 elif [ -f "${HOME}/.install-stage2" ]
 then
