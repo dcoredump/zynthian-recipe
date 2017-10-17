@@ -1,4 +1,5 @@
-dd if=2016-03-12-jessie-minibian.img of=/dev/sde bs=4M status=progress
+#dd if=2016-03-12-jessie-minibian.img of=/dev/sde bs=4M status=progress
+xzcat kivy-pie-1.0.img.xz | dd of=/dev/sde bs=4M status=progress
 
 wget http://www.parasitstudio.de/installer.sh
 sh installer.sh

@@ -30,6 +30,7 @@ then
 
 	# Update System
 	apt-get -y purge emacs emacs24 emacs24-bin-common emacs24-common
+	apt-get -y autoremove
 	apt-get -y upgrade
 	apt-get -y dist-upgrade
 
@@ -80,6 +81,7 @@ EOF
 
 	rm "${HOME}/.install-stage1"
 	touch "${HOME}/.install-stage2"
+	mv "${HOME}/screenlog.0" "${HOME}/screenlog.stage1"
 	reboot
 elif [ -f "${HOME}/.install-stage2" ]
 then
@@ -91,7 +93,7 @@ then
 	else
 		exit 1
 	fi
-	sed -r -i -- "s/\/usr\/bin\/screen .+ \/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh.*//" "${HOME}/.bashrc"
+	sed -i -r -- "/# remove_me_after_installation/d" "${HOME}/.bashrc"
 
 	# System
 	apt-get -y --no-install-recommends install systemd dhcpcd-dbus avahi-daemon cpufrequtils htop tcpdump lsof xsel
