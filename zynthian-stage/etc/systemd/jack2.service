@@ -11,7 +11,6 @@ Nice=-19
 OOMScoreAdjust=-1000
 IOSchedulingClass=realtime
 IOSchedulingPriority=0
-CPUSchedulingPriority=99
 Environment=LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 Environment=LV2_PATH=/zynthian/zynthian-plugins/lv2:/zynthian/zynthian-my-plugins/lv2
 ExecStartPre=/usr/local/bin/partrt create 0xe
