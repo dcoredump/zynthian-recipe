@@ -9,7 +9,6 @@ Nice=-19
 OOMScoreAdjust=-1000
 IOSchedulingClass=realtime
 IOSchedulingPriority=0
-CPUSchedulingPriority=99
 Environment=LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 ExecStartPre=/usr/local/bin/jack_wait -w
 ExecStart=/usr/local/bin/partrt run -f99 rt /usr/local/bin/a2jmidid --export-hw

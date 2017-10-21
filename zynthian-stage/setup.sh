@@ -18,6 +18,8 @@ then
 		"pisound" "" off \
 		3>&1 1>&2 2>&3)
 	echo "export SOUNDCARD=${SOUNDCARD}" >> ~/.bashrc
+	echo "export LD_LIBRARY_PATH=/usr/local/lib:\$LD_LIBRARY_PATH" >> ~/.bashrc
+	echo "export PYTHON_PATH=\$PYTHONPATH:/usr/local/lib/python3.4/dist-packages" >> ~/.bashrc
 
 	rm "${HOME}/installer.sh"
 	chmod 700 "/zynthian/zynthian-recipe/zynthian-stage/setup.sh"
@@ -30,6 +32,7 @@ then
 
 	# Update System
 	apt-get -y purge emacs emacs24 emacs24-bin-common emacs24-common
+	apt-get -y autoremove
 	apt-get -y upgrade
 	apt-get -y dist-upgrade
 
@@ -77,6 +80,7 @@ EOF
 	# Change system name
 	echo "zynthian-stage" > /etc/hostname
 	sed -i -e "s/minibian/zynthian-stage/" /etc/hosts
+	sed -i -e "s/kivypie/zynthian-stage/" /etc/hosts
 
 	# Update Firmware
 	#rpi-update
@@ -94,13 +98,21 @@ then
 	else
 		exit 1
 	fi
-	sed -r -i -- "s/\/usr\/bin\/screen .+ \/zynthian\/zynthian-recipe\/zynthian-stage\/setup.sh.*//" "${HOME}/.bashrc"
+	sed -i -r -- "/# remove_me_after_installation/d" "${HOME}/.bashrc"
 
 	# System
 	apt-get -y --no-install-recommends install systemd dhcpcd-dbus avahi-daemon cpufrequtils htop tcpdump lsof xsel
 
 	# CLI Tools
 	apt-get -y --no-install-recommends install raspi-config psmisc tree vim joe p7zip-full i2c-tools
+
+	# Fancy optical things
+	apt-get install -y --no-install-recommends plymouth plymouth-themes
+	plymouth-set-default-theme spinner
+	update-initramfs -u
+	cp /boot/cmdline.txt /boot/cmdline.txt.bak
+	echo -n "fbcon=map:10 splash quiet plymouth.ignore-serial-consoles" >/boot/cmdline.txt
+	cat /boot/cmdline.txt.bak >>/boot/cmdline.txt
 
 	# Dev-Tools
 	apt-get -y --no-install-recommends install build-essential git swig subversion pkg-config \
@@ -228,6 +240,7 @@ then
 	# Remove unneeded packages
 	apt purge modemmanager
 	apt-get -y autoremove
+	rm /var/cache/apt/archives/*.deb
 
 	whiptail --title "Installation finished" --msgbox "A reboot is needed." 8 78
 	echo "#########################"

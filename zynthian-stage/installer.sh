@@ -19,7 +19,7 @@
 
 if [ ! -f "${HOME}/.wiggled" ]
 then
-    chmod 700 "/root/installer.sh"
+    #chmod 700 "/root/installer.sh"
     apt-get update
     apt-get -y --no-install-recommends install parted git sudo screen
     if [ ! -d "/zynthian" ]
@@ -28,11 +28,13 @@ then
         cd "/zynthian"
         git clone https://github.com/dcoredump/zynthian-recipe.git
     fi
-    echo `date` >  ~/.wiggled
     echo ". /zynthian/zynthian-recipe/zynthian_envars.sh" >> "${HOME}/.bashrc"
-    mkdir /usr/local/tmp
-    echo "/usr/bin/screen -L -S install /zynthian/zynthian-recipe/zynthian-stage/setup.sh" >> "${HOME}/.bashrc"
+    echo 'if [ `screen -ls | wc -l` -lt 3 ] # remove_me_after_installation' >> "${HOME}/.bashrc"
+    echo "then # remove_me_after_installation" >> "${HOME}/.bashrc"
+    echo "    /usr/bin/screen -L -S install /zynthian/zynthian-recipe/zynthian-stage/setup.sh # remove_me_after_installation" >> "${HOME}/.bashrc"
+    echo "fi # remove_me_after_installation" >> "${HOME}/.bashrc"
     touch "${HOME}/.install-stage1"
     sed -r -i.bak -- "s/^(.+tmpfs.+size)=[0-9]+m(.+)$/\1=128m\2/" /etc/fstab
+    echo `date` >  ~/.wiggled
     bash /zynthian/zynthian-recipe/rpi-wiggle.sh
 fi
