@@ -18,6 +18,8 @@ then
 		"pisound" "" off \
 		3>&1 1>&2 2>&3)
 	echo "export SOUNDCARD=${SOUNDCARD}" >> ~/.bashrc
+	echo "export LD_LIBRARY_PATH=/usr/local/lib:\$LD_LIBRARY_PATH" >> ~/.bashrc
+	echo "export PYTHON_PATH=\$PYTHONPATH:/usr/local/lib/python3.4/dist-packages" >> ~/.bashrc
 
 	rm "${HOME}/installer.sh"
 	chmod 700 "/zynthian/zynthian-recipe/zynthian-stage/setup.sh"
@@ -70,6 +72,9 @@ dtoverlay=midi-uart0
 #hdmi_mode=87
 #hdmi_cvt 1280 800 60 6 0 0 0
 EOF
+	sed -i -r -- "s/dtparam=audio=on/#dtparam=audio=on/" /boot/config.txt
+	sed -i -r -- "s/gpu_mem=\d+/gpu_mem=16/" /boot/config.txt
+
 	echo "dwc_otg.lpm_enable=0 logo.nologo console=tty1 elevator=noop root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes rootwait quiet" > /boot/cmdline.txt
 
 	# Change system name
@@ -172,14 +177,15 @@ then
 	if [ "${SOUNDCARD}" == "pisound" ]
         then
 		systemctl enable pisound-btn
-		echo "setting pisound as the default audio device"
-		touch "${HOME}/.asoundrc"
-		if grep -q 'pcm.!default' "${HOME}/.asoundrc"
-		then
-			sed -i '/pcm.!default\|ctl.!default/,/}/ { s/type .*/type hw/g; s/card .*/card 1/g; }'"${HOME}/.asoundrc"
-		else
-			printf 'pcm.!default {\n\ttype hw\n\tcard 1\n}\n\nctl.!default {\n\ttype hw\n\tcard 1\n}\n' >> "${HOME}/.asoundrc"
-		fi
+	fi
+
+	echo "setting pisound as the default audio device"
+	touch "${HOME}/.asoundrc"
+	if grep -q 'pcm.!default' "${HOME}/.asoundrc"
+	then
+		sed -i '/pcm.!default\|ctl.!default/,/}/ { s/type .*/type hw/g; s/card .*/card 0/g; }'"${HOME}/.asoundrc"
+	else
+		printf 'pcm.!default {\n\ttype hw\n\tcard 1\n}\n\nctl.!default {\n\ttype hw\n\tcard 0\n}\n' >> "${HOME}/.asoundrc"
 	fi
 
 	# Tune for jack2
@@ -234,6 +240,7 @@ then
 	# Remove unneeded packages
 	apt purge modemmanager
 	apt-get -y autoremove
+	rm /var/cache/apt/archives/*.deb
 
 	whiptail --title "Installation finished" --msgbox "A reboot is needed." 8 78
 	echo "#########################"
