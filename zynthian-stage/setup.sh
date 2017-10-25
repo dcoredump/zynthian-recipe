@@ -83,7 +83,7 @@ EOF
 	sed -i -e "s/kivypie/zynthian-stage/" /etc/hosts
 
 	# Update Firmware
-	#rpi-update
+	rpi-update
 
 	rm "${HOME}/.install-stage1"
 	touch "${HOME}/.install-stage2"
