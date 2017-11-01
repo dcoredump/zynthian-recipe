@@ -1,8 +1,15 @@
-diff --git a/mod/host.py b/mod/host.py
-index de2ae30..f98264d 100644
---- a/mod/host.py
-+++ b/mod/host.py
-@@ -174,7 +174,7 @@ class Host(object):
+--- mod/host.py.orig    2017-11-01 09:31:33.156326886 +0000
++++ mod/host.py 2017-11-01 08:30:18.346328287 +0000
+@@ -32,6 +32,8 @@
+ from collections import OrderedDict
+ from random import randint
+ from shutil import rmtree
++from shutil import move
++
+ from tornado import gen, iostream, ioloop
+ import os, json, socket, time, logging
+ 
+@@ -174,7 +176,7 @@
          self.processing_pending_flag = False
          self.init_plugins_data()
  
@@ -11,3 +18,20 @@ index de2ae30..f98264d 100644
              self.jack_hwin_prefix  = "system:playback_"
              self.jack_hwout_prefix = "system:capture_"
          else:
+@@ -2235,9 +2237,14 @@
+             # if trypath already exists, generate a random bundlepath based on title
+             if os.path.exists(trypath):
+                 while True:
+-                    trypath = os.path.join(lv2path, "%s-%i.pedalboard" % (titlesym, randint(1,99999)))
+-                    if os.path.exists(trypath):
++                    backupTrypath = os.path.join(lv2path, "%s-%i.pedalboard" % (titlesym, randint(1,99999)))
++                    if os.path.exists(backupTrypath):
+                         continue
++                    backupfileList = os.listdir(lv2path)
++                    for f in backupfileList:
++                        if f.startswith(".%s" % titlesym):
++                            rmtree(os.path.join(lv2path,f))
++                    move(trypath, backupTrypath)
+                     bundlepath = trypath
+                     break
+
