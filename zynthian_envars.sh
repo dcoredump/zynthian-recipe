@@ -41,7 +41,7 @@ export LV2_PATH="${ZYNTHIAN_PLUGINS_DIR}/lv2:${ZYNTHIAN_MY_PLUGINS_DIR}/lv2:${ZY
 # Hardware Architecture & Optimization Options
 machine=$(uname -m 2>/dev/null)
 if [ "${machine}" = "armv7l" ]; then
-	model=$(cat /sys/firmware/devicetree/base/model 2>/dev/null)
+	model=$(echo /sys/firmware/devicetree/base/model 2>/dev/null)
 	#if [[ ${model} =~ [3] ]]; then
 	if echo "${model}" | grep -Eq '([3])'
 	then
