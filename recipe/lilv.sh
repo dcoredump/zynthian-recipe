@@ -7,7 +7,7 @@ if [ ${?} -ne 0 -o "${build}" = "build" ]
 then
 	zynth_build_request clear
 	cd lilv
-	./waf configure --bindings --python=/usr/bin/python3
+	./waf configure --bindings --python=/usr/bin/python3 --pythondir=/usr/local/lib/python3/dist-packages/
 	./waf build
 	sudo ./waf install
 	zynth_build_request ready

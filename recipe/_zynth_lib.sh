@@ -40,7 +40,7 @@ ZYNTHIAN_SW_BUILD_DIR="${ZYNTHIAN_SW_DIR}/.build"
 machine=`uname -m 2>/dev/null || echo unknown`
 if [ "${machine}" = "armv7l" ]
 then
-    model=`cat /sys/firmware/devicetree/base/model` 2>/dev/null || echo unknown
+    model=`echo /sys/firmware/devicetree/base/model` 2>/dev/null || echo unknown
     if echo "${model}" | egrep -Eq '[3]'
     then
         CPU="-mcpu=cortex-a53"

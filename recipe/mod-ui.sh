@@ -7,7 +7,7 @@ if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	zynth_build_request clear
 	cd mod-ui
-	patch -p1 </zynthian/zynthian-recipe/recipe/patches/mod-ui-patch.txt
+	patch -p0 </zynthian/zynthian-recipe/recipe/patches/mod-ui-patch.txt
 	sudo -H pip3 install -r requirements.txt
 	cd utils
 	make
