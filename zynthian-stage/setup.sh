@@ -19,7 +19,7 @@ then
 		3>&1 1>&2 2>&3)
 	echo "export SOUNDCARD=${SOUNDCARD}" >> ~/.bashrc
 	echo "export LD_LIBRARY_PATH=/usr/local/lib:\$LD_LIBRARY_PATH" >> ~/.bashrc
-	echo "export PYTHON_PATH=\$PYTHONPATH:/usr/local/lib/python3.4/dist-packages" >> ~/.bashrc
+	echo "export PYTHONPATH=\$PYTHONPATH:/usr/local/lib/python3.4/dist-packages:/usr/lib/python3/dist-packages" >> ~/.bashrc
 
 	rm "${HOME}/installer.sh"
 	chmod 700 "/zynthian/zynthian-recipe/zynthian-stage/setup.sh"
