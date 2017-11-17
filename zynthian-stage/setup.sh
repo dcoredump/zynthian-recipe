@@ -1,6 +1,11 @@
 #!/bin/bash
 . /zynthian/zynthian-recipe/zynthian_envars.sh
 
+if [ ! -x /usr/bin/whiptail ]
+then
+	apt-get -y --no-install-recommends install whiptail
+fi
+
 if [ -f "${HOME}/.install-stage1" ]
 then
 	if (whiptail --title "Stage 1" --yesno "Start stage 1?" 8 78)
@@ -37,12 +42,10 @@ then
 	apt-get -y dist-upgrade
 
 	# Install required dependencies if needed
-	apt-get -y --no-install-recommends install apt-utils screen sudo htpdate whiptail
+	apt-get -y --no-install-recommends install apt-utils screen sudo htpdate
 
-	# Add autostaic repo
-	wget -q -O - http://rpi.autostatic.com/autostatic.gpg.key | apt-key add -
-	wget -q -O /etc/apt/sources.list.d/autostatic-audio-raspbian.list http://rpi.autostatic.com/autostatic-audio-raspbian.list
-	apt-get update
+	# Add FB web browser
+	apt install netsurf-fb ttf-dejavu-core gpm fbset
 
 	# Adjust System Date/Time
 	htpdate -t -s www.isc.org
@@ -108,12 +111,12 @@ then
 
 	# Fancy optical things
 	apt-get install -y --no-install-recommends plymouth plymouth-themes
-	plymouth-set-default-theme spinner
-	update-initramfs -u
+	plymouth-set-default-theme --rebuild-initrd spinner
 	cp /boot/cmdline.txt /boot/cmdline.txt.bak
 	echo -n "fbcon=map:10 splash quiet plymouth.ignore-serial-consoles" >/boot/cmdline.txt
 	cat /boot/cmdline.txt.bak >>/boot/cmdline.txt
 
+A
 	# Dev-Tools
 	apt-get -y --no-install-recommends install build-essential git swig subversion pkg-config \
 	autoconf automake premake gettext intltool libtool libtool-bin cmake \
@@ -123,13 +126,13 @@ then
 	apt-get -y --no-install-recommends install wiringpi libfftw3-dev libmxml-dev zlib1g-dev \
 	libncurses5-dev liblo-dev libasound2-dev libffi-dev libglib2.0-dev \
 	libeigen3-dev libsndfile-dev libsamplerate-dev libarmadillo-dev \
-	libreadline-dev lv2-c++-tools python3-numpy-dev 
+	libreadline-dev lv2-c++-tools
 
 	# Python
-	apt-get -y --no-install-recommends install python3 python3-dev python3-pip cython3 python3-cffi \
-	python3-mpmath
+	apt-get -y --no-install-recommends install python3 python3-dev \
+	python3-pip cython3 python3-cffi python3-mpmath python3-numpy-dev
 
-	# a2jmidid for Hifiberry
+	# PiSound button software
 	if [ "${SOUNDCARD}" == "pisound" ]
 	then
 		# Install pi-btn

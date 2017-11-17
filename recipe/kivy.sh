@@ -8,7 +8,7 @@ sudo apt-get install -y --no-install-recommends pkg-config \
    gstreamer1.0-{omx,alsa} python3-dev libraspberrypi-dev \
    libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev \
    pkg-config libgl1-mesa-dev libgles2-mesa-dev libmtdev-dev \
-   python3-setuptools-git
+   python3-setuptools-git python3-wheel
 pip3 install --upgrade Cython==0.25.2
 cd $ZYNTHIAN_SW_DIR
 zynth_git https://github.com/kivy/kivy
