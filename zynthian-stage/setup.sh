@@ -129,8 +129,9 @@ A
 	libreadline-dev lv2-c++-tools
 
 	# Python
-	apt-get -y --no-install-recommends install python3 python3-dev \
+	apt-get -y --no-install-recommends install python python3 python3-dev \
 	python3-pip cython3 python3-cffi python3-mpmath python3-numpy-dev
+	pip3 install setuptools wheel
 
 	# PiSound button software
 	if [ "${SOUNDCARD}" == "pisound" ]

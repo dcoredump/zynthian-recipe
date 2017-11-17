@@ -27,7 +27,6 @@ sh mod-ui.sh
 sh mod-sdk.sh
 sh phantomjs.sh
 sh jack_capture.sh
-sh zynthian-modgui.sh
 # Utilities
 sh mclk.sh
 sh modmeter.sh
@@ -72,4 +71,9 @@ sh xfade.sh
 sh x42tuna.sh
 # RT tools
 sh rt-tools.sh
+# Additional tools
+sh zynthian-modgui.sh
+sh rtaudio.sh
+sh jacktrip.sh
+sh jmess.sh
 #systemctl daemon-reload && systemctl restart jack2

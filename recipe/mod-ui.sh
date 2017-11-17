@@ -11,6 +11,7 @@ then
 	sudo -H pip3 install -r requirements.txt
 	cd utils
 	make
+	mkdir /zynthian/zynthian-sw/mod-ui/data
 	zynth_build_request ready
 	cd ../..
 fi
