@@ -11,8 +11,8 @@ then
 	then
 		make clean
 	fi
-    qmake jmess.pro
-    make release
+	qmake jmess.pro
+	make release
 	sudo make install
 	zynth_build_request ready 
 	make clean
