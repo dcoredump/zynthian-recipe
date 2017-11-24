@@ -108,7 +108,7 @@ then
 	sed -i -r -- "/# remove_me_after_installation/d" "${HOME}/.bashrc"
 
 	# System
-	apt-get -y --no-install-recommends install systemd avahi-daemon cpufrequtils htop tcpdump lsof xsel
+	apt-get -y --no-install-recommends install systemd avahi-daemon dhcpcd5 cpufrequtils htop tcpdump lsof xsel
 
 	# CLI Tools
 	apt-get -y --no-install-recommends install raspi-config psmisc tree vim joe p7zip-full i2c-tools
@@ -152,7 +152,7 @@ A
 	fi
 
 	# Add FB web browser
-	apt install netsurf-fb ttf-dejavu-core gpm fbset
+	apt install -y --no-install-recommends netsurf-fb ttf-dejavu-core gpm fbset
 
 	# Cleanup
 	apt-get -y remove isc-dhcp-client
@@ -201,6 +201,7 @@ StandardOutput=tty
 [Install]
 WantedBy=sysinit.target
 EOF
+	cp /zynthian/zynthian-recipe/splash.png /root
 	systemctl enable splashscreen
 
 	# tweak boot time
@@ -260,7 +261,13 @@ EOF
 
 	########################################################################
 	# MOD-UI-System and plugins
-	sh /zynthian/zynthian-recipe/zynthian-stage/plugins.sh
+        if (whiptail --title "Plugins" --yesno "Start plugin installation?" 8 78)
+        then
+		sh /zynthian/zynthian-recipe/zynthian-stage/plugins.sh
+        else
+                exit 1
+        fi
+
 
 	cd ${ZYNTHIAN_DIR}/zynthian-recipe/zynthian-stage
 	cp -R pedalboards "${HOME}/.pedalboards"
