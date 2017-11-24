@@ -4,13 +4,17 @@ BindsTo=jack2.service
 After=jack2.service
 
 [Service]
-Type=forking
+Type=oneshot
 Environment=HOME=/root
-Environment=LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+Environment=LD_LIBRARY_PATH=/usr/local/lib:${LD_LIBRARY_PATH}
 Environment=LV2_PATH=/zynthian/zynthian-plugins/lv2:/zynthian/zynthian-my-plugins/lv2
 WorkingDirectory=/root
+RemainAfterExit=true
 ExecStartPre=/usr/local/bin/jack_wait -w
-ExecStart=/usr/local/bin/partrt run -f99 rt /usr/local/bin/mod-host -p 5555 -f 5556
+ExecStartPre=/usr/local/bin/partrt run -f99 rt /usr/local/bin/jack_load mod-monitor
+ExecStart=/usr/local/bin/partrt run -f99 rt /usr/local/bin/jack_load mod-host
+ExecStop=/usr/local/bin/jack_unload mod-host
+ExecStopPost=/usr/local/bin/jack_unload mod-monitor
 
 [Install]
 WantedBy=multi-user.target

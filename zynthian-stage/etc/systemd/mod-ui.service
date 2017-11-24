@@ -8,14 +8,14 @@ User=root
 Group=root
 Nice=-17
 Environment=HOME=/root
-Environment=LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+Environment=LD_LIBRARY_PATH=/usr/local/lib:${LD_LIBRARY_PATH}
 Environment=LV2_PATH=/zynthian/zynthian-plugins/lv2:/zynthian/zynthian-my-plugins/lv2
+Environment=MOD_DEV_ENVIRONMENT=0
+Environment=MOD_HOST=1
+Environment=MOD_SYSTEM_OUTPUT=1
+Environment=MOD_DEVICE_WEBSERVER_PORT=8888
 Environment=MOD_SCREENSHOT_JS=/zynthian/zynthian-sw/mod-ui/screenshot.js
 Environment=MOD_PHANTOM_BINARY=/usr/bin/phantomjs
-Environment=MOD_DEVICE_WEBSERVER_PORT=8888
-Environment=MOD_DEV_ENVIRONMENT=0
-Environment=MOD_SYSTEM_OUTPUT=1
-Environment=MOD_HOST=1
 WorkingDirectory=/zynthian/zynthian-sw/mod-ui
 ExecStartPre=/usr/local/bin/jack_wait -w
 #ExecStartPre=/usr/local/bin/jack_alias system:midi_capture_1 ttymidi:MIDI_in

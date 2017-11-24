@@ -44,9 +44,6 @@ then
 	# Install required dependencies if needed
 	apt-get -y --no-install-recommends install apt-utils screen sudo htpdate
 
-	# Add FB web browser
-	apt install netsurf-fb ttf-dejavu-core gpm fbset
-
 	# Adjust System Date/Time
 	htpdate -t -s www.isc.org
 
@@ -60,20 +57,27 @@ dtoverlay=pi3-disable-bt
 #init_uart_baud=38400
 #dtparam=uart0_clkrate=3000000
 dtoverlay=midi-uart0
-## 1900x1200 at 16bit depth, DMT mode
-#disable_overscan=1
-#framebuffer_width=1900
-#framebuffer_height=1200
-#framebuffer_depth=16
-#framebuffer_ignore_alpha=1
-#hdmi_pixel_encoding=1
-##hdmi_group=2
+disable_overscan=1
 ## for Waveshare Display:
+# hdmi_safe=1
+#hdmi_pixel_encoding=1
+max_usb_current=1
+hdmi_group=2
+hdmi_mode=87
+hdmi_cvt 1280 800 60 6 0 0 0
+#hdmi_drive=2
+#
 #max_usb_current=1
+framebuffer_width=1280
+framebuffer_height=800
+framebuffer_depth=16
+framebuffer_ignore_alpha=1
 #hdmi_group=2
-#hdmi_mode=1
-#hdmi_mode=87
-#hdmi_cvt 1280 800 60 6 0 0 0
+#hdmi_mode=27
+framebuffer_width=1280
+framebuffer_height=800
+framebuffer_depth=16
+framebuffer_ignore_alpha=1
 EOF
 	sed -i -r -- "s/dtparam=audio=on/#dtparam=audio=on/" /boot/config.txt
 	sed -i -r -- "s/gpu_mem=\d+/gpu_mem=16/" /boot/config.txt
@@ -104,7 +108,7 @@ then
 	sed -i -r -- "/# remove_me_after_installation/d" "${HOME}/.bashrc"
 
 	# System
-	apt-get -y --no-install-recommends install systemd dhcpcd-dbus avahi-daemon cpufrequtils htop tcpdump lsof xsel
+	apt-get -y --no-install-recommends install systemd avahi-daemon cpufrequtils htop tcpdump lsof xsel
 
 	# CLI Tools
 	apt-get -y --no-install-recommends install raspi-config psmisc tree vim joe p7zip-full i2c-tools
@@ -113,7 +117,7 @@ then
 	apt-get install -y --no-install-recommends plymouth plymouth-themes
 	plymouth-set-default-theme --rebuild-initrd spinner
 	cp /boot/cmdline.txt /boot/cmdline.txt.bak
-	echo -n "fbcon=map:10 splash quiet plymouth.ignore-serial-consoles" >/boot/cmdline.txt
+	echo -n "fbcon=map:10 splash quiet plymouth.ignore-serial-consoles console=tty3 consoleblank=0 loglevel=1 " >/boot/cmdline.txt
 	cat /boot/cmdline.txt.bak >>/boot/cmdline.txt
 
 A
@@ -147,6 +151,9 @@ A
 		cd "${HOME}"
 	fi
 
+	# Add FB web browser
+	apt install netsurf-fb ttf-dejavu-core gpm fbset
+
 	# Cleanup
 	apt-get -y remove isc-dhcp-client
 	apt-get -y autoremove
@@ -176,6 +183,32 @@ A
 	systemctl disable triggerhappy
 	systemctl enable cpu-performance
 	cd ${HOME}
+
+	# show boot logo
+	apt-get -y --no-install-recommends fbi
+	systemctl disable getty@tty1.service # disable console login
+	cat <<EOF >/etc/systemd/system/splashscreen.service
+[Unit]
+Description=Splash screen
+DefaultDependencies=no
+After=local-fs.target
+
+[Service]
+ExecStart=/usr/bin/fbi -d /dev/fb0 --noverbose -a /root/splash.png
+StandardInput=tty
+StandardOutput=tty
+
+[Install]
+WantedBy=sysinit.target
+EOF
+	systemctl enable splashscreen
+
+	# tweak boot time
+	mkdir -p /etc/systemd/system/networking.service.d
+	cat <<EOF >/etc/systemd/system/networking.service.d/reduce-timeout.conf
+[Service]
+TimeoutStartSec=1
+EOF
 
 	# Setting default audio card
 	if [ "${SOUNDCARD}" == "pisound" ]

@@ -1,0 +1,27 @@
+# https://elinux.org/RPiconfig
+gpu_mem=64
+dtoverlay=hifiberry-dacplus
+dtoverlay=i2s-mmap
+dtoverlay=pi3-disable-bt
+# Adjust Serial Port Clock to allow MIDI baudrate 31250
+#init_uart_clock=2441000
+#init_uart_baud=38400
+#dtparam=uart0_clkrate=3000000
+#dtoverlay=midi-uart0
+#disable_overscan=1
+framebuffer_width=1280
+framebuffer_height=800
+framebuffer_depth=16
+framebuffer_ignore_alpha=1
+## for Waveshare Display:
+# hdmi_safe=1
+#hdmi_pixel_encoding=1
+max_usb_current=1
+hdmi_group=2
+hdmi_mode=87
+hdmi_cvt 1280 800 60 6 0 0 0
+#hdmi_drive=2
+#
+#max_usb_current=1
+#hdmi_group=2
+#hdmi_mode=27
