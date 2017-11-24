@@ -82,7 +82,7 @@ EOF
 	sed -i -r -- "s/dtparam=audio=on/#dtparam=audio=on/" /boot/config.txt
 	sed -i -r -- "s/gpu_mem=\d+/gpu_mem=16/" /boot/config.txt
 
-	echo "dwc_otg.lpm_enable=0 logo.nologo console=tty1 elevator=noop root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes rootwait quiet" > /boot/cmdline.txt
+	echo "dwc_otg.lpm_enable=0 logo.nologo elevator=noop root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes rootwait quiet" > /boot/cmdline.txt
 
 	# Change system name
 	echo "zynthian-stage" > /etc/hostname
@@ -117,7 +117,7 @@ then
 	apt-get install -y --no-install-recommends plymouth plymouth-themes
 	plymouth-set-default-theme --rebuild-initrd spinner
 	cp /boot/cmdline.txt /boot/cmdline.txt.bak
-	echo -n "fbcon=map:10 splash quiet plymouth.ignore-serial-consoles console=tty3 consoleblank=0 loglevel=1 " >/boot/cmdline.txt
+	echo -n "fbcon=map:10 splash plymouth.ignore-serial-consoles console=tty3 consoleblank=0 loglevel=1 " >/boot/cmdline.txt
 	cat /boot/cmdline.txt.bak >>/boot/cmdline.txt
 
 A
@@ -185,7 +185,7 @@ A
 	cd ${HOME}
 
 	# show boot logo
-	apt-get -y --no-install-recommends fbi
+	apt-get install -y --no-install-recommends fbi
 	systemctl disable getty@tty1.service # disable console login
 	cat <<EOF >/etc/systemd/system/splashscreen.service
 [Unit]
@@ -201,7 +201,7 @@ StandardOutput=tty
 [Install]
 WantedBy=sysinit.target
 EOF
-	cp /zynthian/zynthian-recipe/splash.png /root
+	cp /zynthian/zynthian-recipe/zynthian-stage/splash.png /root
 	systemctl enable splashscreen
 
 	# tweak boot time
