@@ -131,10 +131,11 @@ A
 	libreadline-dev lv2-c++-tools
 
 	# Python
-	apt-get -y --no-install-recommends install python python3 python3-dev \
+	apt-get -y --no-install-recommends install python python3 \
 	python3-pip cython3 python3-cffi python3-mpmath python3-numpy-dev
 	pip3 install setuptools wheel
 	mv /etc/pip.conf /etc/pip.conf.disabled # Fix for pip in stretch
+	apt-get -y --no-install-recommends install python3-dev
 
 	# PiSound button software
 	if [ "${SOUNDCARD}" == "pisound" ]
