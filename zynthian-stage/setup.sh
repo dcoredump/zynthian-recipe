@@ -39,6 +39,8 @@ then
 	apt-get -y purge emacs emacs24 emacs24-bin-common emacs24-common
 	apt-get -y autoremove
 	apt-get -y upgrade
+	sed -i -r -- "s/jessie/stretch/" /etc/apt/sources.list
+	apt-get -y update
 	apt-get -y dist-upgrade
 
 	# Install required dependencies if needed
@@ -57,6 +59,7 @@ dtoverlay=pi3-disable-bt
 #init_uart_baud=38400
 #dtparam=uart0_clkrate=3000000
 dtoverlay=midi-uart0
+disable_splash=1
 disable_overscan=1
 ## for Waveshare Display:
 # hdmi_safe=1
@@ -185,7 +188,7 @@ A
 	cd ${HOME}
 
 	# show boot logo
-	apt-get install -y --no-install-recommends fbi
+	apt-get install -y --no-install-recommends fbi ttf-dejavu-core
 	systemctl disable getty@tty1.service # disable console login
 	cat <<EOF >/etc/systemd/system/splashscreen.service
 [Unit]
