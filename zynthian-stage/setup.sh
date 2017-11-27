@@ -39,7 +39,7 @@ then
 	apt-get -y dist-upgrade
 
 	# Install required dependencies if needed
-	apt-get -y --no-install-recommends install apt-utils screen sudo htpdate
+	apt-get -y --no-install-recommends install apt-utils screen sudo htpdate rpi-update
 
 	# Adjust System Date/Time
 	htpdate -t -s www.isc.org
@@ -53,7 +53,7 @@ dtoverlay=pi3-disable-bt
 #init_uart_clock=2441000
 #init_uart_baud=38400
 #dtparam=uart0_clkrate=3000000
-dtoverlay=midi-uart0
+#dtoverlay=midi-uart0
 disable_splash=1
 disable_overscan=1
 ## for Waveshare Display:
@@ -118,7 +118,6 @@ then
 	echo -n "fbcon=map:10 splash plymouth.ignore-serial-consoles console=tty3 consoleblank=0 loglevel=1 " >/boot/cmdline.txt
 	cat /boot/cmdline.txt.bak >>/boot/cmdline.txt
 
-A
 	# Dev-Tools
 	apt-get -y --no-install-recommends install build-essential git swig subversion pkg-config \
 	autoconf automake premake gettext intltool libtool libtool-bin cmake \

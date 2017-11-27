@@ -77,3 +77,4 @@ sh rtaudio.sh
 sh jacktrip.sh
 sh jmess.sh
 #systemctl daemon-reload && systemctl restart jack2
+rm -f /var/cache/apt/archives/*.deb
