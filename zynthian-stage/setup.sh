@@ -78,9 +78,9 @@ framebuffer_depth=16
 framebuffer_ignore_alpha=1
 EOF
 	sed -i -r -- "s/dtparam=audio=on/#dtparam=audio=on/" /boot/config.txt
-	sed -i -r -- "s/gpu_mem=\d+/gpu_mem=16/" /boot/config.txt
+	sed -i -r -- "s/gpu_mem=\d+/gpu_mem=64/" /boot/config.txt
 
-	echo "dwc_otg.lpm_enable=0 logo.nologo elevator=noop root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes rootwait quiet" > /boot/cmdline.txt
+	echo "dwc_otg.lpm_enable=0 logo.nologo vt.global_cursor_default=0 elevator=noop root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes rootwait quiet" > /boot/cmdline.txt
 
 	# Change system name
 	echo "zynthian-stage" > /etc/hostname
@@ -117,7 +117,9 @@ then
 	cp /boot/cmdline.txt /boot/cmdline.txt.bak
 	echo -n "fbcon=map:10 splash plymouth.ignore-serial-consoles console=tty3 consoleblank=0 loglevel=1 " >/boot/cmdline.txt
 	cat /boot/cmdline.txt.bak >>/boot/cmdline.txt
-
+	mkinitramfs -o /boot/initramfs.gz
+	echo "initramfs initramfs.gz" >> /boot/config.txt
+	
 	# Dev-Tools
 	apt-get -y --no-install-recommends install build-essential git swig subversion pkg-config \
 	autoconf automake premake gettext intltool libtool libtool-bin cmake \
