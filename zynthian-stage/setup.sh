@@ -118,7 +118,7 @@ then
 	echo -n "fbcon=map:10 splash plymouth.ignore-serial-consoles console=tty3 consoleblank=0 loglevel=1 " >/boot/cmdline.txt
 	cat /boot/cmdline.txt.bak >>/boot/cmdline.txt
 	mkinitramfs -o /boot/initramfs.gz
-	echo "initramfs initramfs.gz" >> /boot/config.txt
+	echo "ramfsfile=initramfs.gz" >> /boot/config.txt
 	
 	# Dev-Tools
 	apt-get -y --no-install-recommends install build-essential git swig subversion pkg-config \

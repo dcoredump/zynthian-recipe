@@ -1,0 +1,11 @@
+[Unit]
+Description=Netsurf framebuffer browser
+Requires=stage.service network-online.target network.target
+ConditionFileIsExecutable=/root/bin/netsurf
+
+[Service]
+Type=simple
+ExecStart=/root/bin/netsurf http://localhost/
+
+[Install]
+WantedBy=multi-user.target

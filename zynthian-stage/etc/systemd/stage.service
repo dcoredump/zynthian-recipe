@@ -1,0 +1,9 @@
+[Unit]
+Description=Zynthian stage
+Requires=network-online.target
+
+[Service]
+ExecStart=/usr/bin/python3 /root/bin/stage.py
+
+[Install]
+WantedBy=multi-user.target

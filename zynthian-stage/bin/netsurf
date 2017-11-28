@@ -1,0 +1,5 @@
+#!/bin/bash
+export FRAMEBUFFER="/dev/fb0"
+source "${HOME}/env"
+sleep 5
+/usr/bin/netsurf-fb --homepage_url=http://localhost --window_x=0 --window_y=0 --window_width=1280 --window_height=800 --toolbar_status_size=0 --search_url_bar=0 $*
