@@ -106,7 +106,7 @@ then
 	sed -i -r -- "/# remove_me_after_installation/d" "${HOME}/.bashrc"
 
 	# System
-	apt-get -y --no-install-recommends install systemd avahi-daemon dhcpcd5 cpufrequtils htop tcpdump lsof xsel
+	apt-get -y --no-install-recommends install systemd avahi-daemon dhcpcd5 cpufrequtils htop tcpdump lsof xsel libts-dev libts-bin
 
 	# CLI Tools
 	apt-get -y --no-install-recommends install raspi-config psmisc tree vim joe p7zip-full i2c-tools
