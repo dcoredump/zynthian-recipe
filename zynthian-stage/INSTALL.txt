@@ -7,3 +7,8 @@ sh installer.sh
 
 Reboots 2 times - installation continues after reboot and login as root.
 
+
+Helpful dev links:
+
+Display and mouse:
+https://github.com/notro/fbtft/wiki/FBTFT-on-Raspian
