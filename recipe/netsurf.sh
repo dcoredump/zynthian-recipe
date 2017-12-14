@@ -24,4 +24,3 @@ cd ..
 git clone --recursive git://git.netsurf-browser.org/netsurf
 cd netsurf
 make TARGET=framebuffer
-

@@ -1,5 +1,33 @@
 #!/bin/bash
+export HOME="/root"
+if [ ! -d "${HOME}/.netsurf" ]
+then
+        mkdir -p "${HOME}/.netsurf"
+        cat <<EOF >${HOME}/.netsurf/Choices
+fb_osk:1
+fb_toolbar_layout:q
+#search_url_bar:0
+#toolbar_status_size:0
+#fb_furniture_size:0
+EOF
+fi
 export FRAMEBUFFER="/dev/fb0"
 source "${HOME}/env"
-sleep 5
-/usr/bin/netsurf-fb --homepage_url=http://localhost --window_x=0 --window_y=0 --window_width=1280 --window_height=800 --toolbar_status_size=0 --search_url_bar=0 $*
+for i in {1..10}
+do
+        /bin/systemctl is-active stage >/dev/null 2>&1
+        if [ $? == 0 ]
+        then
+                break
+        else
+                sleep 1
+        fi
+done
+/${HOME}/netsurf/workspace/netsurf/nsfb \
+    --homepage_url=http://localhost \
+    --window_x=0 \
+    --window_y=0 \
+    --window_width=1280 \
+    --window_height=800 \
+    --font_sans \
+$*
