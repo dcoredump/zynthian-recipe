@@ -151,7 +151,7 @@ then
 	fi
 
 	# Add FB web browser
-	apt install -y --no-install-recommends netsurf-fb ttf-dejavu-core gpm fbset
+	apt install -y --no-install-recommends netsurf-fb ttf-dejavu-core fbset
 
 	# Cleanup
 	apt-get -y remove isc-dhcp-client

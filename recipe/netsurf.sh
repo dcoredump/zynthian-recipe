@@ -1,4 +1,4 @@
-apt-get -y --no-install-recommends install libcurl3-dev libpng-dev libssl-dev flex bison
+apt-get -y --no-install-recommends install libcurl3-dev libpng-dev libssl-dev flex bison libxcb1-dev libsdl1.2-dev
 mkdir -p ${HOME}/netsurf/workspace
 cd ${HOME}/netsurf/workspace
 mkdir inst
