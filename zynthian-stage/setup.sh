@@ -137,15 +137,9 @@ then
 		cd "${HOME}"
 	fi
 
-<<<<<<< HEAD
 	# Add x11-fbdev and browser
 	apt-get -y --no-install-recommends install xserver-xorg-video-fbdev midori xinit xserver-xorg-input-mouse xserver-xorg-input-tslib x11-xserver-utils libraspberrypi-bin xwit matchbox
 	
-=======
-	# Add FB web browser
-	apt install -y --no-install-recommends netsurf-fb ttf-dejavu-core fbset
-
->>>>>>> f1e82da149de5282336c124ef8984ca9a4b06b94
 	# Cleanup
 	apt-get -y remove isc-dhcp-client
 	apt-get -y autoremove
