@@ -247,10 +247,16 @@ EOF
 	mkdir -p ${ZYNTHIAN_SW_DIR}/mod-ui/dados
 	cp favorites.json ${ZYNTHIAN_SW_DIR}/mod-ui/dados/favorites.json
 
+	# zynthian-stage-ui
+	cd /zynthian
+	git clone https://github.com/dcoredump/zynthian-stage-ui.git
+
+	# enable services
 	systemctl enable jack2
 	systemctl enable a2jmidid
 	systemctl enable mod-host
 	systemctl enable mod-ui
+	systemctl enable stage
 
 	rm "${HOME}/.install-stage2"
 
