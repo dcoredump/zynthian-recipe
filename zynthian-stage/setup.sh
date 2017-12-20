@@ -56,24 +56,9 @@ dtoverlay=pi3-disable-bt
 #dtoverlay=midi-uart0
 disable_splash=1
 disable_overscan=1
-## for Waveshare Display:
-# hdmi_safe=1
-#hdmi_pixel_encoding=1
-max_usb_current=1
-hdmi_group=2
-hdmi_mode=87
-hdmi_cvt 1280 800 60 6 0 0 0
-#hdmi_drive=2
-#
-#max_usb_current=1
-framebuffer_width=1280
-framebuffer_height=800
-framebuffer_depth=16
-framebuffer_ignore_alpha=1
-#hdmi_group=2
-#hdmi_mode=27
-framebuffer_width=1280
-framebuffer_height=800
+hdmi_pixel_encoding=1
+framebuffer_width=1900
+framebuffer_height=1280
 framebuffer_depth=16
 framebuffer_ignore_alpha=1
 EOF
@@ -152,9 +137,9 @@ then
 		cd "${HOME}"
 	fi
 
-	# Add FB web browser
-	apt install -y --no-install-recommends netsurf-fb ttf-dejavu-core gpm fbset
-
+	# Add x11-fbdev and browser
+	apt-get -y --no-install-recommends install xserver-xorg-video-fbdev midori xinit xserver-xorg-input-mouse xserver-xorg-input-tslib x11-xserver-utils libraspberrypi-bin xwit matchbox
+	
 	# Cleanup
 	apt-get -y remove isc-dhcp-client
 	apt-get -y autoremove
@@ -172,6 +157,7 @@ then
 	# Copy config files
 	cd ${ZYNTHIAN_DIR}/zynthian-recipe/zynthian-stage
 	cp etc/systemd/* /etc/systemd/system
+	cp etc/rc.local /etc
 	cp -R bin "${HOME}"
 
 	systemctl daemon-reload
@@ -188,20 +174,6 @@ then
 	# show boot logo
 	apt-get install -y --no-install-recommends fbi ttf-dejavu-core
 	systemctl disable getty@tty1.service # disable console login
-	cat <<EOF >/etc/systemd/system/splashscreen.service
-[Unit]
-Description=Splash screen
-DefaultDependencies=no
-After=local-fs.target
-
-[Service]
-ExecStart=/usr/bin/fbi -d /dev/fb0 --noverbose -a /root/splash.png
-StandardInput=tty
-StandardOutput=tty
-
-[Install]
-WantedBy=sysinit.target
-EOF
 	cp /zynthian/zynthian-recipe/zynthian-stage/splash.png /root
 	systemctl enable splashscreen
 

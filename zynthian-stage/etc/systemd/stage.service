@@ -1,9 +1,11 @@
 [Unit]
 Description=Zynthian stage
-Requires=network-online.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
-ExecStart=/usr/bin/python3 /root/bin/stage.py
+Type=simple
+ExecStart=/usr/bin/python3 /zynthian/zynthian-stage-ui/stage.py
 
 [Install]
 WantedBy=multi-user.target

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+while true
+do
+    # Clean up previously running apps, gracefully at first then harshly
+    killall -TERM midori 2>/dev/null;
+    killall -TERM matchbox-window-manager 2>/dev/null;
+    killall -9 midori 2>/dev/null;
+    killall -9 matchbox-window-manager 2>/dev/null;
+
+    # Disable DPMS / Screen blanking
+    xset -dpms # disable DPMS (Energy Star) features.
+    xset s off # disable screen saver
+    xset s noblank # don't blank the video device
+
+    # Reset the framebuffer's colour-depth
+    fbset -depth $( cat /sys/module/*fb*/parameters/fbdepth );
+
+    # Hide the cursor (move it to the bottom-right, comment out if you want mouse interaction)
+    xwit -root -warp $( cat /sys/module/*fb*/parameters/fbwidth ) $( cat /sys/module/*fb*/parameters/fbheight )
+
+    # Start the browser
+    matchbox-window-manager -use_titlebar no -use_cursor no &
+    while [ `wget -q http://localhost; echo $?` -ne 0 ]
+    do
+        sleep 1
+    done
+
+    /usr/bin/midori -e Fullscreen -a http://localhost
+done
