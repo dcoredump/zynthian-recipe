@@ -69,6 +69,7 @@ sh infamous.sh
 sh distrho.sh
 sh xfade.sh
 sh x42tuna.sh
+sh screcord.sh
 # RT tools
 sh rt-tools.sh
 # Additional tools
