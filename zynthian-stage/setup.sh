@@ -97,6 +97,7 @@ then
 
 	# CLI Tools
 	apt-get -y --no-install-recommends install raspi-config psmisc tree vim joe p7zip-full i2c-tools httping
+	echo "set mouse=\"\"" > /root/.vimrc
 
 	# Fancy optical things
 	#apt-get install -y --no-install-recommends plymouth plymouth-themes
