@@ -57,6 +57,7 @@ dtoverlay=pi3-disable-bt
 disable_splash=1
 disable_overscan=1
 hdmi_pixel_encoding=1
+hdmi_force_hotplug=1
 framebuffer_width=1900
 framebuffer_height=1280
 framebuffer_depth=16
@@ -94,16 +95,18 @@ then
 	apt-get -y --no-install-recommends install systemd avahi-daemon dhcpcd5 cpufrequtils htop tcpdump lsof xsel libts-dev libts-bin
 
 	# CLI Tools
-	apt-get -y --no-install-recommends install raspi-config psmisc tree vim joe p7zip-full i2c-tools
+	apt-get -y --no-install-recommends install raspi-config psmisc tree vim joe p7zip-full i2c-tools httping
 
 	# Fancy optical things
-	apt-get install -y --no-install-recommends plymouth plymouth-themes
-	plymouth-set-default-theme --rebuild-initrd spinner
+	#apt-get install -y --no-install-recommends plymouth plymouth-themes
+	#plymouth-set-default-theme --rebuild-initrd spinner
+	#mkinitramfs -o /boot/initramfs.gz
+	#echo "ramfsfile=initramfs.gz" >> /boot/config.txt
+
+	# Tune cmdline.txt
 	cp /boot/cmdline.txt /boot/cmdline.txt.bak
-	echo -n "fbcon=map:10 splash plymouth.ignore-serial-consoles console=tty3 consoleblank=0 loglevel=1 " >/boot/cmdline.txt
+	echo -n "fbcon=map:10 splash plymouth.ignore-serial-consoles console=tty3 consoleblank=0 loglevel=1 smsc95xx.turbo_mode=N " >/boot/cmdline.txt
 	cat /boot/cmdline.txt.bak >>/boot/cmdline.txt
-	mkinitramfs -o /boot/initramfs.gz
-	echo "ramfsfile=initramfs.gz" >> /boot/config.txt
 	
 	# Dev-Tools
 	apt-get -y --no-install-recommends install build-essential git swig subversion pkg-config \
@@ -204,6 +207,7 @@ EOF
 	sed -i -r -- '/@audio - rtprio/d' /etc/security/limits.conf
 	echo "@audio - memlock unlimited" >> /etc/security/limits.conf
 	echo "@audio - rtprio 99" >> /etc/security/limits.conf
+	echo "@audio - nice -10" >> /etc/security/limits.conf
 	usermod -a -G audio root
 
 	# enable hotplugging network - minimizes boot time

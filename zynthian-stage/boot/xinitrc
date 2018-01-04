@@ -21,10 +21,6 @@ do
 
     # Start the browser
     matchbox-window-manager -use_titlebar no -use_cursor no &
-    while [ `wget -q http://localhost; echo $?` -ne 0 ]
-    do
-        sleep 1
-    done
-
+    while ! httping -qc1 http://localhost:80 ; do sleep 1 ; done
     /usr/bin/midori -e Fullscreen -a http://localhost
 done
