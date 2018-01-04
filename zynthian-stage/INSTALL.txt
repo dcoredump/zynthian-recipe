@@ -12,3 +12,26 @@ Helpful dev links:
 
 Display and mouse:
 https://github.com/notro/fbtft/wiki/FBTFT-on-Raspian
+Overclocking (german):
+https://raspberry.tips/raspberrypi-tutorials/raspberry-pi-3-uebertakten/
+
+# Overclocking:
+
+High:
+arm_freq=1350
+core_freq=500
+sdram_freq=500
+over_voltage=4
+
+Medium:
+arm_freq=1300
+core_freq=500
+sdram_freq=500
+over_voltage=2
+
+Standard:
+arm_freq=1200
+core_freq=400
+sdram_freq=450
+over_voltage=0
+

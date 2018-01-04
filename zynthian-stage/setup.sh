@@ -39,7 +39,8 @@ then
 	apt-get -y dist-upgrade
 
 	# Install required dependencies if needed
-	apt-get -y --no-install-recommends install apt-utils screen sudo htpdate rpi-update
+	apt-get -y --no-install-recommends install apt-utils
+	apt-get -y --no-install-recommends install screen sudo htpdate rpi-update
 
 	# Adjust System Date/Time
 	htpdate -t -s www.isc.org
@@ -193,7 +194,7 @@ EOF
 		systemctl enable pisound-btn
 	fi
 
-	echo "setting pisound as the default audio device"
+	echo "setting default audio device"
 	touch "${HOME}/.asoundrc"
 	if grep -q 'pcm.!default' "${HOME}/.asoundrc"
 	then
@@ -205,6 +206,7 @@ EOF
 	# Tune for jack2
 	sed -i -r -- '/@audio - memlock/d' /etc/security/limits.conf
 	sed -i -r -- '/@audio - rtprio/d' /etc/security/limits.conf
+	sed -i -r -- '/@audio - nice/d' /etc/security/limits.conf
 	echo "@audio - memlock unlimited" >> /etc/security/limits.conf
 	echo "@audio - rtprio 99" >> /etc/security/limits.conf
 	echo "@audio - nice -10" >> /etc/security/limits.conf
