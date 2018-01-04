@@ -39,21 +39,26 @@ export ZYNTHIAN_PLUGINS_SRC_DIR="$ZYNTHIAN_SW_DIR/plugins"
 export LV2_PATH="${ZYNTHIAN_PLUGINS_DIR}/lv2:${ZYNTHIAN_MY_PLUGINS_DIR}/lv2:${ZYNTHIAN_PLUGINS_MODGUI_DIR}"
 
 # Hardware Architecture & Optimization Options
-machine=$(uname -m 2>/dev/null)
-if [ "${machine}" = "armv7l" ]; then
-	model=$(echo /sys/firmware/devicetree/base/model 2>/dev/null)
-	#if [[ ${model} =~ [3] ]]; then
-	if echo "${model}" | grep -Eq '([3])'
-	then
-		CPU="-mcpu=cortex-a53"
-		FPU="-mfpu=neon-fp-armv8 -mneon-for-64bits"
-	else
-		CPU="-mcpu=cortex-a7 -mthumb"
-		FPU="-mfpu=neon-vfpv4"
-	fi
-	FPU="${FPU} -mfloat-abi=hard -mvectorize-with-neon-quad"
-	CFLAGS_UNSAFE="-funsafe-loop-optimizations -funsafe-math-optimizations"
+machine=`uname -m 2>/dev/null || echo unknown`
+if [ "${machine}" = "armv7l" ]
+then
+    model=`cat /sys/firmware/devicetree/base/model | strings` || echo unknown
+    if echo "${model}" | egrep -Eq '[3]'
+    then
+        CPU="-mcpu=cortex-a53"
+        FPU="-mfpu=neon-fp-armv8"
+    else
+        CPU="-mcpu=cortex-a7 -mthumb"
+        FPU="-mfpu=neon-vfpv4"
+    fi
+    CPU="${CPU} -Ofast"
+    FPU="${FPU} -mfloat-abi=hard -mlittle-endian -munaligned-access"
+    CFLAGS_UNSAFE="-funsafe-loop-optimizations -funsafe-math-optimizations"
+    export RASPI=true
 fi
+export CFLAGS="${CPU} ${FPU}"
+export CXXFLAGS="${CFLAGS}"
+
 export MACHINE_HW_NAME="${machine}"
 export RBPI_VERSION="${model}"
 export CFLAGS="${CPU} ${FPU} ${CFLAGS_UNSAFE}"
