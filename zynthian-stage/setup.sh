@@ -39,8 +39,7 @@ then
 	apt-get -y dist-upgrade
 
 	# Install required dependencies if needed
-	apt-get -y --no-install-recommends install apt-utils
-	apt-get -y --no-install-recommends install screen sudo htpdate rpi-update
+	apt-get -y --no-install-recommends install apt-utils screen sudo htpdate rpi-update
 
 	# Adjust System Date/Time
 	htpdate -t -s www.isc.org

@@ -7,7 +7,7 @@ then
 	zynth_build_request clear
 	cd rt-tools
 	mkdir -p build && cd build
-	cmake ..
+	CFLAGS="" cmake ..
 	make
 	sudo make install
 	zynth_build_request ready
