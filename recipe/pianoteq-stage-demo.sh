@@ -6,11 +6,12 @@ cd /zynthian/zynthian-sw
 mkdir Pianoteq
 mkdir tmp
 cd tmp
-wget https://www.pianoteq.com/try?q=Zzl0RmJzdGltZW91dD0yMDE4MDEwODE3MDMzOTthY3Rpb249ZG93bmxvYWQ7ZmlsZT1waWFub3RlcV9zdGFnZV9saW51eF90cmlhbF92NjAzLjd6dEZiczMyMWNjNDg37z -x *.7z
+wget https://www.pianoteq.com/try?q=Zzl0RmJzdGltZW91dD0yMDE4MDEwODE3MDMzOTthY3Rpb249ZG93bmxvYWQ7ZmlsZT1waWFub3RlcV9zdGFnZV9saW51eF90cmlhbF92NjAzLjd6dEZiczMyMWNjNDg3
+7z x try* && rm try*
 mv "Pianoteq 6 STAGE/arm/Pianoteq 6 STAGE.lv2" /zynthian/zynthian-plugins/lv2
 mv "Pianoteq 6 STAGE/arm/Pianoteq 6 STAGE" /zynthian/zynthian-sw/Pianoteq
 cd ..
 rm -r tmp
 cd /root
-tar xvzf /zynthian/zynthian-recipe/recipe/piantoteq_config.tar.gz
+tar xvzf /zynthian/zynthian-recipe/recipe/piantoteq_stage_config.tar.gz
 cd /zynthian/zynthian-sw
