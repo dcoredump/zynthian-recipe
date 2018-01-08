@@ -1,5 +1,5 @@
 # pianoteq-stage-demo
-# /zynthian/zynthian-sw/Pianoteq 6 STAGE/arm# ./Pianoteq\ 6\ STAGE --headless --multicore max --internal-rate 22050 --jack-session "Pianoteq" --preset "MKI Tremo" 
+# /zynthian/zynthian-sw/Pianoteq# ./Pianoteq\ 6\ STAGE --headless --multicore max --internal-rate 22050 --jack-session "Pianoteq" --preset "MKI Tremo" 
 #
 sudo apt-get -y --no-install-recommends install libfreetype6 libasound2 libx11-6 libxext6 fontconfig-config xauth p7zip-full
 cd /zynthian/zynthian-sw
