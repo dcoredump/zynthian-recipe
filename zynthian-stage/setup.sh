@@ -46,6 +46,7 @@ then
 
 	# Load sound firmare
 	cat >> /boot/config.txt << EOF
+gpu_mem=16
 dtoverlay=${SOUNDCARD}
 dtoverlay=i2s-mmap
 dtoverlay=pi3-disable-bt
@@ -66,7 +67,7 @@ EOF
 	sed -i -r -- "s/dtparam=audio=on/#dtparam=audio=on/" /boot/config.txt
 	sed -i -r -- "s/gpu_mem=\d+/gpu_mem=64/" /boot/config.txt
 
-	echo "dwc_otg.lpm_enable=0 logo.nologo vt.global_cursor_default=0 elevator=noop root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes rootwait quiet" > /boot/cmdline.txt
+	echo "dwc_otg.lpm_enable=0 smsc95xx.turbo_mode=N logo.nologo vt.global_cursor_default=0 elevator=noop root=/dev/mmcblk0p2 rootfstype=ext4 fsck.repair=yes rootwait quiet" > /boot/cmdline.txt
 
 	# Change system name
 	echo "zynthian-stage" > /etc/hostname
@@ -106,7 +107,7 @@ then
 
 	# Tune cmdline.txt
 	cp /boot/cmdline.txt /boot/cmdline.txt.bak
-	echo -n "fbcon=map:10 splash plymouth.ignore-serial-consoles console=tty3 consoleblank=0 loglevel=1 smsc95xx.turbo_mode=N " >/boot/cmdline.txt
+	echo -n "fbcon=map:10 splash plymouth.ignore-serial-consoles console=tty3 consoleblank=0 loglevel=1  " >/boot/cmdline.txt
 	cat /boot/cmdline.txt.bak >>/boot/cmdline.txt
 	
 	# Dev-Tools
@@ -142,7 +143,7 @@ then
 	fi
 
 	# Add x11-fbdev and browser
-	apt-get -y --no-install-recommends install xserver-xorg-video-fbdev midori xinit xserver-xorg-input-mouse xserver-xorg-input-tslib x11-xserver-utils libraspberrypi-bin xwit matchbox
+	apt-get -y --no-install-recommends install xserver-xorg-video-fbdev midori xinit xserver-xorg-input-mouse x11-xserver-utils libraspberrypi-bin xwit matchbox
 	
 	# Cleanup
 	apt-get -y remove isc-dhcp-client
@@ -172,7 +173,7 @@ then
 	systemctl disable rsyslog
 	systemctl disable ntp
 	systemctl disable triggerhappy
-	systemctl enable cpu-performance
+	#systemctl enable cpu-performance
 	cd ${HOME}
 
 	# show boot logo

@@ -21,7 +21,7 @@ if [ ! -f "${HOME}/.wiggled" ]
 then
     #chmod 700 "/root/installer.sh"
     apt-get update
-    apt-get -y --no-install-recommends install parted git sudo screen apt-utils
+    apt-get -y --no-install-recommends install parted git sudo screen apt-utils binutils
     if [ ! -x /usr/bin/whiptail ]
     then
         apt-get -y --no-install-recommends install whiptail
