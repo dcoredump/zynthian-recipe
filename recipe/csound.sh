@@ -6,6 +6,7 @@ sudo apt-get update
 sudo apt-get build-dep csound
 apt-get install swig python3-dev
 export PYTHONPATH=/usr/local/lib
+cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git https://github.com/csound/csound.git
 if [ "${?}" -ne 0 -o "x${build}" != "x" ]
 then
