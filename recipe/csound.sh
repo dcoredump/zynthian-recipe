@@ -1,4 +1,4 @@
-# csound
+# csound.sh
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 DEBIAN_VERSION=`lsb_release -a 2>/dev/null | grep "Codename:" | cut -f2`
 echo "deb-src http://mirrordirector.raspbian.org/raspbian/ $DEBIAN_VERSION main contrib non-free rpi" > /etc/apt/sources.list.d/sources.list
@@ -8,6 +8,7 @@ apt-get install swig python3-dev
 export PYTHONPATH=/usr/local/lib
 cd $ZYNTHIAN_SW_DIR/plugins
 zynth_git https://github.com/csound/csound.git
+zynth_git https://github.com/csudo/csudo.git
 if [ "${?}" -ne 0 -o "x${build}" != "x" ]
 then
 	zynth_build_request clear
