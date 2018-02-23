@@ -2,7 +2,7 @@
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 sudo apt-get install -y --no-install-recommends libglibmm-2.4-dev libeigen3-dev libzita-convolver-dev libzita-resampler-dev libglibmm-2.4-dev
 cd $ZYNTHIAN_SW_DIR/plugins
-zynth_git http://git.code.sf.net/p/guitarix/git guitarix
+zynth_git https://git.code.sf.net/p/guitarix/git guitarix
 if [ ${?} -ne 0 -o  "${build}" = "build" ]
 then
 	zynth_build_request ready
