@@ -19,7 +19,7 @@ then
 	fi
 	make
 	sudo make install
-	mv /usr/local/lib/lv2/padtv1.lv2/ /zynthian/zynthian-plugins/lv2
+	mv /usr/local/lib/lv2/padthv1.lv2/ /zynthian/zynthian-plugins/lv2
 	zynth_build_request ready 
 	make clean
 	cd ..
