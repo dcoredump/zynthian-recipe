@@ -1,4 +1,4 @@
-# raffi.lv2
+# raffo.lv2
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
 cd $ZYNTHIAN_SW_DIR/plugins
 sudo apt-get install -y --no-install-recommends libgtkmm-2.4-dev
@@ -11,6 +11,7 @@ then
 	then
 		make clean
 	fi
+	sed -i -- 's/^INSTALL_DIR.\+$/INSTALL_DIR = ${ZYNTHIAN_PLUGINS_DIR}\/lv2/' Makefile
 	sed -i -- 's/-m64//' Makefile
 	make
 	sudo make install
