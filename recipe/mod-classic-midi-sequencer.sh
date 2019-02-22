@@ -6,7 +6,9 @@ zynth_git https://github.com/moddevices/mod-classic-midi-sequencer.git
 if [ "${?}" -ne 0 -o "x${build}" != "x" ]
 then
 	zynth_build_request clear
-	cd mod-classic-midi-sequencer/source
+	cd mod-classic-midi-sequencer
+	git checkout dev_Bram
+	cd source
 	if [ "${build}" = "clean" ]
 	then
 		make clean
