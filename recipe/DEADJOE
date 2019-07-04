@@ -1,0 +1,18 @@
+
+*** These modified files were found in JOE when it aborted on Thu Jul  4 16:50:52 2019
+*** JOE was aborted by UNIX signal 15
+
+*** File '(Unnamed)'
+q
+
+*** File '* Build Log *'
+
+*** File '(Unnamed)'
+mod-classic-midi-sequencer.sh
+* Build Log *
+
+*** File '* Startup Log *'
+Processing '/etc/joe/editorrc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/editorrc
