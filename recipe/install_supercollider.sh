@@ -23,3 +23,6 @@ cmake -DSC_PATH=/usr/local/include/SuperCollider -DCMAKE_INSTALL_PREFIX=/usr/loc
 make -j3
 sudo make install
 cd ../..
+mkdir -p /usr/lib/SuperCollider
+ln -s /usr/local/lib/SuperCollider/plugins/ /usr/lib/SuperCollider
+# scsynth -u 51237 -m 131072 -a 1024 -D 0 -R 0 -l 1 -i 2 -o 2 -z 128 -c 128 -U /usr/lib/SuperCollider/plugins -b 4096 -B 127.0.0.1
