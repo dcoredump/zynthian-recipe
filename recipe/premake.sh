@@ -1,6 +1,5 @@
 # premake
 . $ZYNTHIAN_DIR/zynthian-recipe/recipe/_zynth_lib.sh
-sudo apt-get install -y --no-install-recommends
 cd $ZYNTHIAN_SW_DIR
 zynth_git https://github.com/premake/premake-core.git
 if [ "${?}" -ne 0 -o "x${build}" != "x" ]
